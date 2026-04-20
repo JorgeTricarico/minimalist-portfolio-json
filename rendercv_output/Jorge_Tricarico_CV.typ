@@ -118,17 +118,17 @@
 
 == Resumen
 
-Especialista en #strong[IA] y #strong[QA] con un enfoque orientado a la ingeniería de software y la creación de producto. Cuento con una sólida base técnica potenciada por el uso estratégico de modelos de lenguaje, lo que me permite abordar con autonomía tareas de desarrollo funcional y arquitectura técnica. Perfil adaptable e innovador, enfocado en optimizar la entrega de valor mediante herramientas agentic y un aprendizaje constante.
+Especialista en #strong[IA] y #strong[QA] con un enfoque orientado a la ingeniería de software y la creación de producto. Cuento con una sólida base técnica potenciada por el uso estratégico de modelos de lenguaje, lo que me permite abordar con autonomía tareas de desarrollo funcional y arquitectura técnica. Perfil adaptable e innovador, enfocado en optimizar la entrega de valor mediante herramientas agenticas y aprendizaje continuo.
 
 == Experiencia
 
 #regular-entry(
   [
-    #strong[#emph[#sym.ast.basic#h(0pt, weak: true) OneVisa]#sym.ast.basic - Dubai (UAE) \/ España], (Part-time) #strong[Senior] #strong[QA] Engineer (AI & Reliability)
+    #strong[OneVisa - Dubai (UAE) \/ España], (Part-time) Senior #strong[QA] Engineer (AI & Reliability)
 
-    - Desempeño de un #strong[rol pionero y disruptivo] en el campo de la #strong[IA] #strong[Agentic], definiendo nuevos paradigmas de validación de software mediante la orquestación recursiva de agentes inteligentes.
+    - Desempeño de un rol pionero y disruptivo en el campo de la #strong[IA] #strong[Agentic], definiendo nuevos paradigmas de validación de software mediante la orquestación recursiva de agentes inteligentes.
 
-    - Desarrollo y refinamiento constante de agentes especializados mediante #strong[#emph[#sym.ast.basic#h(0pt, weak: true) Claude Code]]#sym.ast.basic#h(0pt, weak: true) , optimizando la confiabilidad del software a través de una interacción avanzada humano-agente.
+    - Desarrollo y refinamiento constante de agentes especializados mediante #strong[Claude Code], optimizando la confiabilidad del software a través de una interacción avanzada humano-agente.
 
     - Implementación de sistemas de autodiagnóstico iterativos que maduran con el producto, permitiendo una colaboración técnica profunda con el equipo de ingeniería.
 
@@ -145,7 +145,7 @@ Especialista en #strong[IA] y #strong[QA] con un enfoque orientado a la ingenier
 
 #regular-entry(
   [
-    #strong[Tata Consultancy Service - ]Banco Galicia#strong[#emph[#sym.ast.basic#h(0pt, weak: true) , Analista ]#sym.ast.basic#h(0pt, weak: true) QA] Manual - Automation
+    #strong[Tata Consultancy Service - Banco Galicia], Analista #strong[QA] Manual - Automation
 
     - Desarrollo de un agente de #strong[IA] para VS Code Copilot enfocado en acelerar la generación de pruebas y mejorar la sincronización técnica con el equipo de desarrollo.
 

@@ -8,10 +8,10 @@
 
 
 # Resumen
-Especialista en **IA** y **QA** con un enfoque orientado a la ingeniería de software y la creación de producto. Cuento con una sólida base técnica potenciada por el uso estratégico de modelos de lenguaje, lo que me permite abordar con autonomía tareas de desarrollo funcional y arquitectura técnica. Perfil adaptable e innovador, enfocado en optimizar la entrega de valor mediante herramientas agentic y un aprendizaje constante.
+Especialista en **IA** y **QA** con un enfoque orientado a la ingeniería de software y la creación de producto. Cuento con una sólida base técnica potenciada por el uso estratégico de modelos de lenguaje, lo que me permite abordar con autonomía tareas de desarrollo funcional y arquitectura técnica. Perfil adaptable e innovador, enfocado en optimizar la entrega de valor mediante herramientas agenticas y aprendizaje continuo.
 
 # Experiencia
-## ****OneVisa** - Dubai (UAE) / España**, (Part-time) **Senior** **QA** Engineer (AI & Reliability)
+## **OneVisa - Dubai (UAE) / España**, (Part-time) Senior **QA** Engineer (AI & Reliability)
 
 Feb 2026 – presente
 
@@ -19,15 +19,15 @@ Feb 2026 – presente
 
 3 meses
 
-- Desempeño de un **rol pionero y disruptivo** en el campo de la **IA** **Agentic**, definiendo nuevos paradigmas de validación de software mediante la orquestación recursiva de agentes inteligentes.
+- Desempeño de un rol pionero y disruptivo en el campo de la **IA** **Agentic**, definiendo nuevos paradigmas de validación de software mediante la orquestación recursiva de agentes inteligentes.
 
-- Desarrollo y refinamiento constante de agentes especializados mediante ****Claude Code****, optimizando la confiabilidad del software a través de una interacción avanzada humano-agente.
+- Desarrollo y refinamiento constante de agentes especializados mediante **Claude Code**, optimizando la confiabilidad del software a través de una interacción avanzada humano-agente.
 
 - Implementación de sistemas de autodiagnóstico iterativos que maduran con el producto, permitiendo una colaboración técnica profunda con el equipo de ingeniería.
 
 
 
-## **Tata Consultancy Service - **Banco Galicia****, Analista **QA** Manual - Automation
+## **Tata Consultancy Service - Banco Galicia**, Analista **QA** Manual - Automation
 
 Abr 2023 – presente
 
