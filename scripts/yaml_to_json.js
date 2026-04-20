@@ -19,6 +19,19 @@ try {
   }
 
   const cv = data.cv;
+  const settings = data.settings || {};
+  const boldKeywords = settings.bold_keywords || [];
+
+  // Función para aplicar negritas automáticas a palabras clave
+  const applySmartBolding = (text) => {
+    if (!text || boldKeywords.length === 0) return text;
+    let boldedText = text;
+    boldKeywords.forEach(keyword => {
+      const regex = new RegExp(`\\b(${keyword})\\b`, 'gi');
+      boldedText = boldedText.replace(regex, '<strong>$1</strong>');
+    });
+    return boldedText;
+  };
   
   // 2. Mapear a JSON Resume (estructura esperada por tu portafolio)
   const jsonResume = {
@@ -29,7 +42,7 @@ try {
       email: cv.email || "",
       phone: cv.phone || "",
       url: cv.website || "",
-      summary: (cv.sections?.Resumen || cv.sections?.Summary) ? (cv.sections.Resumen || cv.sections.Summary)[0] : "",
+      summary: (cv.sections?.Resumen || cv.sections?.Summary) ? applySmartBolding((cv.sections.Resumen || cv.sections.Summary)[0]) : "",
       location: {
         address: "",
         postalCode: "1684", // Se puede agregar dinámicamente si se requiere
@@ -52,10 +65,10 @@ try {
       startDate: w.start_date === "present" ? "" : (w.start_date + "-01"), // Añade día por defecto
       endDate: w.end_date === "present" ? null : (w.end_date + "-01"),
       summary: "",
-      highlights: w.highlights || []
+      highlights: (w.highlights || []).map(h => applySmartBolding(h))
     })),
     volunteer: [],
-    education: (cv.sections?.Educacion || cv.sections?.Education || []).map(e => ({
+    education: (cv.sections?.Educación || cv.sections?.Educacion || cv.sections?.Education || []).map(e => ({
       institution: e.institution,
       url: "",
       area: e.area,

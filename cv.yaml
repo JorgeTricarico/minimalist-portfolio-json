@@ -17,7 +17,7 @@ cv:
     Experiencia:
       - company: "OneVisa - Dubai (UAE) / España"
         position: "(Part-time) Senior QA Engineer (AI & Reliability)"
-        start_date: "2024-11"
+        start_date: "2026-02"
         end_date: "present"
         highlights:
             - "Desempeño de un **rol pionero y disruptivo** en el campo de la IA Agentic, definiendo nuevos paradigmas de validación de software mediante la orquestación recursiva de agentes inteligentes."
@@ -40,7 +40,7 @@ cv:
         highlights:
           - "Mentoría técnica avanzada en Python enfocada en la calidad del código, arquitectura de software y mejores prácticas de desarrollo para perfiles internacionales."
 
-    Education:
+    Educación:
       - institution: "Universidad Nacional de Hurlingham"
         area: "Inteligencia Artificial"
         degree: "Tec. Universitaria"
@@ -86,6 +86,8 @@ design:
       headline: 10pt
       connections: 9pt
       section_titles: 1.2em
+    small_caps:
+      section_titles: true
   header:
     space_below_name: 0.4cm
     space_below_headline: 0.4cm
@@ -96,6 +98,8 @@ design:
   sections:
     space_between_regular_entries: 1em
     space_between_text_based_entries: 0.5em
+    show_time_spans_in:
+      - Experiencia
   entries:
     degree_width: 0cm
     date_and_location_width: 3.8cm
@@ -106,6 +110,19 @@ design:
         *DEGREE* en AREA
         HIGHLIGHTS
       degree_column: ''
+
+settings:
+  bold_keywords:
+    - IA
+    - QA
+    - Senior
+    - Python
+    - TypeScript
+    - Playwright
+    - Agentic
+    - Claude Code
+    - Banco Galicia
+    - OneVisa
 
 locale:
   language: spanish

@@ -13,6 +13,14 @@ import { work } from "@cv"
           const endYear =
             endDate != null ? new Date(endDate).getFullYear() : "Actual"
 
+          // Calcular duración
+          const start = new Date(startDate)
+          const end = endDate != null ? new Date(endDate) : new Date()
+          const totalMonths = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth())
+          const years = Math.floor(totalMonths / 12)
+          const months = totalMonths % 12
+          const duration = `${years > 0 ? `${years} año${years > 1 ? 's' : ''}` : ''} ${months > 0 ? `${months} mes${months > 1 ? 'es' : ''}` : ''}`.trim()
+
           return (
             <li>
               <article>
@@ -46,6 +54,7 @@ import { work } from "@cv"
                         </time>
                       </div>
                     </header>
+                    <span class="duration">{duration}</span>
                   </summary>
 
                   <footer>
@@ -94,6 +103,14 @@ import { work } from "@cv"
     list-style-type: disc;
     padding-left: 20px;
     gap: 8px;
+  }
+
+  .duration {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: -4px;
+    display: block;
+    margin-bottom: 8px;
   }
 
   article h3 {

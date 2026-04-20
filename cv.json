@@ -6,7 +6,7 @@
     "email": "jorge.tricarico@gmail.com",
     "phone": "+54 9 11 50479769",
     "url": "",
-    "summary": "Especialista en IA y QA con un enfoque orientado a la ingeniería de software y la creación de producto. Cuento con una sólida base técnica potenciada por el uso estratégico de modelos de lenguaje, lo que me permite abordar con autonomía tareas de desarrollo funcional y arquitectura técnica. Perfil adaptable e innovador, enfocado en optimizar la entrega de valor mediante herramientas agentic y un aprendizaje constante.",
+    "summary": "Especialista en <strong>IA</strong> y <strong>QA</strong> con un enfoque orientado a la ingeniería de software y la creación de producto. Cuento con una sólida base técnica potenciada por el uso estratégico de modelos de lenguaje, lo que me permite abordar con autonomía tareas de desarrollo funcional y arquitectura técnica. Perfil adaptable e innovador, enfocado en optimizar la entrega de valor mediante herramientas <strong>agentic</strong> y un aprendizaje constante.",
     "location": {
       "address": "",
       "postalCode": "1684",
@@ -32,12 +32,12 @@
       "name": "OneVisa - Dubai (UAE) / España",
       "position": "(Part-time) Senior QA Engineer (AI & Reliability)",
       "url": "",
-      "startDate": "2024-11-01",
+      "startDate": "2026-02-01",
       "endDate": null,
       "summary": "",
       "highlights": [
-        "Desempeño de un **rol pionero y disruptivo** en el campo de la IA Agentic, definiendo nuevos paradigmas de validación de software mediante la orquestación recursiva de agentes inteligentes.",
-        "Desarrollo y refinamiento constante de agentes especializados mediante **Claude Code**, optimizando la confiabilidad del software a través de una interacción avanzada humano-agente.",
+        "Desempeño de un **rol pionero y disruptivo** en el campo de la <strong>IA</strong> <strong>Agentic</strong>, definiendo nuevos paradigmas de validación de software mediante la orquestación recursiva de agentes inteligentes.",
+        "Desarrollo y refinamiento constante de agentes especializados mediante **<strong>Claude Code</strong>**, optimizando la confiabilidad del software a través de una interacción avanzada humano-agente.",
         "Implementación de sistemas de autodiagnóstico iterativos que maduran con el producto, permitiendo una colaboración técnica profunda con el equipo de ingeniería."
       ]
     },
@@ -49,7 +49,7 @@
       "endDate": null,
       "summary": "",
       "highlights": [
-        "Desarrollo de un agente de IA para VS Code Copilot enfocado en acelerar la generación de pruebas y mejorar la sincronización técnica con el equipo de desarrollo.",
+        "Desarrollo de un agente de <strong>IA</strong> para VS Code Copilot enfocado en acelerar la generación de pruebas y mejorar la sincronización técnica con el equipo de desarrollo.",
         "Automatización de servicios críticos (APIs, Web, Mobile) con un perfil técnico capaz de validar la lógica de negocio directamente en el código fuente.",
         "Gestión técnica del ciclo de vida de pruebas, colaborando estrechamente con desarrolladores mediante análisis de logs y optimización de bases de datos SQL/NoSQL."
       ]
@@ -62,7 +62,7 @@
       "endDate": "2024-10-01",
       "summary": "",
       "highlights": [
-        "Mentoría técnica avanzada en Python enfocada en la calidad del código, arquitectura de software y mejores prácticas de desarrollo para perfiles internacionales."
+        "Mentoría técnica avanzada en <strong>Python</strong> enfocada en la calidad del código, arquitectura de software y mejores prácticas de desarrollo para perfiles internacionales."
       ]
     }
   ],

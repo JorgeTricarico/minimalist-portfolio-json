@@ -40,7 +40,7 @@
   typography-small-caps-name: false,
   typography-small-caps-headline: false,
   typography-small-caps-connections: false,
-  typography-small-caps-section-titles: false,
+  typography-small-caps-section-titles: true,
   typography-bold-name: true,
   typography-bold-headline: false,
   typography-bold-connections: false,
@@ -118,32 +118,36 @@
 
 == Resumen
 
-Especialista en IA y QA con un enfoque orientado a la ingeniería de software y la creación de producto. Cuento con una sólida base técnica potenciada por el uso estratégico de modelos de lenguaje, lo que me permite abordar con autonomía tareas de desarrollo funcional y arquitectura técnica. Perfil adaptable e innovador, enfocado en optimizar la entrega de valor mediante herramientas agentic y un aprendizaje constante.
+Especialista en #strong[IA] y #strong[QA] con un enfoque orientado a la ingeniería de software y la creación de producto. Cuento con una sólida base técnica potenciada por el uso estratégico de modelos de lenguaje, lo que me permite abordar con autonomía tareas de desarrollo funcional y arquitectura técnica. Perfil adaptable e innovador, enfocado en optimizar la entrega de valor mediante herramientas agentic y un aprendizaje constante.
 
 == Experiencia
 
 #regular-entry(
   [
-    #strong[OneVisa - Dubai (UAE) \/ España], (Part-time) Senior QA Engineer (AI & Reliability)
+    #strong[#emph[#sym.ast.basic#h(0pt, weak: true) OneVisa]#sym.ast.basic - Dubai (UAE) \/ España], (Part-time) #strong[Senior] #strong[QA] Engineer (AI & Reliability)
 
-    - Desempeño de un #strong[rol pionero y disruptivo] en el campo de la IA Agentic, definiendo nuevos paradigmas de validación de software mediante la orquestación recursiva de agentes inteligentes.
+    - Desempeño de un #strong[rol pionero y disruptivo] en el campo de la #strong[IA] #strong[Agentic], definiendo nuevos paradigmas de validación de software mediante la orquestación recursiva de agentes inteligentes.
 
-    - Desarrollo y refinamiento constante de agentes especializados mediante #strong[Claude Code], optimizando la confiabilidad del software a través de una interacción avanzada humano-agente.
+    - Desarrollo y refinamiento constante de agentes especializados mediante #strong[#emph[#sym.ast.basic#h(0pt, weak: true) Claude Code]]#sym.ast.basic#h(0pt, weak: true) , optimizando la confiabilidad del software a través de una interacción avanzada humano-agente.
 
     - Implementación de sistemas de autodiagnóstico iterativos que maduran con el producto, permitiendo una colaboración técnica profunda con el equipo de ingeniería.
 
   ],
   [
-    Nov 2024 – presente
+    Feb 2026 – presente
+
+    
+
+    3 meses
 
   ],
 )
 
 #regular-entry(
   [
-    #strong[Tata Consultancy Service - Banco Galicia], Analista QA Manual - Automation
+    #strong[Tata Consultancy Service - ]Banco Galicia#strong[#emph[#sym.ast.basic#h(0pt, weak: true) , Analista ]#sym.ast.basic#h(0pt, weak: true) QA] Manual - Automation
 
-    - Desarrollo de un agente de IA para VS Code Copilot enfocado en acelerar la generación de pruebas y mejorar la sincronización técnica con el equipo de desarrollo.
+    - Desarrollo de un agente de #strong[IA] para VS Code Copilot enfocado en acelerar la generación de pruebas y mejorar la sincronización técnica con el equipo de desarrollo.
 
     - Automatización de servicios críticos (APIs, Web, Mobile) con un perfil técnico capaz de validar la lógica de negocio directamente en el código fuente.
 
@@ -153,23 +157,31 @@ Especialista en IA y QA con un enfoque orientado a la ingeniería de software y 
   [
     Abr 2023 – presente
 
+    
+
+    3 años 1 mes
+
   ],
 )
 
 #regular-entry(
   [
-    #strong[Ada School - Colombia], Profesor Python (BootCamp Data y FullStack)
+    #strong[Ada School - Colombia], Profesor #strong[Python] (BootCamp Data y FullStack)
 
-    - Mentoría técnica avanzada en Python enfocada en la calidad del código, arquitectura de software y mejores prácticas de desarrollo para perfiles internacionales.
+    - Mentoría técnica avanzada en #strong[Python] enfocada en la calidad del código, arquitectura de software y mejores prácticas de desarrollo para perfiles internacionales.
 
   ],
   [
     Sep 2023 – Oct 2024
 
+    
+
+    1 año 2 meses
+
   ],
 )
 
-== Education
+== Educación
 
 #education-entry(
   [
@@ -201,11 +213,11 @@ Especialista en IA y QA con un enfoque orientado a la ingeniería de software y 
 
 == Habilidades
 
-#strong[IA & Agentes:] Claude Code, GitHub Copilot, Prompt Engineering, Arquitectura de Agentes, LLMs (Anthropic, OpenAI)
+#strong[#emph[#sym.ast.basic#h(0pt, weak: true) IA]#sym.ast.basic & Agentes:] #strong[Claude Code], GitHub Copilot, Prompt Engineering, Arquitectura de Agentes, LLMs (Anthropic, OpenAI)
 
-#strong[Core Testing:] Playwright, Selenium, Pytest, Automatización de APIs, Diagnósticos IA, OCR Validation
+#strong[Core Testing:] #strong[Playwright], Selenium, Pytest, Automatización de APIs, Diagnósticos #strong[IA], OCR Validation
 
-#strong[Lenguajes:] Python (Avanzado), TypeScript, Java
+#strong[Lenguajes:] #strong[Python] (Avanzado), #strong[TypeScript], Java
 
 #strong[Cloud & Infra:] Docker, Supabase, Linux\/Bash, CI\/CD, Jenkins, OpenShift
 
