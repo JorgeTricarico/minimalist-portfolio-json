@@ -22,3 +22,8 @@ pnpm-debug.log*
 
 # local folders
 .history
+.venv/
+.gemini/
+*.txt
+*.cjs
+read_pdf.js

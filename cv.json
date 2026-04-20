@@ -1,275 +1,178 @@
 {
   "basics": {
-    "name": "Miguel Ángel Durán",
-    "label": "Full Stack Developer con más de 15 años de experiencia & Creador de Contenido de Programación",
-    "image": "/me.webp",
-    "email": "miduga@gmail.com",
-    "phone": "+34 688888888",
-    "url": "https://midu.dev",
-    "summary": "+15 años de experiencia como Desarrollador Web. Actualmente soy Creador de Contenido y Divulgador sobre Programación. Vivo en Barcelona, España. He trabajado en diferentes entornos: desde acelerar el desarrollo de start-ups hasta liderando equipos de empresas multinacionales.",
+    "name": "Jorge Tricarico",
+    "label": "Especialista en IA y QA",
+    "image": "/perfil.jpg",
+    "email": "jorge.tricarico@gmail.com",
+    "phone": "+54 9 11 50479769",
+    "url": "",
+    "summary": "Especialista en IA y QA con un enfoque orientado a la ingeniería de software y la creación de producto. Cuento con una sólida base técnica potenciada por el uso estratégico de modelos de lenguaje, lo que me permite abordar con autonomía tareas de desarrollo funcional y arquitectura técnica. Perfil adaptable e innovador, enfocado en optimizar la entrega de valor mediante herramientas agentic y un aprendizaje constante.",
     "location": {
       "address": "",
-      "postalCode": "08820",
-      "city": "el Prat de Llobregat",
-      "countryCode": "ES",
-      "region": "España"
+      "postalCode": "1684",
+      "city": "Buenos Aires",
+      "countryCode": "AR",
+      "region": "Buenos Aires"
     },
     "profiles": [
       {
         "network": "LinkedIn",
-        "username": "midudev",
-        "url": "https://linkedin.com/in/midudev"
-      },
-      {
-        "network": "X",
-        "username": "midudev",
-        "url": "https://x.com/midudev"
+        "username": "jorge-tricarico",
+        "url": "https://www.linkedin.com/in/jorge-tricarico/"
       },
       {
         "network": "GitHub",
-        "username": "midudev",
-        "url": "https://github.com/midudev"
+        "username": "JorgeTricarico",
+        "url": "https://www.github.com/JorgeTricarico"
       }
     ]
   },
   "work": [
     {
-      "name": "midudev",
-      "position": "Divulgador sobre Programación Web",
-      "url": "https://twitch.tv/midudev",
-      "startDate": "2021-01-01",
+      "name": "OneVisa - Dubai (UAE) / España",
+      "position": "(Part-time) Senior QA Engineer (AI & Reliability)",
+      "url": "",
+      "startDate": "2024-11-01",
       "endDate": null,
-      "summary": "Streamer de programación más visto en Español en Twitch. +1 millón de seguidores entre todas mis redes sociales. Reconocido por Google, Microsoft y GitHub por mi impacto en la comunidad de desarrolladores.",
+      "summary": "",
       "highlights": [
-        "Started the company"
+        "Desempeño de un **rol pionero y disruptivo** en el campo de la IA Agentic, definiendo nuevos paradigmas de validación de software mediante la orquestación recursiva de agentes inteligentes.",
+        "Desarrollo y refinamiento constante de agentes especializados mediante **Claude Code**, optimizando la confiabilidad del software a través de una interacción avanzada humano-agente.",
+        "Implementación de sistemas de autodiagnóstico iterativos que maduran con el producto, permitiendo una colaboración técnica profunda con el equipo de ingeniería."
       ]
     },
     {
-      "name": "Adevinta",
-      "position": "Lead Frontend Architect",
-      "url": "https://twitch.tv/midudev",
-      "startDate": "2016-06-01",
-      "endDate": "2022-09-01",
-      "summary": "Lideré una convergencia técnica entre diferentes productos y migramos una arquitectura monolítica a otra más flexible y optimizada. Fomenté buenas prácticas y mejoras en la cultura de rendimiento, además de la entrega rápida de valor a los usuarios.",
+      "name": "Tata Consultancy Service - Banco Galicia",
+      "position": "Analista QA Manual - Automation",
+      "url": "",
+      "startDate": "2023-04-01",
+      "endDate": null,
+      "summary": "",
       "highlights": [
-        "Started the company"
+        "Desarrollo de un agente de IA para VS Code Copilot enfocado en acelerar la generación de pruebas y mejorar la sincronización técnica con el equipo de desarrollo.",
+        "Automatización de servicios críticos (APIs, Web, Mobile) con un perfil técnico capaz de validar la lógica de negocio directamente en el código fuente.",
+        "Gestión técnica del ciclo de vida de pruebas, colaborando estrechamente con desarrolladores mediante análisis de logs y optimización de bases de datos SQL/NoSQL."
       ]
     },
     {
-      "name": "Hubii",
-      "position": "Senior FrontEnd Developer",
-      "startDate": "2011-03-01",
-      "endDate": "2016-05-01",
-      "summary": "Desarrollé una plataforma de noticias geolocalizadas y una API para consumir la información. Escalé los servicios para soportar la carga de más de cientos de miles de peticiones al día. Recorté los tiempos de entrega y despliegues a producción a la mitad. Colaboré con Mozilla y Telefónica para desarrollar la primera app para televisores con FirefoxOS.",
+      "name": "Ada School - Colombia",
+      "position": "Profesor Python (BootCamp Data y FullStack)",
+      "url": "",
+      "startDate": "2023-09-01",
+      "endDate": "2024-10-01",
+      "summary": "",
       "highlights": [
-        "Started the company"
+        "Mentoría técnica avanzada en Python enfocada en la calidad del código, arquitectura de software y mejores prácticas de desarrollo para perfiles internacionales."
       ]
     }
   ],
-  "volunteer": [{
-    "organization": "Organization",
-    "position": "Volunteer",
-    "url": "https://organization.com/",
-    "startDate": "2012-01-01",
-    "endDate": "2013-01-01",
-    "summary": "Description…",
-    "highlights": [
-      "Awarded 'Volunteer of the Month'"
-    ]
-  }],
-  "education": [{
-    "institution": "Universitat Oberta de Catalunya",
-    "url": "https://www.uoc.edu/portal/es/index.html",
-    "area": "Ingeniero de Software",
-    "studyType": "Bachelor",
-    "startDate": "2003-01-01",
-    "endDate": "2009-01-01",
-    "score": "4.0",
-    "courses": [
-      "DB1101 - Basic SQL"
-    ]
-  }],
-  "awards": [{
-    "title": "Award",
-    "date": "2014-11-01",
-    "awarder": "Company",
-    "summary": "There is no spoon."
-  }],
-  "certificates": [{
-    "name": "Certificate",
-    "date": "2021-11-07",
-    "issuer": "Company",
-    "url": "https://certificate.com"
-  }],
-  "publications": [{
-    "name": "Publication",
-    "publisher": "Company",
-    "releaseDate": "2014-10-01",
-    "url": "https://publication.com",
-    "summary": "Description…"
-  }],
+  "volunteer": [],
+  "education": [
+    {
+      "institution": "Universidad Nacional de Hurlingham",
+      "url": "",
+      "area": "Inteligencia Artificial",
+      "studyType": "Tec. Universitaria",
+      "startDate": "2024-01-01",
+      "endDate": null,
+      "score": "",
+      "courses": []
+    },
+    {
+      "institution": "Instituto Superior de Formación Docente N°109",
+      "url": "",
+      "area": "Economía y Gestión",
+      "studyType": "Prof. de Educación Secundaria",
+      "startDate": "2019-03-01",
+      "endDate": "2023-12-01",
+      "score": "",
+      "courses": [
+        "Adeudo último año"
+      ]
+    }
+  ],
+  "awards": [],
+  "certificates": [],
+  "publications": [],
   "skills": [
     {
-      "name": "HTML",
-      "level": "Master",
+      "name": "IA & Agentes",
+      "level": "N/A",
       "keywords": [
-        "Desarrollo Web", "Frontend"
+        "Claude Code",
+        "GitHub Copilot",
+        "Prompt Engineering",
+        "Arquitectura de Agentes",
+        "LLMs (Anthropic",
+        "OpenAI)"
       ]
     },
     {
-      "name": "CSS",
-      "level": "Master",
+      "name": "Core Testing",
+      "level": "N/A",
       "keywords": [
-        "Desarrollo Web", "Frontend", "Diseño Responsive"
+        "Playwright",
+        "Selenium",
+        "Pytest",
+        "Automatización de APIs",
+        "Diagnósticos IA",
+        "OCR Validation"
       ]
     },
     {
-      "name": "JavaScript",
-      "level": "Master",
+      "name": "Lenguajes",
+      "level": "N/A",
       "keywords": [
-        "Desarrollo Web", "Frontend", "Backend", "Fullstack"
+        "Python (Avanzado)",
+        "TypeScript",
+        "Java"
       ]
     },
     {
-      "name": "Tailwind",
-      "level": "Avanzado",
+      "name": "Cloud & Infra",
+      "level": "N/A",
       "keywords": [
-        "Desarrollo Web", "Frontend", "CSS Framework", "Diseño Responsive"
+        "Docker",
+        "Supabase",
+        "Linux/Bash",
+        "CI/CD",
+        "Jenkins",
+        "OpenShift"
       ]
     },
     {
-      "name": "TypeScript",
-      "level": "Avanzado",
+      "name": "Idiomas",
+      "level": "N/A",
       "keywords": [
-        "Desarrollo Web", "Frontend", "Backend", "JavaScript Superset"
-      ]
-    },
-    {
-      "name": "Node",
-      "level": "Avanzado",
-      "keywords": [
-        "Desarrollo Web", "Backend", "JavaScript", "Servidor"
-      ]
-    },
-    {
-      "name": "MySQL",
-      "level": "Avanzado",
-      "keywords": [
-        "Bases de Datos", "SQL", "Almacenamiento de Datos", "Backend"
-      ]
-    },
-    {
-      "name": "Git",
-      "level": "Avanzado",
-      "keywords": [
-        "Control de Versiones", "Colaboración", "Código Fuente"
-      ]
-    },
-    {
-      "name": "GitHub",
-      "level": "Avanzado",
-      "keywords": [
-        "Control de Versiones", "Colaboración", "Código Fuente", "Git"
-      ]
-    },
-    {
-      "name": "Next.js",
-      "level": "Avanzado",
-      "keywords": [
-        "Desarrollo Web", "Frontend", "React Framework", "SSR", "Static Generation"
-      ]
-    },
-    {
-      "name": "React",
-      "level": "Avanzado",
-      "keywords": [
-        "Desarrollo Web", "Frontend", "JavaScript Library", "UI"
+        "Español (Nativo)",
+        "Inglés (Intermedio)"
       ]
     }
   ],
   "languages": [
     {
-      "language": "Spanish",
-      "fluency": "Native speaker"
+      "language": "Español",
+      "fluency": "Nativo"
     },
     {
-      "language": "English",
-      "fluency": "Advanced"
+      "language": "Inglés",
+      "fluency": "Intermedio"
     }
   ],
-  "interests": [{
-    "name": "Wildlife",
-    "keywords": [
-      "Ferrets",
-      "Unicorns"
-    ]
-  }],
-  "references": [{
-    "name": "Jane Doe",
-    "reference": "Reference…"
-  }],
+  "interests": [],
+  "references": [],
   "projects": [
     {
-      "name": "mars.codes",
+      "name": "Portfolio CV Automático",
       "isActive": true,
-      "description": "Historia interactiva con retos de programación para viajar a Marte",
+      "description": "Desarrollo de este propio CV utilizando JSON Resume y Astro, con despliegue atomatizado.",
       "highlights": [
-        "Elige tu propia aventura",
-        "En desarrollo"
+        "JSON Resume",
+        "Astro",
+        "ATS Friendly"
       ],
-      "url": "https://mars.codes"
-    },
-    {
-      "name": "AdventJS",
-      "isActive": true,
-      "description": "Retos de programación en JavaScript para cada día de diciembre hasta Navidad",
-      "highlights": [
-        "+1 millón de visitas",
-        "Multidioma",
-        "JavaScript & TypeScript"
-      ],
-      "url": "https://adventjs.dev"
-    },
-    {
-      "name": "Codember",
-      "isActive": true,
-      "description": "Juego interactivo de programación con retos y secretos",
-      "highlights": [
-        "+2000 usuarios activos",
-        "Retos para cualquier lenguaje"
-      ],
-      "url": "https://codember.dev"
-    },
-    {
-      "name": "codi.link",
-      "isActive": true,
-      "description": "Playground de código HTML, CSS y JavaScript para compartir",
-      "highlights": [
-        "100k visitas al mes",
-        "Desarrollado por la comunidad"
-      ],
-      "url": "https://codi.link",
-      "github": "https://github.com/midudev/codi.link"
-    },
-    {
-      "name": "Pruebas Técnicas",
-      "isActive": true,
-      "description": "Lista de pruebas técnicas de empresas para practicar programación",
-      "highlights": [
-        "100% gratuito",
-        "+500 soluciones de la comunidad"
-      ],
-      "url": "https://pruebastecnicas.com",
-      "github": "https://github.com/midudev/pruebas-tecnicas"
-    },
-    {
-      "name": "miduConf",
-      "description": "Conferencia de programación en streaming para la comunidad hispanohablante con charlas top",
-      "highlights": [
-        "+15k tickets repartidos",
-        "+50k espectadores en directo"
-      ],
-      "url": "https://miduconf.com"
+      "url": "https://github.com/JorgeTricarico",
+      "github": "https://github.com/JorgeTricarico"
     }
   ]
 }

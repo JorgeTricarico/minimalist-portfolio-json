@@ -3,16 +3,21 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "predev": "node scripts/yaml_to_json.js",
+    "prebuild": "node scripts/yaml_to_json.js",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
+    "cv": "wsl cp /mnt/c/Users/admin/Documents/Github/portfolio-cv/cv.yaml /home/jorge/Documents/Github/portfolio-cv/cv.yaml; wsl bash -c \"cd /home/jorge/Documents/Github/portfolio-cv && .venv/bin/rendercv render cv.yaml\"; wsl cp -r /home/jorge/Documents/Github/portfolio-cv/rendercv_output/* /mnt/c/Users/admin/Documents/Github/portfolio-cv/rendercv_output/",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/check": "0.4.1",
     "astro": "4.3.2",
     "hotkeypad": "0.1.0",
+    "js-yaml": "^4.1.1",
+    "pdf-parse": "^2.4.5",
     "typescript": "5.3.3"
   }
 }

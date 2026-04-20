@@ -1,0 +1,111 @@
+cv:
+  name: "Jorge Tricarico"
+  photo: "public/perfil.jpg"
+  location: "Buenos Aires, AR"
+  email: "jorge.tricarico@gmail.com"
+  phone: "+54 9 11 50479769"
+  social_networks:
+    - network: LinkedIn
+      username: jorge-tricarico
+    - network: GitHub
+      username: JorgeTricarico
+      
+  sections:
+    Resumen:
+      - "Especialista en IA y QA con un enfoque orientado a la ingeniería de software y la creación de producto. Cuento con una sólida base técnica potenciada por el uso estratégico de modelos de lenguaje, lo que me permite abordar con autonomía tareas de desarrollo funcional y arquitectura técnica. Perfil adaptable e innovador, enfocado en optimizar la entrega de valor mediante herramientas agentic y un aprendizaje constante."
+
+    Experiencia:
+      - company: "OneVisa - Dubai (UAE) / España"
+        position: "(Part-time) Senior QA Engineer (AI & Reliability)"
+        start_date: "2024-11"
+        end_date: "present"
+        highlights:
+            - "Desempeño de un **rol pionero y disruptivo** en el campo de la IA Agentic, definiendo nuevos paradigmas de validación de software mediante la orquestación recursiva de agentes inteligentes."
+            - "Desarrollo y refinamiento constante de agentes especializados mediante **Claude Code**, optimizando la confiabilidad del software a través de una interacción avanzada humano-agente."
+            - "Implementación de sistemas de autodiagnóstico iterativos que maduran con el producto, permitiendo una colaboración técnica profunda con el equipo de ingeniería."
+
+      - company: "Tata Consultancy Service - Banco Galicia"
+        position: "Analista QA Manual - Automation"
+        start_date: "2023-04"
+        end_date: "present"
+        highlights:
+          - "Desarrollo de un agente de IA para VS Code Copilot enfocado en acelerar la generación de pruebas y mejorar la sincronización técnica con el equipo de desarrollo."
+          - "Automatización de servicios críticos (APIs, Web, Mobile) con un perfil técnico capaz de validar la lógica de negocio directamente en el código fuente."
+          - "Gestión técnica del ciclo de vida de pruebas, colaborando estrechamente con desarrolladores mediante análisis de logs y optimización de bases de datos SQL/NoSQL."
+
+      - company: "Ada School - Colombia"
+        position: "Profesor Python (BootCamp Data y FullStack)"
+        start_date: "2023-09"
+        end_date: "2024-10"
+        highlights:
+          - "Mentoría técnica avanzada en Python enfocada en la calidad del código, arquitectura de software y mejores prácticas de desarrollo para perfiles internacionales."
+
+    Educacion:
+      - institution: "Universidad Nacional de Hurlingham"
+        area: "Inteligencia Artificial"
+        degree: "Tec. Universitaria"
+        start_date: "2024-01"
+        end_date: "present"
+
+      - institution: "Instituto Superior de Formación Docente N°109"
+        area: "Economía y Gestión"
+        degree: "Prof. de Educación Secundaria"
+        start_date: "2019-03"
+        end_date: "2023-12"
+        highlights:
+          - "Adeudo último año"
+
+    Habilidades:
+      - label: "IA & Agentes"
+        details: "Claude Code, GitHub Copilot, Prompt Engineering, Arquitectura de Agentes, LLMs (Anthropic, OpenAI)"
+      - label: "Core Testing"
+        details: "Playwright, Selenium, Pytest, Automatización de APIs, Diagnósticos IA, OCR Validation"
+      - label: "Lenguajes"
+        details: "Python (Avanzado), TypeScript, Java"
+      - label: "Cloud & Infra"
+        details: "Docker, Supabase, Linux/Bash, CI/CD, Jenkins, OpenShift"
+      - label: "Idiomas"
+        details: "Español (Nativo), Inglés (Intermedio)"
+
+design:
+  theme: classic
+  page:
+    size: a4
+    top_margin: 1.5cm
+    bottom_margin: 1.5cm
+    left_margin: 1.5cm
+    right_margin: 1.5cm
+    show_footer: false
+    show_top_note: false
+  colors:
+    name: rgb(0, 79, 144)
+  typography:
+    font_size:
+      body: 9.5pt
+      name: 24pt
+      headline: 10pt
+      connections: 9pt
+      section_titles: 1.2em
+  header:
+    space_below_name: 0.4cm
+    space_below_headline: 0.4cm
+    space_below_connections: 0.5cm
+  section_titles:
+    space_above: 0.5cm
+    space_below: 0.3cm
+  sections:
+    space_between_regular_entries: 1em
+    space_between_text_based_entries: 0.5em
+  entries:
+    degree_width: 0cm
+    date_and_location_width: 3.8cm
+  templates:
+    education_entry:
+      main_column: |-
+        **INSTITUTION**
+        *DEGREE* en AREA
+        HIGHLIGHTS
+      degree_column: ''
+
+locale:
+  language: spanish

@@ -121,4 +121,53 @@ const { image, summary, url } = basics
       break-inside: avoid;
     }
   }
+
+  /* Dark mode invert hack */
+  html.dark {
+    filter: invert(1) hue-rotate(180deg);
+  }
+  html.dark img, html.dark video {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+  /* Theme toggle button */
+  #theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 9999;
+    padding: 10px;
+    backdrop-filter: blur(4px);
+    border-radius: 50%;
+  }
 </style>
+
+<button id="theme-toggle" class="no-print" aria-label="Toggle Dark Mode">🌙</button>
+
+<script>
+  const themeToggle = document.getElementById('theme-toggle');
+  
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      if (document.documentElement.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+        themeToggle.textContent = '☀️';
+      } else {
+        localStorage.setItem('theme', 'light');
+        themeToggle.textContent = '🌙';
+      }
+    });
+
+    if (localStorage.getItem('theme') === 'dark' || 
+       (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeToggle.textContent = '☀️';
+    }
+  }
+</script>
+
