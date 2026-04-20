@@ -112,14 +112,7 @@ design:
       degree_column: ''
 
 settings:
-  bold_keywords:
-    - IA
-    - QA
-    - Python
-    - TypeScript
-    - Playwright
-    - Agentic
-    - Claude Code
+  bold_keywords: []
 
 locale:
   language: spanish

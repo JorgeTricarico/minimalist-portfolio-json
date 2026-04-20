@@ -108,17 +108,17 @@
 
 == Resumen
 
-Ingeniero de #strong[QA] y Especialista en #strong[IA] enfocado en la creación de producto y la confiabilidad del software. Cuento con un perfil técnico full-stack que potencio mediante el uso avanzado de LLMs y herramientas agenticas. Me especializo en liderar la automatización en entornos dinámicos, compensando limitaciones de recursos mediante arquitecturas innovadoras y optimizando la entrega de valor con total autonomía técnica.
+Ingeniero de QA y Especialista en IA enfocado en la creación de producto y la confiabilidad del software. Cuento con un perfil técnico full-stack que potencio mediante el uso avanzado de LLMs y herramientas agenticas. Me especializo en liderar la automatización en entornos dinámicos, compensando limitaciones de recursos mediante arquitecturas innovadoras y optimizando la entrega de valor con total autonomía técnica.
 
 == Experiencia
 
 #regular-entry(
   [
-    #strong[OneVisa - Dubai (UAE) \/ España], (Part-time) Senior Principal #strong[QA] Engineer (AI & Reliability)
+    #strong[OneVisa - Dubai (UAE) \/ España], (Part-time) Senior Principal QA Engineer (AI & Reliability)
 
-    - Único responsable de #strong[QA] en una startup en fase de alto crecimiento, liderando el diseño y la ejecución de la estrategia integral de automatización desde cero.
+    - Único responsable de QA en una startup en fase de alto crecimiento, liderando el diseño y la ejecución de la estrategia integral de automatización desde cero.
 
-    - Escalabilidad de la cobertura de pruebas sin ampliar la plantilla, compensando la falta de recursos humanos mediante la creación y orquestación de agentes de #strong[IA] con #strong[Claude Code].
+    - Escalabilidad de la cobertura de pruebas sin ampliar la plantilla, compensando la falta de recursos humanos mediante la creación y orquestación de agentes de IA con Claude Code.
 
     - Implementación de sistemas de autodiagnóstico iterativos en los pipelines, reduciendo los tiempos de debugging y permitiendo una integración técnica profunda con el equipo de ingeniería.
 
@@ -135,11 +135,11 @@ Ingeniero de #strong[QA] y Especialista en #strong[IA] enfocado en la creación 
 
 #regular-entry(
   [
-    #strong[Tata Consultancy Service - Banco Galicia], Analista #strong[QA] Manual - Automation
+    #strong[Tata Consultancy Service - Banco Galicia], Analista QA Manual - Automation
 
-    - Diseño y desarrollo de 'CobroTron', un agente de #strong[IA] propio integrado en VSC Github Copilot para acelerar la generación de pruebas automaticas.
+    - Diseño y desarrollo de 'CobroTron', un agente de IA propio integrado en VSC Github Copilot para acelerar la generación de pruebas automaticas.
 
-    - Construcción de frameworks de automatización E2E robustos utilizando #strong[Playwright] y Pytest para validar la lógica de negocio en servicios críticos (APIs, Web, Mobile).
+    - Construcción de frameworks de automatización E2E robustos utilizando Playwright y Pytest para validar la lógica de negocio en servicios críticos (APIs, Web, Mobile).
 
     - Gestión técnica del ciclo de pruebas y análisis de traces\/logs, colaborando estrechamente con desarrolladores mediante la optimización de consultas SQL\/NoSQL.
 
@@ -156,9 +156,9 @@ Ingeniero de #strong[QA] y Especialista en #strong[IA] enfocado en la creación 
 
 #regular-entry(
   [
-    #strong[Ada School - Colombia], Profesor #strong[Python] (BootCamp Data y FullStack)
+    #strong[Ada School - Colombia], Profesor Python (BootCamp Data y FullStack)
 
-    - Mentoría técnica avanzada en #strong[Python] enfocada en la calidad del código, arquitectura de software y mejores prácticas de desarrollo para perfiles internacionales.
+    - Mentoría técnica avanzada en Python enfocada en la calidad del código, arquitectura de software y mejores prácticas de desarrollo para perfiles internacionales.
 
   ],
   [
@@ -203,11 +203,11 @@ Ingeniero de #strong[QA] y Especialista en #strong[IA] enfocado en la creación 
 
 == Habilidades
 
-#strong[#emph[#sym.ast.basic#h(0pt, weak: true) IA]#sym.ast.basic & Agentes:] #strong[Claude Code], GitHub Copilot, Prompt Engineering, Arquitectura de Agentes, LLMs (Anthropic, OpenAI)
+#strong[IA & Agentes:] Claude Code, GitHub Copilot, Prompt Engineering, Arquitectura de Agentes, LLMs (Anthropic, OpenAI)
 
-#strong[Core Testing:] #strong[Playwright], Selenium, Pytest, Automatización de APIs, Diagnósticos #strong[IA], OCR Validation
+#strong[Core Testing:] Playwright, Selenium, Pytest, Automatización de APIs, Diagnósticos IA, OCR Validation
 
-#strong[Lenguajes:] #strong[Python] (Avanzado), #strong[TypeScript], Java
+#strong[Lenguajes:] Python (Avanzado), TypeScript, Java
 
 #strong[Cloud & Infra:] Docker, Supabase, Linux\/Bash, CI\/CD, Jenkins, OpenShift
 

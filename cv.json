@@ -6,7 +6,7 @@
     "email": "jorge.tricarico@gmail.com",
     "phone": "+54 9 11 50479769",
     "url": "",
-    "summary": "Ingeniero de <strong>QA</strong> y Especialista en <strong>IA</strong> enfocado en la creación de producto y la confiabilidad del software. Cuento con un perfil técnico full-stack que potencio mediante el uso avanzado de LLMs y herramientas agenticas. Me especializo en liderar la automatización en entornos dinámicos, compensando limitaciones de recursos mediante arquitecturas innovadoras y optimizando la entrega de valor con total autonomía técnica.",
+    "summary": "Ingeniero de QA y Especialista en IA enfocado en la creación de producto y la confiabilidad del software. Cuento con un perfil técnico full-stack que potencio mediante el uso avanzado de LLMs y herramientas agenticas. Me especializo en liderar la automatización en entornos dinámicos, compensando limitaciones de recursos mediante arquitecturas innovadoras y optimizando la entrega de valor con total autonomía técnica.",
     "location": {
       "address": "",
       "postalCode": "1684",
@@ -36,8 +36,8 @@
       "endDate": null,
       "summary": "",
       "highlights": [
-        "Único responsable de <strong>QA</strong> en una startup en fase de alto crecimiento, liderando el diseño y la ejecución de la estrategia integral de automatización desde cero.",
-        "Escalabilidad de la cobertura de pruebas sin ampliar la plantilla, compensando la falta de recursos humanos mediante la creación y orquestación de agentes de <strong>IA</strong> con <strong>Claude Code</strong>.",
+        "Único responsable de QA en una startup en fase de alto crecimiento, liderando el diseño y la ejecución de la estrategia integral de automatización desde cero.",
+        "Escalabilidad de la cobertura de pruebas sin ampliar la plantilla, compensando la falta de recursos humanos mediante la creación y orquestación de agentes de IA con Claude Code.",
         "Implementación de sistemas de autodiagnóstico iterativos en los pipelines, reduciendo los tiempos de debugging y permitiendo una integración técnica profunda con el equipo de ingeniería."
       ]
     },
@@ -49,8 +49,8 @@
       "endDate": null,
       "summary": "",
       "highlights": [
-        "Diseño y desarrollo de 'CobroTron', un agente de <strong>IA</strong> propio integrado en VSC Github Copilot para acelerar la generación de pruebas automaticas.",
-        "Construcción de frameworks de automatización E2E robustos utilizando <strong>Playwright</strong> y Pytest para validar la lógica de negocio en servicios críticos (APIs, Web, Mobile).",
+        "Diseño y desarrollo de 'CobroTron', un agente de IA propio integrado en VSC Github Copilot para acelerar la generación de pruebas automaticas.",
+        "Construcción de frameworks de automatización E2E robustos utilizando Playwright y Pytest para validar la lógica de negocio en servicios críticos (APIs, Web, Mobile).",
         "Gestión técnica del ciclo de pruebas y análisis de traces/logs, colaborando estrechamente con desarrolladores mediante la optimización de consultas SQL/NoSQL."
       ]
     },
@@ -62,7 +62,7 @@
       "endDate": "2024-10-01",
       "summary": "",
       "highlights": [
-        "Mentoría técnica avanzada en <strong>Python</strong> enfocada en la calidad del código, arquitectura de software y mejores prácticas de desarrollo para perfiles internacionales."
+        "Mentoría técnica avanzada en Python enfocada en la calidad del código, arquitectura de software y mejores prácticas de desarrollo para perfiles internacionales."
       ]
     }
   ],
