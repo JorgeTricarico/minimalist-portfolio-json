@@ -51,7 +51,7 @@
       "highlights": [
         "Diseño y desarrollo de 'CobroTron', un agente de <strong>IA</strong> propio integrado para acelerar la generación de pruebas y mejorar la sincronización técnica con el equipo de desarrollo.",
         "Construcción de frameworks de automatización E2E robustos utilizando <strong>Playwright</strong> y <strong>TypeScript</strong> para validar la lógica de negocio en servicios críticos (APIs, Web, Mobile).",
-        "Gestión técnica del ciclo de pruebas y análisis forense de traces/logs, colaborando estrechamente con desarrolladores mediante la optimización de consultas SQL/NoSQL."
+        "Gestión técnica del ciclo de pruebas y análisis de traces/logs, colaborando estrechamente con desarrolladores mediante la optimización de consultas SQL/NoSQL."
       ]
     },
     {

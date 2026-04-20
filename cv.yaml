@@ -31,7 +31,7 @@ cv:
         highlights:
           - "Diseño y desarrollo de 'CobroTron', un agente de IA propio integrado para acelerar la generación de pruebas y mejorar la sincronización técnica con el equipo de desarrollo."
           - "Construcción de frameworks de automatización E2E robustos utilizando Playwright y TypeScript para validar la lógica de negocio en servicios críticos (APIs, Web, Mobile)."
-          - "Gestión técnica del ciclo de pruebas y análisis forense de traces/logs, colaborando estrechamente con desarrolladores mediante la optimización de consultas SQL/NoSQL."
+          - "Gestión técnica del ciclo de pruebas y análisis de traces/logs, colaborando estrechamente con desarrolladores mediante la optimización de consultas SQL/NoSQL."
 
       - company: "Ada School - Colombia"
         position: "Profesor Python (BootCamp Data y FullStack)"
