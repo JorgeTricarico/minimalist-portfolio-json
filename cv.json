@@ -49,8 +49,8 @@
       "endDate": null,
       "summary": "",
       "highlights": [
-        "Diseño y desarrollo de 'CobroTron', un agente de <strong>IA</strong> propio integrado para acelerar la generación de pruebas y mejorar la sincronización técnica con el equipo de desarrollo.",
-        "Construcción de frameworks de automatización E2E robustos utilizando <strong>Playwright</strong> y <strong>TypeScript</strong> para validar la lógica de negocio en servicios críticos (APIs, Web, Mobile).",
+        "Diseño y desarrollo de 'CobroTron', un agente de <strong>IA</strong> propio integrado en VSC Github Copilot para acelerar la generación de pruebas automaticas.",
+        "Construcción de frameworks de automatización E2E robustos utilizando <strong>Playwright</strong> y Pytest para validar la lógica de negocio en servicios críticos (APIs, Web, Mobile).",
         "Gestión técnica del ciclo de pruebas y análisis de traces/logs, colaborando estrechamente con desarrolladores mediante la optimización de consultas SQL/NoSQL."
       ]
     },

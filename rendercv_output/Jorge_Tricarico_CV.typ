@@ -108,19 +108,19 @@
 
 == Resumen
 
-Especialista en #strong[IA] y #strong[QA] con un enfoque orientado a la ingeniería de software y la creación de producto. Cuento con una sólida base técnica potenciada por el uso estratégico de modelos de lenguaje, lo que me permite abordar con autonomía tareas de desarrollo funcional y arquitectura técnica. Perfil adaptable e innovador, enfocado en optimizar la entrega de valor mediante herramientas agenticas y aprendizaje continuo.
+Ingeniero de #strong[QA] y Especialista en #strong[IA] enfocado en la creación de producto y la confiabilidad del software. Cuento con un perfil técnico full-stack que potencio mediante el uso avanzado de LLMs y herramientas agenticas. Me especializo en liderar la automatización en entornos dinámicos, compensando limitaciones de recursos mediante arquitecturas innovadoras y optimizando la entrega de valor con total autonomía técnica.
 
 == Experiencia
 
 #regular-entry(
   [
-    #strong[OneVisa - Dubai (UAE) \/ España], (Part-time) Senior #strong[QA] Engineer (AI & Reliability)
+    #strong[OneVisa - Dubai (UAE) \/ España], (Part-time) Senior Principal #strong[QA] Engineer (AI & Reliability)
 
-    - Desempeño de un rol pionero y disruptivo en el campo de la #strong[IA] Agentica, definiendo nuevos paradigmas de validación de software mediante la orquestación recursiva de agentes inteligentes.
+    - Único responsable de #strong[QA] en una startup en fase de alto crecimiento, liderando el diseño y la ejecución de la estrategia integral de automatización desde cero.
 
-    - Desarrollo y refinamiento constante de agentes especializados mediante #strong[Claude Code], optimizando la confiabilidad del software a través de una interacción avanzada humano-agente.
+    - Escalabilidad de la cobertura de pruebas sin ampliar la plantilla, compensando la falta de recursos humanos mediante la creación y orquestación de agentes de #strong[IA] con #strong[Claude Code].
 
-    - Implementación de sistemas de autodiagnóstico iterativos que maduran con el producto, permitiendo una colaboración técnica profunda con el equipo de ingeniería.
+    - Implementación de sistemas de autodiagnóstico iterativos en los pipelines, reduciendo los tiempos de debugging y permitiendo una integración técnica profunda con el equipo de ingeniería.
 
   ],
   [
@@ -137,11 +137,11 @@ Especialista en #strong[IA] y #strong[QA] con un enfoque orientado a la ingenier
   [
     #strong[Tata Consultancy Service - Banco Galicia], Analista #strong[QA] Manual - Automation
 
-    - Desarrollo de un agente de #strong[IA] para VS Code Copilot enfocado en acelerar la generación de pruebas y mejorar la sincronización técnica con el equipo de desarrollo.
+    - Diseño y desarrollo de 'CobroTron', un agente de #strong[IA] propio integrado en VSC Github Copilot para acelerar la generación de pruebas automaticas.
 
-    - Automatización de servicios críticos (APIs, Web, Mobile) con un perfil técnico capaz de validar la lógica de negocio directamente en el código fuente.
+    - Construcción de frameworks de automatización E2E robustos utilizando #strong[Playwright] y Pytest para validar la lógica de negocio en servicios críticos (APIs, Web, Mobile).
 
-    - Gestión técnica del ciclo de vida de pruebas, colaborando estrechamente con desarrolladores mediante análisis de logs y optimización de bases de datos SQL\/NoSQL.
+    - Gestión técnica del ciclo de pruebas y análisis de traces\/logs, colaborando estrechamente con desarrolladores mediante la optimización de consultas SQL\/NoSQL.
 
   ],
   [

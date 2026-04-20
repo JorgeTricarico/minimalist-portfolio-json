@@ -8,10 +8,10 @@
 
 
 # Resumen
-Especialista en **IA** y **QA** con un enfoque orientado a la ingeniería de software y la creación de producto. Cuento con una sólida base técnica potenciada por el uso estratégico de modelos de lenguaje, lo que me permite abordar con autonomía tareas de desarrollo funcional y arquitectura técnica. Perfil adaptable e innovador, enfocado en optimizar la entrega de valor mediante herramientas agenticas y aprendizaje continuo.
+Ingeniero de **QA** y Especialista en **IA** enfocado en la creación de producto y la confiabilidad del software. Cuento con un perfil técnico full-stack que potencio mediante el uso avanzado de LLMs y herramientas agenticas. Me especializo en liderar la automatización en entornos dinámicos, compensando limitaciones de recursos mediante arquitecturas innovadoras y optimizando la entrega de valor con total autonomía técnica.
 
 # Experiencia
-## **OneVisa - Dubai (UAE) / España**, (Part-time) Senior **QA** Engineer (AI & Reliability)
+## **OneVisa - Dubai (UAE) / España**, (Part-time) Senior Principal **QA** Engineer (AI & Reliability)
 
 Feb 2026 – presente
 
@@ -19,11 +19,11 @@ Feb 2026 – presente
 
 3 meses
 
-- Desempeño de un rol pionero y disruptivo en el campo de la **IA** Agentica, definiendo nuevos paradigmas de validación de software mediante la orquestación recursiva de agentes inteligentes.
+- Único responsable de **QA** en una startup en fase de alto crecimiento, liderando el diseño y la ejecución de la estrategia integral de automatización desde cero.
 
-- Desarrollo y refinamiento constante de agentes especializados mediante **Claude Code**, optimizando la confiabilidad del software a través de una interacción avanzada humano-agente.
+- Escalabilidad de la cobertura de pruebas sin ampliar la plantilla, compensando la falta de recursos humanos mediante la creación y orquestación de agentes de **IA** con **Claude Code**.
 
-- Implementación de sistemas de autodiagnóstico iterativos que maduran con el producto, permitiendo una colaboración técnica profunda con el equipo de ingeniería.
+- Implementación de sistemas de autodiagnóstico iterativos en los pipelines, reduciendo los tiempos de debugging y permitiendo una integración técnica profunda con el equipo de ingeniería.
 
 
 
@@ -35,11 +35,11 @@ Abr 2023 – presente
 
 3 años 1 mes
 
-- Desarrollo de un agente de **IA** para VS Code Copilot enfocado en acelerar la generación de pruebas y mejorar la sincronización técnica con el equipo de desarrollo.
+- Diseño y desarrollo de 'CobroTron', un agente de **IA** propio integrado en VSC Github Copilot para acelerar la generación de pruebas automaticas.
 
-- Automatización de servicios críticos (APIs, Web, Mobile) con un perfil técnico capaz de validar la lógica de negocio directamente en el código fuente.
+- Construcción de frameworks de automatización E2E robustos utilizando **Playwright** y Pytest para validar la lógica de negocio en servicios críticos (APIs, Web, Mobile).
 
-- Gestión técnica del ciclo de vida de pruebas, colaborando estrechamente con desarrolladores mediante análisis de logs y optimización de bases de datos SQL/NoSQL.
+- Gestión técnica del ciclo de pruebas y análisis de traces/logs, colaborando estrechamente con desarrolladores mediante la optimización de consultas SQL/NoSQL.
 
 
 
