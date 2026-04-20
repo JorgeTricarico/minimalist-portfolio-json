@@ -3,6 +3,7 @@ import { basics } from "@cv"
 import Section from "@/components/Section.astro"
 import Mail from "@/icons/Mail.astro"
 import Phone from "@/icons/Phone.astro"
+import WhatsApp from "@/icons/WhatsApp.astro"
 import X from "@/icons/X.astro"
 import LinkedIn from "@/icons/LinkedIn.astro"
 import GitHub from "@/icons/GitHub.astro"
@@ -51,14 +52,24 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ")
         }
         {
           phone && (
-            <a
-              href={`tel:${phone}`}
-              title={`Llamar por teléfono a ${name} al número ${phone}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Phone />
-            </a>
+            <>
+              <a
+                href={`tel:${phone}`}
+                title={`Llamar por teléfono a ${name} al número ${phone}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Phone />
+              </a>
+              <a
+                href={`https://wa.me/${phone.replace(/[^0-9]/g, "")}`}
+                title={`Enviar mensaje por WhatsApp a ${name}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <WhatsApp />
+              </a>
+            </>
           )
         }
         {
@@ -106,7 +117,7 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ")
   }
 
   h2 {
-    color: #444;
+    color: var(--text-muted);
     font-weight: 500;
     font-size: 1.1rem;
     text-wrap: balance;
@@ -120,7 +131,7 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ")
   }
 
   span {
-    color: #666;
+    color: var(--text-muted);
     display: flex;
     align-items: center;
     gap: 0.25rem;
@@ -129,7 +140,7 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ")
   }
 
   footer {
-    color: #555;
+    color: var(--text-muted);
     font-size: 0.65rem;
     display: flex;
     gap: 4px;
@@ -137,11 +148,11 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ")
   }
 
   footer a {
-    color: #777;
+    color: var(--text-muted);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #eee;
+    border: 1px solid var(--bg-page-edge);
     padding: 4px;
     height: 32px;
     width: 32px;
@@ -150,8 +161,8 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ")
   }
 
   footer a:hover {
-    background: #eee;
-    border: 1px solid #ddd;
+    background: var(--bg-page-edge);
+    border: 1px solid var(--bg-page-edge);
   }
 
   @media (width <= 700px) {

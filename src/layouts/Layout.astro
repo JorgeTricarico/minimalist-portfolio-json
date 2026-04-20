@@ -34,11 +34,34 @@ const { image, summary, url } = basics
     <meta name="twitter:image" content="" />
   </head>
   <body>
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
     <slot />
   </body>
 </html>
 
 <style is:global>
+  :root {
+    --bg-page-edge: #f3f4f6;
+    --bg-page-center: #ffffff;
+    --bg-card: rgba(255, 255, 255, 0.75);
+    --bg-footer: rgba(253, 253, 253, 0.8);
+    --text-main: #111;
+    --text-muted: #444;
+    --shadow-card: 0 0 100px 20px rgba(0, 0, 0, 0.02);
+    --animation-duration: 0.8s;
+  }
+
+  :root.dark {
+    --bg-page-edge: #050505;
+    --bg-page-center: #0a0a0a;
+    --bg-card: rgba(17, 17, 17, 0.7);
+    --bg-footer: rgba(10, 10, 10, 0.8);
+    --text-main: #eee;
+    --text-muted: #999;
+    --shadow-card: 0 0 150px 30px rgba(255, 255, 255, 0.01);
+  }
+
   html {
     font-family:
       Menlo,
@@ -47,8 +70,50 @@ const { image, summary, url } = basics
       "Courier New",
       Courier,
       monospace;
-    background: #fff;
+    background: var(--bg-page-center);
     letter-spacing: -0.025rem;
+    transition: background 0.5s ease;
+  }
+
+  .ambient-orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(90px); 
+    z-index: 1; 
+    pointer-events: none;
+    opacity: 0.5; 
+    animation: float 8s infinite alternate ease-in-out;
+    transition: opacity 0.5s ease, filter 0.5s ease;
+  }
+
+  html.dark .ambient-orb {
+    opacity: 0.35;
+    filter: blur(100px);
+  }
+
+  .orb-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #60a5fa 0%, transparent 70%);
+    top: -200px;
+    left: -200px;
+  }
+
+  .orb-2 {
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, #c084fc 0%, transparent 70%);
+    bottom: -150px;
+    right: -150px;
+    animation-delay: -3s;
+    animation-duration: 10s;
+  }
+
+  @keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(100px, 150px) scale(1.2); }
+    66% { transform: translate(-50px, 250px) scale(0.8); }
+    100% { transform: translate(20px, 50px) scale(1.1); }
   }
 
   body,
@@ -78,6 +143,7 @@ const { image, summary, url } = basics
   h3,
   h4 {
     margin: 0;
+    color: var(--text-main);
     font-family:
       system-ui,
       -apple-system,
@@ -93,7 +159,7 @@ const { image, summary, url } = basics
   }
 
   p {
-    color: #666;
+    color: var(--text-muted);
     font-size: 0.9rem;
     line-height: 1.5;
     margin: 0;
@@ -123,10 +189,15 @@ const { image, summary, url } = basics
 
     /* Force light mode when printing — removes dark mode filter */
     html, html.dark {
+      background: #fff !important;
       filter: none !important;
     }
     html.dark img, html.dark video {
       filter: none !important;
+    }
+
+    body {
+      background: #fff !important;
     }
 
     /* Compact layout to fit on one page */
@@ -165,12 +236,9 @@ const { image, summary, url } = basics
     }
   }
 
-  /* Dark mode invert hack */
-  html.dark {
-    filter: invert(1) hue-rotate(180deg);
-  }
-  html.dark img, html.dark video {
-    filter: invert(1) hue-rotate(180deg);
+  /* Native dark mode using variables instead of invert filter */
+  html.dark body {
+    color: var(--text-main);
   }
 
   /* Theme toggle button */
@@ -195,7 +263,13 @@ const { image, summary, url } = basics
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04);
-    transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+    transition: all 0.3s ease;
+  }
+
+  html.dark #theme-toggle {
+    background: rgba(30, 30, 30, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #eee;
   }
 
   #theme-toggle:hover {

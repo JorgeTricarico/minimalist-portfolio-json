@@ -62,13 +62,19 @@ const SKILLS_ICONS: Record<string, any> = {
 
   li {
     align-items: center;
-    background: #eee;
+    background: var(--bg-page-edge);
     border-radius: 6px;
-    color: black;
+    color: var(--text-main);
     display: flex;
     font-size: 0.8rem;
     font-weight: 500;
     gap: 4px;
     padding: 0.2rem 0.6rem;
+    transition: all 0.3s ease;
+  }
+
+  li:hover {
+    background: var(--bg-page-center);
+    transform: translateY(-2px);
   }
 </style>

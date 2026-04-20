@@ -29,13 +29,46 @@ const { name, label } = basics
 <style>
   main {
     padding: 4rem;
-    margin: auto;
+    margin: 0 auto;
     width: 100%;
+    max-width: 850px;
+    background: transparent;
+    box-shadow: none;
+    min-height: 100vh;
+    position: relative;
+    z-index: 10;
+    
+    /* Animación de armonización */
+    animation: reveal var(--animation-duration) ease-out forwards;
+  }
+
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @media (width <= 700px) {
     main {
       padding: 2rem;
+      margin: 0 auto;
+      border-radius: 0;
+    }
+  }
+
+  @media print {
+    main {
+      padding: 0 !important;
+      margin: 0 !important;
+      max-width: none !important;
+      box-shadow: none !important;
+      background: #fff !important;
+      animation: none !important;
     }
   }
 </style>
