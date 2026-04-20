@@ -19,7 +19,7 @@ Feb 2026 – presente
 
 3 meses
 
-- Desempeño de un rol pionero y disruptivo en el campo de la **IA** **Agentic**, definiendo nuevos paradigmas de validación de software mediante la orquestación recursiva de agentes inteligentes.
+- Desempeño de un rol pionero y disruptivo en el campo de la **IA** Agentica, definiendo nuevos paradigmas de validación de software mediante la orquestación recursiva de agentes inteligentes.
 
 - Desarrollo y refinamiento constante de agentes especializados mediante **Claude Code**, optimizando la confiabilidad del software a través de una interacción avanzada humano-agente.
 

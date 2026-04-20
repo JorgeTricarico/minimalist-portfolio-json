@@ -126,7 +126,7 @@ Especialista en #strong[IA] y #strong[QA] con un enfoque orientado a la ingenier
   [
     #strong[OneVisa - Dubai (UAE) \/ España], (Part-time) Senior #strong[QA] Engineer (AI & Reliability)
 
-    - Desempeño de un rol pionero y disruptivo en el campo de la #strong[IA] #strong[Agentic], definiendo nuevos paradigmas de validación de software mediante la orquestación recursiva de agentes inteligentes.
+    - Desempeño de un rol pionero y disruptivo en el campo de la #strong[IA] Agentica, definiendo nuevos paradigmas de validación de software mediante la orquestación recursiva de agentes inteligentes.
 
     - Desarrollo y refinamiento constante de agentes especializados mediante #strong[Claude Code], optimizando la confiabilidad del software a través de una interacción avanzada humano-agente.
 
