@@ -29,7 +29,7 @@ try {
       email: cv.email || "",
       phone: cv.phone || "",
       url: cv.website || "",
-      summary: cv.sections?.Resumen ? cv.sections.Resumen[0] : "",
+      summary: (cv.sections?.Resumen || cv.sections?.Summary) ? (cv.sections.Resumen || cv.sections.Summary)[0] : "",
       location: {
         address: "",
         postalCode: "1684", // Se puede agregar dinámicamente si se requiere
@@ -45,7 +45,7 @@ try {
           : `https://www.github.com/${p.username}`
       }))
     },
-    work: (cv.sections?.Experiencia || []).map(w => ({
+    work: (cv.sections?.Experiencia || cv.sections?.Experience || []).map(w => ({
       name: w.company,
       position: w.position,
       url: "",
@@ -55,7 +55,7 @@ try {
       highlights: w.highlights || []
     })),
     volunteer: [],
-    education: (cv.sections?.Educacion || []).map(e => ({
+    education: (cv.sections?.Educacion || cv.sections?.Education || []).map(e => ({
       institution: e.institution,
       url: "",
       area: e.area,
@@ -66,14 +66,14 @@ try {
       courses: e.highlights || []
     })),
     awards: [],
-    certificates: (cv.sections?.Certificados || []).map(c => ({
+    certificates: (cv.sections?.Certificados || cv.sections?.Certificates || []).map(c => ({
       name: c.name,
       date: "",
       issuer: c.issuer,
       url: ""
     })),
     publications: [],
-    skills: (cv.sections?.Habilidades || []).map(s => {
+    skills: (cv.sections?.Habilidades || cv.sections?.Skills || []).map(s => {
       // Intentar dividir details en un array si es un string separado por comas
       const keywords = typeof s.details === 'string' ? s.details.split(',').map(k => k.trim()) : [];
       return {

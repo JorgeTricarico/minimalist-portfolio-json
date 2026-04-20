@@ -43,7 +43,7 @@ Sep 2023 – Oct 2024
 
 
 
-# Educacion
+# Education
 ## **Universidad Nacional de Hurlingham**
 Ene 2024 – presente
 

@@ -90,7 +90,17 @@
   columns: (auto, 1fr),
   column-gutter: 0cm,
   align: horizon + left,
-  [#pad(left: 0.4cm, right: 0.4cm, image("perfil.jpg", width: 3.5cm))
+  [#pad(
+  left: 0.4cm, 
+  right: 0.4cm, 
+  box(
+    width: 3.5cm,
+    height: 3.5cm,
+    radius: 50%, 
+    clip: true, 
+    image("perfil.jpg", width: 100%, height: 100%, fit: "cover")
+  )
+)
 ],
   [
 = Jorge Tricarico
@@ -159,7 +169,7 @@ Especialista en IA y QA con un enfoque orientado a la ingeniería de software y 
   ],
 )
 
-== Educacion
+== Education
 
 #education-entry(
   [

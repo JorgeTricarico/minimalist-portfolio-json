@@ -16,34 +16,49 @@ import { work } from "@cv"
           return (
             <li>
               <article>
-                <header>
-                  <div>
-                    <h3>
-                      <a href={url} title={`Ver ${name}`} target="_blank">
-                        {name}
-                      </a>
-                    </h3>
-                    <h4>{position}</h4>
-                  </div>
+                <details>
+                  <summary>
+                    <header>
+                      <div>
+                        <h3>
+                          {url ? (
+                            <a href={url} title={`Ver ${name}`} target="_blank">
+                              {name}
+                            </a>
+                          ) : (
+                            name
+                          )}
+                        </h3>
+                        <h4>{position}</h4>
+                      </div>
 
-                  <div>
-                    <time 
-                      datetime={startDate}
-                      data-title={startDate}>
-                        {startYear}
-                    </time>
-                    {" - "}
-                    <time 
-                      datetime={endDate}
-                      data-title={endDate}>
-                        {endYear}
-                    </time>
-                  </div>
-                </header>
+                      <div>
+                        <time 
+                          datetime={startDate}
+                          data-title={startDate}>
+                            {startYear}
+                        </time>
+                        {" - "}
+                        <time 
+                          datetime={endDate}
+                          data-title={endDate}>
+                            {endYear}
+                        </time>
+                      </div>
+                    </header>
+                  </summary>
 
-                <footer>
-                  <p>{summary}</p>
-                </footer>
+                  <footer>
+                    {summary && <p>{summary}</p>}
+                    {highlights && (
+                      <ul>
+                        {highlights.map((highlight) => (
+                          <li set:html={highlight.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}></li>
+                        ))}
+                      </ul>
+                    )}
+                  </footer>
+                </details>
               </article>
             </li>
           )
@@ -58,6 +73,27 @@ import { work } from "@cv"
     display: flex;
     flex-direction: column;
     gap: 32px;
+  }
+
+  summary {
+    list-style: none;
+    cursor: pointer;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  footer {
+    padding-top: 8px;
+    color: #444;
+    font-size: 0.9rem;
+  }
+
+  footer ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    gap: 8px;
   }
 
   article h3 {
