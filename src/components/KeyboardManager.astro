@@ -59,7 +59,7 @@ const profilesInfo = profiles.map(({ network, url }) => {
 ---
 
 <footer id="normal-footer" class="no-print">
-  Pulsa <kbd>Cmd</kbd> + <kbd>K</kbd> para abrir la paleta de comandos.
+  Pulsa <kbd id="mod-key">Ctrl</kbd> + <kbd>K</kbd> para abrir la paleta de comandos.
 </footer>
 
 <div id="footer-button" class="no-print">
@@ -136,6 +136,13 @@ const profilesInfo = profiles.map(({ network, url }) => {
     ...data
   ])
 
+  // Detect Mac and update modifier key label
+  const isMac = navigator.platform.toUpperCase().includes('MAC') || navigator.userAgent.includes('Mac')
+  const modKeyEl = document.getElementById('mod-key')
+  if (modKeyEl) {
+    modKeyEl.textContent = isMac ? 'Cmd' : 'Ctrl'
+  }
+
   const footerButton = document.getElementById("footer-button")
   footerButton?.addEventListener("click", () => {
     var event = new KeyboardEvent("keydown", {
@@ -143,10 +150,10 @@ const profilesInfo = profiles.map(({ network, url }) => {
       code: "KeyK",
       keyCode: 75,
       which: 75,
-      ctrlKey: true,
+      ctrlKey: !isMac,
       altKey: false,
       shiftKey: false,
-      metaKey: false
+      metaKey: isMac
     })
 
     document.dispatchEvent(event)

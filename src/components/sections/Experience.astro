@@ -179,4 +179,24 @@ import { work } from "@cv"
       text-align: right;
     }
   }
+
+  @media print {
+    /* Force all details open so descriptions are visible */
+    details {
+      display: block !important;
+    }
+
+    details > footer {
+      display: block !important;
+    }
+
+    /* Compact spacing for print */
+    ul {
+      gap: 12px !important;
+    }
+
+    footer {
+      padding-top: 4px !important;
+    }
+  }
 </style>
