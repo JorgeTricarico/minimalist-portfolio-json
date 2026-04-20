@@ -58,7 +58,7 @@ import { work } from "@cv"
                   </summary>
 
                   <footer>
-                    {summary && <p>{summary}</p>}
+                    {summary && <p set:html={summary}></p>}
                     {highlights && (
                       <ul>
                         {highlights.map((highlight) => (

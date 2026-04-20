@@ -30,7 +30,7 @@ import { education } from "@cv"
                   {courses && courses.length > 0 && (
                     <ul class="education-details">
                       {courses.map(course => (
-                        <li>{course}</li>
+                        <li set:html={course}></li>
                       ))}
                     </ul>
                   )}
