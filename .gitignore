@@ -28,4 +28,3 @@ pnpm-debug.log*
 *.cjs
 read_pdf.js
 
-pnpm-lock.yaml
