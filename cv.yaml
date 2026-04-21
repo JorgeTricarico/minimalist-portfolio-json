@@ -68,7 +68,7 @@ cv:
         details: "Español (Nativo), Inglés (Intermedio)"
 
 design:
-  theme: classicrounded
+  theme: classic
   page:
     size: a4
     top_margin: 1.5cm

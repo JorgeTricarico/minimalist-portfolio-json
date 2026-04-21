@@ -15,6 +15,10 @@ Ingeniero de QA y Especialista en IA enfocado en la creación de producto y la c
 
 Feb 2026 – presente
 
+
+
+3 meses
+
 - Único responsable de QA en una startup en fase de alto crecimiento, liderando el diseño y la ejecución de la estrategia integral de automatización desde cero.
 
 - Escalabilidad de la cobertura de pruebas sin ampliar la plantilla, compensando la falta de recursos humanos mediante la creación y orquestación de agentes de IA con Claude Code.
@@ -26,6 +30,10 @@ Feb 2026 – presente
 ## **Tata Consultancy Service - Banco Galicia**, Analista QA Manual - Automation
 
 Abr 2023 – presente
+
+
+
+3 años 1 mes
 
 - Diseño y desarrollo de 'CobroTron', un agente de IA propio integrado en VSC Github Copilot para acelerar la generación de pruebas automaticas.
 
@@ -39,26 +47,26 @@ Abr 2023 – presente
 
 Sep 2023 – Oct 2024
 
+
+
+1 año 2 meses
+
 - Mentoría técnica avanzada en Python enfocada en la calidad del código, arquitectura de software y mejores prácticas de desarrollo para perfiles internacionales.
 
 
 
 # Educación
-## **Universidad Nacional de Hurlingham**, Inteligencia Artificial
-
-**Tec. Universitaria**
-
-
+## **Universidad Nacional de Hurlingham**
 Ene 2024 – presente
 
+*Tec. Universitaria* en Inteligencia Artificial
 
 
-## **Instituto Superior de Formación Docente N°109**, Economía y Gestión
 
-**Prof. de Educación Secundaria**
-
-
+## **Instituto Superior de Formación Docente N°109**
 Mar 2019 – Dic 2023
+
+*Prof. de Educación Secundaria* en Economía y Gestión
 
 - Adeudo último año
 

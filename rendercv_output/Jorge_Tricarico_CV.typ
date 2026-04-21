@@ -9,13 +9,13 @@
   top-note: [ #emph[Última actualización Abr 2026] ],
   locale-catalog-language: "es",
   text-direction: ltr,
-  page-size: "us-letter",
-  page-top-margin: 0.7in,
-  page-bottom-margin: 0.7in,
-  page-left-margin: 0.7in,
-  page-right-margin: 0.7in,
-  page-show-footer: true,
-  page-show-top-note: true,
+  page-size: "a4",
+  page-top-margin: 1.5cm,
+  page-bottom-margin: 1.5cm,
+  page-left-margin: 1.5cm,
+  page-right-margin: 1.5cm,
+  page-show-footer: false,
+  page-show-top-note: false,
   colors-body: rgb(0, 0, 0),
   colors-name: rgb(0, 79, 144),
   colors-headline: rgb(0, 79, 144),
@@ -32,15 +32,15 @@
   typography-font-family-headline: "Source Sans 3",
   typography-font-family-connections: "Source Sans 3",
   typography-font-family-section-titles: "Source Sans 3",
-  typography-font-size-body: 10pt,
-  typography-font-size-name: 30pt,
+  typography-font-size-body: 9.5pt,
+  typography-font-size-name: 24pt,
   typography-font-size-headline: 10pt,
-  typography-font-size-connections: 10pt,
-  typography-font-size-section-titles: 1.4em,
+  typography-font-size-connections: 9pt,
+  typography-font-size-section-titles: 1.2em,
   typography-small-caps-name: false,
   typography-small-caps-headline: false,
   typography-small-caps-connections: false,
-  typography-small-caps-section-titles: false,
+  typography-small-caps-section-titles: true,
   typography-bold-name: true,
   typography-bold-headline: false,
   typography-bold-connections: false,
@@ -49,9 +49,9 @@
   links-show-external-link-icon: false,
   header-alignment: center,
   header-photo-width: 3.5cm,
-  header-space-below-name: 0.7cm,
-  header-space-below-headline: 0.7cm,
-  header-space-below-connections: 0.7cm,
+  header-space-below-name: 0.4cm,
+  header-space-below-headline: 0.4cm,
+  header-space-below-connections: 0.5cm,
   header-connections-hyperlink: true,
   header-connections-show-icons: true,
   header-connections-display-urls-instead-of-usernames: false,
@@ -62,14 +62,14 @@
   section-titles-space-above: 0.5cm,
   section-titles-space-below: 0.3cm,
   sections-allow-page-break: true,
-  sections-space-between-text-based-entries: 0.3em,
-  sections-space-between-regular-entries: 1.2em,
-  entries-date-and-location-width: 4.15cm,
+  sections-space-between-text-based-entries: 0.5em,
+  sections-space-between-regular-entries: 1em,
+  entries-date-and-location-width: 3.8cm,
   entries-side-space: 0.2cm,
   entries-space-between-columns: 0.1cm,
   entries-allow-page-break: false,
   entries-short-second-row: true,
-  entries-degree-width: 1cm,
+  entries-degree-width: 0cm,
   entries-summary-space-left: 0cm,
   entries-summary-space-above: 0cm,
   entries-highlights-bullet:  "•" ,
@@ -81,7 +81,7 @@
   date: datetime(
     year: 2026,
     month: 4,
-    day: 20,
+    day: 21,
   ),
 )
 
@@ -90,17 +90,7 @@
   columns: (auto, 1fr),
   column-gutter: 0cm,
   align: horizon + left,
-  [#pad(
-  left: 0.4cm, 
-  right: 0.4cm, 
-  box(
-    width: 3.5cm,
-    height: 3.5cm,
-    radius: 50%, 
-    clip: true, 
-    image("perfil.jpg", width: 100%, height: 100%, fit: "cover")
-  )
-)
+  [#pad(left: 0.4cm, right: 0.4cm, image("perfil.jpg", width: 3.5cm))
 ],
   [
 = Jorge Tricarico
@@ -136,6 +126,10 @@ Ingeniero de QA y Especialista en IA enfocado en la creación de producto y la c
   [
     Feb 2026 – presente
 
+    
+
+    3 meses
+
   ],
 )
 
@@ -153,6 +147,10 @@ Ingeniero de QA y Especialista en IA enfocado en la creación de producto y la c
   [
     Abr 2023 – presente
 
+    
+
+    3 años 1 mes
+
   ],
 )
 
@@ -166,6 +164,10 @@ Ingeniero de QA y Especialista en IA enfocado en la creación de producto y la c
   [
     Sep 2023 – Oct 2024
 
+    
+
+    1 año 2 meses
+
   ],
 )
 
@@ -173,21 +175,22 @@ Ingeniero de QA y Especialista en IA enfocado en la creación de producto y la c
 
 #education-entry(
   [
-    #strong[Universidad Nacional de Hurlingham], Inteligencia Artificial
+    #strong[Universidad Nacional de Hurlingham]
+
+    #emph[Tec. Universitaria] en Inteligencia Artificial
 
   ],
   [
     Ene 2024 – presente
 
   ],
-  degree-column: [
-    #strong[Tec. Universitaria]
-  ],
 )
 
 #education-entry(
   [
-    #strong[Instituto Superior de Formación Docente N°109], Economía y Gestión
+    #strong[Instituto Superior de Formación Docente N°109]
+
+    #emph[Prof. de Educación Secundaria] en Economía y Gestión
 
     - Adeudo último año
 
@@ -195,9 +198,6 @@ Ingeniero de QA y Especialista en IA enfocado en la creación de producto y la c
   [
     Mar 2019 – Dic 2023
 
-  ],
-  degree-column: [
-    #strong[Prof. de Educación Secundaria]
   ],
 )
 
