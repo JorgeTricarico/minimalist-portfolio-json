@@ -137,7 +137,7 @@ const profilesInfo = profiles.map(({ network, url }) => {
   ])
 
   // Detect Mac and update modifier key label
-  const isMac = navigator.platform.toUpperCase().includes('MAC') || navigator.userAgent.includes('Mac')
+  const isMac = /Mac|iPhone|iPod|iPad/i.test(navigator.userAgent)
   const modKeyEl = document.getElementById('mod-key')
   if (modKeyEl) {
     modKeyEl.textContent = isMac ? 'Cmd' : 'Ctrl'

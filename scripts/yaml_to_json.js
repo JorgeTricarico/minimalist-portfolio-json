@@ -77,7 +77,7 @@ export const cvSchema = z.object({
     url: z.string(),
     github: z.string().optional()
   })).optional()
-}).passthrough();
+});
 
 export const applySmartBolding = (text, keywords) => {
   if (!text || !keywords || keywords.length === 0) return text;
