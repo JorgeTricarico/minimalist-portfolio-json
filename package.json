@@ -10,6 +10,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "cv": ".venv/bin/rendercv render cv.yaml",
+    "test": "vitest run",
     "astro": "astro"
   },
   "dependencies": {
@@ -19,5 +20,9 @@
     "js-yaml": "^4.1.1",
     "pdf-parse": "^2.4.5",
     "typescript": "5.3.3"
+  },
+  "devDependencies": {
+    "vitest": "^4.1.4",
+    "zod": "^4.3.6"
   }
 }

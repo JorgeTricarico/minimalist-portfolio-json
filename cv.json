@@ -165,7 +165,7 @@
     {
       "name": "Portfolio CV Automático",
       "isActive": true,
-      "description": "Desarrollo de este propio CV utilizando JSON Resume y Astro, con despliegue atomatizado.",
+      "description": "Desarrollo de este propio CV utilizando JSON Resume y Astro, con despliegue automatizado.",
       "highlights": [
         "JSON Resume",
         "Astro",
