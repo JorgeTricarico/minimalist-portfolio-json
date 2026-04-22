@@ -77,7 +77,7 @@ export const cvSchema = z.object({
     url: z.string(),
     github: z.string().optional()
   })).optional()
-});
+}).passthrough();
 
 export const applySmartBolding = (text, keywords) => {
   if (!text || !keywords || keywords.length === 0) return text;
@@ -90,11 +90,11 @@ export const applySmartBolding = (text, keywords) => {
 }
 
 export const getSection = (sections, possibleNames) => {
-    if (!sections) return null;
-    for (const name of possibleNames) {
-        if (sections[name]) return sections[name];
-    }
-    return null;
+  if (!sections) return null;
+  for (const name of possibleNames) {
+    if (sections[name]) return sections[name];
+  }
+  return null;
 }
 
 export const mapYamlToJson = (data) => {
@@ -111,13 +111,13 @@ export const mapYamlToJson = (data) => {
   const educationData = getSection(cv.sections, ['Educación', 'Educacion', 'Education']) || [];
   const certificatesData = getSection(cv.sections, ['Certificados', 'Certificates']) || [];
   const skillsData = getSection(cv.sections, ['Habilidades', 'Skills']) || [];
-  
+
   const formattedSummary = resumeText ? applySmartBolding(resumeText[0], boldKeywords) : "";
-  
+
   const jsonResume = {
     basics: {
       name: cv.name || "",
-      label: "Especialista en IA y QA",
+      label: cv.label || "AI-Driven QA Engineer",
       image: "/perfil.jpg",
       email: cv.email || "",
       phone: cv.phone || "",
@@ -133,8 +133,8 @@ export const mapYamlToJson = (data) => {
       profiles: (cv.social_networks || []).map(p => ({
         network: p.network,
         username: p.username,
-        url: p.network.toLowerCase() === 'linkedin' 
-          ? `https://www.linkedin.com/in/${p.username}/` 
+        url: p.network.toLowerCase() === 'linkedin'
+          ? `https://www.linkedin.com/in/${p.username}/`
           : `https://www.github.com/${p.username}`
       }))
     },
@@ -142,7 +142,7 @@ export const mapYamlToJson = (data) => {
       name: w.company,
       position: w.position,
       url: "",
-      startDate: w.start_date === "present" || !w.start_date ? "" : (w.start_date + "-01"), 
+      startDate: w.start_date === "present" || !w.start_date ? "" : (w.start_date + "-01"),
       endDate: w.end_date === "present" || !w.end_date ? null : (w.end_date + "-01"),
       summary: "",
       highlights: (w.highlights || []).map(h => applySmartBolding(h, boldKeywords))
@@ -191,7 +191,7 @@ export const mapYamlToJson = (data) => {
       }
     ]
   };
-  
+
   // Validate schema. This will throw a detailed error if invalid
   return cvSchema.parse(jsonResume);
 }
@@ -204,7 +204,7 @@ if (import.meta.url.startsWith('file:') && process.argv[1] === fileURLToPath(imp
   try {
     const fileContents = fs.readFileSync(yamlPath, 'utf8');
     const data = yaml.load(fileContents);
-    
+
     // Map with schema validation
     const jsonResume = mapYamlToJson(data);
 
@@ -214,10 +214,10 @@ if (import.meta.url.startsWith('file:') && process.argv[1] === fileURLToPath(imp
     if (e instanceof z.ZodError) {
       console.error("❌ Error de Validación de Zod en el esquema del CV generado:");
       console.error(JSON.stringify(e.errors, null, 2));
-      process.exit(1); 
+      process.exit(1);
     } else {
       console.error("❌ Error convirtiendo YAML a JSON:", e.message);
-      process.exit(1); 
+      process.exit(1);
     }
   }
 }
