@@ -167,7 +167,15 @@ export const mapYamlToJson = (data) => {
     })),
     publications: [],
     skills: skillsData.map(s => {
-      const keywords = typeof s.details === 'string' ? s.details.split(',').map(k => k.trim()) : [];
+      // Limpiamos los paréntesis tratándolos como separadores para que LLMs (OpenAI, Anthropic) 
+      // se convierta en [LLMs, OpenAI, Anthropic]
+      const keywords = typeof s.details === 'string' 
+        ? s.details
+            .replace(/[()]/g, ',') 
+            .split(',')
+            .map(k => k.trim())
+            .filter(k => k !== '') 
+        : [];
       return {
         name: s.label,
         level: "N/A",
