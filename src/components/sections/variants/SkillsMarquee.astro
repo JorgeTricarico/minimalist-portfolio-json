@@ -14,64 +14,64 @@ const CATEGORY_STYLES = {
 
 const getIconUrl = (name) => {
   const n = name.toLowerCase().trim();
+  
+  // Diccionario de slugs ultra-estables (Simple Icons & Lucide)
   const map = {
     // Testing
-    "playwright": "logos:playwright",
-    "cypress": "logos:cypress-icon",
-    "selenium": "logos:selenium",
-    "appium": "logos:appium",
-    "pytest": "logos:pytest",
-    "postman": "logos:postman-icon",
-    "bruno": "simple-icons:bruno",
-    "k6": "simple-icons:k6",
+    "playwright": "playwright",
+    "cypress": "cypress",
+    "selenium": "selenium",
+    "appium": "appium",
+    "pytest": "pytest",
+    "postman": "postman",
+    "bruno": "bruno",
+    "k6": "k6",
     
     // IA
-    "openai": "logos:openai-icon",
-    "gemini": "logos:google-gemini",
-    "claude": "logos:anthropic-icon",
-    "anthropic": "logos:anthropic-icon",
-    "deepseek": "simple-icons:deepseek",
-    "copilot": "logos:github-copilot",
-    "cursor": "simple-icons:cursor",
-    "hugging": "logos:hugging-face-icon",
-    "langchain": "simple-icons:langchain",
+    "openai": "openai",
+    "gemini": "googlegemini",
+    "claude": "anthropic",
+    "anthropic": "anthropic",
+    "deepseek": "deepseek",
+    "copilot": "githubcopilot",
+    "cursor": "cursor",
+    "hugging": "huggingface",
+    "langchain": "langchain",
     
     // Dev & Ops
-    "python": "logos:python",
-    "java": "logos:java",
-    "typescript": "logos:typescript-icon",
-    "javascript": "logos:javascript",
-    "node": "logos:nodejs-icon",
-    "fastapi": "logos:fastapi",
-    "aws": "logos:aws",
-    "azure": "logos:microsoft-azure",
-    "docker": "logos:docker-icon",
-    "jenkins": "logos:jenkins",
-    "linux": "logos:linux-tux",
-    "bash": "logos:bash-icon",
-    "github actions": "logos:github-actions",
-    "ci/cd": "lucide:infinity",
+    "python": "python",
+    "java": "java",
+    "typescript": "typescript",
+    "javascript": "javascript",
+    "node": "nodedotjs",
+    "fastapi": "fastapi",
+    "aws": "amazonaws",
+    "azure": "microsoftazure",
+    "docker": "docker",
+    "jenkins": "jenkins",
+    "linux": "linux",
+    "bash": "gnubash",
+    "github actions": "githubactions",
+    "supabase": "supabase",
     
     // Data
-    "sql": "logos:postgresql",
-    "nosql": "logos:mongodb-icon",
-    "grafana": "logos:grafana",
-    "kibana": "logos:kibana"
+    "sql": "postgresql",
+    "nosql": "mongodb",
+    "grafana": "grafana",
+    "kibana": "kibana"
   };
 
-  // Prioridad: 1. Coincidencia exacta, 2. Búsqueda de palabra clave, 3. Fallback inteligente
   const foundKey = Object.keys(map).find(key => n.includes(key));
-  const iconName = map[n] || (foundKey ? map[foundKey] : null);
+  if (foundKey) return `https://cdn.simpleicons.org/${map[foundKey]}`;
 
-  if (iconName) return `https://api.iconify.design/${iconName}.svg`;
-
-  // Fallbacks para conceptos abstractos
-  if (n.includes("bot") || n.includes("agente") || n.includes("antigravity")) return "https://api.iconify.design/lucide:bot.svg";
+  // Fallbacks para conceptos abstractos con Iconify (más versátil para esto)
+  if (n.includes("bot") || n.includes("agente") || n.includes("antigravity") || n.includes("cobrotron") || n.includes("fulltron")) return "https://api.iconify.design/lucide:bot.svg";
   if (n.includes("engram")) return "https://api.iconify.design/material-symbols:psychology.svg";
   if (n.includes("logs") || n.includes("traces") || n.includes("análisis")) return "https://api.iconify.design/lucide:file-search.svg";
   if (n.includes("idioma") || n.includes("inglés") || n.includes("español")) return "https://api.iconify.design/lucide:languages.svg";
+  if (n.includes("ci/cd") || n.includes("pipeline")) return "https://api.iconify.design/lucide:infinity.svg";
   
-  return `https://api.iconify.design/lucide:code-2.svg`;
+  return "https://api.iconify.design/lucide:code-2.svg";
 };
 ---
 
@@ -94,7 +94,12 @@ const getIconUrl = (name) => {
                 {keywords.map(keyword => (
                   <div class="skill-pill">
                     <div class="shine"></div>
-                    <img src={getIconUrl(keyword)} alt="" class="skill-icon" />
+                    <img 
+                      src={getIconUrl(keyword)} 
+                      alt="" 
+                      class="skill-icon" 
+                      onerror="this.style.opacity='0'"
+                    />
                     <span>{keyword}</span>
                   </div>
                 ))}
@@ -202,12 +207,6 @@ const getIconUrl = (name) => {
     height: 18px;
     object-fit: contain;
     transition: all 0.4s ease;
-  }
-
-  /* Invertir iconos de Lucide o logos negros cuando no están en hover */
-  html.dark .skill-icon {
-    /* Algunos logos de Iconify ya vienen con color, pero los de Lucide o simples los invertimos si son negros */
-    filter: brightness(1.2);
   }
 
   .shine {
