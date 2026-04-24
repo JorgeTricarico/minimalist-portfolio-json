@@ -9,7 +9,7 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "cv": ".venv/bin/rendercv render cv.yaml && cp rendercv_output/Jorge_Tricarico_CV.pdf public/cv.pdf",
+    "cv": "node scripts/yaml_to_json.js && .venv/bin/rendercv render cv.yaml && cp rendercv_output/Jorge_Tricarico_CV.pdf public/cv.pdf",
     "test": "vitest run",
     "astro": "astro"
   },
