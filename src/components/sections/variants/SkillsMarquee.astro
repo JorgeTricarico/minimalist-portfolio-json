@@ -5,7 +5,7 @@ import { skills } from "@cv"
 const CATEGORY_STYLES = {
   "IA & Agentes": { color: "#a78bfa", glow: "rgba(167, 139, 250, 0.4)", bg: "rgba(167, 139, 250, 0.1)" },
   "Testing & QA": { color: "#34d399", glow: "rgba(52, 211, 153, 0.4)", bg: "rgba(52, 211, 153, 0.1)" },
-  "Lenguajes": { color: "#fbbf24", glow: "rgba(251, 191, 36, 0.4)", bg: "rgba(251, 191, 36, 0.1)" },
+  "Dev & Ops": { color: "#fbbf24", glow: "rgba(251, 191, 36, 0.4)", bg: "rgba(251, 191, 36, 0.1)" },
   "Infra & Cloud": { color: "#60a5fa", glow: "rgba(96, 165, 250, 0.4)", bg: "rgba(96, 165, 250, 0.1)" },
   "Observabilidad & Data": { color: "#fb7185", glow: "rgba(251, 113, 133, 0.4)", bg: "rgba(251, 113, 133, 0.1)" },
   "Idiomas": { color: "#2dd4bf", glow: "rgba(45, 212, 191, 0.4)", bg: "rgba(45, 212, 191, 0.1)" },
@@ -13,45 +13,57 @@ const CATEGORY_STYLES = {
 };
 
 const getIconUrl = (name) => {
-  const n = name.toLowerCase();
+  const n = name.toLowerCase().trim();
   
-  if (n.includes("python")) return "https://api.iconify.design/logos:python.svg";
-  if (n.includes("javascript") || n.includes("typescript") || n.includes("js") || n.includes("ts")) return "https://api.iconify.design/logos:typescript-icon.svg";
-  if (n.includes("playwright")) return "https://api.iconify.design/logos:playwright.svg";
-  if (n.includes("claude")) return "https://api.iconify.design/logos:anthropic-icon.svg";
-  if (n.includes("copilot")) return "https://api.iconify.design/logos:github-copilot.svg";
-  if (n.includes("openai")) return "https://api.iconify.design/logos:openai-icon.svg";
-  if (n.includes("hugging")) return "https://api.iconify.design/logos:hugging-face-icon.svg";
-  if (n.includes("langchain")) return "https://api.iconify.design/simple-icons:langchain.svg";
-  if (n.includes("java") && !n.includes("script")) return "https://api.iconify.design/logos:java.svg";
-  if (n.includes("cypress")) return "https://api.iconify.design/logos:cypress-icon.svg";
-  if (n.includes("selenium")) return "https://api.iconify.design/logos:selenium.svg";
-  if (n.includes("appium")) return "https://api.iconify.design/logos:appium.svg";
-  if (n.includes("pytest")) return "https://api.iconify.design/logos:pytest.svg";
-  if (n.includes("postman")) return "https://api.iconify.design/logos:postman-icon.svg";
-  if (n.includes("bruno")) return "https://api.iconify.design/simple-icons:bruno.svg";
-  if (n.includes("aws")) return "https://api.iconify.design/logos:aws.svg";
-  if (n.includes("azure")) return "https://api.iconify.design/logos:microsoft-azure.svg";
-  if (n.includes("docker")) return "https://api.iconify.design/logos:docker-icon.svg";
-  if (n.includes("jenkins")) return "https://api.iconify.design/logos:jenkins.svg";
-  if (n.includes("supabase")) return "https://api.iconify.design/logos:supabase-icon.svg";
-  if (n.includes("linux") || n.includes("bash")) return "https://api.iconify.design/logos:linux-tux.svg";
-  if (n.includes("grafana")) return "https://api.iconify.design/logos:grafana.svg";
-  if (n.includes("kibana")) return "https://api.iconify.design/logos:kibana.svg";
-  if (n.includes("github actions")) return "https://api.iconify.design/logos:github-actions.svg";
-  if (n.includes("node")) return "https://api.iconify.design/logos:nodejs-icon.svg";
-  if (n.includes("react")) return "https://api.iconify.design/logos:react.svg";
-  if (n.includes("browserstack")) return "https://api.iconify.design/simple-icons:browserstack.svg";
+  // Mapeo exhaustivo
+  const map = {
+    "playwright": "logos:playwright",
+    "python": "logos:python",
+    "pytest": "logos:pytest",
+    "java": "logos:java",
+    "typescript": "logos:typescript-icon",
+    "javascript": "logos:javascript",
+    "cypress": "logos:cypress-icon",
+    "selenium": "logos:selenium",
+    "appium": "logos:appium",
+    "postman": "logos:postman-icon",
+    "bruno": "simple-icons:bruno",
+    "aws": "logos:aws",
+    "azure": "logos:microsoft-azure",
+    "docker": "logos:docker-icon",
+    "jenkins": "logos:jenkins",
+    "grafana": "logos:grafana",
+    "kibana": "logos:kibana",
+    "openai": "logos:openai-icon",
+    "gemini": "logos:google-gemini",
+    "anthropic": "logos:anthropic-icon",
+    "claude": "logos:anthropic-icon",
+    "deepseek": "simple-icons:deepseek",
+    "cursor": "simple-icons:cursor",
+    "vsc": "logos:visual-studio-code",
+    "visual studio code": "logos:visual-studio-code",
+    "github copilot": "logos:github-copilot",
+    "k6": "simple-icons:k6",
+    "sentry": "logos:sentry-icon",
+    "fastapi": "logos:fastapi",
+    "github actions": "logos:github-actions",
+    "nodejs": "logos:nodejs-icon",
+    "node.js": "logos:nodejs-icon"
+  };
 
-  // Fallbacks
+  if (n.includes("playwright")) return "https://api.iconify.design/logos:playwright.svg";
+  if (n.includes("python")) return "https://api.iconify.design/logos:python.svg";
+  if (n.includes("pytest")) return "https://api.iconify.design/logos:pytest.svg";
+  if (n.includes("antigravity")) return "https://api.iconify.design/lucide:orbit.svg";
+  if (n.includes("engram")) return "https://api.iconify.design/material-symbols:psychology.svg";
+  if (n.includes("bot") || n.includes("cobrotron") || n.includes("fulltron")) return "https://api.iconify.design/lucide:bot.svg";
+  if (n.includes("logs") || n.includes("traces")) return "https://api.iconify.design/lucide:file-search.svg";
+  if (n.includes("idioma") || n.includes("inglés") || n.includes("español")) return "https://api.iconify.design/lucide:languages.svg";
   if (n.includes("sql") && !n.includes("no")) return "https://api.iconify.design/logos:postgresql.svg";
   if (n.includes("nosql")) return "https://api.iconify.design/logos:mongodb-icon.svg";
-  if (n.includes("logs") || n.includes("traces") || n.includes("análisis")) return "https://api.iconify.design/lucide:file-search.svg";
-  if (n.includes("bot") || n.includes("agente") || n.includes("cobrotron") || n.includes("fulltron")) return "https://api.iconify.design/lucide:bot.svg";
-  if (n.includes("idioma") || n.includes("inglés") || n.includes("español")) return "https://api.iconify.design/lucide:languages.svg";
-  if (n.includes("api")) return "https://api.iconify.design/lucide:webhook.svg";
 
-  return `https://api.iconify.design/lucide:code-2.svg`;
+  const iconName = map[n] || (Object.keys(map).find(k => n.includes(k)) ? map[Object.keys(map).find(k => n.includes(k))] : "lucide:code-2");
+  return `https://api.iconify.design/${iconName}.svg`;
 };
 ---
 
@@ -60,25 +72,20 @@ const getIconUrl = (name) => {
     {
       skills.map(({ name, keywords }, index) => {
         const isReverse = index % 2 !== 0;
-        const directionClass = isReverse ? "scroll-reverse" : "scroll-normal";
-        const speed = 45 + (index * 15); 
+        const speed = 50 + (index * 20); 
         const style = CATEGORY_STYLES[name] || CATEGORY_STYLES.default;
 
         return (
           <div class="marquee-row" style={`--duration: ${speed}s; --accent-color: ${style.color}; --accent-glow: ${style.glow}; --accent-bg: ${style.bg};`}>
             {[1, 2, 3].map(() => (
-              <div class={`marquee-content ${directionClass}`}>
+              <div class={`marquee-content ${isReverse ? 'scroll-reverse' : 'scroll-normal'}`}>
                 <div class="category-tag">
                   <span class="dot"></span>
                   {name}
                 </div>
                 {keywords.map(keyword => (
                   <div class="skill-pill">
-                    <img 
-                      src={getIconUrl(keyword)} 
-                      alt="" 
-                      class="skill-icon"
-                    />
+                    <img src={getIconUrl(keyword)} alt="" class="skill-icon" />
                     <span>{keyword}</span>
                   </div>
                 ))}
@@ -96,30 +103,22 @@ const getIconUrl = (name) => {
   .marquee-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 1.8rem;
+    gap: 0.8rem;
     overflow: hidden;
     width: 100%;
-    padding-block: 1.5rem;
-    position: relative;
-    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    padding-block: 0.5rem;
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
   }
 
-  .marquee-row {
-    display: flex;
-    width: max-content;
-    align-items: center;
-  }
-
-  .marquee-row:hover .marquee-content {
-    animation-play-state: paused;
-  }
+  .marquee-row { display: flex; width: max-content; align-items: center; }
+  .marquee-row:hover .marquee-content { animation-play-state: paused; }
 
   .marquee-content {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     align-items: center;
-    padding-right: 2rem;
+    padding-right: 1rem;
     flex-shrink: 0;
   }
 
@@ -132,85 +131,71 @@ const getIconUrl = (name) => {
   .category-tag {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 0.7rem;
+    gap: 6px;
+    font-size: 0.6rem;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     color: var(--accent-color);
     background: var(--accent-bg);
-    padding: 6px 14px;
+    padding: 3px 10px;
     border-radius: 100px;
-    border: 1px solid rgba(var(--accent-color), 0.3);
-    box-shadow: 0 0 15px var(--accent-bg);
+    border: 1px solid rgba(var(--accent-color), 0.2);
     white-space: nowrap;
   }
 
   .dot {
-    width: 6px;
-    height: 6px;
+    width: 4px;
+    height: 4px;
     background: var(--accent-color);
     border-radius: 50%;
-    box-shadow: 0 0 8px var(--accent-color);
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
-    100% { opacity: 1; transform: scale(1); }
+    box-shadow: 0 0 5px var(--accent-color);
   }
 
   .row-separator {
-    width: 40px;
+    width: 20px;
     height: 1px;
-    background: linear-gradient(to right, var(--accent-color), transparent);
-    opacity: 0.2;
+    background: var(--accent-color);
+    opacity: 0.1;
   }
 
   .skill-pill {
     background: var(--bg-page-edge);
-    border-radius: 12px;
+    border-radius: 8px;
     color: var(--text-main);
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 0.95rem;
+    gap: 8px;
+    font-size: 0.75rem;
     font-weight: 600;
-    padding: 0.6rem 1.4rem;
-    transition: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    padding: 0.3rem 0.7rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0, 0, 0, 0.03);
     white-space: nowrap;
   }
 
   .skill-icon {
-    width: 22px;
-    height: 22px;
+    width: 14px;
+    height: 14px;
     object-fit: contain;
-    transition: all 0.3s ease;
   }
 
   .skill-pill:hover {
     background: var(--accent-color);
     color: white;
-    transform: scale(1.1) translateY(-5px);
-    box-shadow: 0 15px 30px -10px var(--accent-glow);
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 15px -5px var(--accent-glow);
     border-color: transparent;
     z-index: 20;
   }
 
   .skill-pill:hover .skill-icon {
-    transform: scale(1.2);
     filter: brightness(0) invert(1);
+    transform: scale(1.1);
   }
 
   html.dark .skill-pill {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  html.dark .skill-pill:hover {
-    box-shadow: 0 0 35px var(--accent-glow);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
 </style>

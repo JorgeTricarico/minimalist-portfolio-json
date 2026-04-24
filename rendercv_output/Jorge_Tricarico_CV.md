@@ -73,14 +73,12 @@ Mar 2019 – Dic 2023
 
 
 # Habilidades
-**IA & Agentes:** Claude Code, GitHub Copilot, Prompt Engineering, Arquitectura de Agentes, LLMs (Anthropic, OpenAI)
+**IA & Agentes:** Claude Code, Gemini, DeepSeek, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, LLMs (OpenAI, Anthropic)
 
-**Testing & QA:** Playwright, Cypress, Selenium, Appium, Pytest, Postman, Bruno, Automatización de APIs
+**Testing & QA:** Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno, Sentry
 
-**Lenguajes:** Python, TypeScript, JavaScript, Java, Node.js
+**Dev & Ops:** Python, TypeScript, JavaScript, Java, Node.js, FastAPI, AWS, Docker, Jenkins
 
-**Infra & Cloud:** AWS, Azure, Docker, Jenkins, Supabase, CI/CD, Linux/Bash
-
-**Observabilidad & Data:** Grafana, Kibana, SQL, NoSQL, Análisis de Traces/Logs
+**Observabilidad & Data:** Grafana, Kibana, SQL, NoSQL, Análisis de Traces/Logs, GitHub Actions
 
 **Idiomas:** Español, Inglés
