@@ -117,7 +117,7 @@ export const mapYamlToJson = (data) => {
   const jsonResume = {
     basics: {
       name: cv.name || "",
-      label: cv.label || "AI-Driven QA Engineer",
+      label: cv.headline || cv.label || "AI-Driven QA Engineer",
       image: "/perfil.jpg",
       email: cv.email || "",
       phone: cv.phone || "",

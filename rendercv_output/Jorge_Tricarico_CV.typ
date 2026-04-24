@@ -81,7 +81,7 @@
   date: datetime(
     year: 2026,
     month: 4,
-    day: 22,
+    day: 24,
   ),
 )
 
@@ -94,6 +94,8 @@
 ],
   [
 = Jorge Tricarico
+
+  #headline([AI-Driven QA Engineer])
 
 #connections(
   [#connection-with-icon("location-dot")[Buenos Aires, AR]],
@@ -108,7 +110,7 @@
 
 == Resumen
 
-Ingeniero de QA y Especialista en IA enfocada en la creación de producto y la confiabilidad del software. Cuento con un perfil técnico full-stack que potencio mediante el uso avanzado de LLMs y herramientas agenticas. Me especializo en liderar la automatización en entornos dinámicos, compensando limitaciones de recursos mediante arquitecturas innovadoras y optimizando la entrega de valor con total autonomía técnica.
+Ingeniero de QA y Especialista en IA enfocado en la creación de producto y la confiabilidad del software. Cuento con un perfil técnico full-stack que potencio mediante el uso avanzado de LLMs y herramientas agenticas. Me especializo en liderar la automatización en entornos dinámicos, compensando limitaciones de recursos mediante arquitecturas innovadoras y optimizando la entrega de valor con total autonomía técnica.
 
 == Experiencia
 
@@ -137,11 +139,11 @@ Ingeniero de QA y Especialista en IA enfocada en la creación de producto y la c
   [
     #strong[Tata Consultancy Service - Banco Galicia], Analista QA Manual - Automation
 
-    - Diseño y desarrollo de 'CobroTron', un agente de IA propio integrado en VSC Github Copilot para acelerar la generación de pruebas automaticas.
+    - Diseño y desarrollo de 'CobroTron', un agente de IA propio integrado en VSC Github Copilot, especializado en acelerar fuertemente la generación de scripts de automatización para flujos web utilizando Playwright y Python.
 
-    - Construcción de frameworks de automatización E2E robustos utilizando Playwright y Pytest para validar la lógica de negocio en servicios críticos (APIs, Web, Mobile).
+    - Construcción de 'FullTron', la máxima evolución de agente QA con autodiagnóstico pionero para iterar tests de forma autónoma. Genera frameworks completos (POM) E2E para Apps nativas\/React (Appium + BrowserStack), APIs y Web; subiendo métricas de Pass\/Fail y evidencia de forma automática al sistema ALM.
 
-    - Gestión técnica del ciclo de pruebas y análisis de traces\/logs, colaborando estrechamente con desarrolladores mediante la optimización de consultas SQL\/NoSQL.
+    - Gestión técnica ágil del ciclo de pruebas y análisis de traces\/logs, colaborando cercanamente con desarrolladores mediante la optimización de infraestructura y queries (SQL\/NoSQL).
 
   ],
   [
@@ -205,10 +207,12 @@ Ingeniero de QA y Especialista en IA enfocada en la creación de producto y la c
 
 #strong[IA & Agentes:] Claude Code, GitHub Copilot, Prompt Engineering, Arquitectura de Agentes, LLMs (Anthropic, OpenAI)
 
-#strong[Core Testing:] Playwright, Selenium, Pytest, Automatización de APIs, Diagnósticos IA, OCR Validation
+#strong[Testing & QA:] Playwright, Cypress, Selenium, Appium, Pytest, Postman, Bruno, Automatización de APIs
 
-#strong[Lenguajes:] Python (Avanzado), TypeScript, Java
+#strong[Lenguajes:] Python (Avanzado), TypeScript \/ JavaScript, Java, Node.js
 
-#strong[Cloud & Infra:] Docker, Supabase, Linux\/Bash, CI\/CD, Jenkins, OpenShift
+#strong[Infra & Cloud:] AWS, Azure, Docker, Jenkins, Supabase, CI\/CD, Linux\/Bash
+
+#strong[Observabilidad & Data:] Grafana, Kibana, SQL, NoSQL, Análisis de Traces\/Logs
 
 #strong[Idiomas:] Español (Nativo), Inglés (Intermedio)

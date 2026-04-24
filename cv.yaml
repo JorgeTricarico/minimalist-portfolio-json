@@ -1,6 +1,6 @@
 cv:
   name: "Jorge Tricarico"
-  label: "AI-Driven QA Engineer"
+  headline: "AI-Driven QA Engineer"
   photo: "public/perfil.jpg"
   location: "Buenos Aires, AR"
   email: "jorge.tricarico@gmail.com"
@@ -30,9 +30,9 @@ cv:
         start_date: "2023-04"
         end_date: "present"
         highlights:
-          - "Diseño y desarrollo de 'CobroTron', un agente de IA propio integrado en VSC Github Copilot para acelerar la generación de pruebas automaticas."
-          - "Construcción de frameworks de automatización E2E robustos utilizando Playwright y Pytest para validar la lógica de negocio en servicios críticos (APIs, Web, Mobile)."
-          - "Gestión técnica del ciclo de pruebas y análisis de traces/logs, colaborando estrechamente con desarrolladores mediante la optimización de consultas SQL/NoSQL."
+          - "Diseño y desarrollo de 'CobroTron', un agente de IA propio integrado en VSC Github Copilot, especializado en acelerar fuertemente la generación de scripts de automatización para flujos web utilizando Playwright y Python."
+          - "Construcción de 'FullTron', la máxima evolución de agente QA con autodiagnóstico pionero para iterar tests de forma autónoma. Genera frameworks completos (POM) E2E para Apps nativas/React (Appium + BrowserStack), APIs y Web; subiendo métricas de Pass/Fail y evidencia de forma automática al sistema ALM."
+          - "Gestión técnica ágil del ciclo de pruebas y análisis de traces/logs, colaborando cercanamente con desarrolladores mediante la optimización de infraestructura y queries (SQL/NoSQL)."
 
       - company: "Ada School - Colombia"
         position: "Profesor Python (BootCamp Data y FullStack)"
@@ -59,12 +59,14 @@ cv:
     Habilidades:
       - label: "IA & Agentes"
         details: "Claude Code, GitHub Copilot, Prompt Engineering, Arquitectura de Agentes, LLMs (Anthropic, OpenAI)"
-      - label: "Core Testing"
-        details: "Playwright, Selenium, Pytest, Automatización de APIs, Diagnósticos IA, OCR Validation"
+      - label: "Testing & QA"
+        details: "Playwright, Cypress, Selenium, Appium, Pytest, Postman, Bruno, Automatización de APIs"
       - label: "Lenguajes"
-        details: "Python (Avanzado), TypeScript, Java"
-      - label: "Cloud & Infra"
-        details: "Docker, Supabase, Linux/Bash, CI/CD, Jenkins, OpenShift"
+        details: "Python (Avanzado), TypeScript / JavaScript, Java, Node.js"
+      - label: "Infra & Cloud"
+        details: "AWS, Azure, Docker, Jenkins, Supabase, CI/CD, Linux/Bash"
+      - label: "Observabilidad & Data"
+        details: "Grafana, Kibana, SQL, NoSQL, Análisis de Traces/Logs"
       - label: "Idiomas"
         details: "Español (Nativo), Inglés (Intermedio)"
 

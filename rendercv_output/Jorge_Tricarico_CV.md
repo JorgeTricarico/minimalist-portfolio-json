@@ -8,7 +8,7 @@
 
 
 # Resumen
-Ingeniero de QA y Especialista en IA enfocada en la creación de producto y la confiabilidad del software. Cuento con un perfil técnico full-stack que potencio mediante el uso avanzado de LLMs y herramientas agenticas. Me especializo en liderar la automatización en entornos dinámicos, compensando limitaciones de recursos mediante arquitecturas innovadoras y optimizando la entrega de valor con total autonomía técnica.
+Ingeniero de QA y Especialista en IA enfocado en la creación de producto y la confiabilidad del software. Cuento con un perfil técnico full-stack que potencio mediante el uso avanzado de LLMs y herramientas agenticas. Me especializo en liderar la automatización en entornos dinámicos, compensando limitaciones de recursos mediante arquitecturas innovadoras y optimizando la entrega de valor con total autonomía técnica.
 
 # Experiencia
 ## **OneVisa - Dubai (UAE) / España**, (Part-time) Senior Principal QA Engineer (AI & Reliability)
@@ -35,11 +35,11 @@ Abr 2023 – presente
 
 3 años 1 mes
 
-- Diseño y desarrollo de 'CobroTron', un agente de IA propio integrado en VSC Github Copilot para acelerar la generación de pruebas automaticas.
+- Diseño y desarrollo de 'CobroTron', un agente de IA propio integrado en VSC Github Copilot, especializado en acelerar fuertemente la generación de scripts de automatización para flujos web utilizando Playwright y Python.
 
-- Construcción de frameworks de automatización E2E robustos utilizando Playwright y Pytest para validar la lógica de negocio en servicios críticos (APIs, Web, Mobile).
+- Construcción de 'FullTron', la máxima evolución de agente QA con autodiagnóstico pionero para iterar tests de forma autónoma. Genera frameworks completos (POM) E2E para Apps nativas/React (Appium + BrowserStack), APIs y Web; subiendo métricas de Pass/Fail y evidencia de forma automática al sistema ALM.
 
-- Gestión técnica del ciclo de pruebas y análisis de traces/logs, colaborando estrechamente con desarrolladores mediante la optimización de consultas SQL/NoSQL.
+- Gestión técnica ágil del ciclo de pruebas y análisis de traces/logs, colaborando cercanamente con desarrolladores mediante la optimización de infraestructura y queries (SQL/NoSQL).
 
 
 
@@ -75,10 +75,12 @@ Mar 2019 – Dic 2023
 # Habilidades
 **IA & Agentes:** Claude Code, GitHub Copilot, Prompt Engineering, Arquitectura de Agentes, LLMs (Anthropic, OpenAI)
 
-**Core Testing:** Playwright, Selenium, Pytest, Automatización de APIs, Diagnósticos IA, OCR Validation
+**Testing & QA:** Playwright, Cypress, Selenium, Appium, Pytest, Postman, Bruno, Automatización de APIs
 
-**Lenguajes:** Python (Avanzado), TypeScript, Java
+**Lenguajes:** Python (Avanzado), TypeScript / JavaScript, Java, Node.js
 
-**Cloud & Infra:** Docker, Supabase, Linux/Bash, CI/CD, Jenkins, OpenShift
+**Infra & Cloud:** AWS, Azure, Docker, Jenkins, Supabase, CI/CD, Linux/Bash
+
+**Observabilidad & Data:** Grafana, Kibana, SQL, NoSQL, Análisis de Traces/Logs
 
 **Idiomas:** Español (Nativo), Inglés (Intermedio)

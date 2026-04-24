@@ -1,0 +1,186 @@
+---
+import Section from "../../Section.astro"
+import { skills } from "@cv"
+
+// Pasamos los datos agrupados para asignar colores por categoría
+const skillsData = skills.map(s => ({
+  category: s.name,
+  items: s.keywords
+}));
+---
+
+<Section title="Habilidades">
+  <div class="physics-wrapper">
+    <div id="skills-physics-container" class="physics-container">
+      <canvas id="physics-canvas"></canvas>
+      <div class="physics-instruction">Interactúa con las habilidades</div>
+    </div>
+  </div>
+</Section>
+
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+
+<script define:vars={{ skillsData }}>
+  const CATEGORY_COLORS = {
+    "IA & Agentes": { light: "#ede9fe", dark: "#4c1d95", textLight: "#5b21b6", textDark: "#c4b5fd" }, // Violeta
+    "Testing & QA": { light: "#f0fdf4", dark: "#064e3b", textLight: "#166534", textDark: "#86efac" }, // Verde
+    "Lenguajes": { light: "#fffbeb", dark: "#78350f", textLight: "#92400e", textDark: "#fde68a" },    // Ambar
+    "Infra & Cloud": { light: "#eff6ff", dark: "#1e3a8a", textLight: "#1e40af", textDark: "#93c5fd" }, // Azul
+    "Observabilidad & Data": { light: "#fff1f2", dark: "#881337", textLight: "#9f1239", textDark: "#fda4af" }, // Rosa/Rojo
+    "default": { light: "#f9fafb", dark: "#1f2937", textLight: "#374151", textDark: "#d1d5db" }
+  };
+
+  function initPhysics() {
+    const container = document.getElementById('skills-physics-container');
+    const canvas = document.getElementById('physics-canvas');
+    if (!container || !canvas || !window.Matter) return;
+
+    const { Engine, Render, Runner, World, Bodies, Mouse, MouseConstraint, Composite } = window.Matter;
+
+    const width = container.clientWidth;
+    const height = 400; // Más compacto
+    
+    engine = Engine.create();
+    world = engine.world;
+    world.gravity.y = 0.5;
+
+    render = Render.create({
+      canvas: canvas,
+      engine: engine,
+      options: {
+        width: width,
+        height: height,
+        background: 'transparent',
+        wireframes: false,
+        pixelRatio: window.devicePixelRatio
+      }
+    });
+
+    Render.run(render);
+    runner = Runner.create();
+    Runner.run(runner, engine);
+
+    const wallOptions = { isStatic: true, render: { visible: false } };
+    Composite.add(world, [
+      Bodies.rectangle(width / 2, height + 25, width, 50, wallOptions),
+      Bodies.rectangle(-25, height / 2, 50, height, wallOptions),
+      Bodies.rectangle(width + 25, height / 2, 50, height, wallOptions),
+      Bodies.rectangle(width / 2, -25, width, 50, wallOptions)
+    ]);
+
+    const bodies = [];
+    skillsData.forEach(group => {
+      const colors = CATEGORY_COLORS[group.category] || CATEGORY_COLORS.default;
+      
+      group.items.forEach(text => {
+        const textWidth = text.length * 8 + 25;
+        const x = Math.random() * (width - 100) + 50;
+        const y = -Math.random() * 400;
+
+        const body = Bodies.rectangle(x, y, textWidth, 34, {
+          chamfer: { radius: 17 },
+          restitution: 0.5,
+          friction: 0.1,
+          render: { visible: false }
+        });
+
+        body.skillText = text;
+        body.colors = colors;
+        bodies.push(body);
+      });
+    });
+
+    Composite.add(world, bodies);
+
+    const mouse = Mouse.create(render.canvas);
+    const mouseConstraint = MouseConstraint.create(engine, {
+      mouse: mouse,
+      constraint: { stiffness: 0.2, render: { visible: false } }
+    });
+
+    Composite.add(world, mouseConstraint);
+
+    window.Matter.Events.on(render, 'afterRender', () => {
+      const ctx = render.context;
+      const isDark = document.documentElement.classList.contains('dark');
+      
+      ctx.font = '600 12px Inter, system-ui, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      
+      bodies.forEach(body => {
+        const { x, y } = body.position;
+        const { light, dark, textLight, textDark } = body.colors;
+        const w = (body.bounds.max.x - body.bounds.min.x);
+        
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(body.angle);
+        
+        // Fondo burbuja
+        ctx.beginPath();
+        ctx.roundRect(-w/2, -17, w, 34, 17);
+        ctx.fillStyle = isDark ? dark : light;
+        ctx.fill();
+        
+        // Borde sutil
+        ctx.strokeStyle = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)';
+        ctx.stroke();
+        
+        // Texto
+        ctx.fillStyle = isDark ? textDark : textLight;
+        ctx.fillText(body.skillText, 0, 0);
+        ctx.restore();
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', initPhysics);
+  setTimeout(initPhysics, 200);
+</script>
+
+<style>
+  .physics-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .physics-container {
+    width: 100%;
+    max-width: 600px; /* Contenedor más pequeño y equilibrado */
+    height: 400px;
+    background: var(--bg-page-edge);
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    cursor: grab;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);
+  }
+
+  html.dark .physics-container {
+    background: rgba(15, 15, 15, 0.3);
+    border: 1px solid rgba(255,255,255,0.03);
+    box-shadow: inset 0 2px 20px rgba(0,0,0,0.2);
+  }
+
+  .physics-container:active {
+    cursor: grabbing;
+  }
+
+  .physics-instruction {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.4;
+    pointer-events: none;
+    color: var(--text-main);
+  }
+</style>le>

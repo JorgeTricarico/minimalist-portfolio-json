@@ -1,0 +1,95 @@
+---
+import Section from "../../Section.astro"
+import { skills } from "@cv"
+
+const allSkills = skills.flatMap(s => s.keywords);
+---
+
+<Section title="Habilidades">
+  <div class="sphere-wrapper">
+    <div id="skills-sphere" class="sphere-canvas"></div>
+  </div>
+</Section>
+
+<script is:inline src="https://cdn.jsdelivr.net/npm/TagCloud@2.2.0/dist/TagCloud.min.js"></script>
+
+<script define:vars={{ allSkills }}>
+  function startCloud() {
+    const container = '.sphere-canvas';
+    const el = document.querySelector(container);
+    if (!el) return;
+    
+    el.innerHTML = '';
+    
+    const width = window.innerWidth;
+    const radius = width < 600 ? 150 : width < 900 ? 250 : 300;
+
+    const options = {
+      radius: radius,
+      maxSpeed: 'normal',
+      initSpeed: 'slow',
+      direction: 135,
+      keep: true
+    };
+
+    if (window.TagCloud) {
+      window.TagCloud(container, allSkills, options);
+    }
+  }
+
+  document.addEventListener('astro:page-load', startCloud);
+  // Pequeño timeout para asegurar que el DOM y el script externo estén listos
+  setTimeout(startCloud, 100);
+</script>
+
+<style>
+  .sphere-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 650px; /* Aumentado para que quepa la esfera de radio 300 (diámetro 600) */
+    margin-top: -20px;
+    position: relative;
+    overflow: visible;
+  }
+
+  .sphere-canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  :global(.tagcloud) {
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  :global(.tagcloud--item) {
+    color: var(--text-main);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  :global(.tagcloud--item:hover) {
+    opacity: 1;
+    color: var(--bg-body);
+    background: var(--text-main);
+    padding: 4px 12px;
+    border-radius: 20px;
+    transform: scale(1.2);
+    z-index: 1000;
+  }
+
+  html.dark :global(.tagcloud--item) {
+    color: rgba(255,255,255,0.7);
+  }
+
+  html.dark :global(.tagcloud--item:hover) {
+    color: var(--bg-body);
+    background: #fff;
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  }
+</style>

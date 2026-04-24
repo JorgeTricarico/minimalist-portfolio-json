@@ -1,0 +1,235 @@
+---
+import Section from "../../Section.astro"
+import { skills } from "@cv"
+
+const graphData = skills.map((s, i) => ({
+  id: `cat-${i}`,
+  label: s.name,
+  keywords: s.keywords
+}));
+---
+
+<Section title="Habilidades">
+  <div id="skills-graph-container" class="graph-container">
+    <canvas id="graph-canvas"></canvas>
+    <div class="graph-overlay">
+      <p class="graph-legend">Grafo de Conocimiento Interactivo</p>
+    </div>
+  </div>
+</Section>
+
+<script define:vars={{ graphData }}>
+  let canvas, ctx, nodes = [], links = [], selectedNode = null;
+  const COLORS = ["#8b5cf6", "#10b981", "#f59e0b", "#3b82f6", "#ef4444"];
+
+  function initGraph() {
+    canvas = document.getElementById('graph-canvas');
+    const container = document.getElementById('skills-graph-container');
+    if (!canvas || !container) return;
+
+    ctx = canvas.getContext('2d');
+    const width = container.clientWidth;
+    const height = 500;
+    canvas.width = width * window.devicePixelRatio;
+    canvas.height = height * window.devicePixelRatio;
+    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+
+    nodes = [];
+    links = [];
+
+    // Create central nodes and children
+    graphData.forEach((group, i) => {
+      const color = COLORS[i % COLORS.length];
+      const rootPos = { 
+        x: (width / (graphData.length + 1)) * (i + 1), 
+        y: height / 2 + (Math.random() - 0.5) * 100 
+      };
+
+      const rootNode = { 
+        id: group.id, 
+        label: group.label, 
+        x: rootPos.x, 
+        y: rootPos.y, 
+        isRoot: true, 
+        color, 
+        radius: 35,
+        vx: 0, vy: 0
+      };
+      nodes.push(rootNode);
+
+      group.keywords.forEach((keyword, j) => {
+        const angle = (j / group.keywords.length) * Math.PI * 2;
+        const childNode = {
+          id: `${group.id}-k-${j}`,
+          label: keyword,
+          x: rootPos.x + Math.cos(angle) * 100,
+          y: rootPos.y + Math.sin(angle) * 100,
+          isRoot: false,
+          color,
+          radius: 12,
+          vx: 0, vy: 0
+        };
+        nodes.push(childNode);
+        links.push({ source: rootNode, target: childNode });
+      });
+    });
+
+    animate();
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const isDark = document.documentElement.classList.contains('dark');
+    
+    // Physics parameters
+    const k = 0.05; // Spring constant
+    const d = 0.92; // Damping
+    const r = 2000; // Repulsion
+
+    // Apply forces
+    for (let i = 0; i < nodes.length; i++) {
+        let node = nodes[i];
+        if (node === selectedNode) continue;
+
+        // Repulsion from all other nodes
+        for (let j = 0; j < nodes.length; j++) {
+            if (i === j) continue;
+            let other = nodes[j];
+            let dx = node.x - other.x;
+            let dy = node.y - other.y;
+            let dist = Math.sqrt(dx * dx + dy * dy) || 1;
+            let force = r / (dist * dist);
+            node.vx += (dx / dist) * force;
+            node.vy += (dy / dist) * force;
+        }
+
+        // Return to center (global gravity)
+        const container = document.getElementById('skills-graph-container');
+        const cx = container.clientWidth / 2;
+        const cy = 250;
+        node.vx += (cx - node.x) * 0.001;
+        node.vy += (cy - node.y) * 0.001;
+    }
+
+    // Spring forces (links)
+    links.forEach(link => {
+        let dx = link.target.x - link.source.x;
+        let dy = link.target.y - link.source.y;
+        let dist = Math.sqrt(dx * dx + dy * dy);
+        let desiredDist = link.source.isRoot ? 110 : 50;
+        let force = (dist - desiredDist) * k;
+        link.source.vx += (dx / dist) * force;
+        link.source.vy += (dy / dist) * force;
+        link.target.vx -= (dx / dist) * force;
+        link.target.vy -= (dy / dist) * force;
+    });
+
+    // Drawing
+    ctx.lineWidth = 1;
+    links.forEach(link => {
+        ctx.beginPath();
+        ctx.moveTo(link.source.x, link.source.y);
+        ctx.lineTo(link.target.x, link.target.y);
+        ctx.strokeStyle = isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.05)";
+        ctx.stroke();
+    });
+
+    nodes.forEach(node => {
+        node.x += node.vx;
+        node.y += node.vy;
+        node.vx *= d;
+        node.vy *= d;
+
+        // Draw node
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+        
+        if (node.isRoot) {
+            ctx.fillStyle = node.color;
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = node.color;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+            ctx.fillStyle = "white";
+            ctx.font = "bold 12px Inter";
+            ctx.textAlign = "center";
+            ctx.fillText(node.label, node.x, node.y + 4);
+        } else {
+            ctx.fillStyle = isDark ? "#2d2d2d" : "#f3f4f6";
+            ctx.fill();
+            ctx.strokeStyle = node.color;
+            ctx.stroke();
+            ctx.fillStyle = isDark ? "white" : "black";
+            ctx.font = "500 10px Inter";
+            ctx.fillText(node.label, node.x, node.y + 18);
+        }
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  // Interactivity
+  const onMouseMove = (e) => {
+    if (!selectedNode) return;
+    const rect = canvas.getBoundingClientRect();
+    selectedNode.x = e.clientX - rect.left;
+    selectedNode.y = e.clientY - rect.top;
+  };
+
+  const onMouseDown = (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+    selectedNode = nodes.find(n => Math.sqrt((n.x - mx)**2 + (n.y - my)**2) < n.radius + 10);
+  };
+
+  const onMouseUp = () => { selectedNode = null; };
+
+  document.addEventListener('astro:page-load', () => {
+    initGraph();
+    canvas.addEventListener('mousedown', onMouseDown);
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', onMouseUp);
+  });
+  
+  setTimeout(initGraph, 100);
+</script>
+
+<style>
+  .graph-container {
+    width: 100%;
+    height: 500px;
+    background: var(--bg-page-edge);
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+    cursor: crosshair;
+  }
+
+  html.dark .graph-container {
+    background: #0a0a0a;
+    border: 1px solid rgba(255,255,255,0.03);
+  }
+
+  #graph-canvas {
+    width: 100%;
+    height: 100%;
+  }
+
+  .graph-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    pointer-events: none;
+  }
+
+  .graph-legend {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-main);
+    opacity: 0.4;
+  }
+</style>

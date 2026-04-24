@@ -49,9 +49,9 @@
       "endDate": null,
       "summary": "",
       "highlights": [
-        "Diseño y desarrollo de 'CobroTron', un agente de IA propio integrado en VSC Github Copilot para acelerar la generación de pruebas automaticas.",
-        "Construcción de frameworks de automatización E2E robustos utilizando Playwright y Pytest para validar la lógica de negocio en servicios críticos (APIs, Web, Mobile).",
-        "Gestión técnica del ciclo de pruebas y análisis de traces/logs, colaborando estrechamente con desarrolladores mediante la optimización de consultas SQL/NoSQL."
+        "Diseño y desarrollo de 'CobroTron', un agente de IA propio integrado en VSC Github Copilot, especializado en acelerar fuertemente la generación de scripts de automatización para flujos web utilizando Playwright y Python.",
+        "Construcción de 'FullTron', la máxima evolución de agente QA con autodiagnóstico pionero para iterar tests de forma autónoma. Genera frameworks completos (POM) E2E para Apps nativas/React (Appium + BrowserStack), APIs y Web; subiendo métricas de Pass/Fail y evidencia de forma automática al sistema ALM.",
+        "Gestión técnica ágil del ciclo de pruebas y análisis de traces/logs, colaborando cercanamente con desarrolladores mediante la optimización de infraestructura y queries (SQL/NoSQL)."
       ]
     },
     {
@@ -108,15 +108,17 @@
       ]
     },
     {
-      "name": "Core Testing",
+      "name": "Testing & QA",
       "level": "N/A",
       "keywords": [
         "Playwright",
+        "Cypress",
         "Selenium",
+        "Appium",
         "Pytest",
-        "Automatización de APIs",
-        "Diagnósticos IA",
-        "OCR Validation"
+        "Postman",
+        "Bruno",
+        "Automatización de APIs"
       ]
     },
     {
@@ -124,20 +126,33 @@
       "level": "N/A",
       "keywords": [
         "Python (Avanzado)",
-        "TypeScript",
-        "Java"
+        "TypeScript / JavaScript",
+        "Java",
+        "Node.js"
       ]
     },
     {
-      "name": "Cloud & Infra",
+      "name": "Infra & Cloud",
       "level": "N/A",
       "keywords": [
+        "AWS",
+        "Azure",
         "Docker",
-        "Supabase",
-        "Linux/Bash",
-        "CI/CD",
         "Jenkins",
-        "OpenShift"
+        "Supabase",
+        "CI/CD",
+        "Linux/Bash"
+      ]
+    },
+    {
+      "name": "Observabilidad & Data",
+      "level": "N/A",
+      "keywords": [
+        "Grafana",
+        "Kibana",
+        "SQL",
+        "NoSQL",
+        "Análisis de Traces/Logs"
       ]
     },
     {

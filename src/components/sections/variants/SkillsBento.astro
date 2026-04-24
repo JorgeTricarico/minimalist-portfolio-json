@@ -1,0 +1,160 @@
+---
+import Section from "../../Section.astro"
+import { skills } from "@cv"
+---
+
+<Section title="Habilidades">
+  <div class="bento-grid">
+    {
+      skills.map(({ name, keywords }, index) => {
+        const isFeatured = index === 0 || index === 1;
+        const colClass = isFeatured ? "bento-featured" : "bento-standard";
+
+        return (
+          <div class={`bento-card ${colClass}`}>
+            <div class="bento-header">
+              <h3 class="bento-title">{name}</h3>
+              <div class="bento-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </div>
+            </div>
+            
+            <div class="bento-skills">
+              {keywords.map(keyword => (
+                <div class="bento-pill">
+                  <span>{keyword}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )
+      })
+    }
+  </div>
+</Section>
+
+<style>
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .bento-featured {
+      grid-column: span 2;
+    }
+  }
+
+  .bento-card {
+    background: var(--bg-page-edge);
+    border-radius: 20px;
+    padding: 1.5rem;
+    border: 1px solid transparent;
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  html.dark .bento-card {
+    background: rgba(30, 30, 30, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+  }
+
+  .bento-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+  }
+
+  .bento-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-main);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+
+  .bento-icon {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    color: var(--text-main);
+  }
+
+  .bento-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-content: flex-start;
+  }
+
+  .bento-pill {
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+  }
+
+  html.dark .bento-pill {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255,255,255,0.6);
+  }
+
+  .bento-card:hover {
+    transform: translateY(-5px);
+    background: var(--bg-page-center);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 0, 0, 0.05);
+  }
+
+  html.dark .bento-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .bento-card:hover .bento-title {
+    opacity: 1;
+  }
+
+  .bento-card:hover .bento-icon {
+    opacity: 0.5;
+    transform: translateX(0);
+  }
+
+  .bento-card:hover .bento-pill {
+    color: var(--text-main);
+    border-color: rgba(0, 0, 0, 0.15);
+  }
+
+  html.dark .bento-card:hover .bento-pill {
+    color: rgba(255,255,255,0.9);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  .bento-pill:hover {
+    transform: scale(1.05) translateY(-2px);
+    background: var(--text-main) !important;
+    color: var(--bg-page-center) !important;
+    border-color: transparent !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  html.dark .bento-pill:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+</style>

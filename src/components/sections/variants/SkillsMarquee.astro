@@ -1,0 +1,163 @@
+---
+import Section from "../../Section.astro"
+import { skills } from "@cv"
+
+// Mapa de colores vibrantes y glow para el look premium
+const CATEGORY_STYLES = {
+  "IA & Agentes": { color: "#a78bfa", glow: "rgba(167, 139, 250, 0.4)", bg: "rgba(167, 139, 250, 0.1)" },
+  "Testing & QA": { color: "#34d399", glow: "rgba(52, 211, 153, 0.4)", bg: "rgba(52, 211, 153, 0.1)" },
+  "Lenguajes": { color: "#fbbf24", glow: "rgba(251, 191, 36, 0.4)", bg: "rgba(251, 191, 36, 0.1)" },
+  "Infra & Cloud": { color: "#60a5fa", glow: "rgba(96, 165, 250, 0.4)", bg: "rgba(96, 165, 250, 0.1)" },
+  "Observabilidad & Data": { color: "#fb7185", glow: "rgba(251, 113, 133, 0.4)", bg: "rgba(251, 113, 133, 0.1)" },
+  "default": { color: "#9ca3af", glow: "rgba(156, 163, 175, 0.4)", bg: "rgba(156, 163, 175, 0.1)" }
+};
+---
+
+<Section title="Habilidades">
+  <div class="marquee-wrapper">
+    {
+      skills.map(({ name, keywords }, index) => {
+        const isReverse = index % 2 !== 0;
+        const directionClass = isReverse ? "scroll-reverse" : "scroll-normal";
+        const speed = 35 + (index * 10); 
+        const style = CATEGORY_STYLES[name] || CATEGORY_STYLES.default;
+
+        return (
+          <div class="marquee-row" style={`--duration: ${speed}s; --accent-color: ${style.color}; --accent-glow: ${style.glow}; --accent-bg: ${style.bg};`}>
+            {[1, 2, 3].map(() => (
+              <div class={`marquee-content ${directionClass}`}>
+                <div class="category-tag">
+                  <span class="dot"></span>
+                  {name}
+                </div>
+                {keywords.map(keyword => (
+                  <div class="skill-pill">
+                    <span>{keyword}</span>
+                  </div>
+                ))}
+                {/* Separador de fin de bloque para que no se peguen las categorías al dar la vuelta */}
+                <span class="row-separator"></span>
+              </div>
+            ))}
+          </div>
+        )
+      })
+    }
+  </div>
+</Section>
+
+<style>
+  .marquee-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    overflow: hidden;
+    width: 100%;
+    padding-block: 1.5rem;
+    position: relative;
+    /* Máscara de desvanecimiento más profunda */
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  }
+
+  .marquee-row {
+    display: flex;
+    width: max-content;
+    align-items: center;
+  }
+
+  .marquee-row:hover .marquee-content {
+    animation-play-state: paused;
+  }
+
+  .marquee-content {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    padding-right: 2rem;
+    flex-shrink: 0;
+  }
+
+  .scroll-normal { animation: scroll-left var(--duration) linear infinite; }
+  .scroll-reverse { animation: scroll-right var(--duration) linear infinite; }
+
+  @keyframes scroll-left { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+  @keyframes scroll-right { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+
+  .category-tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-color);
+    background: var(--accent-bg);
+    padding: 6px 14px;
+    border-radius: 100px;
+    border: 1px solid rgba(var(--accent-color), 0.3);
+    box-shadow: 0 0 15px var(--accent-bg);
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent-color);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  .row-separator {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(to right, var(--accent-color), transparent);
+    opacity: 0.2;
+  }
+
+  .skill-pill {
+    background: var(--bg-page-edge);
+    border-radius: 12px;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.6rem 1.4rem;
+    /* Transición elástica (Bounce) */
+    transition: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-pill:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: scale(1.15) translateY(-5px);
+    box-shadow: 0 15px 30px -10px var(--accent-glow);
+    border-color: transparent;
+    z-index: 20;
+  }
+
+  html.dark .skill-pill {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+  }
+
+  html.dark .skill-pill:hover {
+    box-shadow: 0 0 35px var(--accent-glow);
+    filter: brightness(1.1);
+  }
+</style>

@@ -1,80 +1,11 @@
 ---
-import Section from "../Section.astro"
-import HTML from "@/icons/html.astro"
-import CSS from "@/icons/css.astro"
-import JavaScript from "@/icons/javascript.astro"
-import TypeScript from "@/icons/type.astro"
-import React from "@/icons/react.astro"
-import Node from "@/icons/node.astro"
-import MySQL from "@/icons/sql.astro"
-import Git from "@/icons/git.astro"
-import GitHub from "@/icons/GitHub.astro"
-import Tailwind from "@/icons/tailwind.astro"
-import Next from "@/icons/next.astro"
-import { skills } from "@cv"
-import Swift from "@/icons/swift.astro"
-import SwiftUI from "@/icons/swiftui.astro"
-import Kotlin from "@/icons/kotlin.astro"
-import Flutter from "@/icons/flutter.astro"
-
-const SKILLS_ICONS: Record<string, any> = {
-  HTML,
-  CSS,
-  JavaScript,
-  TypeScript,
-  React,
-  Node,
-  MySQL,
-  Git,
-  GitHub,
-  Next,
-  Tailwind,
-  Swift,
-  SwiftUI,
-  Kotlin,
-  Flutter,
-}
+// IMPORTANTE: Cambia el archivo importado aquí para cambiar el diseño de la web al instante.
+// 1. './variants/SkillsMarquee.astro' (Líneas con movimiento)
+// 2. './variants/SkillsBento.astro' (Cuadrados/Widgets modernos)
+// 3. './variants/SkillsSphere.astro' (Esfera 3D interactiva)
+// 4. './variants/SkillsPhysics.astro' (Física de burbujas interactiva)
+// 5. './variants/SkillsGraph.astro' (Grafo de conocimiento IA)
+import SkillsVariant from './variants/SkillsMarquee.astro';
 ---
 
-<Section title="Habilidades">
-  <ul>
-    {
-      skills.map(({ name }) => {
-        const iconName = name === "Next.js" ? "Next" : name
-        const Icon = SKILLS_ICONS[iconName]
-
-        return (
-          <li>
-            {Icon && <Icon />} <span>{name}</span>
-          </li>
-        )
-      })
-    }
-  </ul>
-</Section>
-
-<style>
-  ul {
-    display: inline-flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  li {
-    align-items: center;
-    background: var(--bg-page-edge);
-    border-radius: 6px;
-    color: var(--text-main);
-    display: flex;
-    font-size: 0.8rem;
-    font-weight: 500;
-    gap: 4px;
-    padding: 0.2rem 0.6rem;
-    transition: all 0.3s ease;
-  }
-
-  li:hover {
-    background: var(--bg-page-center);
-    transform: translateY(-2px);
-  }
-</style>
+<SkillsVariant />
