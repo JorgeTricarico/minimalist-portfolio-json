@@ -77,7 +77,7 @@ Mar 2019 – Dic 2023
 
 **Testing & QA:** Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno
 
-**Dev & Ops:** Python, TypeScript, JavaScript, Java, Node.js, FastAPI, AWS, Docker, Jenkins
+**Dev & Ops:** Python, TypeScript, JavaScript, Java, Node.js, FastAPI, AWS, Docker, Jenkins, Linux, Bash, CI/CD
 
 **Observabilidad & Data:** Grafana, Kibana, SQL, NoSQL, Análisis de Traces/Logs, GitHub Actions
 

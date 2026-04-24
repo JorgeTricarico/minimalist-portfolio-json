@@ -15,52 +15,63 @@ const CATEGORY_STYLES = {
 const getIconUrl = (name) => {
   const n = name.toLowerCase().trim();
   const map = {
+    // Testing
     "playwright": "logos:playwright",
-    "python": "logos:python",
-    "pytest": "logos:pytest",
-    "java": "logos:java",
-    "typescript": "logos:typescript-icon",
-    "javascript": "logos:javascript",
     "cypress": "logos:cypress-icon",
     "selenium": "logos:selenium",
     "appium": "logos:appium",
+    "pytest": "logos:pytest",
     "postman": "logos:postman-icon",
     "bruno": "simple-icons:bruno",
+    "k6": "simple-icons:k6",
+    
+    // IA
+    "openai": "logos:openai-icon",
+    "gemini": "logos:google-gemini",
+    "claude": "logos:anthropic-icon",
+    "anthropic": "logos:anthropic-icon",
+    "deepseek": "simple-icons:deepseek",
+    "copilot": "logos:github-copilot",
+    "cursor": "simple-icons:cursor",
+    "hugging": "logos:hugging-face-icon",
+    "langchain": "simple-icons:langchain",
+    
+    // Dev & Ops
+    "python": "logos:python",
+    "java": "logos:java",
+    "typescript": "logos:typescript-icon",
+    "javascript": "logos:javascript",
+    "node": "logos:nodejs-icon",
+    "fastapi": "logos:fastapi",
     "aws": "logos:aws",
     "azure": "logos:microsoft-azure",
     "docker": "logos:docker-icon",
     "jenkins": "logos:jenkins",
-    "grafana": "logos:grafana",
-    "kibana": "logos:kibana",
-    "openai": "logos:openai-icon",
-    "gemini": "logos:google-gemini",
-    "anthropic": "logos:anthropic-icon",
-    "claude": "logos:anthropic-icon",
-    "deepseek": "simple-icons:deepseek",
-    "cursor": "simple-icons:cursor",
-    "vsc": "logos:visual-studio-code",
-    "visual studio code": "logos:visual-studio-code",
-    "github copilot": "logos:github-copilot",
-    "k6": "simple-icons:k6",
-    "fastapi": "logos:fastapi",
+    "linux": "logos:linux-tux",
+    "bash": "logos:bash-icon",
     "github actions": "logos:github-actions",
-    "nodejs": "logos:nodejs-icon",
-    "node.js": "logos:nodejs-icon"
+    "ci/cd": "lucide:infinity",
+    
+    // Data
+    "sql": "logos:postgresql",
+    "nosql": "logos:mongodb-icon",
+    "grafana": "logos:grafana",
+    "kibana": "logos:kibana"
   };
 
-  if (n.includes("playwright")) return "https://api.iconify.design/logos:playwright.svg";
-  if (n.includes("python")) return "https://api.iconify.design/logos:python.svg";
-  if (n.includes("pytest")) return "https://api.iconify.design/logos:pytest.svg";
-  if (n.includes("antigravity")) return "https://api.iconify.design/lucide:orbit.svg";
-  if (n.includes("engram")) return "https://api.iconify.design/material-symbols:psychology.svg";
-  if (n.includes("bot") || n.includes("cobrotron") || n.includes("fulltron")) return "https://api.iconify.design/lucide:bot.svg";
-  if (n.includes("logs") || n.includes("traces")) return "https://api.iconify.design/lucide:file-search.svg";
-  if (n.includes("idioma") || n.includes("inglés") || n.includes("español")) return "https://api.iconify.design/lucide:languages.svg";
-  if (n.includes("sql") && !n.includes("no")) return "https://api.iconify.design/logos:postgresql.svg";
-  if (n.includes("nosql")) return "https://api.iconify.design/logos:mongodb-icon.svg";
+  // Prioridad: 1. Coincidencia exacta, 2. Búsqueda de palabra clave, 3. Fallback inteligente
+  const foundKey = Object.keys(map).find(key => n.includes(key));
+  const iconName = map[n] || (foundKey ? map[foundKey] : null);
 
-  const iconName = map[n] || (Object.keys(map).find(k => n.includes(k)) ? map[Object.keys(map).find(k => n.includes(k))] : "lucide:code-2");
-  return `https://api.iconify.design/${iconName}.svg`;
+  if (iconName) return `https://api.iconify.design/${iconName}.svg`;
+
+  // Fallbacks para conceptos abstractos
+  if (n.includes("bot") || n.includes("agente") || n.includes("antigravity")) return "https://api.iconify.design/lucide:bot.svg";
+  if (n.includes("engram")) return "https://api.iconify.design/material-symbols:psychology.svg";
+  if (n.includes("logs") || n.includes("traces") || n.includes("análisis")) return "https://api.iconify.design/lucide:file-search.svg";
+  if (n.includes("idioma") || n.includes("inglés") || n.includes("español")) return "https://api.iconify.design/lucide:languages.svg";
+  
+  return `https://api.iconify.design/lucide:code-2.svg`;
 };
 ---
 
@@ -193,6 +204,12 @@ const getIconUrl = (name) => {
     transition: all 0.4s ease;
   }
 
+  /* Invertir iconos de Lucide o logos negros cuando no están en hover */
+  html.dark .skill-icon {
+    /* Algunos logos de Iconify ya vienen con color, pero los de Lucide o simples los invertimos si son negros */
+    filter: brightness(1.2);
+  }
+
   .shine {
     position: absolute;
     top: 0;
@@ -218,7 +235,7 @@ const getIconUrl = (name) => {
   }
 
   .skill-pill:hover .skill-icon {
-    filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1) !important;
     transform: scale(1.1) rotate(5deg);
   }
 
@@ -226,9 +243,5 @@ const getIconUrl = (name) => {
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
-  }
-  
-  html.dark .skill-pill:hover .shine {
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.15), transparent);
   }
 </style>

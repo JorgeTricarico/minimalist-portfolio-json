@@ -62,7 +62,7 @@ cv:
       - label: "Testing & QA"
         details: "Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno"
       - label: "Dev & Ops"
-        details: "Python, TypeScript, JavaScript, Java, Node.js, FastAPI, AWS, Docker, Jenkins"
+        details: "Python, TypeScript, JavaScript, Java, Node.js, FastAPI, AWS, Docker, Jenkins, Linux, Bash, CI/CD"
       - label: "Observabilidad & Data"
         details: "Grafana, Kibana, SQL, NoSQL, Análisis de Traces/Logs, GitHub Actions"
       - label: "Idiomas"
