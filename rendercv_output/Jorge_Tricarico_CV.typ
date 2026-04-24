@@ -209,10 +209,10 @@ Ingeniero de QA y Especialista en IA enfocado en la creación de producto y la c
 
 #strong[Testing & QA:] Playwright, Cypress, Selenium, Appium, Pytest, Postman, Bruno, Automatización de APIs
 
-#strong[Lenguajes:] Python (Avanzado), TypeScript \/ JavaScript, Java, Node.js
+#strong[Lenguajes:] Python, TypeScript, JavaScript, Java, Node.js
 
 #strong[Infra & Cloud:] AWS, Azure, Docker, Jenkins, Supabase, CI\/CD, Linux\/Bash
 
 #strong[Observabilidad & Data:] Grafana, Kibana, SQL, NoSQL, Análisis de Traces\/Logs
 
-#strong[Idiomas:] Español (Nativo), Inglés (Intermedio)
+#strong[Idiomas:] Español, Inglés

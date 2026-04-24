@@ -2,14 +2,56 @@
 import Section from "../../Section.astro"
 import { skills } from "@cv"
 
-// Mapa de colores vibrantes y glow para el look premium
 const CATEGORY_STYLES = {
   "IA & Agentes": { color: "#a78bfa", glow: "rgba(167, 139, 250, 0.4)", bg: "rgba(167, 139, 250, 0.1)" },
   "Testing & QA": { color: "#34d399", glow: "rgba(52, 211, 153, 0.4)", bg: "rgba(52, 211, 153, 0.1)" },
   "Lenguajes": { color: "#fbbf24", glow: "rgba(251, 191, 36, 0.4)", bg: "rgba(251, 191, 36, 0.1)" },
   "Infra & Cloud": { color: "#60a5fa", glow: "rgba(96, 165, 250, 0.4)", bg: "rgba(96, 165, 250, 0.1)" },
   "Observabilidad & Data": { color: "#fb7185", glow: "rgba(251, 113, 133, 0.4)", bg: "rgba(251, 113, 133, 0.1)" },
+  "Idiomas": { color: "#2dd4bf", glow: "rgba(45, 212, 191, 0.4)", bg: "rgba(45, 212, 191, 0.1)" },
   "default": { color: "#9ca3af", glow: "rgba(156, 163, 175, 0.4)", bg: "rgba(156, 163, 175, 0.1)" }
+};
+
+const getIconUrl = (name) => {
+  const n = name.toLowerCase();
+  
+  if (n.includes("python")) return "https://api.iconify.design/logos:python.svg";
+  if (n.includes("javascript") || n.includes("typescript") || n.includes("js") || n.includes("ts")) return "https://api.iconify.design/logos:typescript-icon.svg";
+  if (n.includes("playwright")) return "https://api.iconify.design/logos:playwright.svg";
+  if (n.includes("claude")) return "https://api.iconify.design/logos:anthropic-icon.svg";
+  if (n.includes("copilot")) return "https://api.iconify.design/logos:github-copilot.svg";
+  if (n.includes("openai")) return "https://api.iconify.design/logos:openai-icon.svg";
+  if (n.includes("hugging")) return "https://api.iconify.design/logos:hugging-face-icon.svg";
+  if (n.includes("langchain")) return "https://api.iconify.design/simple-icons:langchain.svg";
+  if (n.includes("java") && !n.includes("script")) return "https://api.iconify.design/logos:java.svg";
+  if (n.includes("cypress")) return "https://api.iconify.design/logos:cypress-icon.svg";
+  if (n.includes("selenium")) return "https://api.iconify.design/logos:selenium.svg";
+  if (n.includes("appium")) return "https://api.iconify.design/logos:appium.svg";
+  if (n.includes("pytest")) return "https://api.iconify.design/logos:pytest.svg";
+  if (n.includes("postman")) return "https://api.iconify.design/logos:postman-icon.svg";
+  if (n.includes("bruno")) return "https://api.iconify.design/simple-icons:bruno.svg";
+  if (n.includes("aws")) return "https://api.iconify.design/logos:aws.svg";
+  if (n.includes("azure")) return "https://api.iconify.design/logos:microsoft-azure.svg";
+  if (n.includes("docker")) return "https://api.iconify.design/logos:docker-icon.svg";
+  if (n.includes("jenkins")) return "https://api.iconify.design/logos:jenkins.svg";
+  if (n.includes("supabase")) return "https://api.iconify.design/logos:supabase-icon.svg";
+  if (n.includes("linux") || n.includes("bash")) return "https://api.iconify.design/logos:linux-tux.svg";
+  if (n.includes("grafana")) return "https://api.iconify.design/logos:grafana.svg";
+  if (n.includes("kibana")) return "https://api.iconify.design/logos:kibana.svg";
+  if (n.includes("github actions")) return "https://api.iconify.design/logos:github-actions.svg";
+  if (n.includes("node")) return "https://api.iconify.design/logos:nodejs-icon.svg";
+  if (n.includes("react")) return "https://api.iconify.design/logos:react.svg";
+  if (n.includes("browserstack")) return "https://api.iconify.design/simple-icons:browserstack.svg";
+
+  // Fallbacks
+  if (n.includes("sql") && !n.includes("no")) return "https://api.iconify.design/logos:postgresql.svg";
+  if (n.includes("nosql")) return "https://api.iconify.design/logos:mongodb-icon.svg";
+  if (n.includes("logs") || n.includes("traces") || n.includes("análisis")) return "https://api.iconify.design/lucide:file-search.svg";
+  if (n.includes("bot") || n.includes("agente") || n.includes("cobrotron") || n.includes("fulltron")) return "https://api.iconify.design/lucide:bot.svg";
+  if (n.includes("idioma") || n.includes("inglés") || n.includes("español")) return "https://api.iconify.design/lucide:languages.svg";
+  if (n.includes("api")) return "https://api.iconify.design/lucide:webhook.svg";
+
+  return `https://api.iconify.design/lucide:code-2.svg`;
 };
 ---
 
@@ -19,7 +61,7 @@ const CATEGORY_STYLES = {
       skills.map(({ name, keywords }, index) => {
         const isReverse = index % 2 !== 0;
         const directionClass = isReverse ? "scroll-reverse" : "scroll-normal";
-        const speed = 35 + (index * 10); 
+        const speed = 45 + (index * 15); 
         const style = CATEGORY_STYLES[name] || CATEGORY_STYLES.default;
 
         return (
@@ -32,10 +74,14 @@ const CATEGORY_STYLES = {
                 </div>
                 {keywords.map(keyword => (
                   <div class="skill-pill">
+                    <img 
+                      src={getIconUrl(keyword)} 
+                      alt="" 
+                      class="skill-icon"
+                    />
                     <span>{keyword}</span>
                   </div>
                 ))}
-                {/* Separador de fin de bloque para que no se peguen las categorías al dar la vuelta */}
                 <span class="row-separator"></span>
               </div>
             ))}
@@ -55,7 +101,6 @@ const CATEGORY_STYLES = {
     width: 100%;
     padding-block: 1.5rem;
     position: relative;
-    /* Máscara de desvanecimiento más profunda */
     mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
   }
@@ -98,6 +143,7 @@ const CATEGORY_STYLES = {
     border-radius: 100px;
     border: 1px solid rgba(var(--accent-color), 0.3);
     box-shadow: 0 0 15px var(--accent-bg);
+    white-space: nowrap;
   }
 
   .dot {
@@ -128,36 +174,43 @@ const CATEGORY_STYLES = {
     color: var(--text-main);
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
+    gap: 12px;
+    font-size: 0.95rem;
     font-weight: 600;
     padding: 0.6rem 1.4rem;
-    /* Transición elástica (Bounce) */
     transition: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
     border: 1px solid rgba(0, 0, 0, 0.04);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     white-space: nowrap;
-    position: relative;
-    overflow: hidden;
+  }
+
+  .skill-icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    transition: all 0.3s ease;
   }
 
   .skill-pill:hover {
     background: var(--accent-color);
     color: white;
-    transform: scale(1.15) translateY(-5px);
+    transform: scale(1.1) translateY(-5px);
     box-shadow: 0 15px 30px -10px var(--accent-glow);
     border-color: transparent;
     z-index: 20;
   }
 
+  .skill-pill:hover .skill-icon {
+    transform: scale(1.2);
+    filter: brightness(0) invert(1);
+  }
+
   html.dark .skill-pill {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   html.dark .skill-pill:hover {
     box-shadow: 0 0 35px var(--accent-glow);
-    filter: brightness(1.1);
   }
 </style>

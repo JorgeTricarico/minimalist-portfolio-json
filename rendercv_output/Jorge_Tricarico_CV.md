@@ -77,10 +77,10 @@ Mar 2019 – Dic 2023
 
 **Testing & QA:** Playwright, Cypress, Selenium, Appium, Pytest, Postman, Bruno, Automatización de APIs
 
-**Lenguajes:** Python (Avanzado), TypeScript / JavaScript, Java, Node.js
+**Lenguajes:** Python, TypeScript, JavaScript, Java, Node.js
 
 **Infra & Cloud:** AWS, Azure, Docker, Jenkins, Supabase, CI/CD, Linux/Bash
 
 **Observabilidad & Data:** Grafana, Kibana, SQL, NoSQL, Análisis de Traces/Logs
 
-**Idiomas:** Español (Nativo), Inglés (Intermedio)
+**Idiomas:** Español, Inglés

@@ -62,13 +62,13 @@ cv:
       - label: "Testing & QA"
         details: "Playwright, Cypress, Selenium, Appium, Pytest, Postman, Bruno, Automatización de APIs"
       - label: "Lenguajes"
-        details: "Python (Avanzado), TypeScript / JavaScript, Java, Node.js"
+        details: "Python, TypeScript, JavaScript, Java, Node.js"
       - label: "Infra & Cloud"
         details: "AWS, Azure, Docker, Jenkins, Supabase, CI/CD, Linux/Bash"
       - label: "Observabilidad & Data"
         details: "Grafana, Kibana, SQL, NoSQL, Análisis de Traces/Logs"
       - label: "Idiomas"
-        details: "Español (Nativo), Inglés (Intermedio)"
+        details: "Español, Inglés"
 
 design:
   theme: classic
