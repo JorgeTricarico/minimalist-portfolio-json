@@ -205,9 +205,9 @@ Ingeniero de QA y Especialista en IA enfocado en la creación de producto y la c
 
 == Habilidades
 
-#strong[IA & Agentes:] Claude Code, Gemini, DeepSeek, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, LLMs (OpenAI, Anthropic)
+#strong[IA & Agentes:] Claude Code, Gemini, DeepSeek, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic
 
-#strong[Testing & QA:] Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno, Sentry
+#strong[Testing & QA:] Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno
 
 #strong[Dev & Ops:] Python, TypeScript, JavaScript, Java, Node.js, FastAPI, AWS, Docker, Jenkins
 

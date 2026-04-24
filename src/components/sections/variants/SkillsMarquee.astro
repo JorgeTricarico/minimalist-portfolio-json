@@ -3,19 +3,17 @@ import Section from "../../Section.astro"
 import { skills } from "@cv"
 
 const CATEGORY_STYLES = {
-  "IA & Agentes": { color: "#a78bfa", glow: "rgba(167, 139, 250, 0.4)", bg: "rgba(167, 139, 250, 0.1)" },
-  "Testing & QA": { color: "#34d399", glow: "rgba(52, 211, 153, 0.4)", bg: "rgba(52, 211, 153, 0.1)" },
-  "Dev & Ops": { color: "#fbbf24", glow: "rgba(251, 191, 36, 0.4)", bg: "rgba(251, 191, 36, 0.1)" },
-  "Infra & Cloud": { color: "#60a5fa", glow: "rgba(96, 165, 250, 0.4)", bg: "rgba(96, 165, 250, 0.1)" },
-  "Observabilidad & Data": { color: "#fb7185", glow: "rgba(251, 113, 133, 0.4)", bg: "rgba(251, 113, 133, 0.1)" },
-  "Idiomas": { color: "#2dd4bf", glow: "rgba(45, 212, 191, 0.4)", bg: "rgba(45, 212, 191, 0.1)" },
-  "default": { color: "#9ca3af", glow: "rgba(156, 163, 175, 0.4)", bg: "rgba(156, 163, 175, 0.1)" }
+  "IA & Agentes": { color: "#a78bfa", glow: "rgba(167, 139, 250, 0.5)", bg: "rgba(167, 139, 250, 0.08)" },
+  "Testing & QA": { color: "#34d399", glow: "rgba(52, 211, 153, 0.5)", bg: "rgba(52, 211, 153, 0.08)" },
+  "Dev & Ops": { color: "#fbbf24", glow: "rgba(251, 191, 36, 0.5)", bg: "rgba(251, 191, 36, 0.08)" },
+  "Infra & Cloud": { color: "#60a5fa", glow: "rgba(96, 165, 250, 0.5)", bg: "rgba(96, 165, 250, 0.08)" },
+  "Observabilidad & Data": { color: "#fb7185", glow: "rgba(251, 113, 133, 0.5)", bg: "rgba(251, 113, 133, 0.08)" },
+  "Idiomas": { color: "#2dd4bf", glow: "rgba(45, 212, 191, 0.5)", bg: "rgba(45, 212, 191, 0.08)" },
+  "default": { color: "#9ca3af", glow: "rgba(156, 163, 175, 0.5)", bg: "rgba(156, 163, 175, 0.08)" }
 };
 
 const getIconUrl = (name) => {
   const n = name.toLowerCase().trim();
-  
-  // Mapeo exhaustivo
   const map = {
     "playwright": "logos:playwright",
     "python": "logos:python",
@@ -44,7 +42,6 @@ const getIconUrl = (name) => {
     "visual studio code": "logos:visual-studio-code",
     "github copilot": "logos:github-copilot",
     "k6": "simple-icons:k6",
-    "sentry": "logos:sentry-icon",
     "fastapi": "logos:fastapi",
     "github actions": "logos:github-actions",
     "nodejs": "logos:nodejs-icon",
@@ -76,7 +73,7 @@ const getIconUrl = (name) => {
         const style = CATEGORY_STYLES[name] || CATEGORY_STYLES.default;
 
         return (
-          <div class="marquee-row" style={`--duration: ${speed}s; --accent-color: ${style.color}; --accent-glow: ${style.glow}; --accent-bg: ${style.bg};`}>
+          <div class="marquee-row" style={`--duration: ${speed}s; --accent-color: ${style.color}; --accent-glow: ${style.glow}; --accent-bg: ${style.bg}; --delay: ${index * 0.1}s;`}>
             {[1, 2, 3].map(() => (
               <div class={`marquee-content ${isReverse ? 'scroll-reverse' : 'scroll-normal'}`}>
                 <div class="category-tag">
@@ -85,6 +82,7 @@ const getIconUrl = (name) => {
                 </div>
                 {keywords.map(keyword => (
                   <div class="skill-pill">
+                    <div class="shine"></div>
                     <img src={getIconUrl(keyword)} alt="" class="skill-icon" />
                     <span>{keyword}</span>
                   </div>
@@ -111,14 +109,24 @@ const getIconUrl = (name) => {
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
   }
 
-  .marquee-row { display: flex; width: max-content; align-items: center; }
+  .marquee-row { 
+    display: flex; 
+    width: max-content; 
+    align-items: center; 
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+    animation-delay: var(--delay);
+  }
+  
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
   .marquee-row:hover .marquee-content { animation-play-state: paused; }
 
   .marquee-content {
     display: flex;
-    gap: 1rem;
+    gap: 1.2rem;
     align-items: center;
-    padding-right: 1rem;
+    padding-right: 1.2rem;
     flex-shrink: 0;
   }
 
@@ -131,29 +139,30 @@ const getIconUrl = (name) => {
   .category-tag {
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-size: 0.6rem;
+    gap: 8px;
+    font-size: 0.65rem;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     color: var(--accent-color);
     background: var(--accent-bg);
-    padding: 3px 10px;
+    padding: 4px 12px;
     border-radius: 100px;
     border: 1px solid rgba(var(--accent-color), 0.2);
     white-space: nowrap;
+    backdrop-filter: blur(4px);
   }
 
   .dot {
-    width: 4px;
-    height: 4px;
+    width: 6px;
+    height: 6px;
     background: var(--accent-color);
     border-radius: 50%;
-    box-shadow: 0 0 5px var(--accent-color);
+    box-shadow: 0 0 8px var(--accent-color);
   }
 
   .row-separator {
-    width: 20px;
+    width: 30px;
     height: 1px;
     background: var(--accent-color);
     opacity: 0.1;
@@ -161,41 +170,65 @@ const getIconUrl = (name) => {
 
   .skill-pill {
     background: var(--bg-page-edge);
-    border-radius: 8px;
+    border-radius: 10px;
     color: var(--text-main);
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 0.75rem;
+    gap: 10px;
+    font-size: 0.85rem;
     font-weight: 600;
-    padding: 0.3rem 0.7rem;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 1px solid rgba(0, 0, 0, 0.03);
+    padding: 0.4rem 0.9rem;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(0, 0, 0, 0.04);
     white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
   }
 
   .skill-icon {
-    width: 14px;
-    height: 14px;
+    width: 18px;
+    height: 18px;
     object-fit: contain;
+    transition: all 0.4s ease;
+  }
+
+  .shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: all 0.6s;
   }
 
   .skill-pill:hover {
     background: var(--accent-color);
     color: white;
-    transform: scale(1.1) translateY(-2px);
-    box-shadow: 0 8px 15px -5px var(--accent-glow);
+    transform: scale(1.1) translateY(-4px);
+    box-shadow: 0 12px 25px -8px var(--accent-glow);
     border-color: transparent;
     z-index: 20;
   }
 
+  .skill-pill:hover .shine {
+    left: 100%;
+    transition: all 0.6s ease-in-out;
+  }
+
   .skill-pill:hover .skill-icon {
     filter: brightness(0) invert(1);
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(5deg);
   }
 
   html.dark .skill-pill {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+  }
+  
+  html.dark .skill-pill:hover .shine {
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.15), transparent);
   }
 </style>

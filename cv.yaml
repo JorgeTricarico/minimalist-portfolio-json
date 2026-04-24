@@ -58,9 +58,9 @@ cv:
 
     Habilidades:
       - label: "IA & Agentes"
-        details: "Claude Code, Gemini, DeepSeek, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, LLMs (OpenAI, Anthropic)"
+        details: "Claude Code, Gemini, DeepSeek, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic"
       - label: "Testing & QA"
-        details: "Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno, Sentry"
+        details: "Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno"
       - label: "Dev & Ops"
         details: "Python, TypeScript, JavaScript, Java, Node.js, FastAPI, AWS, Docker, Jenkins"
       - label: "Observabilidad & Data"
