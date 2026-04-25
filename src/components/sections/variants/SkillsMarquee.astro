@@ -2,7 +2,7 @@
 import Section from "../../Section.astro"
 import { skills } from "@cv"
 
-const CATEGORY_STYLES = {
+const CATEGORY_STYLES: Record<string, { color: string, glow: string, bg: string }> = {
   "IA & Agentes": { color: "#a78bfa", glow: "rgba(167, 139, 250, 0.5)", bg: "rgba(167, 139, 250, 0.08)" },
   "Testing & QA": { color: "#34d399", glow: "rgba(52, 211, 153, 0.5)", bg: "rgba(52, 211, 153, 0.08)" },
   "Dev & Ops": { color: "#fbbf24", glow: "rgba(251, 191, 36, 0.5)", bg: "rgba(251, 191, 36, 0.08)" },
@@ -12,64 +12,81 @@ const CATEGORY_STYLES = {
   "default": { color: "#9ca3af", glow: "rgba(156, 163, 175, 0.5)", bg: "rgba(156, 163, 175, 0.08)" }
 };
 
-const getIconUrl = (name) => {
+const getIconUrl = (name: string) => {
   const n = name.toLowerCase().trim();
   
-  // Diccionario de slugs ultra-estables (Simple Icons & Lucide)
-  const map = {
-    // Testing
+  // Iconify Logos (Alta Calidad y estabilidad)
+  const logos: Record<string, string> = {
+    "javascript": "logos:javascript",
+    "typescript": "logos:typescript-icon",
+    "postgresql": "logos:postgresql",
+    "mongodb": "logos:mongodb-icon",
+    "python": "logos:python",
+    "java": "logos:java",
+    "js": "logos:javascript",
+    "ts": "logos:typescript-icon",
+    "node": "logos:nodejs-icon",
+    "fastapi": "logos:fastapi-icon",
+    "aws": "logos:aws",
+    "amazon": "logos:aws",
+    "azure": "logos:microsoft-azure",
+    "docker": "logos:docker-icon",
+    "jenkins": "logos:jenkins",
+    "github actions": "logos:github-actions",
+    "postman": "logos:postman-icon",
+    "selenium": "logos:selenium",
+    "playwright": "logos:playwright",
+    "cypress": "logos:cypress-icon",
+    "mysql": "logos:mysql-icon",
+    "openai": "logos:openai-icon",
+    "chatgpt": "logos:openai-icon",
+    "langchain": "logos:langchain-icon",
+    "hugging": "logos:hugging-face-icon",
+  };
+
+  // Buscar coincidencia más larga primero para evitar colisiones (ej: javascript vs java)
+  const foundLogo = Object.keys(logos)
+    .sort((a, b) => b.length - a.length)
+    .find(key => n.includes(key));
+  if (foundLogo) return `https://api.iconify.design/${logos[foundLogo]}.svg`;
+
+  // Simple Icons para el resto
+  const simple: Record<string, string> = {
     "playwright": "playwright",
     "cypress": "cypress",
-    "selenium": "selenium",
     "appium": "appium",
     "pytest": "pytest",
-    "postman": "postman",
     "bruno": "bruno",
     "k6": "k6",
-    
-    // IA
-    "openai": "openai",
     "gemini": "googlegemini",
     "claude": "anthropic",
     "anthropic": "anthropic",
     "deepseek": "deepseek",
     "copilot": "githubcopilot",
     "cursor": "cursor",
-    "hugging": "huggingface",
-    "langchain": "langchain",
-    
-    // Dev & Ops
-    "python": "python",
-    "java": "java",
-    "typescript": "typescript",
-    "javascript": "javascript",
-    "node": "nodedotjs",
-    "fastapi": "fastapi",
-    "aws": "amazonaws",
-    "azure": "microsoftazure",
-    "docker": "docker",
-    "jenkins": "jenkins",
     "linux": "linux",
     "bash": "gnubash",
-    "github actions": "githubactions",
     "supabase": "supabase",
-    
-    // Data
-    "sql": "postgresql",
     "nosql": "mongodb",
+    "sql": "postgresql",
     "grafana": "grafana",
     "kibana": "kibana"
   };
 
-  const foundKey = Object.keys(map).find(key => n.includes(key));
-  if (foundKey) return `https://cdn.simpleicons.org/${map[foundKey]}`;
+  const foundSimple = Object.keys(simple)
+    .sort((a, b) => b.length - a.length)
+    .find(key => n.includes(key));
+  if (foundSimple) return `https://cdn.simpleicons.org/${simple[foundSimple]}`;
 
-  // Fallbacks para conceptos abstractos con Iconify (más versátil para esto)
+  // Fallbacks para conceptos abstractos con Iconify lucide/material
+  if (n.includes("nosql")) return "https://api.iconify.design/material-symbols:database-off-outline.svg";
+  if (n.includes("sql")) return "https://api.iconify.design/material-symbols:database-outline.svg";
   if (n.includes("bot") || n.includes("agente") || n.includes("antigravity") || n.includes("cobrotron") || n.includes("fulltron")) return "https://api.iconify.design/lucide:bot.svg";
-  if (n.includes("engram")) return "https://api.iconify.design/material-symbols:psychology.svg";
+  if (n.includes("engram")) return "https://api.iconify.design/ph:brain-duotone.svg";
   if (n.includes("logs") || n.includes("traces") || n.includes("análisis")) return "https://api.iconify.design/lucide:file-search.svg";
   if (n.includes("idioma") || n.includes("inglés") || n.includes("español")) return "https://api.iconify.design/lucide:languages.svg";
   if (n.includes("ci/cd") || n.includes("pipeline")) return "https://api.iconify.design/lucide:infinity.svg";
+  if (n.includes("performance") || n.includes("rendimiento")) return "https://api.iconify.design/lucide:gauge.svg";
   
   return "https://api.iconify.design/lucide:code-2.svg";
 };
@@ -83,12 +100,14 @@ const getIconUrl = (name) => {
         const speed = 50 + (index * 20); 
         const style = CATEGORY_STYLES[name] || CATEGORY_STYLES.default;
 
+        // Si hay muy pocos keywords (como Idiomas), los dejamos estáticos para no marear
+        const isStatic = keywords.length < 3;
+
         return (
-          <div class="marquee-row" style={`--duration: ${speed}s; --accent-color: ${style.color}; --accent-glow: ${style.glow}; --accent-bg: ${style.bg}; --delay: ${index * 0.1}s;`}>
-            {[1, 2, 3].map(() => (
-              <div class={`marquee-content ${isReverse ? 'scroll-reverse' : 'scroll-normal'}`}>
+          <div class={`marquee-row ${isStatic ? 'is-static' : ''}`} style={`--duration: ${speed}s; --accent-color: ${style.color}; --accent-glow: ${style.glow}; --accent-bg: ${style.bg}; --delay: ${index * 0.1}s;`}>
+            {isStatic ? (
+              <div class="marquee-content">
                 <div class="category-tag">
-                  <span class="dot"></span>
                   {name}
                 </div>
                 {keywords.map(keyword => (
@@ -98,14 +117,33 @@ const getIconUrl = (name) => {
                       src={getIconUrl(keyword)} 
                       alt="" 
                       class="skill-icon" 
-                      onerror="this.style.opacity='0'"
+                      onerror="this.style.display='none'"
                     />
                     <span>{keyword}</span>
                   </div>
                 ))}
-                <span class="row-separator"></span>
               </div>
-            ))}
+            ) : (
+              [1, 2, 3, 4].map(() => (
+                <div class={`marquee-content ${isReverse ? 'scroll-reverse' : 'scroll-normal'}`}>
+                  <div class="category-tag">
+                    {name}
+                  </div>
+                  {keywords.map(keyword => (
+                    <div class="skill-pill">
+                      <div class="shine"></div>
+                      <img 
+                        src={getIconUrl(keyword)} 
+                        alt="" 
+                        class="skill-icon" 
+                        onerror="this.style.display='none'"
+                      />
+                      <span>{keyword}</span>
+                    </div>
+                  ))}
+                </div>
+              ))
+            )}
           </div>
         )
       })
@@ -132,6 +170,14 @@ const getIconUrl = (name) => {
     opacity: 0;
     animation: fadeIn 0.8s ease forwards;
     animation-delay: var(--delay);
+  }
+
+  .marquee-row.is-static {
+    width: 100%;
+    justify-content: center;
+    background: linear-gradient(to right, transparent, var(--accent-bg), transparent);
+    border-radius: 100px;
+    padding-block: 2px;
   }
   
   @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -169,20 +215,6 @@ const getIconUrl = (name) => {
     backdrop-filter: blur(4px);
   }
 
-  .dot {
-    width: 6px;
-    height: 6px;
-    background: var(--accent-color);
-    border-radius: 50%;
-    box-shadow: 0 0 8px var(--accent-color);
-  }
-
-  .row-separator {
-    width: 30px;
-    height: 1px;
-    background: var(--accent-color);
-    opacity: 0.1;
-  }
 
   .skill-pill {
     background: var(--bg-page-edge);

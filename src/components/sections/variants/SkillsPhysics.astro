@@ -40,11 +40,11 @@ const skillsData = skills.map(s => ({
     const width = container.clientWidth;
     const height = 400; // Más compacto
     
-    engine = Engine.create();
-    world = engine.world;
+    const engine = Engine.create();
+    const world = engine.world;
     world.gravity.y = 0.5;
 
-    render = Render.create({
+    const render = Render.create({
       canvas: canvas,
       engine: engine,
       options: {
@@ -57,7 +57,7 @@ const skillsData = skills.map(s => ({
     });
 
     Render.run(render);
-    runner = Runner.create();
+    const runner = Runner.create();
     Runner.run(runner, engine);
 
     const wallOptions = { isStatic: true, render: { visible: false } };
@@ -183,4 +183,4 @@ const skillsData = skills.map(s => ({
     pointer-events: none;
     color: var(--text-main);
   }
-</style>le>
+</style>
