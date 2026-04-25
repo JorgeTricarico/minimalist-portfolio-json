@@ -64,6 +64,7 @@ const getIconUrl = (name: string) => {
     "bruno": "bruno",
     "k6": "k6",
     "anthropic": "anthropic",
+    "claude": "anthropic",
     "deepseek": "deepseek",
     "copilot": "githubcopilot",
     "cursor": "cursor",
@@ -87,6 +88,7 @@ const getIconUrl = (name: string) => {
     if (slug === 'deepseek') return `https://api.iconify.design/simple-icons:deepseek.svg?color=%2360a5fa`;
     if (slug === 'googlegemini' || slug === 'gemini') return `https://api.iconify.design/simple-icons:googlegemini.svg?color=%231A73E8`;
     if (slug === 'scikitlearn') return `https://api.iconify.design/simple-icons:scikitlearn.svg?color=%23F89939`;
+    if (slug === 'anthropic' || slug === 'claude') return `https://api.iconify.design/simple-icons:anthropic.svg?color=%23191919`;
     return `https://cdn.simpleicons.org/${slug}`;
   }
 
