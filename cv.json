@@ -108,7 +108,10 @@
         "Engram",
         "Prompt Engineering",
         "OpenAI",
-        "Anthropic"
+        "Anthropic",
+        "Scikit-learn",
+        "Pandas",
+        "NumPy"
       ]
     },
     {
@@ -136,6 +139,7 @@
         "Java",
         "Node.js",
         "FastAPI",
+        "Flask",
         "AWS",
         "Docker",
         "Jenkins",
@@ -152,6 +156,8 @@
         "Kibana",
         "SQL",
         "NoSQL",
+        "Matplotlib",
+        "Seaborn",
         "Análisis de Traces/Logs",
         "GitHub Actions"
       ]
