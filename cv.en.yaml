@@ -1,0 +1,119 @@
+cv:
+  name: "Jorge Tricarico"
+  headline: "AI-Driven QA Engineer"
+  photo: "public/perfil.jpg"
+  location: "Buenos Aires, AR"
+  email: "jorge.tricarico@gmail.com"
+  phone: "+54 9 11 50479769"
+  social_networks:
+    - network: LinkedIn
+      username: jorge-tricarico
+    - network: GitHub
+      username: JorgeTricarico
+      
+  sections:
+    Summary:
+      - "QA Engineer and AI Specialist focused on product creation and software reliability. I have a full-stack technical profile that I leverage through the advanced use of LLMs and agentic tools. I specialize in leading automation in dynamic environments, compensating for resource limitations through innovative architectures and optimizing value delivery with full technical autonomy."
+
+    Experience:
+      - company: "OneVisa - Dubai (UAE) / Spain"
+        position: "(Part-time) Senior Principal QA Engineer (AI & Reliability)"
+        start_date: "2026-02"
+        end_date: "present"
+        highlights:
+          - "Solely responsible for QA in a high-growth startup, leading the design and execution of the end-to-end automation strategy from scratch."
+          - "Scalability of test coverage without increasing headcount, compensating for human resource gaps by creating and orchestrating AI agents with Claude Code."
+          - "Implementation of iterative self-diagnostic systems in pipelines, reducing debugging times and allowing deep technical integration with the engineering team."
+
+      - company: "Tata Consultancy Service - Banco Galicia"
+        position: "Manual QA Analyst - Automation"
+        start_date: "2023-04"
+        end_date: "present"
+        highlights:
+          - "Design and development of 'CobroTron', a proprietary AI agent integrated into VSC Github Copilot, specialized in significantly accelerating automation script generation for web flows using Playwright and Python."
+          - "Construction of 'FullTron', the ultimate evolution of a QA agent with pioneering self-diagnosis to iterate tests autonomously. It generates complete E2E frameworks (POM) for native Apps/React (Appium + BrowserStack), APIs, and Web; automatically uploading Pass/Fail metrics and evidence to the ALM system."
+          - "Agile technical management of the testing cycle and trace/log analysis, working closely with developers by optimizing infrastructure and queries (SQL/NoSQL)."
+
+      - company: "Ada School - Colombia"
+        position: "Python Instructor (Data & FullStack BootCamp)"
+        start_date: "2023-09"
+        end_date: "2024-10"
+        highlights:
+          - "Advanced technical mentorship in Python focused on code quality, software architecture, and development best practices for international profiles."
+
+    Education:
+      - institution: "National University of Hurlingham"
+        area: "Artificial Intelligence"
+        degree: "University Technician"
+        start_date: "2024-01"
+        end_date: "present"
+
+      - institution: "Teacher Training Institute N°109"
+        area: "Economics and Management"
+        degree: "Secondary Education Professor"
+        start_date: "2019-03"
+        end_date: "2023-12"
+        highlights:
+          - "Last year pending"
+
+    Skills:
+      - label: "AI & Agents"
+        details: "Claude Code, Gemini, DeepSeek, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Scikit-learn, Pandas, NumPy"
+      - label: "Testing & QA"
+        details: "Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno"
+      - label: "Dev & Ops"
+        details: "Python, TypeScript, JavaScript, Java, Node.js, FastAPI, Flask, AWS, Docker, Jenkins, Linux, Bash, CI/CD"
+      - label: "Observability & Data"
+        details: "Grafana, Kibana, SQL, NoSQL, Matplotlib, Seaborn, Trace/Log Analysis, GitHub Actions"
+      - label: "Languages"
+        details: "Spanish, English"
+
+design:
+  theme: classic
+  page:
+    size: a4
+    top_margin: 1.5cm
+    bottom_margin: 1.5cm
+    left_margin: 1.5cm
+    right_margin: 1.5cm
+    show_footer: false
+    show_top_note: false
+  colors:
+    name: rgb(0, 79, 144)
+  typography:
+    font_size:
+      body: 9.5pt
+      name: 24pt
+      headline: 10pt
+      connections: 9pt
+      section_titles: 1.2em
+    small_caps:
+      section_titles: true
+  header:
+    space_below_name: 0.4cm
+    space_below_headline: 0.4cm
+    space_below_connections: 0.5cm
+  section_titles:
+    space_above: 0.5cm
+    space_below: 0.3cm
+  sections:
+    space_between_regular_entries: 1em
+    space_between_text_based_entries: 0.5em
+    show_time_spans_in:
+      - Experience
+  entries:
+    degree_width: 0cm
+    date_and_location_width: 3.8cm
+  templates:
+    education_entry:
+      main_column: |-
+        **INSTITUTION**
+        *DEGREE* in AREA
+        HIGHLIGHTS
+      degree_column: ''
+
+settings:
+  bold_keywords: []
+
+locale:
+  language: english

@@ -1,11 +1,13 @@
 ---
-// IMPORTANTE: Cambia el archivo importado aquí para cambiar el diseño de la web al instante.
-// 1. './variants/SkillsMarquee.astro' (Líneas con movimiento)
-// 2. './variants/SkillsBento.astro' (Cuadrados/Widgets modernos)
-// 3. './variants/SkillsSphere.astro' (Esfera 3D interactiva)
-// 4. './variants/SkillsPhysics.astro' (Física de burbujas interactiva)
-// 5. './variants/SkillsGraph.astro' (Grafo de conocimiento IA)
 import SkillsVariant from './variants/SkillsMarquee.astro';
+import type { Skills as SkillsType } from "@/cv"
+
+interface Props {
+  skills?: Array<SkillsType>
+  lang?: string
+}
+
+const { skills, lang = 'es' } = Astro.props
 ---
 
-<SkillsVariant />
+<SkillsVariant skills={skills} lang={lang} />

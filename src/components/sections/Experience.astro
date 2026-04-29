@@ -1,25 +1,38 @@
 ---
 import Section from "../Section.astro"
+import { ui } from "@/i18n"
+import { work as defaultWork } from "@cv"
+import type { Work } from "@/cv"
 
-import { work } from "@cv"
+interface Props {
+  work?: Array<Work>
+  lang?: string
+}
+
+const { work = defaultWork, lang = 'es' } = Astro.props
+const t = ui[lang as keyof typeof ui]
 ---
 
-<Section title="Experiencia laboral">
+<Section title={t['section.experience']}>
   <ul>
     {
       work.map(
         ({ name, startDate, endDate, position, summary, highlights, url }) => {
           const startYear = new Date(startDate).getFullYear()
           const endYear =
-            endDate != null ? new Date(endDate).getFullYear() : "Actual"
+            endDate != null ? (isNaN(Date.parse(endDate)) ? endDate : new Date(endDate).getFullYear()) : t['experience.actual']
 
           // Calcular duración
           const start = new Date(startDate)
-          const end = endDate != null ? new Date(endDate) : new Date()
+          const end = endDate != null && !isNaN(Date.parse(endDate)) ? new Date(endDate) : new Date()
           const totalMonths = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth())
           const years = Math.floor(totalMonths / 12)
           const months = totalMonths % 12
-          const duration = `${years > 0 ? `${years} año${years > 1 ? 's' : ''}` : ''} ${months > 0 ? `${months} mes${months > 1 ? 'es' : ''}` : ''}`.trim()
+          
+          const duration = [
+            years > 0 ? `${years} ${years > 1 ? t['experience.years'] : t['experience.year']}` : '',
+            months > 0 ? `${months} ${months > 1 ? t['experience.months'] : t['experience.month']}` : ''
+          ].filter(Boolean).join(' ').trim()
 
           return (
             <li>
@@ -51,7 +64,7 @@ import { work } from "@cv"
                         </time>
                         {" - "}
                         <time 
-                          datetime={endDate}
+                          datetime={endDate ?? ''}
                           data-title={endDate}>
                             {endYear}
                         </time>
@@ -124,7 +137,6 @@ import { work } from "@cv"
     color: var(--text-muted);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0.6;
-    /* Animación de entrada inicial */
     animation: entrance 0.8s ease-out backwards;
     animation-delay: 0.5s;
     background: rgba(0, 0, 0, 0.05);
@@ -150,7 +162,6 @@ import { work } from "@cv"
     color: var(--text-main);
   }
 
-  /* Animación periódica para mobile para "avisar" que es clickeable */
   @media (hover: none) {
     .chevron-icon {
       animation: nudge 3s infinite ease-in-out;
@@ -287,21 +298,15 @@ import { work } from "@cv"
     .chevron-icon {
       display: none;
     }
-
-    /* Force all details open so descriptions are visible */
     details {
       display: block !important;
     }
-
     details > footer {
       display: block !important;
     }
-
-    /* Compact spacing for print */
     ul {
       gap: 12px !important;
     }
-
     footer {
       padding-top: 4px !important;
       animation: none !important;

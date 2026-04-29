@@ -6,8 +6,8 @@
   name: "Jorge Tricarico",
   title: "Jorge Tricarico - CV",
   footer: context { [#emph[Jorge Tricarico -- #str(here().page())\/#str(counter(page).final().first())]] },
-  top-note: [ #emph[Última actualización Abr 2026] ],
-  locale-catalog-language: "es",
+  top-note: [ #emph[Last updated in Apr 2026] ],
+  locale-catalog-language: "en",
   text-direction: ltr,
   page-size: "a4",
   page-top-margin: 1.5cm,
@@ -108,109 +108,109 @@
 )
 
 
-== Resumen
+== Summary
 
-Ingeniero QA y Especialista en IA enfocado en la creación de producto y la confiabilidad del software. Cuento con un perfil técnico full-stack que potencio mediante el uso avanzado de LLMs y herramientas agenticas. Me especializo en liderar la automatización en entornos dinámicos, compensando limitaciones de recursos mediante arquitecturas innovadoras y optimizando la entrega de valor con total autonomía técnica.
+QA Engineer and AI Specialist focused on product creation and software reliability. I have a full-stack technical profile that I leverage through the advanced use of LLMs and agentic tools. I specialize in leading automation in dynamic environments, compensating for resource limitations through innovative architectures and optimizing value delivery with full technical autonomy.
 
-== Experiencia
+== Experience
 
 #regular-entry(
   [
-    #strong[OneVisa - Dubai (UAE) \/ España], (Part-time) Senior Principal QA Engineer (AI & Reliability)
+    #strong[OneVisa - Dubai (UAE) \/ Spain], (Part-time) Senior Principal QA Engineer (AI & Reliability)
 
-    - Único responsable de QA en una startup en fase de alto crecimiento, liderando el diseño y la ejecución de la estrategia integral de automatización desde cero.
+    - Solely responsible for QA in a high-growth startup, leading the design and execution of the end-to-end automation strategy from scratch.
 
-    - Escalabilidad de la cobertura de pruebas sin ampliar la plantilla, compensando la falta de recursos humanos mediante la creación y orquestación de agentes de IA con Claude Code.
+    - Scalability of test coverage without increasing headcount, compensating for human resource gaps by creating and orchestrating AI agents with Claude Code.
 
-    - Implementación de sistemas de autodiagnóstico iterativos en los pipelines, reduciendo los tiempos de debugging y permitiendo una integración técnica profunda con el equipo de ingeniería.
+    - Implementation of iterative self-diagnostic systems in pipelines, reducing debugging times and allowing deep technical integration with the engineering team.
 
   ],
   [
-    Feb 2026 – presente
+    Feb 2026 – present
 
     
 
-    3 meses
+    3 months
 
   ],
 )
 
 #regular-entry(
   [
-    #strong[Tata Consultancy Service - Banco Galicia], Analista QA Manual - Automation
+    #strong[Tata Consultancy Service - Banco Galicia], Manual QA Analyst - Automation
 
-    - Diseño y desarrollo de 'CobroTron', un agente de IA propio integrado en VSC Github Copilot, especializado en acelerar fuertemente la generación de scripts de automatización para flujos web utilizando Playwright y Python.
+    - Design and development of 'CobroTron', a proprietary AI agent integrated into VSC Github Copilot, specialized in significantly accelerating automation script generation for web flows using Playwright and Python.
 
-    - Construcción de 'FullTron', la máxima evolución de agente QA con autodiagnóstico pionero para iterar tests de forma autónoma. Genera frameworks completos (POM) E2E para Apps nativas\/React (Appium + BrowserStack), APIs y Web; subiendo métricas de Pass\/Fail y evidencia de forma automática al sistema ALM.
+    - Construction of 'FullTron', the ultimate evolution of a QA agent with pioneering self-diagnosis to iterate tests autonomously. It generates complete E2E frameworks (POM) for native Apps\/React (Appium + BrowserStack), APIs, and Web; automatically uploading Pass\/Fail metrics and evidence to the ALM system.
 
-    - Gestión técnica ágil del ciclo de pruebas y análisis de traces\/logs, colaborando cercanamente con desarrolladores mediante la optimización de infraestructura y queries (SQL\/NoSQL).
+    - Agile technical management of the testing cycle and trace\/log analysis, working closely with developers by optimizing infrastructure and queries (SQL\/NoSQL).
 
   ],
   [
-    Abr 2023 – presente
+    Apr 2023 – present
 
     
 
-    3 años 1 mes
+    3 years 1 month
 
   ],
 )
 
 #regular-entry(
   [
-    #strong[Ada School - Colombia], Profesor Python (BootCamp Data y FullStack)
+    #strong[Ada School - Colombia], Python Instructor (Data & FullStack BootCamp)
 
-    - Mentoría técnica avanzada en Python enfocada en la calidad del código, arquitectura de software y mejores prácticas de desarrollo para perfiles internacionales.
+    - Advanced technical mentorship in Python focused on code quality, software architecture, and development best practices for international profiles.
 
   ],
   [
-    Sep 2023 – Oct 2024
+    Sept 2023 – Oct 2024
 
     
 
-    1 año 2 meses
+    1 year 2 months
 
   ],
 )
 
-== Educación
+== Education
 
 #education-entry(
   [
-    #strong[Universidad Nacional de Hurlingham]
+    #strong[National University of Hurlingham]
 
-    #emph[Tec. Universitaria] en Inteligencia Artificial
+    #emph[University Technician] in Artificial Intelligence
 
   ],
   [
-    Ene 2024 – presente
+    Jan 2024 – present
 
   ],
 )
 
 #education-entry(
   [
-    #strong[Instituto Superior de Formación Docente N°109]
+    #strong[Teacher Training Institute N°109]
 
-    #emph[Prof. de Educación Secundaria] en Economía y Gestión
+    #emph[Secondary Education Professor] in Economics and Management
 
-    - Adeudo último año
+    - Last year pending
 
   ],
   [
-    Mar 2019 – Dic 2023
+    Mar 2019 – Dec 2023
 
   ],
 )
 
-== Habilidades
+== Skills
 
-#strong[IA & Agentes:] Claude Code, Gemini, DeepSeek, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Scikit-learn, Pandas, NumPy
+#strong[AI & Agents:] Claude Code, Gemini, DeepSeek, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Scikit-learn, Pandas, NumPy
 
 #strong[Testing & QA:] Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno
 
 #strong[Dev & Ops:] Python, TypeScript, JavaScript, Java, Node.js, FastAPI, Flask, AWS, Docker, Jenkins, Linux, Bash, CI\/CD
 
-#strong[Observabilidad & Data:] Grafana, Kibana, SQL, NoSQL, Matplotlib, Seaborn, Análisis de Traces\/Logs, GitHub Actions
+#strong[Observability & Data:] Grafana, Kibana, SQL, NoSQL, Matplotlib, Seaborn, Trace\/Log Analysis, GitHub Actions
 
-#strong[Idiomas:] Español, Inglés
+#strong[Languages:] Spanish, English

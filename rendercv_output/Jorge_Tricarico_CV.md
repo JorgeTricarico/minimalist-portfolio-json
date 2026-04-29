@@ -7,78 +7,78 @@
 - GitHub: [JorgeTricarico](https://github.com/JorgeTricarico)
 
 
-# Resumen
-Ingeniero QA y Especialista en IA enfocado en la creación de producto y la confiabilidad del software. Cuento con un perfil técnico full-stack que potencio mediante el uso avanzado de LLMs y herramientas agenticas. Me especializo en liderar la automatización en entornos dinámicos, compensando limitaciones de recursos mediante arquitecturas innovadoras y optimizando la entrega de valor con total autonomía técnica.
+# Summary
+QA Engineer and AI Specialist focused on product creation and software reliability. I have a full-stack technical profile that I leverage through the advanced use of LLMs and agentic tools. I specialize in leading automation in dynamic environments, compensating for resource limitations through innovative architectures and optimizing value delivery with full technical autonomy.
 
-# Experiencia
-## **OneVisa - Dubai (UAE) / España**, (Part-time) Senior Principal QA Engineer (AI & Reliability)
+# Experience
+## **OneVisa - Dubai (UAE) / Spain**, (Part-time) Senior Principal QA Engineer (AI & Reliability)
 
-Feb 2026 – presente
-
-
-
-3 meses
-
-- Único responsable de QA en una startup en fase de alto crecimiento, liderando el diseño y la ejecución de la estrategia integral de automatización desde cero.
-
-- Escalabilidad de la cobertura de pruebas sin ampliar la plantilla, compensando la falta de recursos humanos mediante la creación y orquestación de agentes de IA con Claude Code.
-
-- Implementación de sistemas de autodiagnóstico iterativos en los pipelines, reduciendo los tiempos de debugging y permitiendo una integración técnica profunda con el equipo de ingeniería.
+Feb 2026 – present
 
 
 
-## **Tata Consultancy Service - Banco Galicia**, Analista QA Manual - Automation
+3 months
 
-Abr 2023 – presente
+- Solely responsible for QA in a high-growth startup, leading the design and execution of the end-to-end automation strategy from scratch.
 
+- Scalability of test coverage without increasing headcount, compensating for human resource gaps by creating and orchestrating AI agents with Claude Code.
 
-
-3 años 1 mes
-
-- Diseño y desarrollo de 'CobroTron', un agente de IA propio integrado en VSC Github Copilot, especializado en acelerar fuertemente la generación de scripts de automatización para flujos web utilizando Playwright y Python.
-
-- Construcción de 'FullTron', la máxima evolución de agente QA con autodiagnóstico pionero para iterar tests de forma autónoma. Genera frameworks completos (POM) E2E para Apps nativas/React (Appium + BrowserStack), APIs y Web; subiendo métricas de Pass/Fail y evidencia de forma automática al sistema ALM.
-
-- Gestión técnica ágil del ciclo de pruebas y análisis de traces/logs, colaborando cercanamente con desarrolladores mediante la optimización de infraestructura y queries (SQL/NoSQL).
+- Implementation of iterative self-diagnostic systems in pipelines, reducing debugging times and allowing deep technical integration with the engineering team.
 
 
 
-## **Ada School - Colombia**, Profesor Python (BootCamp Data y FullStack)
+## **Tata Consultancy Service - Banco Galicia**, Manual QA Analyst - Automation
 
-Sep 2023 – Oct 2024
-
-
-
-1 año 2 meses
-
-- Mentoría técnica avanzada en Python enfocada en la calidad del código, arquitectura de software y mejores prácticas de desarrollo para perfiles internacionales.
+Apr 2023 – present
 
 
 
-# Educación
-## **Universidad Nacional de Hurlingham**
-Ene 2024 – presente
+3 years 1 month
 
-*Tec. Universitaria* en Inteligencia Artificial
+- Design and development of 'CobroTron', a proprietary AI agent integrated into VSC Github Copilot, specialized in significantly accelerating automation script generation for web flows using Playwright and Python.
 
+- Construction of 'FullTron', the ultimate evolution of a QA agent with pioneering self-diagnosis to iterate tests autonomously. It generates complete E2E frameworks (POM) for native Apps/React (Appium + BrowserStack), APIs, and Web; automatically uploading Pass/Fail metrics and evidence to the ALM system.
 
-
-## **Instituto Superior de Formación Docente N°109**
-Mar 2019 – Dic 2023
-
-*Prof. de Educación Secundaria* en Economía y Gestión
-
-- Adeudo último año
+- Agile technical management of the testing cycle and trace/log analysis, working closely with developers by optimizing infrastructure and queries (SQL/NoSQL).
 
 
 
-# Habilidades
-**IA & Agentes:** Claude Code, Gemini, DeepSeek, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Scikit-learn, Pandas, NumPy
+## **Ada School - Colombia**, Python Instructor (Data & FullStack BootCamp)
+
+Sept 2023 – Oct 2024
+
+
+
+1 year 2 months
+
+- Advanced technical mentorship in Python focused on code quality, software architecture, and development best practices for international profiles.
+
+
+
+# Education
+## **National University of Hurlingham**
+Jan 2024 – present
+
+*University Technician* in Artificial Intelligence
+
+
+
+## **Teacher Training Institute N°109**
+Mar 2019 – Dec 2023
+
+*Secondary Education Professor* in Economics and Management
+
+- Last year pending
+
+
+
+# Skills
+**AI & Agents:** Claude Code, Gemini, DeepSeek, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Scikit-learn, Pandas, NumPy
 
 **Testing & QA:** Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno
 
 **Dev & Ops:** Python, TypeScript, JavaScript, Java, Node.js, FastAPI, Flask, AWS, Docker, Jenkins, Linux, Bash, CI/CD
 
-**Observabilidad & Data:** Grafana, Kibana, SQL, NoSQL, Matplotlib, Seaborn, Análisis de Traces/Logs, GitHub Actions
+**Observability & Data:** Grafana, Kibana, SQL, NoSQL, Matplotlib, Seaborn, Trace/Log Analysis, GitHub Actions
 
-**Idiomas:** Español, Inglés
+**Languages:** Spanish, English

@@ -1,14 +1,27 @@
 ---
 import Section from "../../Section.astro"
-import { skills } from "@cv"
+import { skills as defaultSkills } from "@cv"
+import { ui } from "@/i18n"
+import type { Skills as SkillsType } from "@/cv"
+
+interface Props {
+  skills?: Array<SkillsType>
+  lang?: string
+}
+
+const { skills = defaultSkills, lang = 'es' } = Astro.props
+const t = ui[lang as keyof typeof ui]
 
 const CATEGORY_STYLES: Record<string, { color: string, glow: string, bg: string }> = {
   "IA & Agentes": { color: "#a78bfa", glow: "rgba(167, 139, 250, 0.5)", bg: "rgba(167, 139, 250, 0.08)" },
+  "AI & Agents": { color: "#a78bfa", glow: "rgba(167, 139, 250, 0.5)", bg: "rgba(167, 139, 250, 0.08)" },
   "Testing & QA": { color: "#34d399", glow: "rgba(52, 211, 153, 0.5)", bg: "rgba(52, 211, 153, 0.08)" },
   "Dev & Ops": { color: "#fbbf24", glow: "rgba(251, 191, 36, 0.5)", bg: "rgba(251, 191, 36, 0.08)" },
   "Infra & Cloud": { color: "#60a5fa", glow: "rgba(96, 165, 250, 0.5)", bg: "rgba(96, 165, 250, 0.08)" },
   "Observabilidad & Data": { color: "#fb7185", glow: "rgba(251, 113, 133, 0.5)", bg: "rgba(251, 113, 133, 0.08)" },
+  "Observability & Data": { color: "#fb7185", glow: "rgba(251, 113, 133, 0.5)", bg: "rgba(251, 113, 133, 0.08)" },
   "Idiomas": { color: "#2dd4bf", glow: "rgba(45, 212, 191, 0.5)", bg: "rgba(45, 212, 191, 0.08)" },
+  "Languages": { color: "#2dd4bf", glow: "rgba(45, 212, 191, 0.5)", bg: "rgba(45, 212, 191, 0.08)" },
   "default": { color: "#9ca3af", glow: "rgba(156, 163, 175, 0.5)", bg: "rgba(156, 163, 175, 0.08)" }
 };
 
@@ -18,15 +31,14 @@ const getIconUrl = (name: string) => {
 };
 ---
 
-<Section title="Habilidades">
+<Section title={t['section.skills']}>
   <div class="marquee-wrapper">
     {
-      skills.map(({ name, keywords }, index) => {
+      skills.map(({ name, keywords }, index: number) => {
         const isReverse = index % 2 !== 0;
         const speed = 50 + (index * 20); 
         const style = CATEGORY_STYLES[name] || CATEGORY_STYLES.default;
 
-        // Si hay muy pocos keywords (como Idiomas), los dejamos estáticos para no marear
         const isStatic = keywords.length < 3;
 
         return (
@@ -36,7 +48,7 @@ const getIconUrl = (name: string) => {
                 <div class="category-tag">
                   {name}
                 </div>
-                {keywords.map(keyword => (
+                {keywords.map((keyword: string) => (
                   <div class="skill-pill">
                     <div class="shine"></div>
                     <img 
@@ -55,7 +67,7 @@ const getIconUrl = (name: string) => {
                   <div class="category-tag">
                     {name}
                   </div>
-                  {keywords.map(keyword => (
+                  {keywords.map((keyword: string) => (
                     <div class="skill-pill">
                       <div class="shine"></div>
                       <img 
@@ -85,8 +97,6 @@ const getIconUrl = (name: string) => {
       let isOver = false;
 
       const setPlaybackRate = (rate: number) => {
-        // En lugar de buscar elementos, buscamos directamente todas las animaciones
-        // que pertenezcan a hijos del wrapper.
         const animations = document.getAnimations();
         animations.forEach(anim => {
           const target = (anim.effect as KeyframeEffect)?.target;
@@ -111,16 +121,12 @@ const getIconUrl = (name: string) => {
         const x = e.clientX - rect.left;
         const offset = (x - rect.width / 2) / (rect.width / 2); // -1 a 1
         
-        // Mapear de 1 (centro) a 4 (derecha) o 1 (centro) a -1 (izquierda/reversa)
-        // Multiplicador = 1 + offset * 3;
         setPlaybackRate(1 + offset * 3);
       });
     });
   }
 
-  // Reiniciar en cada navegación de Astro
   document.addEventListener('astro:page-load', setupMarqueeInteractivity);
-  // Carga inicial
   setupMarqueeInteractivity();
 </script>
 
@@ -188,7 +194,6 @@ const getIconUrl = (name: string) => {
     white-space: nowrap;
     backdrop-filter: blur(4px);
   }
-
 
   .skill-pill {
     background: var(--bg-page-edge);

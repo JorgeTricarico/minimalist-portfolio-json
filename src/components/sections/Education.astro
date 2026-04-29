@@ -1,42 +1,43 @@
 ---
 import Section from "../Section.astro"
+import { ui } from "@/i18n"
+import { education as defaultEducation } from "@cv"
+import type { Education as EducationType } from "@/cv"
 
-import { education } from "@cv"
+interface Props {
+  education?: Array<EducationType>
+  lang?: string
+}
+
+const { education = defaultEducation, lang = 'es' } = Astro.props
+const t = ui[lang as keyof typeof ui]
 ---
 
-<Section title="Educación">
+<Section title={t['section.education']}>
   <ul>
     {
-      education.map(({ institution, startDate, endDate, area, studyType, courses }) => {
+      education.map(({ institution, startDate, endDate, area }) => {
         const startYear = new Date(startDate).getFullYear()
         const endYear =
-          endDate != null ? new Date(endDate).getFullYear() : "Actual"
+          endDate != null ? (isNaN(Date.parse(endDate)) ? endDate : new Date(endDate).getFullYear()) : t['experience.actual']
         const years = `${startYear} - ${endYear}`
 
         return (
-            <li>
-              <article>
-                <header>
-                  <div>
-                    <h3>{institution}</h3>
-                  </div>
+          <li>
+            <article>
+              <header>
+                <div>
+                  <h3>{institution}</h3>
+                </div>
 
-                  <time>{years}</time>
-                </header>
+                <time>{years}</time>
+              </header>
 
-                <footer>
-                  <p>{studyType}</p>
-                  <p>{area}</p>
-                  {courses && courses.length > 0 && (
-                    <ul class="education-details">
-                      {courses.map(course => (
-                        <li set:html={course}></li>
-                      ))}
-                    </ul>
-                  )}
-                </footer>
-              </article>
-            </li>
+              <footer>
+                <p>{area}</p>
+              </footer>
+            </article>
+          </li>
         )
       })
     }
@@ -48,22 +49,6 @@ import { education } from "@cv"
     display: flex;
     flex-direction: column;
     gap: 32px;
-  }
-
-  footer {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-  }
-
-  .education-details {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin-top: 4px;
-    font-size: 0.85rem;
-    color: var(--text-muted);
   }
 
   article h3 {

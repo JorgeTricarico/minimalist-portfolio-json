@@ -1,0 +1,200 @@
+{
+  "basics": {
+    "name": "Jorge Tricarico",
+    "label": "AI-Driven QA Engineer",
+    "image": "/perfil.jpg",
+    "email": "jorge.tricarico@gmail.com",
+    "phone": "+54 9 11 50479769",
+    "url": "",
+    "summary": "QA Engineer and AI Specialist focused on product creation and software reliability. I have a full-stack technical profile that I leverage through the advanced use of LLMs and agentic tools. I specialize in leading automation in dynamic environments, compensating for resource limitations through innovative architectures and optimizing value delivery with full technical autonomy.",
+    "location": {
+      "address": "",
+      "postalCode": "1684",
+      "city": "Buenos Aires",
+      "countryCode": "AR",
+      "region": "Buenos Aires"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "jorge-tricarico",
+        "url": "https://www.linkedin.com/in/jorge-tricarico/"
+      },
+      {
+        "network": "GitHub",
+        "username": "JorgeTricarico",
+        "url": "https://www.github.com/JorgeTricarico"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "OneVisa - Dubai (UAE) / Spain",
+      "position": "(Part-time) Senior Principal QA Engineer (AI & Reliability)",
+      "url": "",
+      "startDate": "2026-02-01",
+      "endDate": null,
+      "summary": "",
+      "highlights": [
+        "Solely responsible for QA in a high-growth startup, leading the design and execution of the end-to-end automation strategy from scratch.",
+        "Scalability of test coverage without increasing headcount, compensating for human resource gaps by creating and orchestrating AI agents with Claude Code.",
+        "Implementation of iterative self-diagnostic systems in pipelines, reducing debugging times and allowing deep technical integration with the engineering team."
+      ]
+    },
+    {
+      "name": "Tata Consultancy Service - Banco Galicia",
+      "position": "Manual QA Analyst - Automation",
+      "url": "",
+      "startDate": "2023-04-01",
+      "endDate": null,
+      "summary": "",
+      "highlights": [
+        "Design and development of 'CobroTron', a proprietary AI agent integrated into VSC Github Copilot, specialized in significantly accelerating automation script generation for web flows using Playwright and Python.",
+        "Construction of 'FullTron', the ultimate evolution of a QA agent with pioneering self-diagnosis to iterate tests autonomously. It generates complete E2E frameworks (POM) for native Apps/React (Appium + BrowserStack), APIs, and Web; automatically uploading Pass/Fail metrics and evidence to the ALM system.",
+        "Agile technical management of the testing cycle and trace/log analysis, working closely with developers by optimizing infrastructure and queries (SQL/NoSQL)."
+      ]
+    },
+    {
+      "name": "Ada School - Colombia",
+      "position": "Python Instructor (Data & FullStack BootCamp)",
+      "url": "",
+      "startDate": "2023-09-01",
+      "endDate": "2024-10-01",
+      "summary": "",
+      "highlights": [
+        "Advanced technical mentorship in Python focused on code quality, software architecture, and development best practices for international profiles."
+      ]
+    }
+  ],
+  "volunteer": [],
+  "education": [
+    {
+      "institution": "National University of Hurlingham",
+      "url": "",
+      "area": "Artificial Intelligence",
+      "studyType": "University Technician",
+      "startDate": "2024-01-01",
+      "endDate": null,
+      "score": "",
+      "courses": []
+    },
+    {
+      "institution": "Teacher Training Institute N°109",
+      "url": "",
+      "area": "Economics and Management",
+      "studyType": "Secondary Education Professor",
+      "startDate": "2019-03-01",
+      "endDate": "2023-12-01",
+      "score": "",
+      "courses": [
+        "Last year pending"
+      ]
+    }
+  ],
+  "awards": [],
+  "certificates": [],
+  "publications": [],
+  "skills": [
+    {
+      "name": "AI & Agents",
+      "level": "N/A",
+      "keywords": [
+        "Claude Code",
+        "Gemini",
+        "DeepSeek",
+        "GitHub Copilot",
+        "Cursor",
+        "Antigravity",
+        "Engram",
+        "Prompt Engineering",
+        "OpenAI",
+        "Anthropic",
+        "Scikit-learn",
+        "Pandas",
+        "NumPy"
+      ]
+    },
+    {
+      "name": "Testing & QA",
+      "level": "N/A",
+      "keywords": [
+        "Playwright",
+        "Cypress",
+        "Selenium",
+        "Appium",
+        "Pytest",
+        "k6",
+        "Performance",
+        "Postman",
+        "Bruno"
+      ]
+    },
+    {
+      "name": "Dev & Ops",
+      "level": "N/A",
+      "keywords": [
+        "Python",
+        "TypeScript",
+        "JavaScript",
+        "Java",
+        "Node.js",
+        "FastAPI",
+        "Flask",
+        "AWS",
+        "Docker",
+        "Jenkins",
+        "Linux",
+        "Bash",
+        "CI/CD"
+      ]
+    },
+    {
+      "name": "Observability & Data",
+      "level": "N/A",
+      "keywords": [
+        "Grafana",
+        "Kibana",
+        "SQL",
+        "NoSQL",
+        "Matplotlib",
+        "Seaborn",
+        "Trace/Log Analysis",
+        "GitHub Actions"
+      ]
+    },
+    {
+      "name": "Languages",
+      "level": "N/A",
+      "keywords": [
+        "Spanish",
+        "English"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Español",
+      "fluency": "Nativo"
+    },
+    {
+      "language": "Inglés",
+      "fluency": "Intermedio"
+    }
+  ],
+  "interests": [],
+  "references": [],
+  "projects": [
+    {
+      "name": "Portfolio CV Automático",
+      "isActive": true,
+      "description": "Desarrollo de este propio CV utilizando JSON Resume y Astro, con despliegue automatizado.",
+      "highlights": [
+        "JSON Resume",
+        "Astro",
+        "ATS Friendly"
+      ],
+      "url": "https://github.com/JorgeTricarico",
+      "github": "https://github.com/JorgeTricarico"
+    }
+  ]
+}

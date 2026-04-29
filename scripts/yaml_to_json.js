@@ -7,7 +7,7 @@ import { z } from 'zod';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Export for testing
+// Esquema de validación (compartido)
 export const cvSchema = z.object({
   basics: z.object({
     name: z.string().min(1),
@@ -99,7 +99,7 @@ export const getSection = (sections, possibleNames) => {
 
 export const mapYamlToJson = (data) => {
   if (!data || !data.cv) {
-    throw new Error('El archivo cv.yaml o la data carece de formato RenderCV.');
+    throw new Error('El archivo YAML carece de formato RenderCV.');
   }
 
   const cv = data.cv;
@@ -107,7 +107,7 @@ export const mapYamlToJson = (data) => {
   const boldKeywords = settings.bold_keywords || [];
 
   const resumeText = getSection(cv.sections, ['Resumen', 'Summary', 'About']);
-  const experienceData = getSection(cv.sections, ['Experiencia', 'Experience', 'Trabajo']) || [];
+  const experienceData = getSection(cv.sections, ['Experiencia', 'Experience', 'Trabajo', 'Work Experience']) || [];
   const educationData = getSection(cv.sections, ['Educación', 'Educacion', 'Education']) || [];
   const certificatesData = getSection(cv.sections, ['Certificados', 'Certificates']) || [];
   const skillsData = getSection(cv.sections, ['Habilidades', 'Skills']) || [];
@@ -167,8 +167,6 @@ export const mapYamlToJson = (data) => {
     })),
     publications: [],
     skills: skillsData.map(s => {
-      // Limpiamos los paréntesis tratándolos como separadores para que LLMs (OpenAI, Anthropic) 
-      // se convierta en [LLMs, OpenAI, Anthropic]
       const keywords = typeof s.details === 'string' 
         ? s.details
             .replace(/[()]/g, ',') 
@@ -200,32 +198,31 @@ export const mapYamlToJson = (data) => {
     ]
   };
 
-  // Validate schema. This will throw a detailed error if invalid
   return cvSchema.parse(jsonResume);
 }
 
-// Execution 
-if (import.meta.url.startsWith('file:') && process.argv[1] === fileURLToPath(import.meta.url)) {
-  const yamlPath = path.resolve(__dirname, '../cv.yaml');
-  const jsonPath = path.resolve(__dirname, '../cv.json');
+const convert = (yamlFileName, jsonFileName) => {
+  const yamlPath = path.resolve(__dirname, '..', yamlFileName);
+  const jsonPath = path.resolve(__dirname, '..', jsonFileName);
+
+  if (!fs.existsSync(yamlPath)) {
+    console.log(`⚠️ Archivo ${yamlFileName} no encontrado, saltando...`);
+    return;
+  }
 
   try {
     const fileContents = fs.readFileSync(yamlPath, 'utf8');
     const data = yaml.load(fileContents);
-
-    // Map with schema validation
     const jsonResume = mapYamlToJson(data);
-
     fs.writeFileSync(jsonPath, JSON.stringify(jsonResume, null, 2), 'utf8');
-    console.log('✅ cv.json ha sido validado y generado exitosamente desde cv.yaml');
+    console.log(`✅ ${jsonFileName} generado exitosamente desde ${yamlFileName}`);
   } catch (e) {
-    if (e instanceof z.ZodError) {
-      console.error("❌ Error de Validación de Zod en el esquema del CV generado:");
-      console.error(JSON.stringify(e.errors, null, 2));
-      process.exit(1);
-    } else {
-      console.error("❌ Error convirtiendo YAML a JSON:", e.message);
-      process.exit(1);
-    }
+    console.error(`❌ Error procesando ${yamlFileName}:`, e.message);
   }
+}
+
+// Execution 
+if (import.meta.url.startsWith('file:') && process.argv[1] === fileURLToPath(import.meta.url)) {
+  convert('cv.yaml', 'cv.json');
+  convert('cv.en.yaml', 'cv.en.json');
 }

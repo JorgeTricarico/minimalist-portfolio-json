@@ -1,21 +1,32 @@
 ---
-import { basics } from "@cv"
-
 interface Props {
   title: string
+  description?: string
+  image?: string
+  url?: string
+  lang?: string
 }
 
-const { title } = Astro.props
+const { 
+  title, 
+  description = "", 
+  image = "/perfil.jpg", 
+  url = "https://jorgetricarico.com",
+  lang = "es"
+} = Astro.props
 
-const { image, summary, url } = basics
+const themeLabels = {
+  es: { dark: 'Oscuro', light: 'Claro' },
+  en: { dark: 'Dark', light: 'Light' }
+}[lang as 'es' | 'en'] || { dark: 'Oscuro', light: 'Claro' };
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <title>{title}</title>
-    <meta name="description" content={summary} />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" as="image" href={image} />
@@ -23,15 +34,25 @@ const { image, summary, url } = basics
     <meta property="og:url" content={url} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={summary} />
-    <meta property="og:image" content="" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="twitter:domain" content={url.split("//")[1] ?? ''} />
     <meta property="twitter:url" content={url} />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={summary} />
-    <meta name="twitter:image" content="" />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <script is:inline>
+      // Blocking script to prevent FOUC (Flash of Unstyled Content)
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
   </head>
   <body>
     <div class="ambient-orb orb-1"></div>
@@ -187,7 +208,6 @@ const { image, summary, url } = basics
       break-inside: avoid;
     }
 
-    /* Force light mode when printing — removes dark mode filter */
     html, html.dark {
       background: #fff !important;
       filter: none !important;
@@ -200,7 +220,6 @@ const { image, summary, url } = basics
       background: #fff !important;
     }
 
-    /* Compact layout to fit on one page */
     html {
       font-size: 11px;
     }
@@ -236,12 +255,10 @@ const { image, summary, url } = basics
     }
   }
 
-  /* Native dark mode using variables instead of invert filter */
   html.dark body {
     color: var(--text-main);
   }
 
-  /* Theme toggle button */
   #theme-toggle {
     position: fixed;
     top: 16px;
@@ -291,11 +308,16 @@ const { image, summary, url } = basics
   }
 </style>
 
-<button id="theme-toggle" class="no-print" aria-label="Toggle Dark Mode">
+<button 
+  id="theme-toggle" 
+  class="no-print" 
+  aria-label="Toggle Dark Mode"
+  data-labels={JSON.stringify(themeLabels)}
+>
   <svg id="toggle-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
   </svg>
-  <span id="toggle-label">Oscuro</span>
+  <span id="toggle-label">{themeLabels.light}</span>
 </button>
 
 <script>
@@ -303,12 +325,14 @@ const { image, summary, url } = basics
   const toggleLabel = document.getElementById('toggle-label');
   const toggleIcon = document.getElementById('toggle-icon');
   
+  const labels = JSON.parse(themeToggle?.dataset.labels || '{"dark":"Oscuro","light":"Claro"}');
+
   const updateThemeUI = (isDark: boolean) => {
-    if (toggleLabel) toggleLabel.textContent = isDark ? 'Claro' : 'Oscuro';
+    if (toggleLabel) toggleLabel.textContent = isDark ? labels.dark : labels.light;
     if (toggleIcon) {
       toggleIcon.innerHTML = isDark 
-        ? '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>'
-        : '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+        ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>' // Moon icon
+        : '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>'; // Sun icon
     }
   };
 
@@ -323,14 +347,11 @@ const { image, summary, url } = basics
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
     
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-      updateThemeUI(true);
-    }
+    // UI already handled by inline blocking script for class,
+    // but we need to update the button text and icon.
+    updateThemeUI(isDark);
   }
 
-  // Open all <details> before printing so descriptions are visible,
-  // then restore only the ones that were originally closed.
   let closedDetails: HTMLDetailsElement[] = [];
 
   window.addEventListener('beforeprint', () => {
@@ -350,4 +371,3 @@ const { image, summary, url } = basics
     closedDetails = [];
   });
 </script>
-

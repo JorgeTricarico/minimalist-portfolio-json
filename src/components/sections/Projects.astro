@@ -1,11 +1,20 @@
 ---
 import GitHub from "@/icons/GitHub.astro"
 import Section from "../Section.astro"
+import { ui } from "@/i18n"
+import { projects as defaultProjects } from "@cv"
+import type { Projects as ProjectsType } from "@/cv"
 
-import { projects } from "@cv"
+interface Props {
+  projects?: Array<ProjectsType>
+  lang?: string
+}
+
+const { projects = defaultProjects, lang = 'es' } = Astro.props
+const t = ui[lang as keyof typeof ui]
 ---
 
-<Section title="Proyectos">
+<Section title={t['section.projects']}>
   <ul>
     {
       projects.map(
@@ -15,16 +24,16 @@ import { projects } from "@cv"
               <article>
                 <header>
                   <h3>
-                    <a href={url} target="_blank" title={`Ver el proyecto ${name}`}>
+                    <a href={url} target="_blank" title={`${t['projects.visit']} ${name}`}>
                       {name}
                     </a>
-                    {isActive && <span>•</span>}
+                    {isActive && <span>&bull;</span>}
                     {github && (
                       <a
                         class="github-code-link"
                         href={github}
                         target="_blank"
-                        title={`Ver código fuente del proyecto ${name}`}
+                        title={t['projects.visit']}
                       >
                         <GitHub />
                       </a>
@@ -49,7 +58,7 @@ import { projects } from "@cv"
 <style>
   ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
     margin-inline: -16px;
   }
@@ -62,6 +71,12 @@ import { projects } from "@cv"
     flex-direction: column;
     padding: 16px;
     height: 100%;
+    transition: all 0.3s ease;
+  }
+
+  article:hover {
+    background: var(--bg-page-edge);
+    border-color: var(--text-muted);
   }
 
   article header {
@@ -70,6 +85,9 @@ import { projects } from "@cv"
 
   article h3 {
     margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
   }
 
   article a {
@@ -104,10 +122,11 @@ import { projects } from "@cv"
   footer span {
     border-radius: 6px;
     background: var(--bg-page-edge);
-    color: var(--text-main);
+    color: var(--text-muted);
     font-size: 0.6rem;
     font-weight: 500;
     padding: 0.2rem 0.6rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
   }
 
   .github-code-link {
@@ -115,32 +134,20 @@ import { projects } from "@cv"
   }
 
   @keyframes flicker {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.25;
-    }
-    100% {
-      opacity: 1;
-    }
+    0% { opacity: 1; }
+    50% { opacity: 0.25; }
+    100% { opacity: 1; }
   }
 
   @media (width <= 700px) {
     ul {
       margin-inline: 0px;
     }
-
-    article {
-      border: none;
-      box-shadow: 0 1px 1px var(--bg-page-edge);
-      padding: 0 0 16px 0;
-    }
   }
 
   @media print {
-    article h3 span {
-      animation-name: none;
+    footer span {
+      border: 1px solid #ccc;
     }
   }
 </style>

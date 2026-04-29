@@ -1,0 +1,71 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import About from "@/components/sections/About.astro"
+import Education from "@/components/sections/Education.astro"
+import Experience from "@/components/sections/Experience.astro"
+import Hero from "@/components/sections/Hero.astro"
+import Projects from "@/components/sections/Projects.astro"
+import Skills from "@/components/sections/Skills.astro"
+import KeyboardManager from "@/components/KeyboardManager.astro"
+import LanguageSelector from "@/components/LanguageSelector.astro"
+import { ui } from "@/i18n"
+import type { CV } from "@/cv"
+
+interface Props {
+  cv: CV
+  lang?: string
+}
+
+const { cv, lang = 'es' } = Astro.props
+const { basics } = cv
+---
+
+<Layout title={`Portafolio de ${basics.name} - ${basics.label}`} lang={lang} description={basics.summary}>
+  <LanguageSelector currentLang={lang} />
+  <main>
+    <Hero basics={cv.basics} lang={lang} />
+    <About basics={cv.basics} lang={lang} />
+    <Experience work={cv.work} lang={lang} />
+    <Education education={cv.education} lang={lang} />
+    <Projects projects={cv.projects} lang={lang} />
+    <Skills skills={cv.skills} lang={lang} />
+  </main>
+
+  <KeyboardManager cv={cv} lang={lang} />
+</Layout>
+
+<style>
+  main {
+    padding: 4rem;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 850px;
+    background: transparent;
+    box-shadow: none;
+    min-height: 100vh;
+    position: relative;
+    z-index: 10;
+    animation: reveal var(--animation-duration) ease-out forwards;
+  }
+
+  @keyframes reveal {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (width <= 700px) {
+    main {
+      padding: 2rem;
+    }
+  }
+
+  @media print {
+    main {
+      padding: 0 !important;
+      margin: 0 !important;
+      max-width: none !important;
+      background: #fff !important;
+      animation: none !important;
+    }
+  }
+</style>

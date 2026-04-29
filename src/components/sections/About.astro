@@ -1,11 +1,19 @@
 ---
 import Section from "../Section.astro"
+import { basics as defaultBasics } from "@cv"
+import { ui } from "@/i18n"
+import type { Basics } from "@/cv"
 
-import { basics } from "@cv"
+interface Props {
+  basics?: Basics
+  lang?: string
+}
+
+const { basics = defaultBasics, lang = 'es' } = Astro.props
 const { summary } = basics
+const t = ui[lang as keyof typeof ui]
 ---
 
-<Section title="Sobre mí">
-  <p set:html={summary}>
-  </p>
+<Section title={t['section.about']}>
+  <p set:html={summary} />
 </Section>
