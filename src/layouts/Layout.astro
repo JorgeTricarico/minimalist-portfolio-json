@@ -300,11 +300,18 @@ const themeLabels = {
   }
 
   #theme-toggle svg {
-    transition: transform 0.4s ease;
+    transition: transform 0.4s ease, filter 0.3s ease;
+    filter: drop-shadow(0 0 4px rgba(251, 191, 36, 0.6)); /* Glow for sun */
+    color: #f59e0b;
+  }
+
+  html.dark #theme-toggle svg {
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.4)); /* Glow for moon */
+    color: #f3f4f6;
   }
 
   #theme-toggle:hover svg {
-    transform: rotate(20deg);
+    transform: rotate(20deg) scale(1.1);
   }
 </style>
 
