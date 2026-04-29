@@ -128,7 +128,7 @@ export const mapYamlToJson = (data) => {
         postalCode: "1684",
         city: cv.location ? cv.location.split(',')[0].trim() : "",
         countryCode: cv.location ? cv.location.split(',')[1]?.trim() : "",
-        region: "Buenos Aires"
+        region: cv.location ? cv.location.split(',')[1]?.trim() : ""
       },
       profiles: (cv.social_networks || []).map(p => ({
         network: p.network,

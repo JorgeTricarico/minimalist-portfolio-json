@@ -43,6 +43,9 @@ const themeLabels = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
+    
+    <!-- Umami Analytics - Reemplaza data-website-id con tu ID de Umami Cloud -->
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="your-id-here"></script>
 
     <script is:inline>
       // Blocking script to prevent FOUC (Flash of Unstyled Content)
@@ -268,7 +271,7 @@ const themeLabels = {
     gap: 6px;
     padding: 7px 14px 7px 10px;
     background: rgba(255, 255, 255, 0.75);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.4);
     border-radius: 999px;
     cursor: pointer;
     z-index: 9999;
@@ -279,20 +282,26 @@ const themeLabels = {
     letter-spacing: 0.01em;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04);
-    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   html.dark #theme-toggle {
     background: rgba(30, 30, 30, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(167, 139, 250, 0.5); /* Moonlight border */
     color: #eee;
+    box-shadow: 0 0 25px rgba(167, 139, 250, 0.35); /* Soft purple/blue glow */
   }
 
   #theme-toggle:hover {
     background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    box-shadow: 0 0 35px rgba(251, 191, 36, 0.8);
     transform: translateY(-1px);
+  }
+
+  html.dark #theme-toggle:hover {
+    background: rgba(45, 45, 45, 0.95);
+    box-shadow: 0 0 45px rgba(167, 139, 250, 0.6);
   }
 
   #theme-toggle:active {
@@ -301,12 +310,15 @@ const themeLabels = {
 
   #theme-toggle svg {
     transition: transform 0.4s ease, filter 0.3s ease;
-    filter: drop-shadow(0 0 4px rgba(251, 191, 36, 0.6)); /* Glow for sun */
+    overflow: visible !important;
+    -webkit-filter: drop-shadow(0 0 10px rgba(251, 191, 36, 1)); /* Stronger sun glow */
+    filter: drop-shadow(0 0 10px rgba(251, 191, 36, 1));
     color: #f59e0b;
   }
 
   html.dark #theme-toggle svg {
-    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.4)); /* Glow for moon */
+    -webkit-filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8)); /* Stronger moon glow */
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
     color: #f3f4f6;
   }
 

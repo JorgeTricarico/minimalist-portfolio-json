@@ -1,104 +1,50 @@
+# 🚀 AI-Driven & Multilingual Portfolio
 
+Este es un portafolio/CV minimalista, elegante y altamente funcional, diseñado específicamente para ingenieros de software y QA que buscan destacar su perfil técnico tanto en la web como en PDF.
 
-<div align="center">
-<img src="logo.png" height="90px" width="auto" /> 
-<h2>
-    <em>Résumé</em> minimalista maquetado para web y pdf
-</h2>
-<p>
-Esquema del JSON de CV de <a href="https://jsonresume.org/schema/">jsonresume.org</a>
-</p>
+**Basado en el trabajo original de [midudev](https://github.com/midudev/minimalist-portfolio-json)**, este fork ha evolucionado para incluir capacidades avanzadas de automatización e internacionalización.
 
+---
 
-<p>
-Basado en el diseño de <a href="https://github.com/BartoszJarocki/cv">Bartosz Jarocki</a>
+## ✨ Características Destacadas
 
-</p>
+- 🌍 **Soporte Multilingüe (ES/EN)**: Cambio dinámico de idioma con un switch premium con Glassmorphism.
+- 📄 **PDF Dual Automatizado**: Generación de currículums profesionales en ambos idiomas mediante [RenderCV](https://github.com/sina-ariyan/rendercv) y LaTeX.
+- 🤖 **Perfil AI-Focused**: Optimizado para resaltar habilidades en IA, Agentes y Automatización de QA.
+- 🌑 **Modo Oscuro Inteligente**: Sincronizado entre sesiones y con efectos de brillo (Glow) dinámicos.
+- ⚡ **Astro + TypeScript**: Rendimiento ultrarrápido y código 100% tipado.
+- ⌨️ **Keyboard Friendly**: Atajos de teclado intuitivos (`Ctrl+K`) para acciones rápidas.
 
-</div>
+---
 
-<div align="center">
-    <a href="#🚀-empezar">
-        Empezar
-    </a>
-    <span>&nbsp;✦&nbsp;</span>
-    <a href="#🧞-comandos">
-        Comandos
-    </a>
-    <span>&nbsp;✦&nbsp;</span>
-    <a href="#🔑-licencia">
-        Licencia
-    </a>
-    <span>&nbsp;✦&nbsp;</span>
-    <a href="https://midu.dev">
-        Personal
-    </a>
-   
-</div>
+## 🛠️ Stack Tecnológico
 
-<p></p>
+- **Frontend**: [Astro](https://astro.build/), [TypeScript](https://www.typescriptlang.org/), CSS Nativo.
+- **Data**: YAML como fuente de verdad, convertido automáticamente a JSON Resume.
+- **PDF Engine**: [RenderCV](https://rendercv.com/) (LaTeX).
+- **Interacción**: [HotKeyPad](https://github.com/ssleptsov/ninja-keys) para el gestor de comandos.
 
-<div align="center">
+---
 
-![Astro Badge](https://img.shields.io/badge/Astro-BC52EE?logo=astro&logoColor=fff&style=flat)
-![GitHub stars](https://img.shields.io/github/stars/midudev/minimalist-portfolio-json)
-![GitHub issues](https://img.shields.io/github/issues/midudev/minimalist-portfolio-json)
-![GitHub forks](https://img.shields.io/github/forks/midudev/minimalist-portfolio-json)
-![GitHub PRs](https://img.shields.io/github/issues-pr/midudev/minimalist-portfolio-json)
+## 🧞 Comandos y Desarrollo
 
-</div>
+A diferencia del template original, este proyecto incluye scripts de automatización personalizados:
 
-<img src="portada.png"></img>
+| Comando | Acción |
+| :--- | :--- |
+| `npm run dev` | Lanza el servidor y sincroniza los archivos YAML/JSON automáticamente. |
+| `npm run cv` | Genera los PDFs en Español e Inglés desde los archivos YAML. |
+| `npm run build` | Valida tipos y genera el bundle estático para producción. |
 
-## 🛠️ Stack
+### Cómo usar tu propio contenido
+1. Edita `cv.yaml` (Español) y `cv.en.yaml` (Inglés).
+2. Ejecuta `npm run cv` para actualizar los PDFs en `public/`.
+3. El sitio web se actualizará automáticamente reflejando los cambios.
 
-- [**Astro**](https://astro.build/) - El framework web de la nueva época.
-- [**Typescript**](https://www.typescriptlang.org/) - JavaScript con sintaxis de tipado.
-- [**Ninja Keys**](https://github.com/ssleptsov/ninja-keys) - Menu desplegable con atajos de teclado hecho en puro Javascript.
+---
 
+## 📝 Licencia
 
-## 🚀 Empezar
-
-### 1. Usa este [repo](https://github.com/midudev/minimalist-portfolio-json) como _template_ de un proyecto de Astro
-
-
-- Yo uso [pnpm](https://pnpm.io/installation) como gestor de dependencias y empaquetador.
-
-```bash
-# Activa pnpm en MacOS, WSL & Linux:
-corepack enable
-corepack prepare pnpm@latest --activate
-
-# Inicializa el proyecto
-pnpm create astro@latest -- --template midudev/minimalist-portfolio-json
-```
-
-### 2. Añade tu contenido:
-Edita el archivo `cv.json` para crear tu propio Portafolio/CV imprimible.
-### 3. Lanza el servidor de desarrollo:
-
-```bash
-# Disfruta del resultado
-pnpm dev
-```
-
-
-1. Abre [**http://localhost:4321**](http://localhost:4321/) en tu navegador para ver el resultado 🚀
-
-
-## 🧞 Comandos
-
-|     | Comando          | Acción                                        |
-| :-- | :--------------- | :-------------------------------------------- |
-| ⚙️  | `dev` o `start` | Lanza un servidor de desarrollo local en  `localhost:4321`.  |
-| ⚙️  | `build`          | Comprueba posibles errores y hace un empaquetado de producción en `./dist/`.      |
-| ⚙️  | `preview`        | Vista previa en local `localhost:4321` |
-
-
-
-## 🔑 Licencia
-
-[MIT](LICENSE.txt) - Creado por [**midudev**](https://midu.dev).
-
-
-
+Este proyecto está bajo la licencia [MIT](LICENSE). 
+Inspirado por [Bartosz Jarocki](https://github.com/BartoszJarocki/cv) y adaptado por [midudev](https://midu.dev).
+**Mejorado y extendido por Jorge Tricarico.**

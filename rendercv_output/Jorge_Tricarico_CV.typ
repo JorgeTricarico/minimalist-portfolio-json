@@ -90,7 +90,7 @@
   columns: (auto, 1fr),
   column-gutter: 0cm,
   align: horizon + left,
-  [#pad(left: 0.4cm, right: 0.4cm, image("perfil.jpg", width: 3.5cm))
+  [#pad(left: 0.4cm, right: 0.4cm, image("perfil_rounded.png", width: 3.5cm))
 ],
   [
 = Jorge Tricarico
