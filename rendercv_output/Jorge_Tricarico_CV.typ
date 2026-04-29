@@ -81,7 +81,7 @@
   date: datetime(
     year: 2026,
     month: 4,
-    day: 24,
+    day: 29,
   ),
 )
 
@@ -110,7 +110,7 @@
 
 == Resumen
 
-Ingeniero de QA y Especialista en IA enfocado en la creación de producto y la confiabilidad del software. Cuento con un perfil técnico full-stack que potencio mediante el uso avanzado de LLMs y herramientas agenticas. Me especializo en liderar la automatización en entornos dinámicos, compensando limitaciones de recursos mediante arquitecturas innovadoras y optimizando la entrega de valor con total autonomía técnica.
+Ingeniero QA y Especialista en IA enfocado en la creación de producto y la confiabilidad del software. Cuento con un perfil técnico full-stack que potencio mediante el uso avanzado de LLMs y herramientas agenticas. Me especializo en liderar la automatización en entornos dinámicos, compensando limitaciones de recursos mediante arquitecturas innovadoras y optimizando la entrega de valor con total autonomía técnica.
 
 == Experiencia
 
@@ -205,12 +205,12 @@ Ingeniero de QA y Especialista en IA enfocado en la creación de producto y la c
 
 == Habilidades
 
-#strong[IA & Agentes:] Claude Code, Gemini, DeepSeek, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic
+#strong[IA & Agentes:] Claude Code, Gemini, DeepSeek, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Scikit-learn, Pandas, NumPy
 
 #strong[Testing & QA:] Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno
 
-#strong[Dev & Ops:] Python, TypeScript, JavaScript, Java, Node.js, FastAPI, AWS, Docker, Jenkins, Linux, Bash, CI\/CD
+#strong[Dev & Ops:] Python, TypeScript, JavaScript, Java, Node.js, FastAPI, Flask, AWS, Docker, Jenkins, Linux, Bash, CI\/CD
 
-#strong[Observabilidad & Data:] Grafana, Kibana, SQL, NoSQL, Análisis de Traces\/Logs, GitHub Actions
+#strong[Observabilidad & Data:] Grafana, Kibana, SQL, NoSQL, Matplotlib, Seaborn, Análisis de Traces\/Logs, GitHub Actions
 
 #strong[Idiomas:] Español, Inglés

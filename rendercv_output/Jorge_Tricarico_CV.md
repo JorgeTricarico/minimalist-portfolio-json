@@ -8,7 +8,7 @@
 
 
 # Resumen
-Ingeniero de QA y Especialista en IA enfocado en la creación de producto y la confiabilidad del software. Cuento con un perfil técnico full-stack que potencio mediante el uso avanzado de LLMs y herramientas agenticas. Me especializo en liderar la automatización en entornos dinámicos, compensando limitaciones de recursos mediante arquitecturas innovadoras y optimizando la entrega de valor con total autonomía técnica.
+Ingeniero QA y Especialista en IA enfocado en la creación de producto y la confiabilidad del software. Cuento con un perfil técnico full-stack que potencio mediante el uso avanzado de LLMs y herramientas agenticas. Me especializo en liderar la automatización en entornos dinámicos, compensando limitaciones de recursos mediante arquitecturas innovadoras y optimizando la entrega de valor con total autonomía técnica.
 
 # Experiencia
 ## **OneVisa - Dubai (UAE) / España**, (Part-time) Senior Principal QA Engineer (AI & Reliability)
@@ -73,12 +73,12 @@ Mar 2019 – Dic 2023
 
 
 # Habilidades
-**IA & Agentes:** Claude Code, Gemini, DeepSeek, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic
+**IA & Agentes:** Claude Code, Gemini, DeepSeek, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Scikit-learn, Pandas, NumPy
 
 **Testing & QA:** Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno
 
-**Dev & Ops:** Python, TypeScript, JavaScript, Java, Node.js, FastAPI, AWS, Docker, Jenkins, Linux, Bash, CI/CD
+**Dev & Ops:** Python, TypeScript, JavaScript, Java, Node.js, FastAPI, Flask, AWS, Docker, Jenkins, Linux, Bash, CI/CD
 
-**Observabilidad & Data:** Grafana, Kibana, SQL, NoSQL, Análisis de Traces/Logs, GitHub Actions
+**Observabilidad & Data:** Grafana, Kibana, SQL, NoSQL, Matplotlib, Seaborn, Análisis de Traces/Logs, GitHub Actions
 
 **Idiomas:** Español, Inglés
