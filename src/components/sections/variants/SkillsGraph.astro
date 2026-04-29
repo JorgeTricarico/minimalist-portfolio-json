@@ -18,7 +18,7 @@ const graphData = skills.map((s, i) => ({
   </div>
 </Section>
 
-<script define:vars={{ graphData }}>
+<script is:inline define:vars={{ graphData }}>
   let canvas, ctx, nodes = [], links = [], selectedNode = null;
   const COLORS = ["#8b5cf6", "#10b981", "#f59e0b", "#3b82f6", "#ef4444"];
 

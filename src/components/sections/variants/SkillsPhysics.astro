@@ -20,7 +20,7 @@ const skillsData = skills.map(s => ({
 
 <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
 
-<script define:vars={{ skillsData }}>
+<script is:inline define:vars={{ skillsData }}>
   const CATEGORY_COLORS = {
     "IA & Agentes": { light: "#ede9fe", dark: "#4c1d95", textLight: "#5b21b6", textDark: "#c4b5fd" }, // Violeta
     "Testing & QA": { light: "#f0fdf4", dark: "#064e3b", textLight: "#166534", textDark: "#86efac" }, // Verde
@@ -33,9 +33,9 @@ const skillsData = skills.map(s => ({
   function initPhysics() {
     const container = document.getElementById('skills-physics-container');
     const canvas = document.getElementById('physics-canvas');
-    if (!container || !canvas || !window.Matter) return;
+    if (!container || !canvas || !window['Matter']) return;
 
-    const { Engine, Render, Runner, World, Bodies, Mouse, MouseConstraint, Composite } = window.Matter;
+    const { Engine, Render, Runner, World, Bodies, Mouse, MouseConstraint, Composite } = window['Matter'];
 
     const width = container.clientWidth;
     const height = 400; // Más compacto
@@ -100,7 +100,7 @@ const skillsData = skills.map(s => ({
 
     Composite.add(world, mouseConstraint);
 
-    window.Matter.Events.on(render, 'afterRender', () => {
+    window['Matter'].Events.on(render, 'afterRender', () => {
       const ctx = render.context;
       const isDark = document.documentElement.classList.contains('dark');
       

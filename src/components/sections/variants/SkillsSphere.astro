@@ -13,7 +13,7 @@ const allSkills = skills.flatMap(s => s.keywords);
 
 <script is:inline src="https://cdn.jsdelivr.net/npm/TagCloud@2.2.0/dist/TagCloud.min.js"></script>
 
-<script define:vars={{ allSkills }}>
+<script is:inline define:vars={{ allSkills }}>
   function startCloud() {
     const container = '.sphere-canvas';
     const el = document.querySelector(container);
@@ -32,8 +32,8 @@ const allSkills = skills.flatMap(s => s.keywords);
       keep: true
     };
 
-    if (window.TagCloud) {
-      window.TagCloud(container, allSkills, options);
+    if (window['TagCloud']) {
+      window['TagCloud'](container, allSkills, options);
     }
   }
 

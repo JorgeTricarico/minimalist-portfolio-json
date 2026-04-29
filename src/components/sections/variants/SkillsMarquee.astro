@@ -84,12 +84,12 @@ const getIconUrl = (name: string) => {
     wrappers.forEach(wrapper => {
       let isOver = false;
 
-      const setPlaybackRate = (rate) => {
+      const setPlaybackRate = (rate: number) => {
         // En lugar de buscar elementos, buscamos directamente todas las animaciones
         // que pertenezcan a hijos del wrapper.
         const animations = document.getAnimations();
         animations.forEach(anim => {
-          const target = anim.effect?.target;
+          const target = (anim.effect as KeyframeEffect)?.target;
           if (target && target.classList.contains('marquee-content') && wrapper.contains(target)) {
             anim.playbackRate = rate;
           }
@@ -105,7 +105,7 @@ const getIconUrl = (name: string) => {
         setPlaybackRate(1);
       });
 
-      wrapper.addEventListener('mousemove', (e) => {
+      wrapper.addEventListener('mousemove', (e: any) => {
         if (!isOver) return;
         const rect = wrapper.getBoundingClientRect();
         const x = e.clientX - rect.left;
