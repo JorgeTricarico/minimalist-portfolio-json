@@ -41,10 +41,12 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
   {t['keyboard.mod']} <kbd id="mod-key">Ctrl</kbd> + <kbd>K</kbd> {t['keyboard.open']}.
 </footer>
 
-<div id="footer-button" class="no-print">
-  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-command" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#777" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-    <path d="M7 9a2 2 0 1 1 2 -2v10a2 2 0 1 1 -2 -2h10a2 2 0 1 1 -2 2v-10a2 2 0 1 1 2 2h-10"></path>
+<div id="footer-button" class="no-print" title={t['keyboard.open']}>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m21 21-4.3-4.3"/>
+    <circle cx="11" cy="11" r="8"/>
+    <path d="M7 11h8"/>
+    <path d="M11 7v8"/>
   </svg>
 </div>
 
@@ -255,18 +257,30 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
   @media (max-width: 600px) {
     #normal-footer { display: none; }
     #footer-button {
-      background: #fff;
+      background: var(--bg-page-edge);
       position: fixed;
-      border: 1px solid #eee;
-      right: 10px;
-      bottom: 10px;
-      width: 50px;
-      height: 50px;
+      border: 1px solid rgba(var(--text-main-rgb, 0, 0, 0), 0.1);
+      color: var(--text-main);
+      right: 15px;
+      bottom: 15px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+    }
+    
+    html.dark #footer-button {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     }
   }
 
