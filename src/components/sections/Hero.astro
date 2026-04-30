@@ -124,58 +124,54 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
   .download-btn-premium {
     display: inline-flex !important;
     align-items: center !important;
-    gap: 0.5rem !important;
-    background: #fff;
-    color: #111 !important;
-    padding: 0 1rem !important;
-    height: 34px !important;
-    border-radius: 6px !important;
-    font-weight: 700 !important;
-    font-size: 0.7rem !important;
+    gap: 0.6rem !important;
+    background: rgba(96, 165, 250, 0.1);
+    color: var(--text-main) !important;
+    padding: 0 1.2rem !important;
+    height: 36px !important;
+    border-radius: 100px !important;
+    font-weight: 600 !important;
+    font-size: 0.75rem !important;
     text-decoration: none;
-    transition: all 0.3s ease !important;
-    border: 1.5px solid #111 !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border: 1px solid rgba(96, 165, 250, 0.2) !important;
     width: auto !important;
-    margin-right: 0.5rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    animation: soft-pulse 3s infinite;
+    margin-right: 0.6rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    animation: delicate-pulse 4s infinite;
   }
 
   html.dark .download-btn-premium {
-    background: #111;
-    color: #fff !important;
-    border-color: #fff !important;
+    background: rgba(167, 139, 250, 0.1);
+    border-color: rgba(167, 139, 250, 0.2) !important;
   }
 
   .download-btn-premium:hover {
-    background: var(--text-main);
-    color: var(--bg-page-center) !important;
-    transform: translateY(-2px);
+    background: rgba(96, 165, 250, 0.2);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(96, 165, 250, 0.15);
+    border-color: rgba(96, 165, 250, 0.4) !important;
     animation: none;
   }
 
-  @keyframes soft-pulse {
-    0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1); }
-    70% { box-shadow: 0 0 0 8px rgba(0, 0, 0, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+  html.dark .download-btn-premium:hover {
+    background: rgba(167, 139, 250, 0.2);
+    box-shadow: 0 8px 20px rgba(167, 139, 250, 0.2);
+    border-color: rgba(167, 139, 250, 0.4) !important;
   }
 
-  html.dark .download-btn-premium {
-    animation: soft-pulse-dark 3s infinite;
-  }
-
-  @keyframes soft-pulse-dark {
-    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1); }
-    70% { box-shadow: 0 0 0 8px rgba(255, 255, 255, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+  @keyframes delicate-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.2); }
+    70% { box-shadow: 0 0 0 10px rgba(96, 165, 250, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0); }
   }
 
   .download-btn-premium svg {
-    width: 14px;
-    height: 14px;
-    stroke: currentColor;
-    stroke-width: 3;
+    width: 16px;
+    height: 16px;
+    stroke: var(--text-main);
+    stroke-width: 2;
   }
   .container {
     display: flex;
