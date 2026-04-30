@@ -145,4 +145,4 @@ export interface References {
   reference: string
 }
 
-export type Highlight = Array<String>
+export type Highlight = Array<string>

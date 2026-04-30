@@ -35,7 +35,7 @@ const skillsData = skills.map(s => ({
     const canvas = document.getElementById('physics-canvas');
     if (!container || !canvas || !window['Matter']) return;
 
-    const { Engine, Render, Runner, World, Bodies, Mouse, MouseConstraint, Composite } = window['Matter'];
+    const { Engine, Render, Runner, Bodies, Mouse, MouseConstraint, Composite } = window['Matter'];
 
     const width = container.clientWidth;
     const height = 400; // Más compacto
