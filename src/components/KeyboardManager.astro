@@ -327,77 +327,40 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
   }
 
   /* Hotkeypad Dark Mode & Custom Styles */
+  :global(#hotkeypad), :global([data-hotkeypad]) {
+    --hotkeypad-bg-container: rgba(255, 255, 255, 0.95) !important;
+    --hotkeypad-bg-backdrop: rgba(0, 0, 0, 0.3) !important;
+    --hotkeypad-border-container: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  :global(html.dark #hotkeypad), :global(html.dark [data-hotkeypad]) {
+    --hotkeypad-bg-container: #111 !important;
+    --hotkeypad-bg-backdrop: rgba(0, 0, 0, 0.7) !important;
+    --hotkeypad-border-container: rgba(255, 255, 255, 0.1) !important;
+    --hotkeypad-bg-kbd: #222 !important;
+    --hotkeypad-fg-muted: #888 !important;
+  }
+
   :global(#hotkeypad [data-wrapper]),
   :global([data-hotkeypad] [data-wrapper]) {
-    background: rgba(255, 255, 255, 0.95) !important;
     backdrop-filter: blur(20px) !important;
     -webkit-backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(0, 0, 0, 0.08) !important;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12) !important;
-  }
-
-  :global(html.dark #hotkeypad [data-wrapper]),
-  :global(html.dark [data-hotkeypad] [data-wrapper]),
-  :global(#hotkeypad[data-theme="dark"] [data-wrapper]),
-  :global([data-hotkeypad][data-theme="dark"] [data-wrapper]) {
-    background: #111 !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
-  }
-
-  :global(#hotkeypad [data-backdrop]),
-  :global([data-hotkeypad] [data-backdrop]) {
-    backdrop-filter: blur(4px) !important;
-    -webkit-backdrop-filter: blur(4px) !important;
-    background: rgba(0, 0, 0, 0.3) !important;
-  }
-
-  :global(html.dark #hotkeypad [data-backdrop]),
-  :global(html.dark [data-hotkeypad] [data-backdrop]) {
-    background: rgba(0, 0, 0, 0.7) !important;
   }
 
   :global(#hotkeypad [data-section]),
   :global([data-hotkeypad] [data-section]) {
-    color: #888 !important;
     font-size: 11px !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.08em !important;
-    font-weight: 700 !important;
-  }
-
-  :global(html.dark #hotkeypad [data-section]),
-  :global(html.dark [data-hotkeypad] [data-section]) {
-    color: #666 !important;
+    opacity: 0.6;
   }
 
   :global(#hotkeypad [data-item][data-active="true"]),
   :global([data-hotkeypad] [data-item][data-active="true"]) {
-    background: rgba(96, 165, 250, 0.15) !important;
-  }
-
-  :global(html.dark #hotkeypad [data-item][data-active="true"]),
-  :global(html.dark [data-hotkeypad] [data-item][data-active="true"]) {
-    background: rgba(167, 139, 250, 0.2) !important;
+    background: rgba(167, 139, 250, 0.15) !important;
   }
 
   :global(#hotkeypad [data-title]),
   :global([data-hotkeypad] [data-title]) {
     color: var(--text-main) !important;
-    font-weight: 500 !important;
-  }
-
-  :global(#hotkeypad kbd),
-  :global([data-hotkeypad] kbd) {
-    border: 1px solid rgba(0,0,0,0.1) !important;
-    background: rgba(0,0,0,0.05) !important;
-    color: #666 !important;
-  }
-
-  :global(html.dark #hotkeypad kbd),
-  :global(html.dark [data-hotkeypad] kbd) {
-    border: 1px solid rgba(255,255,255,0.1) !important;
-    background: rgba(255,255,255,0.1) !important;
-    color: #aaa !important;
   }
 </style>
