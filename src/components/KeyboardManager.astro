@@ -327,13 +327,13 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
   }
 
   /* Hotkeypad Dark Mode & Custom Styles */
-  :global(#hotkeypad), :global([data-hotkeypad]) {
+  :global(html) {
     --hotkeypad-bg-container: rgba(255, 255, 255, 0.95) !important;
     --hotkeypad-bg-backdrop: rgba(0, 0, 0, 0.3) !important;
     --hotkeypad-border-container: rgba(0, 0, 0, 0.1) !important;
   }
 
-  :global(html.dark #hotkeypad), :global(html.dark [data-hotkeypad]) {
+  :global(html.dark) {
     --hotkeypad-bg-container: #1a1a1a !important;
     --hotkeypad-bg-backdrop: rgba(0, 0, 0, 0.75) !important;
     --hotkeypad-border-container: rgba(255, 255, 255, 0.15) !important;
