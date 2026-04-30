@@ -53,11 +53,12 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
           href={cvFile}
           title={t['hero.download']}
           download
-          class="download-btn"
-          data-umami-event="Download CV"
+          class="download-btn-premium"
+          data-umami-event="download-cv"
           data-umami-event-lang={lang}
         >
           <Download />
+          <span>{lang === 'es' ? 'Descargar CV' : 'Download CV'}</span>
         </a>
         {
           email && (
@@ -103,6 +104,8 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
                 title={`${t['hero.visit']} ${name} en ${network}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-umami-event="visit-social"
+                data-umami-event-network={network}
               >
                 <Icon />
               </a>
@@ -118,8 +121,35 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
 </Section>
 
 <style>
-  .download-btn:hover {
-    transform: scale(1.1);
+  .download-btn-premium {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    color: white !important;
+    padding: 0.5rem 1.25rem !important;
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    font-size: 0.8rem !important;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    border: none !important;
+    width: auto !important;
+    height: auto !important;
+    box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3);
+    margin-right: 0.5rem;
+  }
+
+  .download-btn-premium:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(167, 139, 250, 0.4);
+    filter: brightness(1.1);
+  }
+
+  .download-btn-premium svg {
+    width: 18px;
+    height: 18px;
+    stroke: white;
   }
   .container {
     display: flex;
