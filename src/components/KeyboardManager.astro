@@ -337,8 +337,8 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
     --hotkeypad-bg-container: #1a1a1a !important;
     --hotkeypad-bg-backdrop: rgba(0, 0, 0, 0.75) !important;
     --hotkeypad-border-container: rgba(255, 255, 255, 0.15) !important;
-    --hotkeypad-bg-kbd: #2a2a2a !important;
-    --hotkeypad-fg-muted: #aaa !important;
+    --hotkeypad-bg-kbd: #333 !important;
+    --hotkeypad-fg-muted: #ddd !important;
   }
 
   :global(#hotkeypad [data-wrapper]),
@@ -351,7 +351,7 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
   :global([data-hotkeypad] [data-section]) {
     font-size: 11px !important;
     text-transform: uppercase !important;
-    opacity: 0.6;
+    opacity: 0.8;
   }
 
   :global(#hotkeypad [data-item][data-active="true"]),
@@ -362,5 +362,10 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
   :global(#hotkeypad [data-title]),
   :global([data-hotkeypad] [data-title]) {
     color: var(--text-main) !important;
+  }
+
+  :global(html.dark #hotkeypad [data-title]),
+  :global(html.dark [data-hotkeypad] [data-title]) {
+    color: #ffffff !important;
   }
 </style>
