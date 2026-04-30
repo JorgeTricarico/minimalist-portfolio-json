@@ -31,6 +31,11 @@ export const ui = {
     'keyboard.placeholder': 'Buscar comando',
     'keyboard.actions': 'Acciones',
     'keyboard.social': 'Social',
+    'command.toggle_theme': 'Cambiar Tema (Día/Noche)',
+    'command.toggle_lang': 'Cambiar Idioma (ES/EN)',
+    'command.copy_email': 'Copiar Email',
+    'command.scroll_top': 'Volver Arriba',
+    'command.email_copied': '¡Email copiado al portapapeles!',
   },
   en: {
     'section.about': 'About me',
@@ -57,5 +62,10 @@ export const ui = {
     'keyboard.placeholder': 'Search command',
     'keyboard.actions': 'Actions',
     'keyboard.social': 'Social',
+    'command.toggle_theme': 'Toggle Theme (Light/Dark)',
+    'command.toggle_lang': 'Toggle Language (EN/ES)',
+    'command.copy_email': 'Copy Email',
+    'command.scroll_top': 'Scroll to Top',
+    'command.email_copied': 'Email copied to clipboard!',
   },
 } as const;

@@ -68,6 +68,30 @@ cv:
       - label: "Idiomas"
         details: "Español, Inglés"
 
+    Proyectos:
+      - name: "Zenco.arg (En Prod)"
+        isActive: true
+        description: "Plataforma de modernización para emprendimientos de diseño y arreglos de ropa. Incluye un Dashboard Web premium para gestión de órdenes y un Bot de WhatsApp con IA (Gemini) que atiende clientes y consulta estados de pedidos de forma autónoma."
+        highlights: ["React 18", "Node.js", "AI WhatsApp Bot", "Gemini AI"]
+        url: "https://github.com/JorgeTricarico/platform"
+        github: "https://github.com/JorgeTricarico/platform"
+        imageLight: "/zenko_light.png"
+        imageDark: "/zenko_dark.png"
+      - name: "El Industrial (En Prod)"
+        isActive: true
+        description: "Sistema de automatización de precios para suministros industriales. Gestiona telemetría de alta frecuencia desde la API de Bertual, aplica protección de márgenes y genera reportes ejecutivos diarios con IA enviados por Telegram."
+        highlights: ["Python", "Vanilla JS", "API REST", "Telegram Bot", "IA Reporting"]
+        url: "https://github.com/JorgeTricarico/El-Industrial"
+        github: "https://github.com/JorgeTricarico/El-Industrial"
+        imageLight: "/industrial_light.png"
+        imageDark: "/industrial_dark.png"
+      - name: "Portfolio CV (Live)"
+        isActive: true
+        description: "Versión altamente personalizada y mejorada del fork original. Integra la tecnología de RenderCV para la generación de PDFs optimizados para sistemas ATS. Implementé un sistema multi-idioma (i18n), modo oscuro avanzado con detección automática, paleta de comandos interactiva (Ctrl+K) y una interfaz premium con efectos ambient-blur."
+        highlights: ["JSON Resume", "Astro", "RenderCV (ATS Friendly)", "i18n", "Advanced Dark Mode"]
+        url: "https://github.com/JorgeTricarico/minimalist-portfolio-json"
+        github: "https://github.com/JorgeTricarico/minimalist-portfolio-json"
+
 design:
   theme: classic
   page:

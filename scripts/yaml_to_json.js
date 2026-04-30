@@ -75,7 +75,10 @@ export const cvSchema = z.object({
     description: z.string(),
     highlights: z.array(z.string()),
     url: z.string(),
-    github: z.string().optional()
+    github: z.string().optional(),
+    image: z.string().optional(),
+    imageLight: z.string().optional(),
+    imageDark: z.string().optional()
   })).optional()
 }).passthrough();
 
@@ -186,16 +189,26 @@ export const mapYamlToJson = (data) => {
     ],
     interests: [],
     references: [],
-    projects: [
+    projects: (getSection(cv.sections, ['Proyectos', 'Projects']) || [
       {
         name: "Portfolio CV Automático",
         isActive: true,
         description: "Desarrollo de este propio CV utilizando JSON Resume y Astro, con despliegue automatizado.",
         highlights: ["JSON Resume", "Astro", "ATS Friendly"],
-        url: "https://github.com/JorgeTricarico",
-        github: "https://github.com/JorgeTricarico"
+        url: "https://github.com/JorgeTricarico/minimalist-portfolio-json",
+        github: "https://github.com/JorgeTricarico/minimalist-portfolio-json"
       }
-    ]
+    ]).map(p => ({
+      name: p.name,
+      isActive: p.isActive ?? false,
+      description: p.description,
+      highlights: p.highlights || [],
+      url: p.url || "",
+      github: p.github || "",
+      image: p.image || "",
+      imageLight: p.imageLight || "",
+      imageDark: p.imageDark || ""
+    }))
   };
 
   return cvSchema.parse(jsonResume);

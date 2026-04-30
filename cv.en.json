@@ -185,16 +185,54 @@
   "references": [],
   "projects": [
     {
-      "name": "Portfolio CV Automático",
+      "name": "Zenco.arg (In Prod)",
       "isActive": true,
-      "description": "Desarrollo de este propio CV utilizando JSON Resume y Astro, con despliegue automatizado.",
+      "description": "Modernization platform for clothing repair and design businesses. Includes a premium Web Dashboard for order management and an AI WhatsApp Bot (Gemini) that handles customers and order status queries autonomously.",
+      "highlights": [
+        "React 18",
+        "Node.js",
+        "AI WhatsApp Bot",
+        "Gemini AI"
+      ],
+      "url": "https://github.com/JorgeTricarico/platform",
+      "github": "https://github.com/JorgeTricarico/platform",
+      "image": "",
+      "imageLight": "/zenko_light.png",
+      "imageDark": "/zenko_dark.png"
+    },
+    {
+      "name": "El Industrial (In Prod)",
+      "isActive": true,
+      "description": "Price automation system for industrial supplies. Manages high-frequency telemetry from the Bertual API, applies margin protection, and generates daily AI executive reports sent via Telegram.",
+      "highlights": [
+        "Python",
+        "Vanilla JS",
+        "API REST",
+        "Telegram Bot",
+        "IA Reporting"
+      ],
+      "url": "https://github.com/JorgeTricarico/El-Industrial",
+      "github": "https://github.com/JorgeTricarico/El-Industrial",
+      "image": "",
+      "imageLight": "/industrial_light.png",
+      "imageDark": "/industrial_dark.png"
+    },
+    {
+      "name": "Portfolio CV (Live)",
+      "isActive": true,
+      "description": "Highly customized and improved version of the original fork. It integrates RenderCV technology for generating PDFs optimized for ATS systems. I implemented a multi-language system (i18n), advanced dark mode with auto-detection, interactive command palette (Ctrl+K), and a premium interface with ambient-blur effects.",
       "highlights": [
         "JSON Resume",
         "Astro",
-        "ATS Friendly"
+        "RenderCV (ATS Friendly)",
+        "i18n",
+        "Advanced Dark Mode"
       ],
-      "url": "https://github.com/JorgeTricarico",
-      "github": "https://github.com/JorgeTricarico"
+      "url": "https://github.com/JorgeTricarico/minimalist-portfolio-json",
+      "github": "https://github.com/JorgeTricarico/minimalist-portfolio-json",
+      "image": "",
+      "imageLight": "",
+      "imageDark": ""
     }
   ]
 }

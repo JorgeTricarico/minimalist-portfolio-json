@@ -45,7 +45,7 @@ const themeLabels = {
     <meta name="twitter:image" content={image} />
     
     <!-- Umami Analytics -->
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="d59a6c31-518c-4004-b635-3d93994a2aa9"></script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="d59a6c31-518c-4004-b635-3d93994a2aa9" data-domains="jorgetricarico.com"></script>
 
     <script is:inline>
       // Blocking script to prevent FOUC (Flash of Unstyled Content)
@@ -60,6 +60,39 @@ const themeLabels = {
   <body>
     <div class="ambient-orb orb-1"></div>
     <div class="ambient-orb orb-2"></div>
+    <div class="bug-container no-print">
+      <canvas id="explosion-canvas" class="explosion-canvas"></canvas>
+      <div class="bug-target" id="bug-1">
+        <div class="bug-crosshair"></div>
+        <div class="bug-body">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 3 4 7M16 3l4 4M4 11h4M16 11h4M4 15l4 4M16 15l4 4"/>
+            <path d="M12 20v-9M6.5 12a5.5 5.5 0 1 1 11 0v4a5.5 5.5 0 1 1-11 0v-4Z"/>
+            <path d="M12 10a2 2 0 0 0-2-2M12 10a2 2 0 0 1 2-2"/>
+          </svg>
+        </div>
+      </div>
+      <div class="bug-target" id="bug-2">
+        <div class="bug-crosshair"></div>
+        <div class="bug-body">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 3 4 7M16 3l4 4M4 11h4M16 11h4M4 15l4 4M16 15l4 4"/>
+            <path d="M12 20v-9M6.5 12a5.5 5.5 0 1 1 11 0v4a5.5 5.5 0 1 1-11 0v-4Z"/>
+            <path d="M12 10a2 2 0 0 0-2-2M12 10a2 2 0 0 1 2-2"/>
+          </svg>
+        </div>
+      </div>
+      <div class="bug-target" id="bug-3">
+        <div class="bug-crosshair"></div>
+        <div class="bug-body">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 3 4 7M16 3l4 4M4 11h4M16 11h4M4 15l4 4M16 15l4 4"/>
+            <path d="M12 20v-9M6.5 12a5.5 5.5 0 1 1 11 0v4a5.5 5.5 0 1 1-11 0v-4Z"/>
+            <path d="M12 10a2 2 0 0 0-2-2M12 10a2 2 0 0 1 2-2"/>
+          </svg>
+        </div>
+      </div>
+    </div>
     <slot />
   </body>
 </html>
@@ -138,6 +171,105 @@ const themeLabels = {
     33% { transform: translate(100px, 150px) scale(1.2); }
     66% { transform: translate(-50px, 250px) scale(0.8); }
     100% { transform: translate(20px, 50px) scale(1.1); }
+  }
+
+  .bug-target {
+    position: fixed;
+    z-index: 1000;
+    pointer-events: auto;
+    opacity: 0.12;
+    color: #60a5fa;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease, color 0.3s ease;
+    cursor: crosshair;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  html.dark .bug-target {
+    color: #a78bfa;
+    opacity: 0.18;
+  }
+
+  .bug-target:hover {
+    opacity: 0.3;
+  }
+
+  .bug-target.squashed {
+    opacity: 0.6;
+    color: #60a5fa !important;
+    filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.4));
+    pointer-events: none;
+  }
+
+  .bug-body {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .bug-target.targeting .bug-crosshair {
+    display: block;
+    animation: pulse-crosshair 0.4s ease-out forwards;
+  }
+
+  .bug-target.squashed .bug-body {
+    transform: scale(0.5);
+    opacity: 0;
+    transition: all 0.3s ease-out;
+  }
+
+  .bug-target.squashed .bug-crosshair {
+    display: block;
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+
+  .explosion-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  .bug-crosshair {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border: 0.5px solid rgba(96, 165, 250, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    display: none;
+  }
+
+  .bug-crosshair::before, .bug-crosshair::after {
+    content: '';
+    position: absolute;
+    background: rgba(96, 165, 250, 0.6);
+  }
+
+  .bug-crosshair::before {
+    top: 50%;
+    left: -15%;
+    width: 130%;
+    height: 0.5px;
+    transform: translateY(-50%);
+  }
+
+  .bug-crosshair::after {
+    left: 50%;
+    top: -15%;
+    height: 130%;
+    width: 0.5px;
+    transform: translateX(-50%);
+  }
+
+  @keyframes pulse-crosshair {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
   }
 
   body,
@@ -263,7 +395,7 @@ const themeLabels = {
   }
 
   #theme-toggle {
-    position: fixed;
+    position: absolute;
     top: 16px;
     right: 20px;
     display: flex;
@@ -360,16 +492,136 @@ const themeLabels = {
       const isDark = document.documentElement.classList.toggle('dark');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
       updateThemeUI(isDark);
+      
+      // Dispatch custom event for other components (like hotkeypad) to react
+      window.dispatchEvent(new CustomEvent('theme-changed', { detail: { theme: isDark ? 'dark' : 'light' } }));
     });
 
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-    
-    // UI already handled by inline blocking script for class,
-    // but we need to update the button text and icon.
     updateThemeUI(isDark);
   }
+
+  // Bug Squash Logic
+  const bugs = document.querySelectorAll('.bug-target');
+  const canvas = document.getElementById('explosion-canvas') as HTMLCanvasElement;
+  const ctx = canvas?.getContext('2d');
+  let particles: any[] = [];
+
+  const resize = () => {
+    if (canvas) {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+  };
+  window.addEventListener('resize', resize);
+  resize();
+
+  class Particle {
+    x: number; y: number; vx: number; vy: number; life: number; color: string; size: number; friction: number; gravity: number;
+    constructor(x: number, y: number, color: string) {
+      this.x = x;
+      this.y = y;
+      const angle = Math.random() * Math.PI * 2;
+      const speed = Math.random() * 2 + 1; // Slower speed
+      this.vx = Math.cos(angle) * speed;
+      this.vy = Math.sin(angle) * speed;
+      this.life = 1.0;
+      this.color = color;
+      this.size = Math.random() * 1.5 + 0.5; // Smaller size
+      this.friction = 0.94; // Higher friction to slow down faster
+      this.gravity = 0.05; // Lower gravity for a floating feel
+    }
+    update() {
+      this.vx *= this.friction;
+      this.vy *= this.friction;
+      this.vy += this.gravity;
+      this.x += this.vx;
+      this.y += this.vy;
+      this.life -= 0.01; // Slower fade
+    }
+    draw() {
+      if (!ctx) return;
+      ctx.fillStyle = this.color;
+      ctx.globalAlpha = this.life;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+      // Add a slight glow
+      ctx.shadowBlur = 5;
+      ctx.shadowColor = this.color;
+    }
+  }
+
+  const animate = () => {
+    if (!ctx || !canvas) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles = particles.filter(p => p.life > 0);
+    particles.forEach(p => {
+      p.update();
+      p.draw();
+    });
+    requestAnimationFrame(animate);
+  };
+  animate();
+
+  const spawnExplosion = (x: number, y: number) => {
+    const colors = ['#60a5fa', '#a78bfa', '#ffffff']; // Refined tech palette
+    for (let i = 0; i < 20; i++) { // Fewer particles
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      particles.push(new Particle(x, y, color));
+    }
+    // No screen shake for professional context
+  };
+
+  bugs.forEach((bug) => {
+    let x = Math.random() * (window.innerWidth - 50);
+    let y = Math.random() * (window.innerHeight - 50);
+    let dx = (Math.random() - 0.5) * 1.5;
+    let dy = (Math.random() - 0.5) * 1.5;
+
+    const move = () => {
+      if (bug.classList.contains('squashed') || bug.classList.contains('targeting')) return;
+
+      x += dx;
+      y += dy;
+
+      if (x <= 10 || x >= window.innerWidth - 40) dx *= -1;
+      if (y <= 10 || y >= window.innerHeight - 40) dy *= -1;
+
+      (bug as HTMLElement).style.left = `${x}px`;
+      (bug as HTMLElement).style.top = `${y}px`;
+      (bug as HTMLElement).style.transform = `rotate(${Math.atan2(dy, dx) + Math.PI / 2}rad)`;
+
+      requestAnimationFrame(move);
+    };
+
+    bug.addEventListener('click', () => {
+      if (bug.classList.contains('targeting')) return;
+      
+      bug.classList.add('targeting');
+      
+      setTimeout(() => {
+        bug.classList.remove('targeting');
+        bug.classList.add('squashed');
+        
+        const rect = bug.getBoundingClientRect();
+        spawnExplosion(rect.left + rect.width / 2, rect.top + rect.height / 2);
+        
+        setTimeout(() => {
+          bug.classList.remove('squashed');
+          x = Math.random() * (window.innerWidth - 50);
+          y = Math.random() * (window.innerHeight - 50);
+          dx = (Math.random() - 0.5) * 1.5;
+          dy = (Math.random() - 0.5) * 1.5;
+          move();
+        }, 3000);
+      }, 300);
+    });
+
+    move();
+  });
 
   let closedDetails: HTMLDetailsElement[] = [];
 

@@ -49,14 +49,14 @@ export interface Work {
   highlights: Highlight
 }
 
-export type DateStr = `${string}-${string}-${string}`
+export type DateStr = string
 
 export interface Volunteer {
   organization: string
   position: string
   url: string
   startDate: DateStr
-  endDate: DateStr
+  endDate: DateStr | null
   summary: string
   highlights: Highlight
 }
@@ -95,7 +95,7 @@ export interface Education {
   area: string
   studyType: string
   startDate: DateStr
-  endDate: DateStr
+  endDate: DateStr | null
   score: string
   courses: Array<string>
 }
@@ -130,6 +130,9 @@ export interface Projects {
   highlights: Highlight
   url: string
   github?: string
+  image?: string
+  imageLight?: string
+  imageDark?: string
 }
 
 export interface Interests {

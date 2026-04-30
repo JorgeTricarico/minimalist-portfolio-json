@@ -55,6 +55,12 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
   data-pdf={pdfPath}
   data-download-text={t['keyboard.download']}
   data-actions-text={t['keyboard.actions']}
+  data-toggle-theme={t['command.toggle_theme']}
+  data-toggle-lang={t['command.toggle_lang']}
+  data-copy-email={t['command.copy_email']}
+  data-scroll-top={t['command.scroll_top']}
+  data-email-copied={t['command.email_copied']}
+  data-email={cv.basics.email}
 >
 </div>
 
@@ -93,6 +99,16 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
       }
     }
   )
+
+  const t = {
+    toggle_theme: el.getAttribute("data-toggle-theme") ?? "Toggle Theme",
+    toggle_lang: el.getAttribute("data-toggle-lang") ?? "Toggle Language",
+    copy_email: el.getAttribute("data-copy-email") ?? "Copy Email",
+    scroll_top: el.getAttribute("data-scroll-top") ?? "Scroll to Top",
+    email_copied: el.getAttribute("data-email-copied") ?? "Email copied!",
+    email: el.getAttribute("data-email") ?? ""
+  }
+
   hotkeypad.setCommands([
     {
       id: "print",
@@ -104,6 +120,51 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
       section: actionsText,
       handler: () => {
         window.open(pdfPath, "_blank")
+      }
+    },
+    {
+      id: "toggle-theme",
+      title: t.toggle_theme,
+      icon: `<svg style="margin-right: 8px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`,
+      hotkey: "ctrl+D",
+      section: actionsText,
+      handler: () => {
+        const themeBtn = document.getElementById('theme-toggle');
+        themeBtn?.click();
+      }
+    },
+    {
+      id: "toggle-lang",
+      title: t.toggle_lang,
+      icon: `<svg style="margin-right: 8px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 5h12M7 2h1M7 5c0 4.418-2.239 8-5 8M2 7c0 4.418 2.239 8 5 8M14 22l4-10 4 10M15 18h6"/></svg>`,
+      hotkey: "ctrl+L",
+      section: actionsText,
+      handler: () => {
+        const langSwitch = document.querySelector('.language-switch') as HTMLAnchorElement;
+        langSwitch?.click();
+      }
+    },
+    {
+      id: "copy-email",
+      title: t.copy_email,
+      icon: `<svg style="margin-right: 8px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>`,
+      hotkey: "ctrl+E",
+      section: actionsText,
+      handler: () => {
+        if (t.email) {
+            navigator.clipboard.writeText(t.email);
+            alert(t.email_copied);
+        }
+      }
+    },
+    {
+      id: "scroll-top",
+      title: t.scroll_top,
+      icon: `<svg style="margin-right: 8px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>`,
+      hotkey: "ctrl+UP",
+      section: actionsText,
+      handler: () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     },
     ...data
@@ -188,5 +249,65 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
   html.dark kbd {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Hotkeypad Dark Mode & Custom Styles */
+  :global(#hotkeypad [data-wrapper]) {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  :global(html.dark #hotkeypad [data-wrapper]) {
+    background: rgba(15, 15, 15, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  :global(#hotkeypad [data-backdrop]) {
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+  }
+
+  :global(html.dark #hotkeypad [data-backdrop]) {
+    background: rgba(0, 0, 0, 0.6) !important;
+  }
+
+  :global(#hotkeypad [data-section]) {
+    color: #666 !important;
+    font-size: 11px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  :global(html.dark #hotkeypad [data-section]) {
+    color: #999 !important;
+  }
+
+  :global(#hotkeypad [data-item][data-active="true"]) {
+    background: rgba(96, 165, 250, 0.1) !important;
+  }
+
+  :global(html.dark #hotkeypad [data-item][data-active="true"]) {
+    background: rgba(167, 139, 250, 0.15) !important;
+  }
+
+  :global(#hotkeypad [data-title]) {
+    color: var(--text-main) !important;
+  }
+
+  :global(#hotkeypad kbd) {
+    border: 1px solid rgba(0,0,0,0.1) !important;
+    background: rgba(0,0,0,0.05) !important;
+    color: #666 !important;
+  }
+
+  :global(html.dark #hotkeypad kbd) {
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    background: rgba(255,255,255,0.1) !important;
+    color: #aaa !important;
   }
 </style>
