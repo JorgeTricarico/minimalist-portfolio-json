@@ -238,10 +238,22 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
   // Theme support for hotkeypad
   const updateHotkeypadTheme = () => {
     const isDark = document.documentElement.classList.contains("dark")
-    hotkeypad.instance.setAttribute("data-theme", isDark ? "dark" : "light")
+    const container = document.querySelector("#hotkeypad")
+    if (container) {
+      container.setAttribute("data-theme", isDark ? "dark" : "light")
+    }
+    // Also try to set it on the instance if available
+    if (hotkeypad.instance) {
+      hotkeypad.instance.setAttribute("data-theme", isDark ? "dark" : "light")
+    }
   }
+  
+  // Update on init and on theme change
   updateHotkeypadTheme()
   window.addEventListener("theme-changed", updateHotkeypadTheme)
+  
+  // Re-verify when opening just in case
+  window.addEventListener("hotkeypad:open", updateHotkeypadTheme)
 </script>
 
 <style>
