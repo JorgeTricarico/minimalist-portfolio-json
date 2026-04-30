@@ -354,14 +354,14 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
     opacity: 0.8;
   }
 
-  :global(#hotkeypad [data-item][data-active="true"]),
-  :global([data-hotkeypad] [data-item][data-active="true"]) {
-    background: rgba(167, 139, 250, 0.15) !important;
+  :global(html.dark #hotkeypad [data-item][data-active="true"]),
+  :global(html.dark [data-hotkeypad] [data-item][data-active="true"]) {
+    background: rgba(167, 139, 250, 0.3) !important;
   }
 
-  :global(#hotkeypad [data-title]),
-  :global([data-hotkeypad] [data-title]) {
-    color: var(--text-main) !important;
+  :global(#hotkeypad [data-item][data-active="true"] [data-title]),
+  :global([data-hotkeypad] [data-item][data-active="true"] [data-title]) {
+    color: #ffffff !important;
   }
 
   :global(html.dark #hotkeypad [data-title]),
