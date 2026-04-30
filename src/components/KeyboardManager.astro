@@ -354,14 +354,17 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
     opacity: 0.8;
   }
 
-  :global([data-item][data-active="true"]) {
+  :global([data-active]),
+  :global([data-item][data-active]) {
     background: #6d28d9 !important; /* Deep violet for selection */
+    color: #ffffff !important;
   }
 
-  :global([data-item][data-active="true"] *),
-  :global([data-item][data-active="true"] [data-title]),
-  :global([data-item][data-active="true"] span),
-  :global([data-item][data-active="true"] svg) {
+  :global([data-active] *),
+  :global([data-active] [data-title]),
+  :global([data-active] span),
+  :global([data-active] svg),
+  :global([data-active] kbd) {
     color: #ffffff !important;
     stroke: #ffffff !important;
   }
