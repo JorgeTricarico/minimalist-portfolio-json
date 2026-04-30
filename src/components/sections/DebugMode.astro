@@ -1,0 +1,380 @@
+---
+import { ui } from "@/i18n"
+const { lang = 'es' } = Astro.props
+const t = ui[lang as keyof typeof ui]
+
+const labels = {
+  es: {
+    title: "SISTEMA INFECTADO",
+    button: "Jugar a Cazar Bugs",
+    counting: "Iniciando cacería en...",
+    instruction: "¡Elimina todos los bugs que puedas!",
+    finished: "SISTEMA DESINFECTADO",
+  },
+  en: {
+    title: "SYSTEM INFECTED",
+    button: "Play Hunt Bugs",
+    counting: "Starting hunt in...",
+    instruction: "Clear as many bugs as possible!",
+    finished: "SYSTEM DISINFECTED",
+  }
+}
+
+const currentLabels = labels[lang as keyof typeof labels] || labels.es
+---
+
+<section class="no-print">
+  <div class="debug-container">
+    <div class="line"></div>
+    <button id="start-debug" class="debug-btn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
+        <!-- The Bug (Centered and smaller) -->
+        <g transform="scale(0.7) translate(5, 5)">
+          <path d="M8 3 4 7M16 3l4 4M4 11h4M16 11h4M4 15l4 4M16 15l4 4"/>
+          <path d="M12 20v-9M6.5 12a5.5 5.5 0 1 1 11 0v4a5.5 5.5 0 1 1-11 0v-4Z"/>
+        </g>
+        <!-- The Crosshair (Maximized and Vibrant Red) -->
+        <circle cx="12" cy="12" r="11" stroke="#ef4444" stroke-width="2" />
+        <path d="M12 1v4M12 19v4M1 12h4M19 12h4" stroke="#ef4444" stroke-width="2" />
+      </svg>
+      {currentLabels.button}
+    </button>
+    <div class="line"></div>
+  </div>
+
+  <div id="debug-overlay" class="debug-overlay">
+    <div class="debug-content">
+      <div id="debug-intro">
+        <h2 class="intro-title">{currentLabels.title}</h2>
+        <p class="intro-desc">{currentLabels.instruction}</p>
+      </div>
+      <p id="debug-message" style="margin-bottom: 0.5rem; opacity: 0.8;">{currentLabels.counting}</p>
+      <h2 id="debug-timer">3</h2>
+      
+      <div id="debug-live-score" class="live-score">
+        <span class="score-label">BUGS DEPURADOS:</span>
+        <span id="debug-score-val">0</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const startBtn = document.getElementById('start-debug');
+  const overlay = document.getElementById('debug-overlay');
+  
+  // Teleport overlay to body to avoid parent blur/opacity
+  if (overlay) {
+    document.body.appendChild(overlay);
+  }
+
+  const timerDisplay = document.getElementById('debug-timer');
+  const messageDisplay = document.getElementById('debug-message');
+  const introDisplay = document.getElementById('debug-intro');
+  const scoreDisplay = document.getElementById('debug-live-score');
+  const scoreVal = document.getElementById('debug-score-val');
+  const main = document.querySelector('main');
+  
+  let gameScore = 0;
+  let gameActive = false;
+
+  const labels = {
+    instruction: (document.getElementById('debug-message')?.textContent === 'Iniciando protocolo en...') 
+      ? "¡Elimina los bugs rápidamente!" 
+      : "Clear the bugs quickly!",
+    finished: (document.getElementById('debug-message')?.textContent === 'Iniciando protocolo en...')
+      ? "SISTEMA OPTIMIZADO"
+      : "SYSTEM OPTIMIZED",
+    scoreLabel: (document.getElementById('debug-message')?.textContent === 'Iniciando protocolo en...')
+      ? "Bugs eliminados: "
+      : "Bugs cleared: "
+  };
+
+  const spawnMegaBug = () => {
+    if (!gameActive) return;
+    const bug = document.createElement('div');
+    bug.className = 'bug-target mega-bug';
+    bug.innerHTML = `
+      <div class="bug-crosshair"></div>
+      <div class="bug-body">
+        <svg width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 3 4 7M16 3l4 4M4 11h4M16 11h4M4 15l4 4M16 15l4 4"/>
+          <path d="M12 20v-9M6.5 12a5.5 5.5 0 1 1 11 0v4a5.5 5.5 0 1 1-11 0v-4Z"/>
+          <path d="M12 10a2 2 0 0 0-2-2M12 10a2 2 0 0 1 2-2"/>
+        </svg>
+      </div>
+    `;
+    document.body.appendChild(bug);
+
+    let x = Math.random() * (window.innerWidth - 80);
+    let y = Math.random() * (window.innerHeight - 80);
+    let dx = (Math.random() - 0.5) * 8;
+    let dy = (Math.random() - 0.5) * 8;
+
+    const move = () => {
+      if (!gameActive || bug.classList.contains('squashed')) return;
+      x += dx; y += dy;
+      if (x <= 10 || x >= window.innerWidth - 60) dx *= -1;
+      if (y <= 10 || y >= window.innerHeight - 60) dy *= -1;
+      bug.style.left = `${x}px`;
+      bug.style.top = `${y}px`;
+      bug.style.transform = `rotate(${Math.atan2(dy, dx) + Math.PI / 2}rad)`;
+      requestAnimationFrame(move);
+    };
+
+    bug.addEventListener('click', () => {
+      if (bug.classList.contains('squashed')) return;
+      bug.classList.add('squashed');
+      gameScore++;
+      if (scoreVal) scoreVal.textContent = gameScore.toString();
+      
+      if ((window as any).spawnExplosion) {
+        (window as any).spawnExplosion(x + 22, y + 22);
+      }
+      
+      setTimeout(() => {
+        bug.remove();
+        if (gameActive) spawnMegaBug();
+      }, 400);
+    });
+
+    move();
+  };
+
+  startBtn?.addEventListener('click', () => {
+    if (gameActive) return;
+    gameActive = true;
+    gameScore = 0;
+    if (scoreVal) scoreVal.textContent = "0";
+
+    if (overlay) overlay.classList.add('active');
+    if (main) main.classList.add('game-mode');
+    if (introDisplay) introDisplay.style.display = "block";
+    if (scoreDisplay) scoreDisplay.style.display = "none";
+    if (messageDisplay) messageDisplay.style.display = "block";
+
+    let count = 3;
+    if (timerDisplay) timerDisplay.textContent = count.toString();
+    
+    const interval = setInterval(() => {
+      count--;
+      if (count > 0) {
+        if (timerDisplay) timerDisplay.textContent = count.toString();
+      } else {
+        clearInterval(interval);
+        startGame();
+      }
+    }, 1000);
+  });
+
+  const startGame = () => {
+    if (timerDisplay) timerDisplay.textContent = "12";
+    if (introDisplay) introDisplay.style.display = "none";
+    if (messageDisplay) messageDisplay.style.display = "none";
+    if (scoreDisplay) scoreDisplay.style.display = "flex";
+
+    for(let i=0; i<10; i++) {
+      setTimeout(spawnMegaBug, i * 150);
+    }
+
+    let timeLeft = 12;
+    const gameInterval = setInterval(() => {
+      timeLeft--;
+      if (timerDisplay) timerDisplay.textContent = timeLeft.toString();
+      
+      if (timeLeft <= 0) {
+        clearInterval(gameInterval);
+        endGame();
+      }
+    }, 1000);
+  };
+
+  const endGame = () => {
+    gameActive = false;
+    if (messageDisplay) {
+      messageDisplay.style.display = "block";
+      messageDisplay.textContent = `${labels.finished} - ${labels.scoreLabel} ${gameScore}`;
+    }
+    if (timerDisplay) timerDisplay.textContent = "✓";
+    if (scoreDisplay) scoreDisplay.style.display = "none";
+    
+    document.querySelectorAll('.mega-bug').forEach(b => b.remove());
+
+    setTimeout(() => {
+      if (overlay) overlay.classList.remove('active');
+      if (main) main.classList.remove('game-mode');
+    }, 4000);
+  };
+</script>
+
+<style>
+  .debug-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .debug-container:hover {
+    opacity: 1;
+  }
+
+  .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--text-muted), transparent);
+    opacity: 0.2;
+  }
+
+  .debug-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    border: 1px solid var(--text-muted);
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+  }
+
+  .debug-btn:hover {
+    background: var(--text-muted);
+    color: var(--bg-page-center);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .debug-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(0px);
+    z-index: 99999; /* Higher than everything */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    transition: backdrop-filter 0.5s ease;
+  }
+
+  html.dark .debug-overlay {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .debug-overlay.active {
+    display: flex;
+    backdrop-filter: blur(8px);
+    pointer-events: all;
+  }
+
+  .debug-content {
+    text-align: center;
+    animation: zoom-in 0.5s ease-out;
+  }
+
+  #debug-timer {
+    font-size: 6rem;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1;
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @media (width <= 700px) {
+    #debug-timer {
+      font-size: 4rem;
+    }
+    #debug-message {
+      font-size: 1.1rem;
+      padding: 0 1rem;
+    }
+    .debug-container {
+      margin: 1rem 0;
+    }
+  }
+
+  #debug-message {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: var(--text-main);
+    font-weight: 500;
+  }
+
+  .live-score {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation: slide-up 0.4s ease-out;
+    pointer-events: none;
+  }
+
+  .live-score .score-label {
+    font-size: 0.9rem;
+    letter-spacing: 0.2rem;
+    color: var(--text-muted);
+    opacity: 0.8;
+  }
+
+  #debug-score-val {
+    font-size: 4rem;
+    font-weight: 800;
+    font-family: monospace;
+    color: var(--text-main);
+  }
+
+  @keyframes slide-in-right {
+    from { transform: translateX(30px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+
+  .intro-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #ef4444;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1rem;
+  }
+
+  .intro-desc {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+
+  @keyframes slide-up {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes zoom-in {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  :global(main.game-mode) {
+    opacity: 0.2 !important;
+    filter: blur(4px);
+    pointer-events: none;
+    transition: all 0.5s ease;
+  }
+
+  :global(.mega-bug) {
+    position: fixed;
+    z-index: 1000001 !important; /* Higher than debug-overlay (99999) */
+    opacity: 0.9 !important;
+    cursor: crosshair;
+    transition: transform 0.1s linear;
+  }
+</style>

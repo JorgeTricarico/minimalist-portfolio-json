@@ -5,6 +5,7 @@ import Education from "@/components/sections/Education.astro"
 import Experience from "@/components/sections/Experience.astro"
 import Hero from "@/components/sections/Hero.astro"
 import Projects from "@/components/sections/Projects.astro"
+import DebugMode from "@/components/sections/DebugMode.astro"
 import Skills from "@/components/sections/Skills.astro"
 import KeyboardManager from "@/components/KeyboardManager.astro"
 import LanguageSelector from "@/components/LanguageSelector.astro"
@@ -28,6 +29,7 @@ const { basics } = cv
     <Experience work={cv.work} lang={lang} />
     <Education education={cv.education} lang={lang} />
     <Projects projects={cv.projects} lang={lang} />
+    <DebugMode lang={lang} />
     <Skills skills={cv.skills} lang={lang} />
   </main>
 
@@ -37,6 +39,7 @@ const { basics } = cv
 <style>
   main {
     padding: 4rem;
+    padding-bottom: 10rem; /* Increased padding for fixed footer and mini-game trigger */
     margin: 0 auto;
     width: 100%;
     max-width: 850px;

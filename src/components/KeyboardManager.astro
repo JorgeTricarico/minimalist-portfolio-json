@@ -61,6 +61,7 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
   data-scroll-top={t['command.scroll_top']}
   data-email-copied={t['command.email_copied']}
   data-email={cv.basics.email}
+  data-lang={lang}
 >
 </div>
 
@@ -85,14 +86,14 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
   const actionsText = el.getAttribute("data-actions-text") ?? "Actions"
   const parsedInfo = JSON.parse(info) as Info[]
 
-  const data = parsedInfo.map(
+  const socialCommands = parsedInfo.map(
     ({ url, hotkey, icon, id, section, title }) => {
       return {
         id,
         title,
         icon,
         hotkey,
-        section,
+        section: actionsText, // Put them in the same section to control order
         handler: () => {
           window.open(url, "_blank")
         }
@@ -100,13 +101,18 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
     }
   )
 
+  const linkedin = socialCommands.find(c => c.id.toLowerCase() === 'linkedin');
+  const github = socialCommands.find(c => c.id.toLowerCase() === 'github');
+  const otherSocial = socialCommands.filter(c => c.id.toLowerCase() !== 'linkedin' && c.id.toLowerCase() !== 'github');
+
   const t = {
     toggle_theme: el.getAttribute("data-toggle-theme") ?? "Toggle Theme",
     toggle_lang: el.getAttribute("data-toggle-lang") ?? "Toggle Language",
     copy_email: el.getAttribute("data-copy-email") ?? "Copy Email",
     scroll_top: el.getAttribute("data-scroll-top") ?? "Scroll to Top",
     email_copied: el.getAttribute("data-email-copied") ?? "Email copied!",
-    email: el.getAttribute("data-email") ?? ""
+    email: el.getAttribute("data-email") ?? "",
+    lang: el.getAttribute("data-lang") ?? "es"
   }
 
   hotkeypad.setCommands([
@@ -122,6 +128,8 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
         window.open(pdfPath, "_blank")
       }
     },
+    ...(linkedin ? [linkedin] : []),
+    ...(github ? [github] : []),
     {
       id: "toggle-theme",
       title: t.toggle_theme,
@@ -158,6 +166,25 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
       }
     },
     {
+      id: "cazar-bugs",
+      title: t.lang === 'es' ? "Jugar a Cazar Bugs" : "Play Hunt Bugs",
+      icon: `<svg style="margin-right: 8px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <g transform="scale(0.7) translate(5, 5)">
+          <path d="M8 3 4 7M16 3l4 4M4 11h4M16 11h4M4 15l4 4M16 15l4 4"/>
+          <path d="M12 20v-9M6.5 12a5.5 5.5 0 1 1 11 0v4a5.5 5.5 0 1 1-11 0v-4Z"/>
+        </g>
+        <circle cx="12" cy="12" r="10" stroke="#ef4444" stroke-width="2" />
+        <path d="M12 2v4M12 16v6M2 12h4M18 12h4" stroke="#ef4444" stroke-width="2" />
+      </svg>`,
+      hotkey: "ctrl+B",
+      section: actionsText,
+      handler: () => {
+        const debugBtn = document.getElementById('start-debug');
+        debugBtn?.click();
+      }
+    },
+    ...otherSocial,
+    {
       id: "scroll-top",
       title: t.scroll_top,
       icon: `<svg style="margin-right: 8px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>`,
@@ -166,8 +193,7 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
       handler: () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-    },
-    ...data
+    }
   ])
 
   const isMac = /Mac|iPhone|iPod|iPad/i.test(navigator.userAgent)
@@ -175,7 +201,6 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
   if (modKeyEl) {
     modKeyEl.textContent = isMac ? 'Cmd' : 'Ctrl'
   }
-
   const footerButton = document.getElementById("footer-button")
   footerButton?.addEventListener("click", () => {
     var event = new KeyboardEvent("keydown", {
@@ -191,6 +216,32 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
 
     document.dispatchEvent(event)
   })
+
+  // Hide footer when palette is open
+  window.addEventListener("hotkeypad:open", () => {
+    const footer = document.getElementById("normal-footer")
+    const footerBtn = document.getElementById("footer-button")
+    if (footer) footer.style.display = "none"
+    if (footerBtn) footerBtn.style.display = "none"
+  })
+
+  window.addEventListener("hotkeypad:close", () => {
+    const footer = document.getElementById("normal-footer")
+    const footerBtn = document.getElementById("footer-button")
+    if (window.innerWidth > 600) {
+      if (footer) footer.style.display = "block"
+    } else {
+      if (footerBtn) footerBtn.style.display = "flex"
+    }
+  })
+
+  // Theme support for hotkeypad
+  const updateHotkeypadTheme = () => {
+    const isDark = document.documentElement.classList.contains("dark")
+    hotkeypad.instance.setAttribute("data-theme", isDark ? "dark" : "light")
+  }
+  updateHotkeypadTheme()
+  window.addEventListener("theme-changed", updateHotkeypadTheme)
 </script>
 
 <style>
@@ -260,7 +311,7 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1) !important;
   }
 
-  :global(html.dark #hotkeypad [data-wrapper]) {
+  :global(#hotkeypad[data-theme="dark"] [data-wrapper]) {
     background: rgba(15, 15, 15, 0.8) !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3) !important;
@@ -272,7 +323,7 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
     background: rgba(0, 0, 0, 0.2) !important;
   }
 
-  :global(html.dark #hotkeypad [data-backdrop]) {
+  :global(#hotkeypad[data-theme="dark"] [data-backdrop]) {
     background: rgba(0, 0, 0, 0.6) !important;
   }
 
@@ -283,7 +334,7 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
     letter-spacing: 0.05em !important;
   }
 
-  :global(html.dark #hotkeypad [data-section]) {
+  :global(#hotkeypad[data-theme="dark"] [data-section]) {
     color: #999 !important;
   }
 
@@ -291,7 +342,7 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
     background: rgba(96, 165, 250, 0.1) !important;
   }
 
-  :global(html.dark #hotkeypad [data-item][data-active="true"]) {
+  :global(#hotkeypad[data-theme="dark"] [data-item][data-active="true"]) {
     background: rgba(167, 139, 250, 0.15) !important;
   }
 
@@ -305,7 +356,7 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
     color: #666 !important;
   }
 
-  :global(html.dark #hotkeypad kbd) {
+  :global(#hotkeypad[data-theme="dark"] kbd) {
     border: 1px solid rgba(255,255,255,0.1) !important;
     background: rgba(255,255,255,0.1) !important;
     color: #aaa !important;
