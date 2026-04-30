@@ -124,54 +124,48 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
   .download-btn-premium {
     display: inline-flex !important;
     align-items: center !important;
-    gap: 0.6rem !important;
-    background: rgba(96, 165, 250, 0.1);
+    gap: 0.5rem !important;
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1));
     color: var(--text-main) !important;
     padding: 0 1.2rem !important;
-    height: 36px !important;
+    height: 34px !important;
     border-radius: 100px !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
     font-size: 0.75rem !important;
     text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    border: 1px solid rgba(96, 165, 250, 0.2) !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid rgba(var(--text-main-rgb, 0, 0, 0), 0.1) !important;
     width: auto !important;
     margin-right: 0.6rem;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
     animation: delicate-pulse 4s infinite;
   }
 
   html.dark .download-btn-premium {
-    background: rgba(167, 139, 250, 0.1);
-    border-color: rgba(167, 139, 250, 0.2) !important;
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.15), rgba(167, 139, 250, 0.15));
+    border-color: rgba(255, 255, 255, 0.1) !important;
   }
 
   .download-btn-premium:hover {
-    background: rgba(96, 165, 250, 0.2);
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 20px rgba(96, 165, 250, 0.15);
-    border-color: rgba(96, 165, 250, 0.4) !important;
+    background: var(--text-main);
+    color: var(--bg-page-center) !important;
+    border-color: var(--text-main) !important;
+    transform: translateY(-1px);
     animation: none;
   }
 
-  html.dark .download-btn-premium:hover {
-    background: rgba(167, 139, 250, 0.2);
-    box-shadow: 0 8px 20px rgba(167, 139, 250, 0.2);
-    border-color: rgba(167, 139, 250, 0.4) !important;
-  }
-
   @keyframes delicate-pulse {
-    0% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.2); }
-    70% { box-shadow: 0 0 0 10px rgba(96, 165, 250, 0); }
+    0% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.15); }
+    70% { box-shadow: 0 0 0 8px rgba(96, 165, 250, 0); }
     100% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0); }
   }
 
   .download-btn-premium svg {
     width: 16px;
     height: 16px;
-    stroke: var(--text-main);
-    stroke-width: 2;
+    stroke: currentColor;
+    stroke-width: 2.5;
   }
   .container {
     display: flex;
