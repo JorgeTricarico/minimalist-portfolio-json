@@ -373,4 +373,29 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
   :global(html.dark [data-hotkeypad] [data-title]) {
     color: #ffffff !important;
   }
+
+  /* KBD Styles */
+  :global(#hotkeypad kbd),
+  :global([data-hotkeypad] kbd) {
+    background: rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    color: #444 !important;
+    padding: 2px 5px !important;
+    border-radius: 4px !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+  }
+
+  :global(html.dark #hotkeypad kbd),
+  :global(html.dark [data-hotkeypad] kbd) {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    color: #fff !important;
+  }
+
+  :global([data-active] kbd) {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: #fff !important;
+  }
 </style>
