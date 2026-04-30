@@ -36,13 +36,20 @@ const themeLabels = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_US'} />
+    <link rel="canonical" href={url} />
 
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@JorgeTricarico" />
     <meta property="twitter:domain" content={url.split("//")[1] ?? ''} />
     <meta property="twitter:url" content={url} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:width" content="1200" />
+    <meta name="twitter:image:height" content="630" />
     
     <!-- Umami Analytics -->
     <script is:inline defer src="https://cloud.umami.is/script.js" data-website-id="d59a6c31-518c-4004-b635-3d93994a2aa9" data-domains="jorgetricarico.com"></script>
@@ -130,6 +137,7 @@ const themeLabels = {
     background: var(--bg-page-center);
     letter-spacing: -0.025rem;
     transition: background 0.5s ease;
+    scroll-behavior: smooth;
   }
 
   .ambient-orb {
@@ -486,6 +494,29 @@ const themeLabels = {
     background: linear-gradient(90deg, #a78bfa, #60a5fa);
     box-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
   }
+
+  #toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--text-main);
+    color: var(--bg-page-center);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-weight: 500;
+    z-index: 10002;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  #toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
 </style>
 
 <button 
@@ -501,6 +532,7 @@ const themeLabels = {
 </button>
 
 <div id="scroll-progress" class="no-print"></div>
+<div id="toast" class="no-print" role="alert" data-lang={lang}></div>
 
 <script>
   const themeToggle = document.getElementById('theme-toggle');
@@ -670,6 +702,37 @@ const themeLabels = {
   
   window.addEventListener('scroll', updateScrollProgress, { passive: true });
   updateScrollProgress();
+
+  // Toast notifications
+  const toast = document.getElementById('toast');
+  const lang = toast?.dataset.lang || 'es';
+  const toastLabels = {
+    es: { email: '¡Email copiado!', phone: '¡Teléfono copiado!' },
+    en: { email: 'Email copied!', phone: 'Phone copied!' }
+  }[lang as 'es' | 'en'] || { email: '¡Email copiado!', phone: '¡Teléfono copiado!' };
+  
+  const showToast = (message: string) => {
+    if (toast) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+  };
+
+  // Copy to clipboard (email, phone)
+  document.querySelectorAll('[data-copy]').forEach((btn) => {
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const value = (e.currentTarget as HTMLElement).dataset.copy;
+      const type = (e.currentTarget as HTMLElement).dataset.type;
+      try {
+        await navigator.clipboard.writeText(value!);
+        showToast(type === 'email' ? toastLabels.email : toastLabels.phone);
+      } catch {
+        showToast(`${value} copied!`);
+      }
+    });
+  });
 
   window.addEventListener('beforeprint', () => {
     closedDetails = [];

@@ -63,10 +63,11 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
         {
           email && (
             <a
-              href={`mailto:${email}`}
-              title={`${t['hero.mail']} ${name} (${email})`}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#"
+              data-copy={email}
+              data-type="email"
+              title={t['hero.mail'] + ' ' + name}
+              class="copy-btn"
             >
               <Mail />
             </a>
@@ -76,10 +77,11 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
           phone && (
             <>
               <a
-                href={`tel:${phone}`}
-                title={`${t['hero.phone']} ${name} (${phone})`}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
+                data-copy={phone}
+                data-type="phone"
+                title={t['hero.phone'] + ' ' + name}
+                class="copy-btn"
               >
                 <Phone />
               </a>
@@ -280,6 +282,10 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
     width: 32px;
     border-radius: 6px;
     transition: all 0.3s ease;
+  }
+
+  footer a.copy-btn {
+    cursor: copy;
   }
 
   footer a:hover {
