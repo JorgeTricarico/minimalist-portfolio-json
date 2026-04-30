@@ -231,7 +231,7 @@ const themeLabels = {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 999;
+    z-index: 1000000; /* Above overlay (99999) but below bugs (1000001) */
   }
 
   .bug-crosshair {
@@ -567,7 +567,7 @@ const themeLabels = {
   animate();
 
   const spawnExplosion = (x: number, y: number) => {
-    const colors = ['#60a5fa', '#a78bfa', '#ffffff']; // Refined tech palette
+    const colors = ['#60a5fa', '#a78bfa', '#ffffff', '#ef4444']; // Tech palette + alert red
     for (let i = 0; i < 20; i++) { // Fewer particles
       const color = colors[Math.floor(Math.random() * colors.length)];
       particles.push(new Particle(x, y, color));
