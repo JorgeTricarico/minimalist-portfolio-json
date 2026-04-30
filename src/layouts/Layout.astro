@@ -457,6 +457,35 @@ const themeLabels = {
   #theme-toggle:hover svg {
     transform: rotate(20deg) scale(1.1);
   }
+
+  #scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: transparent;
+    z-index: 10001;
+    pointer-events: none;
+    --progress: 0%;
+  }
+
+  #scroll-progress::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: var(--progress);
+    background: linear-gradient(90deg, #60a5fa, #a78bfa);
+    transition: width 0.1s ease-out;
+    box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+  }
+
+  html.dark #scroll-progress::after {
+    background: linear-gradient(90deg, #a78bfa, #60a5fa);
+    box-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+  }
 </style>
 
 <button 
@@ -470,6 +499,8 @@ const themeLabels = {
   </svg>
   <span id="toggle-label">{themeLabels.light}</span>
 </button>
+
+<div id="scroll-progress" class="no-print"></div>
 
 <script>
   const themeToggle = document.getElementById('theme-toggle');
@@ -624,6 +655,21 @@ const themeLabels = {
   });
 
   let closedDetails: HTMLDetailsElement[] = [];
+
+  // Scroll Progress
+  const scrollProgress = document.getElementById('scroll-progress');
+  
+  const updateScrollProgress = () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    if (scrollProgress) {
+      scrollProgress.style.setProperty('--progress', `${progress}%`);
+    }
+  };
+  
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  updateScrollProgress();
 
   window.addEventListener('beforeprint', () => {
     closedDetails = [];
