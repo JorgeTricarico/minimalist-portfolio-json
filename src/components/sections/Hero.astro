@@ -118,6 +118,7 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
     </div>
     <figure>
       <img src={image} alt={name} />
+      <canvas class="hero-canvas no-print"></canvas>
     </figure>
   </div>
 </Section>
@@ -234,16 +235,33 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
   }
 
   figure {
+    position: relative;
     width: 160px;
     height: 160px;
     border-radius: 50%;
-    overflow: hidden;
+    overflow: visible;
     margin: 0;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  }
+
+  html.dark figure {
+    box-shadow: 0 8px 32px rgba(167, 139, 250, 0.3), 0 0 20px rgba(167, 139, 250, 0.2);
   }
 
   figure:hover {
     transform: scale(1.05);
+  }
+
+  .hero-canvas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 340px;
+    height: 340px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 5;
   }
 
   img {
@@ -324,3 +342,139 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
     }
   }
 </style>
+
+<script>
+  // Pause all canvas animation if user prefers reduced motion
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    // skip everything — canvas stays empty (transparent overlay)
+    throw new Error('reduced-motion');
+  }
+
+  const canvas = document.querySelector('.hero-canvas') as HTMLCanvasElement;
+  const DPR = window.devicePixelRatio || 1;
+  const SIZE = 340;
+  canvas.width  = SIZE * DPR;
+  canvas.height = SIZE * DPR;
+  const ctx = canvas.getContext('2d')!;
+  ctx.scale(DPR, DPR);
+
+  const CX = SIZE / 2;   // 170
+  const CY = SIZE / 2;   // 170
+  const PHOTO_R = 83;    // photo radius + 3px padding
+
+  // ─── helpers ───────────────────────────────────────────────────────────────
+  function lerpAngle(cur: number, tgt: number, t: number) {
+    let d = tgt - cur;
+    while (d >  Math.PI) d -= 2 * Math.PI;
+    while (d < -Math.PI) d += 2 * Math.PI;
+    return cur + d * t;
+  }
+
+  // ─── Firefly ───────────────────────────────────────────────────────────────
+  class Firefly {
+    x: number; y: number; vx: number; vy: number;
+    phase: number; pulseSpeed: number; size: number;
+    opacity = 0; targetOpacity = 0;
+    trail: {x:number;y:number}[] = [];
+    flickerOut = false; flickerTimer = 0;
+
+    constructor() {
+      // Spawn anywhere across the full canvas
+      this.x = 15 + Math.random() * (SIZE - 30);
+      this.y = 15 + Math.random() * (SIZE - 30);
+      this.vx = (Math.random()-.5)*.5; this.vy = (Math.random()-.5)*.5;
+      this.phase = Math.random()*Math.PI*2;
+      this.pulseSpeed = .016 + Math.random()*.026;
+      this.size = 2.3 + Math.random()*2;
+    }
+
+    update() {
+      this.phase += this.pulseSpeed;
+      if (this.flickerOut) {
+        this.flickerTimer++;
+        this.opacity = this.flickerTimer%4<2 ? Math.max(0,this.opacity-.09) : Math.min(this.targetOpacity,this.opacity+.07);
+      } else { this.opacity += (this.targetOpacity - this.opacity)*.042; }
+      this.vx += (Math.random()-.5)*.052; this.vy += (Math.random()-.5)*.052;
+      const spd = Math.hypot(this.vx,this.vy);
+      if (spd>.85){this.vx*=.85/spd; this.vy*=.85/spd;}
+      // Soft bounce off canvas edges — full canvas roam, no center pull
+      const margin = 16;
+      if (this.x < margin)        this.vx += .05;
+      if (this.x > SIZE - margin) this.vx -= .05;
+      if (this.y < margin)        this.vy += .05;
+      if (this.y > SIZE - margin) this.vy -= .05;
+      this.trail.push({x:this.x,y:this.y});
+      if (this.trail.length>10) this.trail.shift();
+      this.x+=this.vx; this.y+=this.vy;
+    }
+
+    draw() {
+      if (this.opacity<.01) return;
+      const pulse=.5+.5*Math.sin(this.phase);
+      const sz=this.size, a=this.opacity*(.55+.45*pulse);
+      // Trail
+      this.trail.forEach((pt,i)=>{
+        const t=(i+1)/this.trail.length;
+        ctx.beginPath(); ctx.arc(pt.x,pt.y,sz*.28*t,0,Math.PI*2);
+        ctx.fillStyle=`rgba(253,224,71,${a*t*.18})`; ctx.fill();
+      });
+      // Layered concentric fills — real bioluminescent effect without shadowBlur
+      const pr = 1+pulse*.28;
+      ctx.beginPath(); ctx.arc(this.x,this.y,sz*6.5*pr,0,Math.PI*2);
+      ctx.fillStyle=`rgba(167,243,208,${a*.055})`; ctx.fill();
+      ctx.beginPath(); ctx.arc(this.x,this.y,sz*4.0*pr,0,Math.PI*2);
+      ctx.fillStyle=`rgba(253,224,71,${a*.13})`; ctx.fill();
+      ctx.beginPath(); ctx.arc(this.x,this.y,sz*2.0*pr,0,Math.PI*2);
+      ctx.fillStyle=`rgba(254,249,195,${a*.44})`; ctx.fill();
+      ctx.beginPath(); ctx.arc(this.x,this.y,sz*.85*pr,0,Math.PI*2);
+      ctx.fillStyle=`rgba(255,255,255,${a*.88})`; ctx.fill();
+    }
+  }
+
+  // ─── Scene ─────────────────────────────────────────────────────────────────
+  let mode: 'day'|'night' = document.documentElement.classList.contains('dark') ? 'night' : 'day';
+  let creatures: Firefly[] = [];
+  let raf = 0;
+
+  function spawnDay() {
+    creatures = [];
+  }
+
+  function spawnNight() {
+    creatures = Array.from({length: 6}, () => new Firefly());
+    creatures.forEach((f, i) => setTimeout(() => { (f as Firefly).targetOpacity = 0.80; }, i * 175 + 80));
+  }
+
+  function init() { mode === 'day' ? spawnDay() : spawnNight(); }
+
+  function onThemeChange(newMode: 'day'|'night') {
+    if (newMode === mode) return;
+    mode = newMode;
+    if (newMode === 'day') {
+      creatures.forEach(c => { c.flickerOut = true; c.targetOpacity = 0; });
+    }
+    setTimeout(init, 1800);
+  }
+
+  // Pause RAF when hero is off-screen
+  const observer = new IntersectionObserver(entries => {
+    const visible = entries[0].isIntersecting;
+    if (visible && !raf) raf = requestAnimationFrame(loop);
+    if (!visible && raf) { cancelAnimationFrame(raf); raf = 0; }
+  }, { threshold: 0.1 });
+  observer.observe(canvas);
+
+  function loop() {
+    ctx.clearRect(0, 0, SIZE, SIZE);
+    creatures.forEach(c => { c.update(); c.draw(); });
+    raf = requestAnimationFrame(loop);
+  }
+
+  init();
+  raf = requestAnimationFrame(loop);
+
+  window.addEventListener('theme-changed', (e: Event) => {
+    const detail = (e as CustomEvent<{theme:string}>).detail;
+    onThemeChange(detail.theme === 'dark' ? 'night' : 'day');
+  });
+</script>

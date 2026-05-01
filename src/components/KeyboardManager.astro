@@ -328,17 +328,71 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
 
   /* Hotkeypad Dark Mode & Custom Styles */
   :global(html) {
-    --hotkeypad-bg-container: rgba(255, 255, 255, 0.95) !important;
+    --hotkeypad-bg-container: rgba(255, 255, 255, 0.98) !important;
     --hotkeypad-bg-backdrop: rgba(0, 0, 0, 0.3) !important;
     --hotkeypad-border-container: rgba(0, 0, 0, 0.1) !important;
+    --hotkeypad-fg-primary: #111111 !important;
+    --hotkeypad-fg-secondary: #666666 !important;
   }
 
   :global(html.dark) {
-    --hotkeypad-bg-container: #1a1a1a !important;
-    --hotkeypad-bg-backdrop: rgba(0, 0, 0, 0.75) !important;
+    --hotkeypad-bg-container: #1e1e24 !important;
+    --hotkeypad-bg-backdrop: rgba(0, 0, 0, 0.8) !important;
     --hotkeypad-border-container: rgba(255, 255, 255, 0.15) !important;
-    --hotkeypad-bg-kbd: #dddddd !important;
-    --hotkeypad-fg-muted: #000000 !important;
+    --hotkeypad-bg-kbd: #2d2d35 !important;
+    --hotkeypad-fg-primary: #f0f0f0 !important;
+    --hotkeypad-fg-secondary: #a0a0a0 !important;
+  }
+
+  :global(html.dark) #hotkeypad [data-container] {
+    background: #1e1e24 !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+  }
+
+  :global(html.dark) #hotkeypad input {
+    background: #252530 !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    color: #f0f0f0 !important;
+  }
+
+  :global(html.dark) #hotkeypad header {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  :global(html.dark) #hotkeypad li {
+    color: #e0e0e0 !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  :global(html.dark) #hotkeypad [data-section] h4 {
+    color: #888888 !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  :global(html.dark) #hotkeypad footer {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  :global(html.dark) #hotkeypad kbd {
+    background: #2d2d35 !important;
+    color: #e0e0e0 !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  :global(html.dark) #hotkeypad input::placeholder {
+    color: #888888 !important;
+  }
+
+  :global(html.dark) #hotkeypad p {
+    color: #cccccc !important;
+  }
+
+  :global(html.dark) #hotkeypad [data-backdrop] {
+    background: rgba(0, 0, 0, 0.8) !important;
+  }
+
+  :global(html.dark) #hotkeypad [data-sections] {
+    color: #e0e0e0 !important;
   }
 
   :global([data-active]),

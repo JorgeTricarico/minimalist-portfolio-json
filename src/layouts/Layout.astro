@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+
 interface Props {
   title: string
   description?: string
@@ -52,19 +54,34 @@ const themeLabels = {
     <meta name="twitter:image:height" content="630" />
     
     <!-- Umami Analytics -->
-    <script is:inline defer src="https://cloud.umami.is/script.js" data-website-id="d59a6c31-518c-4004-b635-3d93994a2aa9" data-domains="jorgetricarico.com"></script>
+    <script is:inline defer src="https://cloud.umami.is/script.js" data-website-id="d59a6c31-518c-4004-b635-3d93994a2aa9"></script>
+    <script is:inline>
+      // Re-track pageview on Astro View Transitions (doesn't fire on initial load)
+      document.addEventListener('astro:after-swap', function() {
+        if (typeof window.umami !== 'undefined') window.umami.track();
+      });
+    </script>
+
+    <!-- hreflang for bilingual SEO -->
+    <link rel="alternate" hreflang="es"        href="https://jorgetricarico.com/" />
+    <link rel="alternate" hreflang="en"        href="https://jorgetricarico.com/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://jorgetricarico.com/" />
+
+    <!-- Dynamic browser chrome color -->
+    <meta id="theme-color-meta" name="theme-color" content="#ffffff" />
+
+    <ViewTransitions />
 
     <script is:inline>
-      // Blocking script to prevent FOUC (Flash of Unstyled Content)
       const savedTheme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-      if (isDark) {
+      if (savedTheme === 'dark') {
         document.documentElement.classList.add('dark');
+        document.getElementById('theme-color-meta')?.setAttribute('content', '#0a0a0a');
       }
     </script>
   </head>
   <body>
+    <div id="cursor-glow" class="no-print" aria-hidden="true"></div>
     <div class="ambient-orb orb-1"></div>
     <div class="ambient-orb orb-2"></div>
     <div class="bug-container no-print">
@@ -136,19 +153,19 @@ const themeLabels = {
       monospace;
     background: var(--bg-page-center);
     letter-spacing: -0.025rem;
-    transition: background 0.5s ease;
+    transition: background 1.2s ease, color 0.8s ease;
     scroll-behavior: smooth;
   }
 
   .ambient-orb {
     position: fixed;
     border-radius: 50%;
-    filter: blur(90px); 
-    z-index: 1; 
+    filter: blur(90px);
+    z-index: 1;
     pointer-events: none;
-    opacity: 0.5; 
+    opacity: 0.5;
     animation: float 8s infinite alternate ease-in-out;
-    transition: opacity 0.5s ease, filter 0.5s ease;
+    transition: opacity 1.2s ease, filter 1.2s ease;
   }
 
   html.dark .ambient-orb {
@@ -181,6 +198,24 @@ const themeLabels = {
     100% { transform: translate(20px, 50px) scale(1.1); }
   }
 
+  #cursor-glow {
+    position: fixed;
+    width: 650px;
+    height: 650px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(167,139,250,0.055) 0%, transparent 65%);
+    opacity: 0;
+    transition: opacity 1s ease;
+    will-change: left, top;
+  }
+
+  html.dark #cursor-glow {
+    opacity: 1;
+  }
+
   .bug-target {
     position: fixed;
     z-index: 1000;
@@ -197,7 +232,14 @@ const themeLabels = {
 
   html.dark .bug-target {
     color: #a78bfa;
-    opacity: 0.18;
+    opacity: 0.25;
+    filter: drop-shadow(0 0 8px rgba(167, 139, 250, 0.8)) drop-shadow(0 0 16px rgba(167, 139, 250, 0.4));
+    animation: bug-glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes bug-glow {
+    from { filter: drop-shadow(0 0 6px rgba(167, 139, 250, 0.6)) drop-shadow(0 0 12px rgba(167, 139, 250, 0.3)); }
+    to { filter: drop-shadow(0 0 10px rgba(167, 139, 250, 1)) drop-shadow(0 0 20px rgba(167, 139, 250, 0.6)); }
   }
 
   .bug-target:hover {
@@ -402,68 +444,84 @@ const themeLabels = {
     color: var(--text-main);
   }
 
-  #theme-toggle {
+  .theme-switch {
     position: absolute;
     top: 16px;
     right: 20px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 7px 14px 7px 10px;
-    background: rgba(255, 255, 255, 0.75);
-    border: 1px solid rgba(251, 191, 36, 0.4);
-    border-radius: 999px;
+    background: transparent;
+    border: none;
     cursor: pointer;
     z-index: 9999;
-    font-size: 0.8rem;
-    font-family: system-ui, -apple-system, sans-serif;
-    font-weight: 500;
-    color: #333;
-    letter-spacing: 0.01em;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+    padding: 0;
+    width: 52px;
+    height: 28px;
+  }
+
+  .toggle-track {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    border-radius: 999px;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(251, 191, 36, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.3);
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
-  html.dark #theme-toggle {
-    background: rgba(30, 30, 30, 0.75);
-    border: 1px solid rgba(167, 139, 250, 0.5); /* Moonlight border */
-    color: #eee;
-    box-shadow: 0 0 25px rgba(167, 139, 250, 0.35); /* Soft purple/blue glow */
+  html.dark .toggle-track {
+    background: linear-gradient(135deg, #4b5563 0%, #1f2937 100%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.1);
   }
 
-  #theme-toggle:hover {
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 0 35px rgba(251, 191, 36, 0.8);
-    transform: translateY(-1px);
+  .toggle-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
-  html.dark #theme-toggle:hover {
-    background: rgba(45, 45, 45, 0.95);
-    box-shadow: 0 0 45px rgba(167, 139, 250, 0.6);
+  html.dark .toggle-thumb {
+    transform: translateX(24px);
+    background: #1f2937;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   }
 
-  #theme-toggle:active {
-    transform: translateY(0);
-  }
-
-  #theme-toggle svg {
-    transition: transform 0.4s ease, filter 0.3s ease;
-    overflow: visible !important;
-    -webkit-filter: drop-shadow(0 0 10px rgba(251, 191, 36, 1)); /* Stronger sun glow */
-    filter: drop-shadow(0 0 10px rgba(251, 191, 36, 1));
+  .icon-sun {
     color: #f59e0b;
+    transition: all 0.3s ease;
   }
 
-  html.dark #theme-toggle svg {
-    -webkit-filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8)); /* Stronger moon glow */
-    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
-    color: #f3f4f6;
+  .icon-moon {
+    color: #9ca3af;
+    position: absolute;
+    opacity: 0;
+    transition: all 0.3s ease;
   }
 
-  #theme-toggle:hover svg {
-    transform: rotate(20deg) scale(1.1);
+  html.dark .icon-sun {
+    opacity: 0;
+  }
+
+  html.dark .icon-moon {
+    opacity: 1;
+    color: #a78bfa;
+  }
+
+  .theme-switch:hover .toggle-track {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.5);
+  }
+
+  html.dark .theme-switch:hover .toggle-track {
+    box-shadow: 0 4px 12px rgba(167, 139, 250, 0.4);
   }
 
   #scroll-progress {
@@ -521,62 +579,58 @@ const themeLabels = {
 
 <button 
   id="theme-toggle" 
-  class="no-print" 
+  class="no-print theme-switch" 
   aria-label="Toggle Dark Mode"
   data-labels={JSON.stringify(themeLabels)}
+  title="Cambiar tema"
 >
-  <svg id="toggle-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-  </svg>
-  <span id="toggle-label">{themeLabels.light}</span>
+  <span class="toggle-track">
+    <span class="toggle-thumb">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </span>
+  </span>
 </button>
 
 <div id="scroll-progress" class="no-print"></div>
 <div id="toast" class="no-print" role="alert" data-lang={lang}></div>
 
 <script>
+  // ── Theme toggle ────────────────────────────────────────────────────────────
   const themeToggle = document.getElementById('theme-toggle');
-  const toggleLabel = document.getElementById('toggle-label');
-  const toggleIcon = document.getElementById('toggle-icon');
-  
-  const labels = JSON.parse(themeToggle?.dataset.labels || '{"dark":"Oscuro","light":"Claro"}');
-
-  const updateThemeUI = (isDark: boolean) => {
-    if (toggleLabel) toggleLabel.textContent = isDark ? labels.dark : labels.light;
-    if (toggleIcon) {
-      toggleIcon.innerHTML = isDark 
-        ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>' // Moon icon
-        : '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>'; // Sun icon
-    }
-  };
+  const themeColorMeta = document.getElementById('theme-color-meta') as HTMLMetaElement | null;
 
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
       const isDark = document.documentElement.classList.toggle('dark');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      updateThemeUI(isDark);
-      
-      // Dispatch custom event for other components (like hotkeypad) to react
+      if (themeColorMeta) themeColorMeta.content = isDark ? '#0a0a0a' : '#ffffff';
       window.dispatchEvent(new CustomEvent('theme-changed', { detail: { theme: isDark ? 'dark' : 'light' } }));
     });
-
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-    updateThemeUI(isDark);
   }
 
-  // Bug Squash Logic
-  const bugs = document.querySelectorAll('.bug-target');
+  // ── Cursor glow ─────────────────────────────────────────────────────────────
+  const cursorGlow = document.getElementById('cursor-glow') as HTMLElement | null;
+  if (cursorGlow) {
+    window.addEventListener('mousemove', (e) => {
+      cursorGlow.style.left = `${e.clientX}px`;
+      cursorGlow.style.top  = `${e.clientY}px`;
+    }, { passive: true });
+  }
+
+  // ── Bug Squash ──────────────────────────────────────────────────────────────
+  const bugs   = document.querySelectorAll('.bug-target');
   const canvas = document.getElementById('explosion-canvas') as HTMLCanvasElement;
-  const ctx = canvas?.getContext('2d');
+  const ctx    = canvas?.getContext('2d');
   let particles: any[] = [];
+  let explosionRaf: number | null = null;
 
   const resize = () => {
-    if (canvas) {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
+    if (canvas) { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
   };
   window.addEventListener('resize', resize);
   resize();
@@ -584,57 +638,52 @@ const themeLabels = {
   class Particle {
     x: number; y: number; vx: number; vy: number; life: number; color: string; size: number; friction: number; gravity: number;
     constructor(x: number, y: number, color: string) {
-      this.x = x;
-      this.y = y;
+      this.x = x; this.y = y;
       const angle = Math.random() * Math.PI * 2;
-      const speed = Math.random() * 2 + 1; // Slower speed
+      const speed = Math.random() * 2 + 1;
       this.vx = Math.cos(angle) * speed;
       this.vy = Math.sin(angle) * speed;
-      this.life = 1.0;
-      this.color = color;
-      this.size = Math.random() * 1.5 + 0.5; // Smaller size
-      this.friction = 0.94; // Higher friction to slow down faster
-      this.gravity = 0.05; // Lower gravity for a floating feel
+      this.life = 1.0; this.color = color;
+      this.size = Math.random() * 1.5 + 0.5;
+      this.friction = 0.94; this.gravity = 0.05;
     }
     update() {
-      this.vx *= this.friction;
-      this.vy *= this.friction;
+      this.vx *= this.friction; this.vy *= this.friction;
       this.vy += this.gravity;
-      this.x += this.vx;
-      this.y += this.vy;
-      this.life -= 0.01; // Slower fade
+      this.x += this.vx; this.y += this.vy;
+      this.life -= 0.01;
     }
     draw() {
       if (!ctx) return;
       ctx.fillStyle = this.color;
       ctx.globalAlpha = this.life;
+      ctx.shadowBlur = 5; ctx.shadowColor = this.color;
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
       ctx.fill();
-      // Add a slight glow
-      ctx.shadowBlur = 5;
-      ctx.shadowColor = this.color;
     }
   }
 
-  const animate = () => {
+  // RAF loop only runs while particles are alive — no idle burning
+  const runExplosion = () => {
     if (!ctx || !canvas) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles = particles.filter(p => p.life > 0);
-    particles.forEach(p => {
-      p.update();
-      p.draw();
-    });
-    requestAnimationFrame(animate);
+    particles.forEach(p => { p.update(); p.draw(); });
+    if (particles.length > 0) {
+      explosionRaf = requestAnimationFrame(runExplosion);
+    } else {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      explosionRaf = null;
+    }
   };
-  animate();
 
   const spawnExplosion = (x: number, y: number) => {
-    const colors = ['#60a5fa', '#a78bfa', '#ffffff', '#ef4444']; // Tech palette + alert red
-    for (let i = 0; i < 20; i++) { // Fewer particles
-      const color = colors[Math.floor(Math.random() * colors.length)];
-      particles.push(new Particle(x, y, color));
+    const colors = ['#60a5fa', '#a78bfa', '#ffffff', '#ef4444'];
+    for (let i = 0; i < 20; i++) {
+      particles.push(new Particle(x, y, colors[Math.floor(Math.random() * colors.length)]));
     }
+    if (!explosionRaf) explosionRaf = requestAnimationFrame(runExplosion);
   };
   (window as any).spawnExplosion = spawnExplosion;
 
@@ -700,39 +749,8 @@ const themeLabels = {
     }
   };
   
-  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+window.addEventListener('scroll', updateScrollProgress, { passive: true });
   updateScrollProgress();
-
-  // Toast notifications
-  const toast = document.getElementById('toast');
-  const lang = toast?.dataset.lang || 'es';
-  const toastLabels = {
-    es: { email: '¡Email copiado!', phone: '¡Teléfono copiado!' },
-    en: { email: 'Email copied!', phone: 'Phone copied!' }
-  }[lang as 'es' | 'en'] || { email: '¡Email copiado!', phone: '¡Teléfono copiado!' };
-  
-  const showToast = (message: string) => {
-    if (toast) {
-      toast.textContent = message;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2000);
-    }
-  };
-
-  // Copy to clipboard (email, phone)
-  document.querySelectorAll('[data-copy]').forEach((btn) => {
-    btn.addEventListener('click', async (e) => {
-      e.preventDefault();
-      const value = (e.currentTarget as HTMLElement).dataset.copy;
-      const type = (e.currentTarget as HTMLElement).dataset.type;
-      try {
-        await navigator.clipboard.writeText(value!);
-        showToast(type === 'email' ? toastLabels.email : toastLabels.phone);
-      } catch {
-        showToast(`${value} copied!`);
-      }
-    });
-  });
 
   window.addEventListener('beforeprint', () => {
     closedDetails = [];

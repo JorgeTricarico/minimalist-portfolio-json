@@ -10,6 +10,8 @@ const labels = {
     counting: "Iniciando cacería en...",
     instruction: "¡Elimina todos los bugs que puedas!",
     finished: "SISTEMA DESINFECTADO",
+    scoreLabel: "BUGS DEPURADOS:",
+    close: "X",
   },
   en: {
     title: "SYSTEM INFECTED",
@@ -17,6 +19,8 @@ const labels = {
     counting: "Starting hunt in...",
     instruction: "Clear as many bugs as possible!",
     finished: "SYSTEM DISINFECTED",
+    scoreLabel: "BUGS CLEARED:",
+    close: "X",
   }
 }
 
@@ -42,7 +46,8 @@ const currentLabels = labels[lang as keyof typeof labels] || labels.es
     <div class="line"></div>
   </div>
 
-  <div id="debug-overlay" class="debug-overlay">
+  <div id="debug-overlay" class="debug-overlay" data-lang={lang}>
+    <button id="debug-close" class="debug-close" title="Close (Esc)">{currentLabels.close}</button>
     <div class="debug-content">
       <div id="debug-intro">
         <h2 class="intro-title">{currentLabels.title}</h2>
@@ -52,7 +57,7 @@ const currentLabels = labels[lang as keyof typeof labels] || labels.es
       <h2 id="debug-timer">3</h2>
       
       <div id="debug-live-score" class="live-score">
-        <span class="score-label">BUGS DEPURADOS:</span>
+        <span class="score-label">{currentLabels.scoreLabel}</span>
         <span id="debug-score-val">0</span>
       </div>
     </div>
@@ -62,6 +67,8 @@ const currentLabels = labels[lang as keyof typeof labels] || labels.es
 <script>
   const startBtn = document.getElementById('start-debug');
   const overlay = document.getElementById('debug-overlay');
+  const closeBtn = document.getElementById('debug-close');
+  const lang = overlay?.dataset.lang || 'es';
   
   // Teleport overlay to body to avoid parent blur/opacity
   if (overlay) {
@@ -79,15 +86,46 @@ const currentLabels = labels[lang as keyof typeof labels] || labels.es
   let gameActive = false;
 
   const labels = {
-    instruction: (document.getElementById('debug-message')?.textContent === 'Iniciando protocolo en...') 
-      ? "¡Elimina los bugs rápidamente!" 
-      : "Clear the bugs quickly!",
-    finished: (document.getElementById('debug-message')?.textContent === 'Iniciando protocolo en...')
-      ? "SISTEMA OPTIMIZADO"
-      : "SYSTEM OPTIMIZED",
-    scoreLabel: (document.getElementById('debug-message')?.textContent === 'Iniciando protocolo en...')
-      ? "Bugs eliminados: "
-      : "Bugs cleared: "
+    es: {
+      instruction: "¡Elimina los bugs rápidamente!",
+      finished: "SISTEMA OPTIMIZADO",
+      scoreLabel: "Bugs eliminados: "
+    },
+    en: {
+      instruction: "Clear the bugs quickly!",
+      finished: "SYSTEM OPTIMIZED",
+      scoreLabel: "Bugs cleared: "
+    }
+  }[lang as 'es' | 'en'] || { instruction: "¡Elimina los bugs rápidamente!", finished: "SISTEMA OPTIMIZADO", scoreLabel: "Bugs eliminados: " };
+
+  // Close with Escape key
+  const handleEscape = (e: KeyboardEvent) => {
+    if (e.key === 'Escape' && overlay?.classList.contains('active')) {
+      endGame();
+    }
+  };
+  document.addEventListener('keydown', handleEscape);
+
+  // Close button click
+  closeBtn?.addEventListener('click', () => {
+    if (overlay?.classList.contains('active')) {
+      endGame();
+    }
+  });
+
+const endGame = () => {
+    gameActive = false;
+    if (overlay) {
+      overlay.style.display = 'none';
+      overlay.classList.remove('active');
+    }
+    if (main) main.classList.remove('game-mode');
+    document.querySelectorAll('.mega-bug').forEach((b) => b.remove());
+    
+    // Reset UI for next game
+    setTimeout(() => {
+      resetGameUI();
+    }, 100);
   };
 
   const spawnMegaBug = () => {
@@ -168,6 +206,8 @@ const currentLabels = labels[lang as keyof typeof labels] || labels.es
   });
 
   const startGame = () => {
+    gameScore = 0;
+    if (scoreVal) scoreVal.textContent = "0";
     if (timerDisplay) timerDisplay.textContent = "12";
     if (introDisplay) introDisplay.style.display = "none";
     if (messageDisplay) messageDisplay.style.display = "none";
@@ -189,22 +229,37 @@ const currentLabels = labels[lang as keyof typeof labels] || labels.es
     }, 1000);
   };
 
-  const endGame = () => {
-    gameActive = false;
+  const resetGameUI = () => {
     if (messageDisplay) {
       messageDisplay.style.display = "block";
-      messageDisplay.textContent = `${labels.finished} - ${labels.scoreLabel} ${gameScore}`;
+      messageDisplay.textContent = labels.instruction;
     }
-    if (timerDisplay) timerDisplay.textContent = "✓";
+    if (timerDisplay) timerDisplay.textContent = "3";
     if (scoreDisplay) scoreDisplay.style.display = "none";
-    
-    document.querySelectorAll('.mega-bug').forEach(b => b.remove());
-
-    setTimeout(() => {
-      if (overlay) overlay.classList.remove('active');
-      if (main) main.classList.remove('game-mode');
-    }, 4000);
+    if (introDisplay) introDisplay.style.display = "block";
   };
+
+  startBtn?.addEventListener("click", () => {
+    if (gameActive) return;
+    gameActive = true;
+    if (overlay) {
+      overlay.style.display = 'flex';
+      overlay.classList.add('active');
+    }
+    if (main) main.classList.add('game-mode');
+    resetGameUI();
+    
+    let countdown = 3;
+    if (timerDisplay) timerDisplay.textContent = countdown.toString();
+    const countdownInterval = setInterval(() => {
+      countdown--;
+      if (timerDisplay) timerDisplay.textContent = countdown.toString();
+      if (countdown <= 0) {
+        clearInterval(countdownInterval);
+        startGame();
+      }
+    }, 1000);
+  });
 </script>
 
 <style>
@@ -257,6 +312,36 @@ const currentLabels = labels[lang as keyof typeof labels] || labels.es
     0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
     70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
     100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+  }
+
+  .debug-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+    color: var(--text-main);
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 100000;
+  }
+
+  html.dark .debug-close {
+    background: rgba(255, 255, 255, 0.1);
+    color: #eee;
+  }
+
+  .debug-close:hover {
+    background: rgba(239, 68, 68, 0.2);
+    transform: scale(1.1);
   }
 
   .debug-overlay {
