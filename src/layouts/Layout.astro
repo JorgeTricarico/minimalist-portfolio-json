@@ -740,6 +740,7 @@ const themeLabels = {
   // Scroll Progress
   const scrollProgress = document.getElementById('scroll-progress');
   
+  let isTicking = false;
   const updateScrollProgress = () => {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -747,9 +748,15 @@ const themeLabels = {
     if (scrollProgress) {
       scrollProgress.style.setProperty('--progress', `${progress}%`);
     }
+    isTicking = false;
   };
   
-window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  window.addEventListener('scroll', () => {
+    if (!isTicking) {
+      window.requestAnimationFrame(updateScrollProgress);
+      isTicking = true;
+    }
+  }, { passive: true });
   updateScrollProgress();
 
   window.addEventListener('beforeprint', () => {
