@@ -18,13 +18,14 @@ const t = ui[lang as keyof typeof ui]
     {
       work.map(
         ({ name, startDate, endDate, position, summary, highlights, url }) => {
-          const startYear = new Date(startDate).getFullYear()
-          const endYear =
-            endDate != null ? (isNaN(Date.parse(endDate)) ? endDate : new Date(endDate).getFullYear()) : t['experience.actual']
+          const start = new Date(startDate)
+          const startYear = start.getFullYear()
+
+          const isEndDateValid = endDate != null && !isNaN(Date.parse(endDate))
+          const end = isEndDateValid ? new Date(endDate) : new Date()
+          const endYear = endDate != null ? (isEndDateValid ? end.getFullYear() : endDate) : t['experience.actual']
 
           // Calcular duración
-          const start = new Date(startDate)
-          const end = endDate != null && !isNaN(Date.parse(endDate)) ? new Date(endDate) : new Date()
           const totalMonths = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth())
           const years = Math.floor(totalMonths / 12)
           const months = totalMonths % 12
