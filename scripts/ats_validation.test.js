@@ -58,6 +58,22 @@ async function parsePdf(pdfPath) {
   };
 }
 
+describe('parsePdf Helper', () => {
+  it('Debe lanzar un error si el archivo PDF no existe', async () => {
+    const nonExistentPath = path.join(WORKSPACE_DIR, 'archivo_que_no_existe.pdf');
+    await expect(parsePdf(nonExistentPath)).rejects.toThrow(
+      `El archivo PDF no existe en la ruta: ${nonExistentPath}`
+    );
+  });
+
+  it('Debe lanzar un error para archivos vacíos (sin contenido PDF válido)', async () => {
+    const emptyFilePath = path.join(WORKSPACE_DIR, 'empty.pdf');
+    fs.writeFileSync(emptyFilePath, '');
+    await expect(parsePdf(emptyFilePath)).rejects.toThrow();
+    fs.unlinkSync(emptyFilePath);
+  });
+});
+
 describe('Validación de Legibilidad ATS - CV en Español', () => {
   const pdfPath = path.join(WORKSPACE_DIR, 'public', 'cv.pdf');
   const jsonPath = path.join(WORKSPACE_DIR, 'cv.json');
