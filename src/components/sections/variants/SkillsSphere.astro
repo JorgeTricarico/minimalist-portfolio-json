@@ -6,21 +6,27 @@ const allSkills = skills.flatMap(s => s.keywords);
 ---
 
 <Section title="Habilidades">
-  <div class="sphere-wrapper">
+  <div class="sphere-wrapper" data-skills={JSON.stringify(allSkills)}>
     <div id="skills-sphere" class="sphere-canvas"></div>
   </div>
 </Section>
 
-<script is:inline src="https://cdn.jsdelivr.net/npm/TagCloud@2.2.0/dist/TagCloud.min.js"></script>
 
-<script is:inline define:vars={{ allSkills }}>
+
+<script>
+  import TagCloud from 'TagCloud';
+
   function startCloud() {
+    const wrapper = document.querySelector('.sphere-wrapper') as HTMLElement;
+    if (!wrapper) return;
+
     const container = '.sphere-canvas';
     const el = document.querySelector(container);
     if (!el) return;
     
     el.innerHTML = '';
     
+    const allSkills = JSON.parse(wrapper.dataset.skills || '[]');
     const width = window.innerWidth;
     const radius = width < 600 ? 150 : width < 900 ? 250 : 300;
 
@@ -32,14 +38,12 @@ const allSkills = skills.flatMap(s => s.keywords);
       keep: true
     };
 
-    if (window['TagCloud']) {
-      window['TagCloud'](container, allSkills, options);
-    }
+    TagCloud(container, allSkills, options);
   }
 
   document.addEventListener('astro:page-load', startCloud);
-  // Pequeño timeout para asegurar que el DOM y el script externo estén listos
-  setTimeout(startCloud, 100);
+  // Ejecutar también al cargar inicialmente por si no se dispara astro:page-load
+  startCloud();
 </script>
 
 <style>
