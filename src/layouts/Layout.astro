@@ -616,9 +616,22 @@ const themeLabels = {
   // ── Cursor glow ─────────────────────────────────────────────────────────────
   const cursorGlow = document.getElementById('cursor-glow') as HTMLElement | null;
   if (cursorGlow) {
+    let mouseX = 0;
+    let mouseY = 0;
+    let isTicking = false;
+
     window.addEventListener('mousemove', (e) => {
-      cursorGlow.style.left = `${e.clientX}px`;
-      cursorGlow.style.top  = `${e.clientY}px`;
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      if (!isTicking) {
+        window.requestAnimationFrame(() => {
+          cursorGlow.style.left = `${mouseX}px`;
+          cursorGlow.style.top  = `${mouseY}px`;
+          isTicking = false;
+        });
+        isTicking = true;
+      }
     }, { passive: true });
   }
 
