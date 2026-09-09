@@ -36,9 +36,9 @@
       "endDate": "2026-08-01",
       "summary": "",
       "highlights": [
-        "Único responsable de QA en startup de alto crecimiento, diseñando y ejecutando la estrategia integral de testing y confiabilidad desde cero.",
-        "Diseño, puesta en producción y entrega de un Agente QA autónomo funcional (orquestado con Claude Code, skills y hooks a medida) capaz de testear de punta a punta toda la empresa y acompañar la evolución del producto sin dependencia operativa.",
-        "Implementación de sistemas de autodiagnóstico iterativo y pipelines con métricas DORA, escalando la cobertura entre múltiples squads técnicos con equipo humano mínimo."
+        "Único QA en startup de alto crecimiento: arquitectura de testing y confiabilidad de 0 a 100% con Claude Code.",
+        "Entrega de Agente QA autónomo funcional en producción para pruebas E2E de toda la empresa y evolución continua.",
+        "Pipelines con autodiagnóstico iterativo y métricas DORA, escalando cobertura entre múltiples squads técnicos."
       ]
     },
     {
@@ -49,10 +49,9 @@
       "endDate": null,
       "summary": "",
       "highlights": [
-        "Liderazgo técnico en automatización en la Tribu de Herramientas y Datos (desde Jul 2026) e integrante del Grupo Hub AI como uno de los pocos Embajadores de IA de la tribu: automatización integral de Web y APIs con Tricentis TOSCA, e ideación y desarrollo de 'KrakenQA', arquitectura agentica modular en VS Code concebida para orquestar y embeber frameworks multi-stack (Mobile, Web, API). Implementado estratégicamente para automatizar Apps nativas (Android e iOS) resolviendo la fricción operativa de TOSCA Mobile.",
-        "Evolución profesional y promoción a SSR: transición desde el equipo de Onboarding hacia Transferencias Minoristas, liderando el aseguramiento de calidad y testing técnico sobre la aplicación móvil bancaria en entornos transaccionales críticos.",
-        "Co-autoría y arquitectura de agentes de IA para testing ('CobroTron' y 'FullTron/MulticrafterQA'): implementación pionera del patrón de auto-debugging basado en DOM filtrado para iteración autónoma de tests, generación de frameworks POM (Playwright, Python, Appium) y sincronización desatendida de métricas y evidencias con ALM institucional.",
-        "Gestión técnica ágil del ciclo de pruebas y análisis de traces/logs, colaborando cercanamente con desarrolladores mediante la optimización de infraestructura y queries (SQL/NoSQL)."
+        "Liderazgo en Tribu Herramientas y Datos y Embajador de IA en Grupo Hub AI: automatización Web/API con Tricentis TOSCA y arquitectura de KrakenQA (agente modular en VS Code para Apps Android/iOS resolviendo la fricción de TOSCA Mobile).",
+        "Promoción a SSR tras liderar QA técnico en Onboarding y Transferencias Minoristas en la app móvil transaccional.",
+        "Co-creador de CobroTron y FullTron: patrón pionero de auto-debug por DOM filtrado, generación de suites POM y sincronización desatendida con ALM."
       ]
     },
     {
@@ -103,6 +102,7 @@
         "Claude Code",
         "Gemini",
         "DeepSeek",
+        "Scikit-learn",
         "GitHub Copilot",
         "Cursor",
         "Antigravity",
@@ -110,7 +110,6 @@
         "Prompt Engineering",
         "OpenAI",
         "Anthropic",
-        "Scikit-learn",
         "Pandas",
         "NumPy"
       ]

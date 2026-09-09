@@ -10,10 +10,10 @@
   locale-catalog-language: "en",
   text-direction: ltr,
   page-size: "a4",
-  page-top-margin: 1.5cm,
-  page-bottom-margin: 1.5cm,
-  page-left-margin: 1.5cm,
-  page-right-margin: 1.5cm,
+  page-top-margin: 1.0cm,
+  page-bottom-margin: 1.0cm,
+  page-left-margin: 1.2cm,
+  page-right-margin: 1.2cm,
   page-show-footer: false,
   page-show-top-note: false,
   colors-body: rgb(0, 0, 0),
@@ -32,7 +32,7 @@
   typography-font-family-headline: "Source Sans 3",
   typography-font-family-connections: "Source Sans 3",
   typography-font-family-section-titles: "Source Sans 3",
-  typography-font-size-body: 9.5pt,
+  typography-font-size-body: 9pt,
   typography-font-size-name: 24pt,
   typography-font-size-headline: 10pt,
   typography-font-size-connections: 9pt,
@@ -49,9 +49,9 @@
   links-show-external-link-icon: false,
   header-alignment: center,
   header-photo-width: 3.5cm,
-  header-space-below-name: 0.4cm,
-  header-space-below-headline: 0.4cm,
-  header-space-below-connections: 0.5cm,
+  header-space-below-name: 0.2cm,
+  header-space-below-headline: 0.2cm,
+  header-space-below-connections: 0.25cm,
   header-connections-hyperlink: true,
   header-connections-show-icons: true,
   header-connections-display-urls-instead-of-usernames: false,
@@ -59,11 +59,11 @@
   header-connections-space-between-connections: 0.5cm,
   section-titles-type: "with_partial_line",
   section-titles-line-thickness: 0.5pt,
-  section-titles-space-above: 0.5cm,
-  section-titles-space-below: 0.3cm,
+  section-titles-space-above: 0.3cm,
+  section-titles-space-below: 0.15cm,
   sections-allow-page-break: true,
-  sections-space-between-text-based-entries: 0.5em,
-  sections-space-between-regular-entries: 1em,
+  sections-space-between-text-based-entries: 0.2em,
+  sections-space-between-regular-entries: 0.4em,
   entries-date-and-location-width: 3.8cm,
   entries-side-space: 0.2cm,
   entries-space-between-columns: 0.1cm,
@@ -118,11 +118,11 @@ QA Engineer and AI Specialist focused on product creation and software reliabili
   [
     #strong[OneVisa - Dubai (UAE) \/ Spain], (Part-time) Senior Principal QA Engineer (AI & Reliability)
 
-    - Sole QA lead in a high-growth startup, designing and executing the end-to-end testing and reliability architecture from scratch.
+    - Sole QA lead in high-growth startup: designed full testing and reliability architecture from 0 to 100\% using Claude Code.
 
-    - Architected, deployed, and delivered a fully functional autonomous QA Agent (orchestrated with Claude Code, custom skills, and hooks) capable of end-to-end testing across the entire company and sustaining continuous product evolution.
+    - Delivered production-ready autonomous QA Agent for company-wide E2E testing and continuous product evolution.
 
-    - Implementation of iterative self-diagnostic pipelines and DORA QA telemetry, drastically reducing debugging cycles and scaling test coverage across multiple squads with minimal headcount.
+    - Implemented self-diagnostic pipelines and DORA metrics, scaling test coverage across squads with minimal headcount.
 
   ],
   [
@@ -139,13 +139,11 @@ QA Engineer and AI Specialist focused on product creation and software reliabili
   [
     #strong[Tata Consultancy Service - Banco Galicia], SSR QA Automation Engineer
 
-    - Test automation technical leadership within the Tools & Data Tribe (since Jul 2026) and active member of the AI Hub Group as one of the tribe's few select AI Ambassadors: end-to-end Web and API automation using Tricentis TOSCA, and architectural design of 'KrakenQA'—a modular agentic testing framework built in VS Code to embed multi-stack runners (Mobile, Web, API), strategically implemented for Android and iOS mobile app automation to overcome the steep operational friction of TOSCA Mobile.
+    - Tools & Data Tribe technical leadership & AI Ambassador at AI Hub Group: Web\/API automation via Tricentis TOSCA and KrakenQA architecture (modular VS Code agent for Android\/iOS overcoming TOSCA Mobile friction).
 
-    - Sustained professional progression and promotion to SSR: transitioned from Onboarding to Retail Transfers ('Transferencias Minoristas'), spearheading quality assurance and technical testing for the core mobile banking app under high-volume transaction environments.
+    - Promoted to SSR following technical QA leadership across Onboarding and Retail Transfers on the core mobile banking app.
 
-    - Co-creation and architectural design of proprietary QA AI agents ('CobroTron' & 'FullTron\/MulticrafterQA'): pioneered the filtered-DOM auto-debug pattern for autonomous test iteration, POM framework generation (Playwright, Python, Appium), and seamless ALM metrics and evidence reporting.
-
-    - Agile testing governance, distributed trace\/log telemetry analysis, and optimization of testing infrastructure and SQL\/NoSQL queries in close alignment with core engineering teams.
+    - Co-creator of CobroTron & FullTron: pioneered filtered-DOM auto-debugging pattern, POM suite generation, and unattended ALM sync.
 
   ],
   [
@@ -207,7 +205,7 @@ QA Engineer and AI Specialist focused on product creation and software reliabili
 
 == Skills
 
-#strong[AI & Agents:] Claude Code, Gemini, DeepSeek, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Scikit-learn, Pandas, NumPy
+#strong[AI & Agents:] Claude Code, Gemini, DeepSeek, Scikit-learn, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Pandas, NumPy
 
 #strong[Testing & QA:] Tricentis Tosca, Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno
 
@@ -223,13 +221,7 @@ QA Engineer and AI Specialist focused on product creation and software reliabili
   [
     #strong[Zenco.arg (In Prod)]
 
-    - React 18
-
-    - Node.js
-
-    - AI WhatsApp Bot
-
-    - Gemini AI
+    - React 18 · Node.js · AI WhatsApp Bot · Gemini AI
 
   ],
   [
@@ -240,15 +232,7 @@ QA Engineer and AI Specialist focused on product creation and software reliabili
   [
     #strong[El Industrial (In Prod)]
 
-    - Python
-
-    - Vanilla JS
-
-    - API REST
-
-    - Telegram Bot
-
-    - IA Reporting
+    - Python · Vanilla JS · API REST · Telegram Bot · IA Reporting
 
   ],
   [
@@ -259,15 +243,7 @@ QA Engineer and AI Specialist focused on product creation and software reliabili
   [
     #strong[Portfolio CV (Live)]
 
-    - JSON Resume
-
-    - Astro
-
-    - RenderCV (ATS Friendly)
-
-    - i18n
-
-    - Advanced Dark Mode
+    - JSON Resume · Astro · RenderCV (ATS Friendly) · i18n · Advanced Dark Mode
 
   ],
   [

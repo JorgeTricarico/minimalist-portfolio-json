@@ -19,11 +19,11 @@ Feb 2026 – Aug 2026
 
 7 months
 
-- Sole QA lead in a high-growth startup, designing and executing the end-to-end testing and reliability architecture from scratch.
+- Sole QA lead in high-growth startup: designed full testing and reliability architecture from 0 to 100% using Claude Code.
 
-- Architected, deployed, and delivered a fully functional autonomous QA Agent (orchestrated with Claude Code, custom skills, and hooks) capable of end-to-end testing across the entire company and sustaining continuous product evolution.
+- Delivered production-ready autonomous QA Agent for company-wide E2E testing and continuous product evolution.
 
-- Implementation of iterative self-diagnostic pipelines and DORA QA telemetry, drastically reducing debugging cycles and scaling test coverage across multiple squads with minimal headcount.
+- Implemented self-diagnostic pipelines and DORA metrics, scaling test coverage across squads with minimal headcount.
 
 
 
@@ -35,13 +35,11 @@ Apr 2023 – present
 
 3 years 6 months
 
-- Test automation technical leadership within the Tools & Data Tribe (since Jul 2026) and active member of the AI Hub Group as one of the tribe's few select AI Ambassadors: end-to-end Web and API automation using Tricentis TOSCA, and architectural design of 'KrakenQA'—a modular agentic testing framework built in VS Code to embed multi-stack runners (Mobile, Web, API), strategically implemented for Android and iOS mobile app automation to overcome the steep operational friction of TOSCA Mobile.
+- Tools & Data Tribe technical leadership & AI Ambassador at AI Hub Group: Web/API automation via Tricentis TOSCA and KrakenQA architecture (modular VS Code agent for Android/iOS overcoming TOSCA Mobile friction).
 
-- Sustained professional progression and promotion to SSR: transitioned from Onboarding to Retail Transfers ('Transferencias Minoristas'), spearheading quality assurance and technical testing for the core mobile banking app under high-volume transaction environments.
+- Promoted to SSR following technical QA leadership across Onboarding and Retail Transfers on the core mobile banking app.
 
-- Co-creation and architectural design of proprietary QA AI agents ('CobroTron' & 'FullTron/MulticrafterQA'): pioneered the filtered-DOM auto-debug pattern for autonomous test iteration, POM framework generation (Playwright, Python, Appium), and seamless ALM metrics and evidence reporting.
-
-- Agile testing governance, distributed trace/log telemetry analysis, and optimization of testing infrastructure and SQL/NoSQL queries in close alignment with core engineering teams.
+- Co-creator of CobroTron & FullTron: pioneered filtered-DOM auto-debugging pattern, POM suite generation, and unattended ALM sync.
 
 
 
@@ -75,7 +73,7 @@ Mar 2019 – Dec 2023
 
 
 # Skills
-**AI & Agents:** Claude Code, Gemini, DeepSeek, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Scikit-learn, Pandas, NumPy
+**AI & Agents:** Claude Code, Gemini, DeepSeek, Scikit-learn, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Pandas, NumPy
 
 **Testing & QA:** Tricentis Tosca, Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno
 
@@ -88,40 +86,18 @@ Mar 2019 – Dec 2023
 # Projects
 ## **Zenco.arg (In Prod)**
 
-- React 18
-
-- Node.js
-
-- AI WhatsApp Bot
-
-- Gemini AI
+- React 18 · Node.js · AI WhatsApp Bot · Gemini AI
 
 
 
 ## **El Industrial (In Prod)**
 
-- Python
-
-- Vanilla JS
-
-- API REST
-
-- Telegram Bot
-
-- IA Reporting
+- Python · Vanilla JS · API REST · Telegram Bot · IA Reporting
 
 
 
 ## **Portfolio CV (Live)**
 
-- JSON Resume
-
-- Astro
-
-- RenderCV (ATS Friendly)
-
-- i18n
-
-- Advanced Dark Mode
+- JSON Resume · Astro · RenderCV (ATS Friendly) · i18n · Advanced Dark Mode
 
 

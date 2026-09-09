@@ -202,7 +202,7 @@ export const mapYamlToJson = (data) => {
       name: p.name,
       isActive: p.isActive === 'true' || p.isActive === true || !('isActive' in p),
       description: p.description,
-      highlights: p.highlights || [],
+      highlights: (p.highlights || []).flatMap(h => typeof h === 'string' && h.includes(' · ') ? h.split(' · ') : h),
       url: p.url || "",
       github: p.github || "",
       image: p.image || "",

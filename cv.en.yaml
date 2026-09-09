@@ -1,113 +1,154 @@
 cv:
-  name: "Jorge Tricarico"
-  headline: "AI-Driven QA Engineer"
-  photo: "public/perfil_rounded.png"
-  location: "Buenos Aires, AR"
-  email: "jorge.tricarico@gmail.com"
-  phone: "+54 9 11 50479769"
+  name: Jorge Tricarico
+  headline: AI-Driven QA Engineer
+  photo: public/perfil_rounded.png
+  location: Buenos Aires, AR
+  email: jorge.tricarico@gmail.com
+  phone: +54 9 11 50479769
   social_networks:
     - network: LinkedIn
       username: jorge-tricarico
     - network: GitHub
       username: JorgeTricarico
-      
   sections:
     Summary:
-      - "QA Engineer and AI Specialist focused on product creation and software reliability. I have a full-stack technical profile that I leverage through the advanced use of LLMs and agentic tools. I specialize in leading automation in dynamic environments, compensating for resource limitations through innovative architectures and optimizing value delivery with full technical autonomy."
-
+      - >-
+        QA Engineer and AI Specialist focused on product creation and software
+        reliability. I have a full-stack technical profile that I leverage
+        through the advanced use of LLMs and agentic tools. I specialize in
+        leading automation in dynamic environments, compensating for resource
+        limitations through innovative architectures and optimizing value
+        delivery with full technical autonomy.
     Experience:
-      - company: "OneVisa - Dubai (UAE) / Spain"
-        position: "(Part-time) Senior Principal QA Engineer (AI & Reliability)"
-        start_date: "2026-02"
-        end_date: "2026-08"
+      - company: OneVisa - Dubai (UAE) / Spain
+        position: (Part-time) Senior Principal QA Engineer (AI & Reliability)
+        start_date: 2026-02
+        end_date: 2026-08
         highlights:
-          - "Sole QA lead in a high-growth startup, designing and executing the end-to-end testing and reliability architecture from scratch."
-          - "Architected, deployed, and delivered a fully functional autonomous QA Agent (orchestrated with Claude Code, custom skills, and hooks) capable of end-to-end testing across the entire company and sustaining continuous product evolution."
-          - "Implementation of iterative self-diagnostic pipelines and DORA QA telemetry, drastically reducing debugging cycles and scaling test coverage across multiple squads with minimal headcount."
-
-      - company: "Tata Consultancy Service - Banco Galicia"
-        position: "SSR QA Automation Engineer"
-        start_date: "2023-04"
-        end_date: "present"
+          - >-
+            Sole QA lead in high-growth startup: designed full testing and
+            reliability architecture from 0 to 100% using Claude Code.
+          - >-
+            Delivered production-ready autonomous QA Agent for company-wide E2E
+            testing and continuous product evolution.
+          - >-
+            Implemented self-diagnostic pipelines and DORA metrics, scaling test
+            coverage across squads with minimal headcount.
+      - company: Tata Consultancy Service - Banco Galicia
+        position: SSR QA Automation Engineer
+        start_date: 2023-04
+        end_date: present
         highlights:
-          - "Test automation technical leadership within the Tools & Data Tribe (since Jul 2026) and active member of the AI Hub Group as one of the tribe's few select AI Ambassadors: end-to-end Web and API automation using Tricentis TOSCA, and architectural design of 'KrakenQA'—a modular agentic testing framework built in VS Code to embed multi-stack runners (Mobile, Web, API), strategically implemented for Android and iOS mobile app automation to overcome the steep operational friction of TOSCA Mobile."
-          - "Sustained professional progression and promotion to SSR: transitioned from Onboarding to Retail Transfers ('Transferencias Minoristas'), spearheading quality assurance and technical testing for the core mobile banking app under high-volume transaction environments."
-          - "Co-creation and architectural design of proprietary QA AI agents ('CobroTron' & 'FullTron/MulticrafterQA'): pioneered the filtered-DOM auto-debug pattern for autonomous test iteration, POM framework generation (Playwright, Python, Appium), and seamless ALM metrics and evidence reporting."
-          - "Agile testing governance, distributed trace/log telemetry analysis, and optimization of testing infrastructure and SQL/NoSQL queries in close alignment with core engineering teams."
-
-      - company: "Ada School - Colombia"
-        position: "Python Instructor (Data & FullStack BootCamp)"
-        start_date: "2023-09"
-        end_date: "2024-10"
+          - >-
+            Tools & Data Tribe technical leadership & AI Ambassador at AI Hub
+            Group: Web/API automation via Tricentis TOSCA and KrakenQA
+            architecture (modular VS Code agent for Android/iOS overcoming TOSCA
+            Mobile friction).
+          - >-
+            Promoted to SSR following technical QA leadership across Onboarding
+            and Retail Transfers on the core mobile banking app.
+          - >-
+            Co-creator of CobroTron & FullTron: pioneered filtered-DOM
+            auto-debugging pattern, POM suite generation, and unattended ALM
+            sync.
+      - company: Ada School - Colombia
+        position: Python Instructor (Data & FullStack BootCamp)
+        start_date: 2023-09
+        end_date: 2024-10
         highlights:
-          - "Advanced technical mentorship in Python focused on code quality, software architecture, and development best practices for international profiles."
-
+          - >-
+            Advanced technical mentorship in Python focused on code quality,
+            software architecture, and development best practices for
+            international profiles.
     Education:
-      - institution: "National University of Hurlingham"
-        area: "Artificial Intelligence"
-        degree: "University Technician"
-        start_date: "2024-01"
-        end_date: "present"
-
-      - institution: "Teacher Training Institute N°109"
-        area: "Economics and Management"
-        degree: "Secondary Education Professor"
-        start_date: "2019-03"
-        end_date: "2023-12"
+      - institution: National University of Hurlingham
+        area: Artificial Intelligence
+        degree: University Technician
+        start_date: 2024-01
+        end_date: present
+      - institution: Teacher Training Institute N°109
+        area: Economics and Management
+        degree: Secondary Education Professor
+        start_date: 2019-03
+        end_date: 2023-12
         highlights:
-          - "Last year pending"
-
+          - Last year pending
     Skills:
-      - label: "AI & Agents"
-        details: "Claude Code, Gemini, DeepSeek, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Scikit-learn, Pandas, NumPy"
-      - label: "Testing & QA"
-        details: "Tricentis Tosca, Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno"
-      - label: "Dev & Ops"
-        details: "Python, TypeScript, JavaScript, Java, Node.js, FastAPI, Flask, AWS, Docker, Jenkins, Linux, Bash, CI/CD"
-      - label: "Observability & Data"
-        details: "Grafana, Kibana, SQL, NoSQL, Matplotlib, Seaborn, Trace/Log Analysis, GitHub Actions"
-      - label: "Languages"
-        details: "Spanish, English"
-
+      - label: AI & Agents
+        details: >-
+          Claude Code, Gemini, DeepSeek, Scikit-learn, GitHub Copilot, Cursor,
+          Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Pandas,
+          NumPy
+      - label: Testing & QA
+        details: >-
+          Tricentis Tosca, Playwright, Cypress, Selenium, Appium, Pytest, k6
+          (Performance), Postman, Bruno
+      - label: Dev & Ops
+        details: >-
+          Python, TypeScript, JavaScript, Java, Node.js, FastAPI, Flask, AWS,
+          Docker, Jenkins, Linux, Bash, CI/CD
+      - label: Observability & Data
+        details: >-
+          Grafana, Kibana, SQL, NoSQL, Matplotlib, Seaborn, Trace/Log Analysis,
+          GitHub Actions
+      - label: Languages
+        details: Spanish, English
     Projects:
-      - name: "Zenco.arg (In Prod)"
-        isActive: "true"
-        description: "Modernization platform for clothing repair and design businesses. Includes a premium Web Dashboard for order management and an AI WhatsApp Bot (Gemini) that handles customers and order status queries autonomously."
-        highlights: ["React 18", "Node.js", "AI WhatsApp Bot", "Gemini AI"]
-        url: "https://github.com/JorgeTricarico/platform"
-        github: "https://github.com/JorgeTricarico/platform"
-        imageLight: "/zenko_light.png"
-        imageDark: "/zenko_dark.png"
-      - name: "El Industrial (In Prod)"
-        isActive: "true"
-        description: "Price automation system for industrial supplies. Manages high-frequency telemetry from the Bertual API, applies margin protection, and generates daily AI executive reports sent via Telegram."
-        highlights: ["Python", "Vanilla JS", "API REST", "Telegram Bot", "IA Reporting"]
-        url: "https://github.com/JorgeTricarico/El-Industrial"
-        github: "https://github.com/JorgeTricarico/El-Industrial"
-        imageLight: "/industrial_light.png"
-        imageDark: "/industrial_dark.png"
-      - name: "Portfolio CV (Live)"
-        isActive: "true"
-        description: "Highly customized and improved version of the original fork. It integrates RenderCV technology for generating PDFs optimized for ATS systems. I implemented a multi-language system (i18n), advanced dark mode with auto-detection, interactive command palette (Ctrl+K), and a premium interface with ambient-blur effects."
-        highlights: ["JSON Resume", "Astro", "RenderCV (ATS Friendly)", "i18n", "Advanced Dark Mode"]
-        url: "https://github.com/JorgeTricarico/minimalist-portfolio-json"
-        github: "https://github.com/JorgeTricarico/minimalist-portfolio-json"
-
+      - name: Zenco.arg (In Prod)
+        isActive: 'true'
+        description: >-
+          Modernization platform for clothing repair and design businesses.
+          Includes a premium Web Dashboard for order management and an AI
+          WhatsApp Bot (Gemini) that handles customers and order status queries
+          autonomously.
+        highlights:
+          - React 18 · Node.js · AI WhatsApp Bot · Gemini AI
+        url: https://github.com/JorgeTricarico/platform
+        github: https://github.com/JorgeTricarico/platform
+        imageLight: /zenko_light.png
+        imageDark: /zenko_dark.png
+      - name: El Industrial (In Prod)
+        isActive: 'true'
+        description: >-
+          Price automation system for industrial supplies. Manages
+          high-frequency telemetry from the Bertual API, applies margin
+          protection, and generates daily AI executive reports sent via
+          Telegram.
+        highlights:
+          - Python · Vanilla JS · API REST · Telegram Bot · IA Reporting
+        url: https://github.com/JorgeTricarico/El-Industrial
+        github: https://github.com/JorgeTricarico/El-Industrial
+        imageLight: /industrial_light.png
+        imageDark: /industrial_dark.png
+      - name: Portfolio CV (Live)
+        isActive: 'true'
+        description: >-
+          Highly customized and improved version of the original fork. It
+          integrates RenderCV technology for generating PDFs optimized for ATS
+          systems. I implemented a multi-language system (i18n), advanced dark
+          mode with auto-detection, interactive command palette (Ctrl+K) and a
+          premium interface with ambient-blur effects.
+        highlights:
+          - >-
+            JSON Resume · Astro · RenderCV (ATS Friendly) · i18n · Advanced Dark
+            Mode
+        url: https://github.com/JorgeTricarico/minimalist-portfolio-json
+        github: https://github.com/JorgeTricarico/minimalist-portfolio-json
 design:
   theme: classic
   page:
     size: a4
-    top_margin: 1.5cm
-    bottom_margin: 1.5cm
-    left_margin: 1.5cm
-    right_margin: 1.5cm
+    top_margin: 1.0cm
+    bottom_margin: 1.0cm
+    left_margin: 1.2cm
+    right_margin: 1.2cm
     show_footer: false
     show_top_note: false
   colors:
     name: rgb(0, 79, 144)
   typography:
     font_size:
-      body: 9.5pt
+      body: 9pt
       name: 24pt
       headline: 10pt
       connections: 9pt
@@ -115,15 +156,15 @@ design:
     small_caps:
       section_titles: true
   header:
-    space_below_name: 0.4cm
-    space_below_headline: 0.4cm
-    space_below_connections: 0.5cm
+    space_below_name: 0.2cm
+    space_below_headline: 0.2cm
+    space_below_connections: 0.25cm
   section_titles:
-    space_above: 0.5cm
-    space_below: 0.3cm
+    space_above: 0.3cm
+    space_below: 0.15cm
   sections:
-    space_between_regular_entries: 1em
-    space_between_text_based_entries: 0.5em
+    space_between_regular_entries: 0.4em
+    space_between_text_based_entries: 0.2em
     show_time_spans_in:
       - Experience
   entries:
@@ -136,9 +177,7 @@ design:
         *DEGREE* in AREA
         HIGHLIGHTS
       degree_column: ''
-
 settings:
   bold_keywords: []
-
 locale:
   language: english
