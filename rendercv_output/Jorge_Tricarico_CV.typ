@@ -118,11 +118,11 @@ QA Engineer and AI Specialist focused on product creation and software reliabili
   [
     #strong[OneVisa - Dubai (UAE) \/ Spain], (Part-time) Senior Principal QA Engineer (AI & Reliability)
 
-    - Solely responsible for QA in a high-growth startup, leading the design and execution of the end-to-end automation strategy from scratch.
+    - Sole QA lead in a high-growth startup, designing and executing the end-to-end testing and reliability architecture from scratch.
 
-    - Scalability of test coverage without increasing headcount, compensating for human resource gaps by creating and orchestrating AI agents with Claude Code.
+    - Architected, deployed, and delivered a fully functional autonomous QA Agent (orchestrated with Claude Code, custom skills, and hooks) capable of end-to-end testing across the entire company and sustaining continuous product evolution.
 
-    - Implementation of iterative self-diagnostic systems in pipelines, reducing debugging times and allowing deep technical integration with the engineering team.
+    - Implementation of iterative self-diagnostic pipelines and DORA QA telemetry, drastically reducing debugging cycles and scaling test coverage across multiple squads with minimal headcount.
 
   ],
   [

@@ -21,9 +21,9 @@ cv:
         start_date: "2026-02"
         end_date: "2026-08"
         highlights:
-          - "Único responsable de QA en una startup en fase de alto crecimiento, liderando el diseño y la ejecución de la estrategia integral de automatización desde cero."
-          - "Escalabilidad de la cobertura de pruebas sin ampliar la plantilla, compensando la falta de recursos humanos mediante la creación y orquestación de agentes de IA con Claude Code."
-          - "Implementación de sistemas de autodiagnóstico iterativos en los pipelines, reduciendo los tiempos de debugging y permitiendo una integración técnica profunda con el equipo de ingeniería."
+          - "Único responsable de QA en startup de alto crecimiento, diseñando y ejecutando la estrategia integral de testing y confiabilidad desde cero."
+          - "Diseño, puesta en producción y entrega de un Agente QA autónomo funcional (orquestado con Claude Code, skills y hooks a medida) capaz de testear de punta a punta toda la empresa y acompañar la evolución del producto sin dependencia operativa."
+          - "Implementación de sistemas de autodiagnóstico iterativo y pipelines con métricas DORA, escalando la cobertura entre múltiples squads técnicos con equipo humano mínimo."
 
       - company: "Tata Consultancy Service - Banco Galicia"
         position: "SSR QA Automation Engineer"
