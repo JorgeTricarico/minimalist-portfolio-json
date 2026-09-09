@@ -19,19 +19,20 @@ cv:
       - company: "OneVisa - Dubai (UAE) / España"
         position: "(Part-time) Senior Principal QA Engineer (AI & Reliability)"
         start_date: "2026-02"
-        end_date: "present"
+        end_date: "2026-08"
         highlights:
           - "Único responsable de QA en una startup en fase de alto crecimiento, liderando el diseño y la ejecución de la estrategia integral de automatización desde cero."
           - "Escalabilidad de la cobertura de pruebas sin ampliar la plantilla, compensando la falta de recursos humanos mediante la creación y orquestación de agentes de IA con Claude Code."
           - "Implementación de sistemas de autodiagnóstico iterativos en los pipelines, reduciendo los tiempos de debugging y permitiendo una integración técnica profunda con el equipo de ingeniería."
 
       - company: "Tata Consultancy Service - Banco Galicia"
-        position: "Analista QA Manual - Automation"
+        position: "SSR QA Automation Engineer"
         start_date: "2023-04"
         end_date: "present"
         highlights:
-          - "Diseño y desarrollo de 'CobroTron', un agente de IA propio integrado en VSC Github Copilot, especializado en acelerar fuertemente la generación de scripts de automatización para flujos web utilizando Playwright y Python."
-          - "Construcción de 'FullTron', la máxima evolución de agente QA con autodiagnóstico pionero para iterar tests de forma autónoma. Genera frameworks completos (POM) E2E para Apps nativas/React (Appium + BrowserStack), APIs y Web; subiendo métricas de Pass/Fail y evidencia de forma automática al sistema ALM."
+          - "Liderazgo técnico en automatización en la Tribu de Herramientas y Datos (desde Jul 2026): automatización integral de Web y APIs con Tricentis TOSCA, e ideación y desarrollo de 'KrakenQA', arquitectura agentica modular en VS Code concebida para orquestar y embeber frameworks multi-stack (Mobile, Web, API). Implementado estratégicamente para automatizar Apps nativas (Android e iOS) resolviendo la fricción operativa de TOSCA Mobile."
+          - "Evolución profesional y promoción a SSR: transición desde el equipo de Onboarding hacia Transferencias Minoristas, liderando el aseguramiento de calidad y testing técnico sobre la aplicación móvil bancaria en entornos transaccionales críticos."
+          - "Co-autoría y arquitectura de agentes de IA para testing ('CobroTron' y 'FullTron/MulticrafterQA'): implementación pionera del patrón de auto-debugging basado en DOM filtrado para iteración autónoma de tests, generación de frameworks POM (Playwright, Python, Appium) y sincronización desatendida de métricas y evidencias con ALM institucional."
           - "Gestión técnica ágil del ciclo de pruebas y análisis de traces/logs, colaborando cercanamente con desarrolladores mediante la optimización de infraestructura y queries (SQL/NoSQL)."
 
       - company: "Ada School - Colombia"
@@ -60,7 +61,7 @@ cv:
       - label: "IA & Agentes"
         details: "Claude Code, Gemini, DeepSeek, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Scikit-learn, Pandas, NumPy"
       - label: "Testing & QA"
-        details: "Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno"
+        details: "Tricentis Tosca, Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno"
       - label: "Dev & Ops"
         details: "Python, TypeScript, JavaScript, Java, Node.js, FastAPI, Flask, AWS, Docker, Jenkins, Linux, Bash, CI/CD"
       - label: "Observabilidad & Data"
@@ -70,7 +71,7 @@ cv:
 
     Proyectos:
       - name: "Zenco.arg (En Prod)"
-        isActive: true
+        isActive: "true"
         description: "Plataforma de modernización para emprendimientos de diseño y arreglos de ropa. Incluye un Dashboard Web premium para gestión de órdenes y un Bot de WhatsApp con IA (Gemini) que atiende clientes y consulta estados de pedidos de forma autónoma."
         highlights: ["React 18", "Node.js", "AI WhatsApp Bot", "Gemini AI"]
         url: "https://github.com/JorgeTricarico/platform"
@@ -78,7 +79,7 @@ cv:
         imageLight: "/zenko_light.png"
         imageDark: "/zenko_dark.png"
       - name: "El Industrial (En Prod)"
-        isActive: true
+        isActive: "true"
         description: "Sistema de automatización de precios para suministros industriales. Gestiona telemetría de alta frecuencia desde la API de Bertual, aplica protección de márgenes y genera reportes ejecutivos diarios con IA enviados por Telegram."
         highlights: ["Python", "Vanilla JS", "API REST", "Telegram Bot", "IA Reporting"]
         url: "https://github.com/JorgeTricarico/El-Industrial"
@@ -86,7 +87,7 @@ cv:
         imageLight: "/industrial_light.png"
         imageDark: "/industrial_dark.png"
       - name: "Portfolio CV (Live)"
-        isActive: true
+        isActive: "true"
         description: "Versión altamente personalizada y mejorada del fork original. Integra la tecnología de RenderCV para la generación de PDFs optimizados para sistemas ATS. Implementé un sistema multi-idioma (i18n), modo oscuro avanzado con detección automática, paleta de comandos interactiva (Ctrl+K) y una interfaz premium con efectos ambient-blur."
         highlights: ["JSON Resume", "Astro", "RenderCV (ATS Friendly)", "i18n", "Advanced Dark Mode"]
         url: "https://github.com/JorgeTricarico/minimalist-portfolio-json"

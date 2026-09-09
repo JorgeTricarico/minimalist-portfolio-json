@@ -1,0 +1,79 @@
+cv:
+  name: "Jorge Tricarico"
+  headline: "Old headline"
+  photo: "public/perfil_rounded.png"
+  location: "Old location"
+  email: "old@example.com"
+  phone: "+0 000"
+  social_networks:
+    - network: LinkedIn
+      username: jorge-tricarico
+    - network: GitHub
+      username: JorgeTricarico
+
+  sections:
+    Summary:
+      - "Old summary that should be replaced."
+
+    Experience:
+      - company: "OneVisa - Dubai (UAE) / Spain"
+        position: "(Part-time) Senior Principal QA Engineer (AI & Reliability)"
+        start_date: "2026-02"
+        end_date: "present"
+        highlights:
+          - "OLD HIGHLIGHT 1"
+          - "OLD HIGHLIGHT 2"
+
+      - company: "Tata Consultancy Service - Banco Galicia"
+        position: "Manual QA Analyst - Automation"
+        start_date: "2023-04"
+        end_date: "present"
+        highlights:
+          - "OLD TATA HIGHLIGHT"
+
+      - company: "Ada School - Colombia"
+        position: "Python Instructor (Data & FullStack BootCamp)"
+        start_date: "2023-09"
+        end_date: "2024-10"
+        highlights:
+          - "OLD ADA HIGHLIGHT"
+
+    Education:
+      - institution: "National University of Hurlingham"
+        area: "Artificial Intelligence"
+        degree: "University Technician"
+        start_date: "2024-01"
+        end_date: "present"
+
+      - institution: "Teacher Training Institute N°109"
+        area: "Economics and Management"
+        degree: "Secondary Education Professor"
+        start_date: "2019-03"
+        end_date: "2023-12"
+        highlights:
+          - "Last year pending"
+
+    Skills:
+      - label: "Old"
+        details: "Old details"
+
+    Projects:
+      - name: "Zenco.arg (In Prod)"
+        isActive: true
+        description: "A project."
+        highlights: ["React 18"]
+        url: "https://example.com"
+        github: "https://example.com"
+        imageLight: "/zenko_light.png"
+        imageDark: "/zenko_dark.png"
+
+design:
+  theme: classic
+  page:
+    size: a4
+
+settings:
+  bold_keywords: []
+
+locale:
+  language: english

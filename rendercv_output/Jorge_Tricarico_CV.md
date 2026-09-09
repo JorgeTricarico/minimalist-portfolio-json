@@ -13,11 +13,11 @@ QA Engineer and AI Specialist focused on product creation and software reliabili
 # Experience
 ## **OneVisa - Dubai (UAE) / Spain**, (Part-time) Senior Principal QA Engineer (AI & Reliability)
 
-Feb 2026 – present
+Feb 2026 – Aug 2026
 
 
 
-3 months
+7 months
 
 - Solely responsible for QA in a high-growth startup, leading the design and execution of the end-to-end automation strategy from scratch.
 
@@ -27,19 +27,21 @@ Feb 2026 – present
 
 
 
-## **Tata Consultancy Service - Banco Galicia**, Manual QA Analyst - Automation
+## **Tata Consultancy Service - Banco Galicia**, SSR QA Automation Engineer
 
 Apr 2023 – present
 
 
 
-3 years 1 month
+3 years 6 months
 
-- Design and development of 'CobroTron', a proprietary AI agent integrated into VSC Github Copilot, specialized in significantly accelerating automation script generation for web flows using Playwright and Python.
+- Test automation technical leadership within the Tools & Data Tribe (since Jul 2026): end-to-end Web and API automation using Tricentis TOSCA, and architectural design of 'KrakenQA'—a modular agentic testing framework built in VS Code to embed multi-stack runners (Mobile, Web, API), strategically implemented for Android and iOS mobile app automation to overcome the steep operational friction of TOSCA Mobile.
 
-- Construction of 'FullTron', the ultimate evolution of a QA agent with pioneering self-diagnosis to iterate tests autonomously. It generates complete E2E frameworks (POM) for native Apps/React (Appium + BrowserStack), APIs, and Web; automatically uploading Pass/Fail metrics and evidence to the ALM system.
+- Sustained professional progression and promotion to SSR: transitioned from Onboarding to Retail Transfers ('Transferencias Minoristas'), spearheading quality assurance and technical testing for the core mobile banking app under high-volume transaction environments.
 
-- Agile technical management of the testing cycle and trace/log analysis, working closely with developers by optimizing infrastructure and queries (SQL/NoSQL).
+- Co-creation and architectural design of proprietary QA AI agents ('CobroTron' & 'FullTron/MulticrafterQA'): pioneered the filtered-DOM auto-debug pattern for autonomous test iteration, POM framework generation (Playwright, Python, Appium), and seamless ALM metrics and evidence reporting.
+
+- Agile testing governance, distributed trace/log telemetry analysis, and optimization of testing infrastructure and SQL/NoSQL queries in close alignment with core engineering teams.
 
 
 
@@ -75,10 +77,51 @@ Mar 2019 – Dec 2023
 # Skills
 **AI & Agents:** Claude Code, Gemini, DeepSeek, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Scikit-learn, Pandas, NumPy
 
-**Testing & QA:** Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno
+**Testing & QA:** Tricentis Tosca, Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno
 
 **Dev & Ops:** Python, TypeScript, JavaScript, Java, Node.js, FastAPI, Flask, AWS, Docker, Jenkins, Linux, Bash, CI/CD
 
 **Observability & Data:** Grafana, Kibana, SQL, NoSQL, Matplotlib, Seaborn, Trace/Log Analysis, GitHub Actions
 
 **Languages:** Spanish, English
+
+# Projects
+## **Zenco.arg (In Prod)**
+
+- React 18
+
+- Node.js
+
+- AI WhatsApp Bot
+
+- Gemini AI
+
+
+
+## **El Industrial (In Prod)**
+
+- Python
+
+- Vanilla JS
+
+- API REST
+
+- Telegram Bot
+
+- IA Reporting
+
+
+
+## **Portfolio CV (Live)**
+
+- JSON Resume
+
+- Astro
+
+- RenderCV (ATS Friendly)
+
+- i18n
+
+- Advanced Dark Mode
+
+

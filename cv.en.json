@@ -33,7 +33,7 @@
       "position": "(Part-time) Senior Principal QA Engineer (AI & Reliability)",
       "url": "",
       "startDate": "2026-02-01",
-      "endDate": null,
+      "endDate": "2026-08-01",
       "summary": "",
       "highlights": [
         "Solely responsible for QA in a high-growth startup, leading the design and execution of the end-to-end automation strategy from scratch.",
@@ -43,15 +43,16 @@
     },
     {
       "name": "Tata Consultancy Service - Banco Galicia",
-      "position": "Manual QA Analyst - Automation",
+      "position": "SSR QA Automation Engineer",
       "url": "",
       "startDate": "2023-04-01",
       "endDate": null,
       "summary": "",
       "highlights": [
-        "Design and development of 'CobroTron', a proprietary AI agent integrated into VSC Github Copilot, specialized in significantly accelerating automation script generation for web flows using Playwright and Python.",
-        "Construction of 'FullTron', the ultimate evolution of a QA agent with pioneering self-diagnosis to iterate tests autonomously. It generates complete E2E frameworks (POM) for native Apps/React (Appium + BrowserStack), APIs, and Web; automatically uploading Pass/Fail metrics and evidence to the ALM system.",
-        "Agile technical management of the testing cycle and trace/log analysis, working closely with developers by optimizing infrastructure and queries (SQL/NoSQL)."
+        "Test automation technical leadership within the Tools & Data Tribe (since Jul 2026): end-to-end Web and API automation using Tricentis TOSCA, and architectural design of 'KrakenQA'—a modular agentic testing framework built in VS Code to embed multi-stack runners (Mobile, Web, API), strategically implemented for Android and iOS mobile app automation to overcome the steep operational friction of TOSCA Mobile.",
+        "Sustained professional progression and promotion to SSR: transitioned from Onboarding to Retail Transfers ('Transferencias Minoristas'), spearheading quality assurance and technical testing for the core mobile banking app under high-volume transaction environments.",
+        "Co-creation and architectural design of proprietary QA AI agents ('CobroTron' & 'FullTron/MulticrafterQA'): pioneered the filtered-DOM auto-debug pattern for autonomous test iteration, POM framework generation (Playwright, Python, Appium), and seamless ALM metrics and evidence reporting.",
+        "Agile testing governance, distributed trace/log telemetry analysis, and optimization of testing infrastructure and SQL/NoSQL queries in close alignment with core engineering teams."
       ]
     },
     {
@@ -118,6 +119,7 @@
       "name": "Testing & QA",
       "level": "N/A",
       "keywords": [
+        "Tricentis Tosca",
         "Playwright",
         "Cypress",
         "Selenium",

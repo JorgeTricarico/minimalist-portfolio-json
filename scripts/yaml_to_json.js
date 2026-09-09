@@ -102,7 +102,7 @@ export const getSection = (sections, possibleNames) => {
 
 export const mapYamlToJson = (data) => {
   if (!data || !data.cv) {
-    throw new Error('El archivo YAML carece de formato RenderCV.');
+    throw new Error('El archivo cv.yaml o la data carece de formato RenderCV.');
   }
 
   const cv = data.cv;
@@ -200,7 +200,7 @@ export const mapYamlToJson = (data) => {
       }
     ]).map(p => ({
       name: p.name,
-      isActive: p.isActive ?? false,
+      isActive: p.isActive === 'true' || p.isActive === true || !('isActive' in p),
       description: p.description,
       highlights: p.highlights || [],
       url: p.url || "",
