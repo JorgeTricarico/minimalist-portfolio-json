@@ -35,7 +35,7 @@ Apr 2023 – present
 
 3 years 6 months
 
-- Test automation technical leadership within the Tools & Data Tribe (since Jul 2026): end-to-end Web and API automation using Tricentis TOSCA, and architectural design of 'KrakenQA'—a modular agentic testing framework built in VS Code to embed multi-stack runners (Mobile, Web, API), strategically implemented for Android and iOS mobile app automation to overcome the steep operational friction of TOSCA Mobile.
+- Test automation technical leadership within the Tools & Data Tribe (since Jul 2026) and active member of the AI Hub Group as one of the tribe's few select AI Ambassadors: end-to-end Web and API automation using Tricentis TOSCA, and architectural design of 'KrakenQA'—a modular agentic testing framework built in VS Code to embed multi-stack runners (Mobile, Web, API), strategically implemented for Android and iOS mobile app automation to overcome the steep operational friction of TOSCA Mobile.
 
 - Sustained professional progression and promotion to SSR: transitioned from Onboarding to Retail Transfers ('Transferencias Minoristas'), spearheading quality assurance and technical testing for the core mobile banking app under high-volume transaction environments.
 
