@@ -89,7 +89,7 @@ describe('YAML to JSON Converter', () => {
     });
 
     it('should throw an error if input has no cv structure', () => {
-      expect(() => mapYamlToJson({})).toThrow('El archivo cv.yaml o la data carece de formato RenderCV.');
+      expect(() => mapYamlToJson({})).toThrow('El archivo YAML carece de formato RenderCV.');
     });
 
     it('should throw a zod error if data is fundamentally invalid/missing types', () => {

@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import https from 'https';
+import { fileURLToPath } from 'url';
 
 const keywords = [
   "Claude Code", "Gemini", "DeepSeek", "GitHub Copilot", "Cursor", "Antigravity", 
@@ -70,7 +71,7 @@ const simple = {
   "kibana": "kibana"
 };
 
-const getIconUrl = (name) => {
+export const getIconUrl = (name) => {
   const n = name.toLowerCase().trim();
   
   const foundLogo = Object.keys(logos)
@@ -142,4 +143,7 @@ async function run() {
   }
 }
 
-run();
+// Execution guard for testing
+if (import.meta.url.startsWith('file:') && process.argv[1] === fileURLToPath(import.meta.url)) {
+  run();
+}
