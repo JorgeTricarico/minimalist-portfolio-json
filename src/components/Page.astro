@@ -9,7 +9,6 @@ import DebugMode from "@/components/sections/DebugMode.astro"
 import Skills from "@/components/sections/Skills.astro"
 import KeyboardManager from "@/components/KeyboardManager.astro"
 import LanguageSelector from "@/components/LanguageSelector.astro"
-import { ui } from "@/i18n"
 import type { CV } from "@/cv"
 
 interface Props {
@@ -19,9 +18,12 @@ interface Props {
 
 const { cv, lang = 'es' } = Astro.props
 const { basics } = cv
+const pageTitle = lang === 'en' 
+  ? `Portfolio of ${basics.name} - ${basics.label}` 
+  : `Portafolio de ${basics.name} - ${basics.label}`;
 ---
 
-<Layout title={`Portafolio de ${basics.name} - ${basics.label}`} lang={lang} description={basics.summary}>
+<Layout title={pageTitle} lang={lang} description={basics.summary}>
   <LanguageSelector currentLang={lang} />
   <main>
     <Hero basics={cv.basics} lang={lang} />

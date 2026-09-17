@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "predev": "node scripts/yaml_to_json.js",
-    "prebuild": "node scripts/yaml_to_json.js",
+    "prebuild": "node scripts/yaml_to_json.js && vitest run",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",

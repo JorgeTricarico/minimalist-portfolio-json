@@ -50,6 +50,7 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
 
 <div
   id="hotkeypad"
+  transition:persist
   data-placeholder={t['keyboard.placeholder']}
   data-info={JSON.stringify(profilesInfo)}
   data-pdf={pdfPath}
@@ -78,182 +79,193 @@ const pdfPath = lang === 'en' ? "/cv_en.pdf" : "/cv.pdf";
 
   import HotKeyPad from "hotkeypad"
 
-  const hotkeypad = new HotKeyPad()
-  const el = hotkeypad.instance;
-  const info = el.getAttribute("data-info") ?? "[]"
-  const pdfPath = el.getAttribute("data-pdf") ?? "/cv.pdf"
-  const downloadText = el.getAttribute("data-download-text") ?? "Download CV"
-  const actionsText = el.getAttribute("data-actions-text") ?? "Actions"
-  const parsedInfo = JSON.parse(info) as Info[]
+  function updateHotkeypad() {
+    const el = document.getElementById("hotkeypad");
+    if (!el) return;
 
-  const socialCommands = parsedInfo.map(
-    ({ url, hotkey, icon, id, section, title }) => {
-      return {
-        id,
-        title,
-        icon,
-        hotkey,
-        section: actionsText, // Put them in the same section to control order
+    let hotkeypad: any = (window as any)._hotkeypadInstance;
+    if (!hotkeypad) {
+      hotkeypad = new HotKeyPad();
+      (window as any)._hotkeypadInstance = hotkeypad;
+    }
+
+    const info = el.getAttribute("data-info") ?? "[]";
+    const pdfPath = el.getAttribute("data-pdf") ?? "/cv.pdf";
+    const downloadText = el.getAttribute("data-download-text") ?? "Download CV";
+    const actionsText = el.getAttribute("data-actions-text") ?? "Actions";
+    const parsedInfo = JSON.parse(info) as Info[];
+
+    const socialCommands = parsedInfo.map(
+      ({ url, hotkey, icon, id, title }) => {
+        return {
+          id,
+          title,
+          icon,
+          hotkey,
+          section: actionsText,
+          handler: () => {
+            window.open(url, "_blank");
+          }
+        };
+      }
+    );
+
+    const linkedin = socialCommands.find(c => c.id.toLowerCase() === 'linkedin');
+    const github = socialCommands.find(c => c.id.toLowerCase() === 'github');
+    const otherSocial = socialCommands.filter(c => c.id.toLowerCase() !== 'linkedin' && c.id.toLowerCase() !== 'github');
+
+    const t = {
+      placeholder: el.getAttribute("data-placeholder") ?? "Search command",
+      toggle_theme: el.getAttribute("data-toggle-theme") ?? "Toggle Theme",
+      toggle_lang: el.getAttribute("data-toggle-lang") ?? "Toggle Language",
+      copy_email: el.getAttribute("data-copy-email") ?? "Copy Email",
+      scroll_top: el.getAttribute("data-scroll-top") ?? "Scroll to Top",
+      email_copied: el.getAttribute("data-email-copied") ?? "Email copied!",
+      email: el.getAttribute("data-email") ?? "",
+      lang: el.getAttribute("data-lang") ?? "es"
+    };
+
+    const input = document.querySelector('#hotkeypad [data-container] input') as HTMLInputElement | null;
+    if (input) input.placeholder = t.placeholder;
+
+    hotkeypad.setCommands([
+      {
+        id: "print",
+        title: downloadText,
+        icon: `<svg style="margin-right: 8px" width="16" height="16" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+  </svg>`,
+        hotkey: "ctrl+P",
+        section: actionsText,
         handler: () => {
-          window.open(url, "_blank")
+          window.open(pdfPath, "_blank");
+        }
+      },
+      ...(linkedin ? [linkedin] : []),
+      ...(github ? [github] : []),
+      {
+        id: "toggle-theme",
+        title: t.toggle_theme,
+        icon: `<svg style="margin-right: 8px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`,
+        hotkey: "ctrl+D",
+        section: actionsText,
+        handler: () => {
+          const themeBtn = document.getElementById('theme-toggle');
+          themeBtn?.click();
+        }
+      },
+      {
+        id: "toggle-lang",
+        title: t.toggle_lang,
+        icon: `<svg style="margin-right: 8px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 5h12M7 2h1M7 5c0 4.418-2.239 8-5 8M2 7c0 4.418 2.239 8 5 8M14 22l4-10 4 10M15 18h6"/></svg>`,
+        hotkey: "ctrl+L",
+        section: actionsText,
+        handler: () => {
+          const langSwitch = document.querySelector('.language-switch') as HTMLAnchorElement;
+          langSwitch?.click();
+        }
+      },
+      {
+        id: "copy-email",
+        title: t.copy_email,
+        icon: `<svg style="margin-right: 8px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>`,
+        hotkey: "ctrl+E",
+        section: actionsText,
+        handler: () => {
+          if (t.email) {
+              navigator.clipboard.writeText(t.email);
+              alert(t.email_copied);
+          }
+        }
+      },
+      {
+        id: "cazar-bugs",
+        title: t.lang === 'es' ? "Jugar a Cazar Bugs" : "Play Hunt Bugs",
+        icon: `<svg style="margin-right: 8px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <g transform="scale(0.7) translate(5, 5)">
+            <path d="M8 3 4 7M16 3l4 4M4 11h4M16 11h4M4 15l4 4M16 15l4 4"/>
+            <path d="M12 20v-9M6.5 12a5.5 5.5 0 1 1 11 0v4a5.5 5.5 0 1 1-11 0v-4Z"/>
+          </g>
+          <circle cx="12" cy="12" r="10" stroke="#ef4444" stroke-width="2" />
+          <path d="M12 2v4M12 16v6M2 12h4M18 12h4" stroke="#ef4444" stroke-width="2" />
+        </svg>`,
+        hotkey: "ctrl+B",
+        section: actionsText,
+        handler: () => {
+          const debugBtn = document.getElementById('start-debug');
+          debugBtn?.click();
+        }
+      },
+      ...otherSocial,
+      {
+        id: "scroll-top",
+        title: t.scroll_top,
+        icon: `<svg style="margin-right: 8px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>`,
+        hotkey: "ctrl+UP",
+        section: actionsText,
+        handler: () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       }
+    ]);
+
+    const isMac = /Mac|iPhone|iPod|iPad/i.test(navigator.userAgent);
+    const modKeyEl = document.getElementById('mod-key');
+    if (modKeyEl) {
+      modKeyEl.textContent = isMac ? 'Cmd' : 'Ctrl';
     }
-  )
+    const footerButton = document.getElementById("footer-button");
+    if (footerButton) {
+      footerButton.onclick = () => {
+        const event = new KeyboardEvent("keydown", {
+          key: "k",
+          code: "KeyK",
+          keyCode: 75,
+          which: 75,
+          ctrlKey: !isMac,
+          altKey: false,
+          shiftKey: false,
+          metaKey: isMac
+        });
+        document.dispatchEvent(event);
+      };
+    }
 
-  const linkedin = socialCommands.find(c => c.id.toLowerCase() === 'linkedin');
-  const github = socialCommands.find(c => c.id.toLowerCase() === 'github');
-  const otherSocial = socialCommands.filter(c => c.id.toLowerCase() !== 'linkedin' && c.id.toLowerCase() !== 'github');
-
-  const t = {
-    toggle_theme: el.getAttribute("data-toggle-theme") ?? "Toggle Theme",
-    toggle_lang: el.getAttribute("data-toggle-lang") ?? "Toggle Language",
-    copy_email: el.getAttribute("data-copy-email") ?? "Copy Email",
-    scroll_top: el.getAttribute("data-scroll-top") ?? "Scroll to Top",
-    email_copied: el.getAttribute("data-email-copied") ?? "Email copied!",
-    email: el.getAttribute("data-email") ?? "",
-    lang: el.getAttribute("data-lang") ?? "es"
+    updateHotkeypadTheme();
   }
 
-  hotkeypad.setCommands([
-    {
-      id: "print",
-      title: downloadText,
-      icon: `<svg style="margin-right: 8px" width="16" height="16" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-</svg>`,
-      hotkey: "ctrl+P",
-      section: actionsText,
-      handler: () => {
-        window.open(pdfPath, "_blank")
-      }
-    },
-    ...(linkedin ? [linkedin] : []),
-    ...(github ? [github] : []),
-    {
-      id: "toggle-theme",
-      title: t.toggle_theme,
-      icon: `<svg style="margin-right: 8px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`,
-      hotkey: "ctrl+D",
-      section: actionsText,
-      handler: () => {
-        const themeBtn = document.getElementById('theme-toggle');
-        themeBtn?.click();
-      }
-    },
-    {
-      id: "toggle-lang",
-      title: t.toggle_lang,
-      icon: `<svg style="margin-right: 8px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 5h12M7 2h1M7 5c0 4.418-2.239 8-5 8M2 7c0 4.418 2.239 8 5 8M14 22l4-10 4 10M15 18h6"/></svg>`,
-      hotkey: "ctrl+L",
-      section: actionsText,
-      handler: () => {
-        const langSwitch = document.querySelector('.language-switch') as HTMLAnchorElement;
-        langSwitch?.click();
-      }
-    },
-    {
-      id: "copy-email",
-      title: t.copy_email,
-      icon: `<svg style="margin-right: 8px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>`,
-      hotkey: "ctrl+E",
-      section: actionsText,
-      handler: () => {
-        if (t.email) {
-            navigator.clipboard.writeText(t.email);
-            alert(t.email_copied);
-        }
-      }
-    },
-    {
-      id: "cazar-bugs",
-      title: t.lang === 'es' ? "Jugar a Cazar Bugs" : "Play Hunt Bugs",
-      icon: `<svg style="margin-right: 8px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <g transform="scale(0.7) translate(5, 5)">
-          <path d="M8 3 4 7M16 3l4 4M4 11h4M16 11h4M4 15l4 4M16 15l4 4"/>
-          <path d="M12 20v-9M6.5 12a5.5 5.5 0 1 1 11 0v4a5.5 5.5 0 1 1-11 0v-4Z"/>
-        </g>
-        <circle cx="12" cy="12" r="10" stroke="#ef4444" stroke-width="2" />
-        <path d="M12 2v4M12 16v6M2 12h4M18 12h4" stroke="#ef4444" stroke-width="2" />
-      </svg>`,
-      hotkey: "ctrl+B",
-      section: actionsText,
-      handler: () => {
-        const debugBtn = document.getElementById('start-debug');
-        debugBtn?.click();
-      }
-    },
-    ...otherSocial,
-    {
-      id: "scroll-top",
-      title: t.scroll_top,
-      icon: `<svg style="margin-right: 8px" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>`,
-      hotkey: "ctrl+UP",
-      section: actionsText,
-      handler: () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+  const updateHotkeypadTheme = () => {
+    const isDark = document.documentElement.classList.contains("dark");
+    const container = document.querySelector("#hotkeypad");
+    if (container) {
+      container.setAttribute("data-theme", isDark ? "dark" : "light");
     }
-  ])
+    const hotkeypad = (window as any)._hotkeypadInstance;
+    if (hotkeypad?.instance) {
+      hotkeypad.instance.setAttribute("data-theme", isDark ? "dark" : "light");
+    }
+  };
 
-  const isMac = /Mac|iPhone|iPod|iPad/i.test(navigator.userAgent)
-  const modKeyEl = document.getElementById('mod-key')
-  if (modKeyEl) {
-    modKeyEl.textContent = isMac ? 'Cmd' : 'Ctrl'
-  }
-  const footerButton = document.getElementById("footer-button")
-  footerButton?.addEventListener("click", () => {
-    var event = new KeyboardEvent("keydown", {
-      key: "k",
-      code: "KeyK",
-      keyCode: 75,
-      which: 75,
-      ctrlKey: !isMac,
-      altKey: false,
-      shiftKey: false,
-      metaKey: isMac
-    })
+  document.addEventListener('astro:page-load', updateHotkeypad);
+  window.addEventListener("theme-changed", updateHotkeypadTheme);
+  window.addEventListener("hotkeypad:open", updateHotkeypadTheme);
 
-    document.dispatchEvent(event)
-  })
-
-  // Hide footer when palette is open
   window.addEventListener("hotkeypad:open", () => {
-    const footer = document.getElementById("normal-footer")
-    const footerBtn = document.getElementById("footer-button")
-    if (footer) footer.style.display = "none"
-    if (footerBtn) footerBtn.style.display = "none"
-  })
+    const footer = document.getElementById("normal-footer");
+    const footerBtn = document.getElementById("footer-button");
+    if (footer) footer.style.display = "none";
+    if (footerBtn) footerBtn.style.display = "none";
+  });
 
   window.addEventListener("hotkeypad:close", () => {
-    const footer = document.getElementById("normal-footer")
-    const footerBtn = document.getElementById("footer-button")
+    const footer = document.getElementById("normal-footer");
+    const footerBtn = document.getElementById("footer-button");
     if (window.innerWidth > 600) {
-      if (footer) footer.style.display = "block"
+      if (footer) footer.style.display = "block";
     } else {
-      if (footerBtn) footerBtn.style.display = "flex"
+      if (footerBtn) footerBtn.style.display = "flex";
     }
-  })
-
-  // Theme support for hotkeypad
-  const updateHotkeypadTheme = () => {
-    const isDark = document.documentElement.classList.contains("dark")
-    const container = document.querySelector("#hotkeypad")
-    if (container) {
-      container.setAttribute("data-theme", isDark ? "dark" : "light")
-    }
-    // Also try to set it on the instance if available
-    if (hotkeypad.instance) {
-      hotkeypad.instance.setAttribute("data-theme", isDark ? "dark" : "light")
-    }
-  }
-  
-  // Update on init and on theme change
-  updateHotkeypadTheme()
-  window.addEventListener("theme-changed", updateHotkeypadTheme)
-  
-  // Re-verify when opening just in case
-  window.addEventListener("hotkeypad:open", updateHotkeypadTheme)
+  });
 </script>
 
 <style>

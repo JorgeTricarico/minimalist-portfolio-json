@@ -9,18 +9,28 @@ const { title } = Astro.props
 </section>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '-50px' });
+  function setupFadeIn() {
+    const sections = document.querySelectorAll('section.fade-in:not(.visible)');
+    if (!('IntersectionObserver' in window)) {
+      sections.forEach((s) => s.classList.add('visible'));
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05 });
 
-  document.querySelectorAll('section.fade-in').forEach((section) => {
-    observer.observe(section);
-  });
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+  }
+
+  document.addEventListener('astro:page-load', setupFadeIn);
+  setupFadeIn();
 </script>
 
 <style>
@@ -47,6 +57,14 @@ const { title } = Astro.props
   @media (width <= 700px) {
     section {
       margin-bottom: 38px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    section {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
     }
   }
 </style>

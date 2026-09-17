@@ -56,9 +56,13 @@ const themeLabels = {
     <!-- Umami Analytics -->
     <script is:inline defer src="https://cloud.umami.is/script.js" data-website-id="d59a6c31-518c-4004-b635-3d93994a2aa9"></script>
     <script is:inline>
-      // Re-track pageview on Astro View Transitions (doesn't fire on initial load)
+      // Re-track pageview and preserve theme on Astro View Transitions
       document.addEventListener('astro:after-swap', function() {
         if (typeof window.umami !== 'undefined') window.umami.track();
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.getElementById('theme-color-meta')?.setAttribute('content', '#0a0a0a');
+        }
       });
     </script>
 
@@ -580,9 +584,9 @@ const themeLabels = {
 <button 
   id="theme-toggle" 
   class="no-print theme-switch" 
-  aria-label="Toggle Dark Mode"
+  aria-label={lang === 'en' ? 'Toggle Dark Mode' : 'Cambiar Modo Oscuro'}
   data-labels={JSON.stringify(themeLabels)}
-  title="Cambiar tema"
+  title={lang === 'en' ? 'Toggle theme' : 'Cambiar tema'}
 >
   <span class="toggle-track">
     <span class="toggle-thumb">
@@ -600,40 +604,8 @@ const themeLabels = {
 <div id="toast" class="no-print" role="alert" data-lang={lang}></div>
 
 <script>
-  // ── Theme toggle ────────────────────────────────────────────────────────────
-  const themeToggle = document.getElementById('theme-toggle');
-  const themeColorMeta = document.getElementById('theme-color-meta') as HTMLMetaElement | null;
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const isDark = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      if (themeColorMeta) themeColorMeta.content = isDark ? '#0a0a0a' : '#ffffff';
-      window.dispatchEvent(new CustomEvent('theme-changed', { detail: { theme: isDark ? 'dark' : 'light' } }));
-    });
-  }
-
-  // ── Cursor glow ─────────────────────────────────────────────────────────────
-  const cursorGlow = document.getElementById('cursor-glow') as HTMLElement | null;
-  if (cursorGlow) {
-    window.addEventListener('mousemove', (e) => {
-      cursorGlow.style.left = `${e.clientX}px`;
-      cursorGlow.style.top  = `${e.clientY}px`;
-    }, { passive: true });
-  }
-
-  // ── Bug Squash ──────────────────────────────────────────────────────────────
-  const bugs   = document.querySelectorAll('.bug-target');
-  const canvas = document.getElementById('explosion-canvas') as HTMLCanvasElement;
-  const ctx    = canvas?.getContext('2d');
   let particles: any[] = [];
   let explosionRaf: number | null = null;
-
-  const resize = () => {
-    if (canvas) { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-  };
-  window.addEventListener('resize', resize);
-  resize();
 
   class Particle {
     x: number; y: number; vx: number; vy: number; life: number; color: string; size: number; friction: number; gravity: number;
@@ -653,8 +625,7 @@ const themeLabels = {
       this.x += this.vx; this.y += this.vy;
       this.life -= 0.01;
     }
-    draw() {
-      if (!ctx) return;
+    draw(ctx: CanvasRenderingContext2D) {
       ctx.fillStyle = this.color;
       ctx.globalAlpha = this.life;
       ctx.shadowBlur = 5; ctx.shadowColor = this.color;
@@ -664,12 +635,13 @@ const themeLabels = {
     }
   }
 
-  // RAF loop only runs while particles are alive — no idle burning
   const runExplosion = () => {
+    const canvas = document.getElementById('explosion-canvas') as HTMLCanvasElement;
+    const ctx = canvas?.getContext('2d');
     if (!ctx || !canvas) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles = particles.filter(p => p.life > 0);
-    particles.forEach(p => { p.update(); p.draw(); });
+    particles.forEach(p => { p.update(); p.draw(ctx); });
     if (particles.length > 0) {
       explosionRaf = requestAnimationFrame(runExplosion);
     } else {
@@ -687,71 +659,139 @@ const themeLabels = {
   };
   (window as any).spawnExplosion = spawnExplosion;
 
-  bugs.forEach((bug) => {
-    let x = Math.random() * (window.innerWidth - 50);
-    let y = Math.random() * (window.innerHeight - 50);
-    let dx = (Math.random() - 0.5) * 1.5;
-    let dy = (Math.random() - 0.5) * 1.5;
+  // Global mousemove for cursor glow
+  window.addEventListener('mousemove', (e) => {
+    const cursorGlow = document.getElementById('cursor-glow');
+    if (cursorGlow) {
+      cursorGlow.style.left = `${e.clientX}px`;
+      cursorGlow.style.top  = `${e.clientY}px`;
+    }
+  }, { passive: true });
 
-    const move = () => {
-      if (bug.classList.contains('squashed') || bug.classList.contains('targeting')) return;
-
-      x += dx;
-      y += dy;
-
-      if (x <= 10 || x >= window.innerWidth - 40) dx *= -1;
-      if (y <= 10 || y >= window.innerHeight - 40) dy *= -1;
-
-      (bug as HTMLElement).style.left = `${x}px`;
-      (bug as HTMLElement).style.top = `${y}px`;
-      (bug as HTMLElement).style.transform = `rotate(${Math.atan2(dy, dx) + Math.PI / 2}rad)`;
-
-      requestAnimationFrame(move);
-    };
-
-    bug.addEventListener('click', () => {
-      if (bug.classList.contains('targeting')) return;
-      
-      bug.classList.add('targeting');
-      
-      setTimeout(() => {
-        bug.classList.remove('targeting');
-        bug.classList.add('squashed');
-        
-        const rect = bug.getBoundingClientRect();
-        spawnExplosion(rect.left + rect.width / 2, rect.top + rect.height / 2);
-        
-        setTimeout(() => {
-          bug.classList.remove('squashed');
-          x = Math.random() * (window.innerWidth - 50);
-          y = Math.random() * (window.innerHeight - 50);
-          dx = (Math.random() - 0.5) * 1.5;
-          dy = (Math.random() - 0.5) * 1.5;
-          move();
-        }, 3000);
-      }, 300);
-    });
-
-    move();
-  });
-
-  let closedDetails: HTMLDetailsElement[] = [];
-
-  // Scroll Progress
-  const scrollProgress = document.getElementById('scroll-progress');
-  
+  let isTicking = false;
   const updateScrollProgress = () => {
+    const scrollProgress = document.getElementById('scroll-progress');
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     if (scrollProgress) {
       scrollProgress.style.setProperty('--progress', `${progress}%`);
     }
+    isTicking = false;
   };
-  
-window.addEventListener('scroll', updateScrollProgress, { passive: true });
-  updateScrollProgress();
 
+  window.addEventListener('scroll', () => {
+    if (!isTicking) {
+      window.requestAnimationFrame(updateScrollProgress);
+      isTicking = true;
+    }
+  }, { passive: true });
+
+  function setupPage() {
+    // ── Theme toggle ──
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeColorMeta = document.getElementById('theme-color-meta') as HTMLMetaElement | null;
+
+    if (themeToggle) {
+      themeToggle.onclick = () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        if (themeColorMeta) themeColorMeta.content = isDark ? '#0a0a0a' : '#ffffff';
+        window.dispatchEvent(new CustomEvent('theme-changed', { detail: { theme: isDark ? 'dark' : 'light' } }));
+      };
+    }
+
+    // ── Canvas resize ──
+    const canvas = document.getElementById('explosion-canvas') as HTMLCanvasElement;
+    if (canvas) {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    // ── Bugs ──
+    const bugs = document.querySelectorAll('.bug-target');
+    bugs.forEach((bug) => {
+      let x = Math.random() * (window.innerWidth - 50);
+      let y = Math.random() * (window.innerHeight - 50);
+      let dx = (Math.random() - 0.5) * 1.5;
+      let dy = (Math.random() - 0.5) * 1.5;
+
+      const move = () => {
+        if (bug.classList.contains('squashed') || bug.classList.contains('targeting')) return;
+        x += dx;
+        y += dy;
+        if (x <= 10 || x >= window.innerWidth - 40) dx *= -1;
+        if (y <= 10 || y >= window.innerHeight - 40) dy *= -1;
+        (bug as HTMLElement).style.left = `${x}px`;
+        (bug as HTMLElement).style.top = `${y}px`;
+        (bug as HTMLElement).style.transform = `rotate(${Math.atan2(dy, dx) + Math.PI / 2}rad)`;
+        requestAnimationFrame(move);
+      };
+
+      bug.addEventListener('click', () => {
+        if (bug.classList.contains('targeting')) return;
+        bug.classList.add('targeting');
+        setTimeout(() => {
+          bug.classList.remove('targeting');
+          bug.classList.add('squashed');
+          const rect = bug.getBoundingClientRect();
+          spawnExplosion(rect.left + rect.width / 2, rect.top + rect.height / 2);
+          setTimeout(() => {
+            bug.classList.remove('squashed');
+            x = Math.random() * (window.innerWidth - 50);
+            y = Math.random() * (window.innerHeight - 50);
+            dx = (Math.random() - 0.5) * 1.5;
+            dy = (Math.random() - 0.5) * 1.5;
+            move();
+          }, 3000);
+        }, 300);
+      });
+
+      move();
+    });
+
+    // ── Toast & Copy to clipboard ──
+    const toast = document.getElementById('toast');
+    const lang = toast?.dataset.lang || 'es';
+    const toastLabels = {
+      es: { email: '¡Email copiado!', phone: '¡Teléfono copiado!' },
+      en: { email: 'Email copied!', phone: 'Phone copied!' }
+    }[lang as 'es' | 'en'] || { email: '¡Email copiado!', phone: '¡Teléfono copiado!' };
+
+    const showToast = (message: string) => {
+      if (toast) {
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      }
+    };
+
+    document.querySelectorAll('[data-copy]').forEach((btn) => {
+      (btn as HTMLElement).onclick = async (e) => {
+        e.preventDefault();
+        const target = e.currentTarget as HTMLElement;
+        const value = target.dataset.copy;
+        const type = target.dataset.type;
+        try {
+          await navigator.clipboard.writeText(value || '');
+          showToast(type === 'email' ? toastLabels.email : toastLabels.phone);
+        } catch {
+          showToast(`${value} copied!`);
+        }
+      };
+    });
+
+    updateScrollProgress();
+  }
+
+  window.addEventListener('resize', () => {
+    const canvas = document.getElementById('explosion-canvas') as HTMLCanvasElement;
+    if (canvas) { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  });
+
+  document.addEventListener('astro:page-load', setupPage);
+
+  let closedDetails: HTMLDetailsElement[] = [];
   window.addEventListener('beforeprint', () => {
     closedDetails = [];
     document.querySelectorAll<HTMLDetailsElement>('details').forEach((el) => {

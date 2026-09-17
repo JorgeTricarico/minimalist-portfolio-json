@@ -16,7 +16,7 @@ cv:
         Ingeniero QA y Especialista en IA enfocado en la creación de producto y
         la confiabilidad del software. Cuento con un perfil técnico full-stack
         que potencio mediante el uso avanzado de LLMs y herramientas agenticas.
-        Me especializo en liderar la automatización en entornos dinámicos,
+        Me especializo en la automatización en entornos dinámicos,
         compensando limitaciones de recursos mediante arquitecturas innovadoras
         y optimizando la entrega de valor con total autonomía técnica.
     Experiencia:
@@ -26,27 +26,29 @@ cv:
         end_date: 2026-08
         highlights:
           - >-
-            Único QA en startup de alto crecimiento: arquitectura de testing y
-            confiabilidad de 0 a 100% con Claude Code.
+            Único responsable de QA en startup de alto crecimiento: diseño e
+            implementación de la estrategia integral de testing y confiabilidad
+            desde cero.
           - >-
-            Entrega de Agente QA autónomo funcional en producción para pruebas
-            E2E de toda la empresa y evolución continua.
+            Implementación de Agente QA autónomo en producción (Claude Code)
+            para pruebas E2E y soporte a la evolución continua del producto sin
+            dependencia operativa.
           - >-
             Pipelines con autodiagnóstico iterativo y métricas DORA, escalando
-            cobertura entre múltiples squads técnicos.
+            la cobertura técnica con equipo humano mínimo.
       - company: Tata Consultancy Service - Banco Galicia
         position: SSR QA Automation Engineer
         start_date: 2023-04
         end_date: present
         highlights:
           - >-
-            Liderazgo en Tribu Herramientas y Datos y Embajador de IA en Grupo
-            Hub AI: automatización Web/API con Tricentis TOSCA y arquitectura de
-            KrakenQA (agente modular en VS Code para Apps Android/iOS
-            resolviendo la fricción de TOSCA Mobile).
+            QA Automation (App, Web y API) en Tribu Herramientas y Datos y
+            Embajador de IA (Hub AI): automatización de la App móvil (Android/iOS)
+            con agentes de IA mediante el nuevo proyecto KrakenQA en VS Code, y
+            pruebas Web/API con Tricentis TOSCA.
           - >-
-            Promoción a SSR tras liderar QA técnico en Onboarding y
-            Transferencias Minoristas en la app móvil transaccional.
+            Promoción a SSR tras trayectoria en Onboarding y testing técnico en
+            Transferencias Minoristas sobre la app móvil transaccional crítica.
           - >-
             Co-creador de CobroTron y FullTron: patrón pionero de auto-debug por
             DOM filtrado, generación de suites POM y sincronización desatendida

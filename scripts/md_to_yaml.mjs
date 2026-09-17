@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * md_to_yaml.mjs — Sync cv.md (English master) into cv.en.yaml.
  *

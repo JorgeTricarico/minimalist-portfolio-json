@@ -81,7 +81,7 @@
   date: datetime(
     year: 2026,
     month: 9,
-    day: 9,
+    day: 16,
   ),
 )
 
@@ -110,7 +110,7 @@
 
 == Summary
 
-QA Engineer and AI Specialist focused on product creation and software reliability. I have a full-stack technical profile that I leverage through the advanced use of LLMs and agentic tools. I specialize in leading automation in dynamic environments, compensating for resource limitations through innovative architectures and optimizing value delivery with full technical autonomy.
+QA Engineer and AI Specialist focused on product creation and software reliability. I have a full-stack technical profile that I leverage through the advanced use of LLMs and agentic tools. I specialize in test automation in dynamic environments, compensating for resource limitations through innovative architectures and optimizing value delivery with full technical autonomy.
 
 == Experience
 
@@ -118,11 +118,11 @@ QA Engineer and AI Specialist focused on product creation and software reliabili
   [
     #strong[OneVisa - Dubai (UAE) \/ Spain], (Part-time) Senior Principal QA Engineer (AI & Reliability)
 
-    - Sole QA lead in high-growth startup: designed full testing and reliability architecture from 0 to 100\% using Claude Code.
+    - Sole QA engineer in high-growth startup: designed and implemented the end-to-end testing and reliability strategy from scratch.
 
-    - Delivered production-ready autonomous QA Agent for company-wide E2E testing and continuous product evolution.
+    - Deployed autonomous QA Agent to production (Claude Code) for E2E testing and continuous product evolution without operational overhead.
 
-    - Implemented self-diagnostic pipelines and DORA metrics, scaling test coverage across squads with minimal headcount.
+    - Implemented self-diagnostic pipelines and DORA metrics, scaling technical coverage with minimal headcount.
 
   ],
   [
@@ -139,9 +139,9 @@ QA Engineer and AI Specialist focused on product creation and software reliabili
   [
     #strong[Tata Consultancy Service - Banco Galicia], SSR QA Automation Engineer
 
-    - Tools & Data Tribe technical leadership & AI Ambassador at AI Hub Group: Web\/API automation via Tricentis TOSCA and KrakenQA architecture (modular VS Code agent for Android\/iOS overcoming TOSCA Mobile friction).
+    - QA Automation (App, Web & API) in Tools & Data Tribe & AI Ambassador (AI Hub): Mobile App automation (Android\/iOS) using AI agents via the new KrakenQA project in VS Code, and Web\/API testing with Tricentis TOSCA.
 
-    - Promoted to SSR following technical QA leadership across Onboarding and Retail Transfers on the core mobile banking app.
+    - Promoted to SSR following progression in Onboarding and technical testing in Retail Transfers on the critical mobile banking app.
 
     - Co-creator of CobroTron & FullTron: pioneered filtered-DOM auto-debugging pattern, POM suite generation, and unattended ALM sync.
 

@@ -1,7 +1,5 @@
 ---
-import { ui } from "@/i18n"
 const { lang = 'es' } = Astro.props
-const t = ui[lang as keyof typeof ui]
 
 const labels = {
   es: {
@@ -65,201 +63,190 @@ const currentLabels = labels[lang as keyof typeof labels] || labels.es
 </section>
 
 <script>
-  const startBtn = document.getElementById('start-debug');
-  const overlay = document.getElementById('debug-overlay');
-  const closeBtn = document.getElementById('debug-close');
-  const lang = overlay?.dataset.lang || 'es';
-  
-  // Teleport overlay to body to avoid parent blur/opacity
-  if (overlay) {
-    document.body.appendChild(overlay);
-  }
-
-  const timerDisplay = document.getElementById('debug-timer');
-  const messageDisplay = document.getElementById('debug-message');
-  const introDisplay = document.getElementById('debug-intro');
-  const scoreDisplay = document.getElementById('debug-live-score');
-  const scoreVal = document.getElementById('debug-score-val');
-  const main = document.querySelector('main');
-  
   let gameScore = 0;
   let gameActive = false;
+  let gameInterval: any = null;
+  let countdownInterval: any = null;
 
-  const labels = {
-    es: {
-      instruction: "¡Elimina los bugs rápidamente!",
-      finished: "SISTEMA OPTIMIZADO",
-      scoreLabel: "Bugs eliminados: "
-    },
-    en: {
-      instruction: "Clear the bugs quickly!",
-      finished: "SYSTEM OPTIMIZED",
-      scoreLabel: "Bugs cleared: "
+  function initDebugGame() {
+    const overlays = document.querySelectorAll('#debug-overlay');
+    if (overlays.length > 1) {
+      for (let i = 0; i < overlays.length - 1; i++) {
+        overlays[i].remove();
+      }
     }
-  }[lang as 'es' | 'en'] || { instruction: "¡Elimina los bugs rápidamente!", finished: "SISTEMA OPTIMIZADO", scoreLabel: "Bugs eliminados: " };
 
-  // Close with Escape key
-  const handleEscape = (e: KeyboardEvent) => {
-    if (e.key === 'Escape' && overlay?.classList.contains('active')) {
-      endGame();
+    const overlay = document.getElementById('debug-overlay');
+    if (overlay && overlay.parentElement !== document.body) {
+      document.body.appendChild(overlay);
     }
-  };
-  document.addEventListener('keydown', handleEscape);
 
-  // Close button click
-  closeBtn?.addEventListener('click', () => {
-    if (overlay?.classList.contains('active')) {
-      endGame();
-    }
-  });
+    const startBtn = document.getElementById('start-debug');
+    const closeBtn = document.getElementById('debug-close');
+    const timerDisplay = document.getElementById('debug-timer');
+    const messageDisplay = document.getElementById('debug-message');
+    const introDisplay = document.getElementById('debug-intro');
+    const scoreDisplay = document.getElementById('debug-live-score');
+    const scoreVal = document.getElementById('debug-score-val');
+    const main = document.querySelector('main');
+    const lang = overlay?.dataset.lang || 'es';
 
-const endGame = () => {
-    gameActive = false;
-    if (overlay) {
-      overlay.style.display = 'none';
-      overlay.classList.remove('active');
-    }
-    if (main) main.classList.remove('game-mode');
-    document.querySelectorAll('.mega-bug').forEach((b) => b.remove());
-    
-    // Reset UI for next game
-    setTimeout(() => {
-      resetGameUI();
-    }, 100);
-  };
+    const labels = {
+      es: {
+        instruction: "¡Elimina los bugs rápidamente!",
+        finished: "SISTEMA OPTIMIZADO",
+        scoreLabel: "Bugs eliminados: "
+      },
+      en: {
+        instruction: "Clear the bugs quickly!",
+        finished: "SYSTEM OPTIMIZED",
+        scoreLabel: "Bugs cleared: "
+      }
+    }[lang as 'es' | 'en'] || { instruction: "¡Elimina los bugs rápidamente!", finished: "SISTEMA OPTIMIZADO", scoreLabel: "Bugs eliminados: " };
 
-  const spawnMegaBug = () => {
-    if (!gameActive) return;
-    const bug = document.createElement('div');
-    bug.className = 'bug-target mega-bug';
-    bug.innerHTML = `
-      <div class="bug-crosshair"></div>
-      <div class="bug-body">
-        <svg width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8 3 4 7M16 3l4 4M4 11h4M16 11h4M4 15l4 4M16 15l4 4"/>
-          <path d="M12 20v-9M6.5 12a5.5 5.5 0 1 1 11 0v4a5.5 5.5 0 1 1-11 0v-4Z"/>
-          <path d="M12 10a2 2 0 0 0-2-2M12 10a2 2 0 0 1 2-2"/>
-        </svg>
-      </div>
-    `;
-    document.body.appendChild(bug);
-
-    let x = Math.random() * (window.innerWidth - 80);
-    let y = Math.random() * (window.innerHeight - 80);
-    let dx = (Math.random() - 0.5) * 8;
-    let dy = (Math.random() - 0.5) * 8;
-
-    const move = () => {
-      if (!gameActive || bug.classList.contains('squashed')) return;
-      x += dx; y += dy;
-      if (x <= 10 || x >= window.innerWidth - 60) dx *= -1;
-      if (y <= 10 || y >= window.innerHeight - 60) dy *= -1;
-      bug.style.left = `${x}px`;
-      bug.style.top = `${y}px`;
-      bug.style.transform = `rotate(${Math.atan2(dy, dx) + Math.PI / 2}rad)`;
-      requestAnimationFrame(move);
+    const resetGameUI = () => {
+      if (messageDisplay) {
+        messageDisplay.style.display = "block";
+        messageDisplay.textContent = labels.instruction;
+      }
+      if (timerDisplay) timerDisplay.textContent = "3";
+      if (scoreDisplay) scoreDisplay.style.display = "none";
+      if (introDisplay) introDisplay.style.display = "block";
     };
 
-    bug.addEventListener('click', () => {
-      if (bug.classList.contains('squashed')) return;
-      bug.classList.add('squashed');
-      gameScore++;
-      if (scoreVal) scoreVal.textContent = gameScore.toString();
-      
-      if ((window as any).spawnExplosion) {
-        (window as any).spawnExplosion(x + 22, y + 22);
+    const endGame = () => {
+      gameActive = false;
+      if (gameInterval) { clearInterval(gameInterval); gameInterval = null; }
+      if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
+      if (overlay) {
+        overlay.style.display = 'none';
+        overlay.classList.remove('active');
       }
-      
-      setTimeout(() => {
-        bug.remove();
-        if (gameActive) spawnMegaBug();
-      }, 400);
-    });
+      if (main) main.classList.remove('game-mode');
+      document.querySelectorAll('.mega-bug').forEach((b) => b.remove());
+      setTimeout(resetGameUI, 100);
+    };
 
-    move();
-  };
+    const spawnMegaBug = () => {
+      if (!gameActive) return;
+      const bug = document.createElement('div');
+      bug.className = 'bug-target mega-bug';
+      bug.innerHTML = `
+        <div class="bug-crosshair"></div>
+        <div class="bug-body">
+          <svg width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 3 4 7M16 3l4 4M4 11h4M16 11h4M4 15l4 4M16 15l4 4"/>
+            <path d="M12 20v-9M6.5 12a5.5 5.5 0 1 1 11 0v4a5.5 5.5 0 1 1-11 0v-4Z"/>
+            <path d="M12 10a2 2 0 0 0-2-2M12 10a2 2 0 0 1 2-2"/>
+          </svg>
+        </div>
+      `;
+      document.body.appendChild(bug);
 
-  startBtn?.addEventListener('click', () => {
-    if (gameActive) return;
-    gameActive = true;
-    gameScore = 0;
-    if (scoreVal) scoreVal.textContent = "0";
+      let x = Math.random() * (window.innerWidth - 80);
+      let y = Math.random() * (window.innerHeight - 80);
+      let dx = (Math.random() - 0.5) * 8;
+      let dy = (Math.random() - 0.5) * 8;
 
-    if (overlay) overlay.classList.add('active');
-    if (main) main.classList.add('game-mode');
-    if (introDisplay) introDisplay.style.display = "block";
-    if (scoreDisplay) scoreDisplay.style.display = "none";
-    if (messageDisplay) messageDisplay.style.display = "block";
+      const move = () => {
+        if (!gameActive || bug.classList.contains('squashed')) return;
+        x += dx; y += dy;
+        if (x <= 10 || x >= window.innerWidth - 60) dx *= -1;
+        if (y <= 10 || y >= window.innerHeight - 60) dy *= -1;
+        bug.style.left = `${x}px`;
+        bug.style.top = `${y}px`;
+        bug.style.transform = `rotate(${Math.atan2(dy, dx) + Math.PI / 2}rad)`;
+        requestAnimationFrame(move);
+      };
 
-    let count = 3;
-    if (timerDisplay) timerDisplay.textContent = count.toString();
-    
-    const interval = setInterval(() => {
-      count--;
-      if (count > 0) {
-        if (timerDisplay) timerDisplay.textContent = count.toString();
-      } else {
-        clearInterval(interval);
-        startGame();
+      bug.onclick = () => {
+        if (bug.classList.contains('squashed')) return;
+        bug.classList.add('squashed');
+        gameScore++;
+        if (scoreVal) scoreVal.textContent = gameScore.toString();
+        
+        if ((window as any).spawnExplosion) {
+          (window as any).spawnExplosion(x + 22, y + 22);
+        }
+        
+        setTimeout(() => {
+          bug.remove();
+          if (gameActive) spawnMegaBug();
+        }, 400);
+      };
+
+      move();
+    };
+
+    const startGame = () => {
+      gameScore = 0;
+      if (scoreVal) scoreVal.textContent = "0";
+      if (timerDisplay) timerDisplay.textContent = "12";
+      if (introDisplay) introDisplay.style.display = "none";
+      if (messageDisplay) messageDisplay.style.display = "none";
+      if (scoreDisplay) scoreDisplay.style.display = "flex";
+
+      for (let i = 0; i < 10; i++) {
+        setTimeout(spawnMegaBug, i * 150);
       }
-    }, 1000);
-  });
 
-  const startGame = () => {
-    gameScore = 0;
-    if (scoreVal) scoreVal.textContent = "0";
-    if (timerDisplay) timerDisplay.textContent = "12";
-    if (introDisplay) introDisplay.style.display = "none";
-    if (messageDisplay) messageDisplay.style.display = "none";
-    if (scoreDisplay) scoreDisplay.style.display = "flex";
+      let timeLeft = 12;
+      gameInterval = setInterval(() => {
+        timeLeft--;
+        if (timerDisplay) timerDisplay.textContent = timeLeft.toString();
+        
+        if (timeLeft <= 0) {
+          clearInterval(gameInterval);
+          gameInterval = null;
+          endGame();
+        }
+      }, 1000);
+    };
 
-    for(let i=0; i<10; i++) {
-      setTimeout(spawnMegaBug, i * 150);
+    if (startBtn) {
+      startBtn.onclick = () => {
+        if (gameActive) return;
+        gameActive = true;
+        gameScore = 0;
+        if (scoreVal) scoreVal.textContent = "0";
+
+        if (overlay) {
+          overlay.style.display = 'flex';
+          overlay.classList.add('active');
+        }
+        if (main) main.classList.add('game-mode');
+        resetGameUI();
+
+        let countdown = 3;
+        if (timerDisplay) timerDisplay.textContent = countdown.toString();
+        countdownInterval = setInterval(() => {
+          countdown--;
+          if (timerDisplay) timerDisplay.textContent = countdown.toString();
+          if (countdown <= 0) {
+            clearInterval(countdownInterval);
+            countdownInterval = null;
+            startGame();
+          }
+        }, 1000);
+      };
     }
 
-    let timeLeft = 12;
-    const gameInterval = setInterval(() => {
-      timeLeft--;
-      if (timerDisplay) timerDisplay.textContent = timeLeft.toString();
-      
-      if (timeLeft <= 0) {
-        clearInterval(gameInterval);
+    if (closeBtn) {
+      closeBtn.onclick = () => {
+        if (overlay?.classList.contains('active')) {
+          endGame();
+        }
+      };
+    }
+
+    document.onkeydown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && overlay?.classList.contains('active')) {
         endGame();
       }
-    }, 1000);
-  };
+    };
+  }
 
-  const resetGameUI = () => {
-    if (messageDisplay) {
-      messageDisplay.style.display = "block";
-      messageDisplay.textContent = labels.instruction;
-    }
-    if (timerDisplay) timerDisplay.textContent = "3";
-    if (scoreDisplay) scoreDisplay.style.display = "none";
-    if (introDisplay) introDisplay.style.display = "block";
-  };
-
-  startBtn?.addEventListener("click", () => {
-    if (gameActive) return;
-    gameActive = true;
-    if (overlay) {
-      overlay.style.display = 'flex';
-      overlay.classList.add('active');
-    }
-    if (main) main.classList.add('game-mode');
-    resetGameUI();
-    
-    let countdown = 3;
-    if (timerDisplay) timerDisplay.textContent = countdown.toString();
-    const countdownInterval = setInterval(() => {
-      countdown--;
-      if (timerDisplay) timerDisplay.textContent = countdown.toString();
-      if (countdown <= 0) {
-        clearInterval(countdownInterval);
-        startGame();
-      }
-    }, 1000);
-  });
+  document.addEventListener('astro:page-load', initDebugGame);
 </script>
 
 <style>
