@@ -8,7 +8,7 @@
 
 
 # Summary
-QA Engineer and AI Specialist focused on product creation and software reliability. I have a full-stack technical profile that I leverage through the advanced use of LLMs and agentic tools. I specialize in test automation in dynamic environments, compensating for resource limitations through innovative architectures and optimizing value delivery with full technical autonomy.
+QA Automation Engineer specializing in end-to-end testing across Mobile (iOS/Android), Web, and APIs. With a solid technical foundation and builder mindset, I develop custom frameworks and AI agents to automate test diagnosis and generation, eliminating operational friction and accelerating continuous delivery with high autonomy.
 
 # Experience
 ## **OneVisa - Dubai (UAE) / Spain**, (Part-time) Senior Principal QA Engineer (AI & Reliability)
