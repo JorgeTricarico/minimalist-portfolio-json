@@ -13,10 +13,10 @@ cv:
   sections:
     Summary:
       - >-
-        AI Engineer specializing in software testing and agentic systems for
-        Web, Mobile, and APIs. With a strong builder mindset, I design intelligent
-        frameworks and AI agents that optimize the quality lifecycle, eliminating
-        operational friction and accelerating continuous delivery with high autonomy.
+        AI Engineer specializing in test automation and agentic systems for
+        Web, Mobile, and APIs. I design frameworks and AI agents focused on
+        accelerating test creation and execution, cutting maintenance time,
+        and scaling coverage across teams.
     Experience:
       - company: Tata Consultancy Service - Banco Galicia
         position: AI Engineer (AI Hub - Quality)

@@ -110,7 +110,7 @@
 
 == Resumen
 
-AI Engineer especializado en testing de software y desarrollo de sistemas agénticos para aplicaciones Web, Mobile y APIs. Con perfil constructor, diseño frameworks inteligentes y agentes de IA que optimizan el ciclo de calidad, eliminando fricciones operativas y acelerando la entrega continua con alta autonomía.
+AI Engineer especializado en automatización de pruebas y desarrollo de sistemas agénticos para aplicaciones Web, Mobile y APIs. Diseño frameworks y agentes de IA enfocados en acelerar la creación y ejecución de pruebas, reducir tiempos de mantenimiento y escalar la cobertura en los equipos.
 
 == Experiencia
 
