@@ -1,12 +1,12 @@
 {
   "basics": {
     "name": "Jorge Tricarico",
-    "label": "AI-Driven QA Engineer",
+    "label": "AI Engineer | QA Automation & Agentic Systems",
     "image": "/perfil.jpg",
     "email": "jorge.tricarico@gmail.com",
     "phone": "+54 9 11 50479769",
     "url": "",
-    "summary": "QA Automation Engineer specializing in end-to-end testing across Mobile (iOS/Android), Web, and APIs. With a solid technical foundation and builder mindset, I develop custom frameworks and AI agents to automate test diagnosis and generation, eliminating operational friction and accelerating continuous delivery with high autonomy.",
+    "summary": "AI Engineer specializing in software testing and agentic systems for Web, Mobile, and APIs. With a strong builder mindset, I design intelligent frameworks and AI agents that optimize the quality lifecycle, eliminating operational friction and accelerating continuous delivery with high autonomy.",
     "location": {
       "address": "",
       "postalCode": "1684",
@@ -30,10 +30,23 @@
   "work": [
     {
       "name": "Tata Consultancy Service - Banco Galicia",
+      "position": "AI Engineer (AI Hub - Quality)",
+      "url": "",
+      "startDate": "2026-10-01",
+      "endDate": null,
+      "summary": "",
+      "highlights": [
+        "Evolution and architecture of \"CobroTron\": #1 AI agent in adoption and executions across the Quality organization for web test automation.",
+        "Agile Foreign Trade integration: designed and delivered the POM base for the ComEx channel in < 1 week, unblocking automated testing.",
+        "Technical auditing and governance of Quality AI agents, and cross-squad advisory to drive AI-augmented testing adoption."
+      ]
+    },
+    {
+      "name": "Tata Consultancy Service - Banco Galicia",
       "position": "SSR QA Automation Engineer (QA Core Team)",
       "url": "",
       "startDate": "2026-02-01",
-      "endDate": null,
+      "endDate": "2026-10-01",
       "summary": "",
       "highlights": [
         "Cross-functional QA Automation: end-to-end multi-platform testing (Web, APIs, Mobile, and Desktop) using Tricentis TOSCA across the entire QA organization.",
@@ -61,8 +74,7 @@
       "summary": "",
       "highlights": [
         "Sole QA engineer in high-growth startup: designed and implemented the end-to-end testing and reliability strategy from scratch.",
-        "Deployed autonomous QA Agent to production (Claude Code) for E2E testing and continuous product evolution without operational overhead.",
-        "Implemented self-diagnostic pipelines and DORA metrics, scaling technical coverage with minimal headcount."
+        "Deployed autonomous QA Agent to production (Claude Code) and implemented self-diagnostic pipelines with DORA metrics."
       ]
     },
     {

@@ -6,8 +6,8 @@
   name: "Jorge Tricarico",
   title: "Jorge Tricarico - CV",
   footer: context { [#emph[Jorge Tricarico -- #str(here().page())\/#str(counter(page).final().first())]] },
-  top-note: [ #emph[Last updated in Oct 2026] ],
-  locale-catalog-language: "en",
+  top-note: [ #emph[Última actualización Oct 2026] ],
+  locale-catalog-language: "es",
   text-direction: ltr,
   page-size: "a4",
   page-top-margin: 1.0cm,
@@ -95,7 +95,7 @@
   [
 = Jorge Tricarico
 
-  #headline([AI-Driven QA Engineer])
+  #headline([AI Engineer | QA Automation & Agentic Systems])
 
 #connections(
   [#connection-with-icon("location-dot")[Buenos Aires, AR]],
@@ -108,135 +108,154 @@
 )
 
 
-== Summary
+== Resumen
 
-QA Automation Engineer specializing in end-to-end testing across Mobile (iOS\/Android), Web, and APIs. With a solid technical foundation and builder mindset, I develop custom frameworks and AI agents to automate test diagnosis and generation, eliminating operational friction and accelerating continuous delivery with high autonomy.
+AI Engineer especializado en testing de software y desarrollo de sistemas agénticos para aplicaciones Web, Mobile y APIs. Con perfil constructor, diseño frameworks inteligentes y agentes de IA que optimizan el ciclo de calidad, eliminando fricciones operativas y acelerando la entrega continua con alta autonomía.
 
-== Experience
+== Experiencia
 
 #regular-entry(
   [
-    #strong[Tata Consultancy Service - Banco Galicia], SSR QA Automation Engineer (QA Core Team)
+    #strong[Tata Consultancy Service - Banco Galicia], AI Engineer (Hub de IA - Calidad)
 
-    - Cross-functional QA Automation: end-to-end multi-platform testing (Web, APIs, Mobile, and Desktop) using Tricentis TOSCA across the entire QA organization.
+    - Evolución y arquitectura de \"CobroTron\": agente de IA líder en adopción y ejecuciones en el área de Calidad para automatización de pruebas web.
 
-    - \"Kraken Mobile\" Project: developed AI agent for mobile app testing (Android\/iOS), overcoming TOSCA + BrowserStack friction and accelerating regression suites.
+    - Integración ágil en Comercio Exterior: diseño e incorporación de la base POM para el canal ComEx en \< 1 semana, acelerando las suites del negocio.
+
+    - Auditoría y gobernanza técnica de agentes de IA en Calidad, y consultoría transversal a squads para adopción de testing asistido por IA.
 
   ],
   [
-    Feb 2026 – present
+    Oct 2026 – presente
 
     
 
-    9 months
+    1 mes
 
   ],
 )
 
 #regular-entry(
   [
-    #strong[Tata Consultancy Service - Banco Galicia], QA Manual & Automation Analyst
+    #strong[Tata Consultancy Service - Banco Galicia], SSR QA Automation Engineer (Área de Calidad)
 
-    - Technical QA and test execution across Onboarding and Retail Transfers on the mission-critical mobile banking application.
+    - QA Automation transversal: diseño y ejecución de pruebas E2E multi-plataforma (Web, APIs, Mobile y Desktop) con Tricentis TOSCA para toda el área de Calidad institucional.
 
-    - Co-creator of CobroTron & FullTron: pioneered filtered-DOM auto-debugging, POM suite generation, and unattended ALM sync.
+    - Proyecto \"Kraken Mobile\": desarrollo de agente de IA para pruebas en Apps móviles (Android\/iOS), superando la fricción de TOSCA + BrowserStack y acelerando las suites de regresión.
 
   ],
   [
-    Apr 2023 – Feb 2026
+    Feb 2026 – Oct 2026
 
     
 
-    2 years 11 months
+    9 meses
 
   ],
 )
 
 #regular-entry(
   [
-    #strong[OneVisa - Dubai (UAE) \/ Spain], (Part-time) Senior Principal QA Engineer (AI & Reliability)
+    #strong[Tata Consultancy Service - Banco Galicia], Analista QA Manual & Automation
 
-    - Sole QA engineer in high-growth startup: designed and implemented the end-to-end testing and reliability strategy from scratch.
+    - Testing técnico y aseguramiento de calidad sobre Onboarding y Transferencias Minoristas en la app móvil transaccional crítica.
 
-    - Deployed autonomous QA Agent to production (Claude Code) for E2E testing and continuous product evolution without operational overhead.
-
-    - Implemented self-diagnostic pipelines and DORA metrics, scaling technical coverage with minimal headcount.
+    - Co-creador de CobroTron y FullTron: herramientas pioneras de auto-debug por DOM filtrado, generación de suites POM y sincronización desatendida con ALM.
 
   ],
   [
-    Feb 2026 – Aug 2026
+    Abr 2023 – Feb 2026
 
     
 
-    7 months
+    2 años 11 meses
 
   ],
 )
 
 #regular-entry(
   [
-    #strong[Ada School - Colombia], Python Instructor (Data & FullStack BootCamp)
+    #strong[OneVisa - Dubai (UAE) \/ España], (Part-time) Senior Principal QA Engineer (AI & Reliability)
 
-    - Advanced technical mentorship in Python focused on code quality, software architecture, and development best practices for international profiles.
+    - Único responsable de QA en startup de alto crecimiento: diseño e implementación de la estrategia integral de testing y confiabilidad desde cero.
+
+    - Implementación de Agente QA autónomo en producción (Claude Code) y pipelines con autodiagnóstico iterativo y métricas DORA.
 
   ],
   [
-    Sept 2023 – Oct 2024
+    Feb 2026 – Ago 2026
 
     
 
-    1 year 2 months
+    7 meses
 
   ],
 )
 
-== Education
+#regular-entry(
+  [
+    #strong[Ada School - Colombia], Profesor Python (BootCamp Data y FullStack)
+
+    - Mentoría técnica avanzada en Python enfocada en la calidad del código, arquitectura de software y mejores prácticas de desarrollo para perfiles internacionales.
+
+  ],
+  [
+    Sep 2023 – Oct 2024
+
+    
+
+    1 año 2 meses
+
+  ],
+)
+
+== Educación
 
 #education-entry(
   [
-    #strong[National University of Hurlingham]
+    #strong[Universidad Nacional de Hurlingham]
 
-    #emph[University Technician] in Artificial Intelligence
+    #emph[Tec. Universitaria] en Inteligencia Artificial
 
   ],
   [
-    Jan 2024 – present
+    Ene 2024 – presente
 
   ],
 )
 
 #education-entry(
   [
-    #strong[Teacher Training Institute N°109]
+    #strong[Instituto Superior de Formación Docente N°109]
 
-    #emph[Secondary Education Professor] in Economics and Management
+    #emph[Prof. de Educación Secundaria] en Economía y Gestión
 
-    - Last year pending
+    - Adeudo último año
 
   ],
   [
-    Mar 2019 – Dec 2023
+    Mar 2019 – Dic 2023
 
   ],
 )
 
-== Skills
+== Habilidades
 
-#strong[AI & Agents:] Claude Code, Gemini, DeepSeek, Scikit-learn, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Pandas, NumPy
+#strong[IA & Agentes:] Claude Code, Gemini, DeepSeek, Scikit-learn, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Pandas, NumPy
 
 #strong[Testing & QA:] Tricentis Tosca, Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno
 
 #strong[Dev & Ops:] Python, TypeScript, JavaScript, Java, Node.js, FastAPI, Flask, AWS, Docker, Jenkins, Linux, Bash, CI\/CD
 
-#strong[Observability & Data:] Grafana, Kibana, SQL, NoSQL, Matplotlib, Seaborn, Trace\/Log Analysis, GitHub Actions
+#strong[Observabilidad & Data:] Grafana, Kibana, SQL, NoSQL, Matplotlib, Seaborn, Análisis de Traces\/Logs, GitHub Actions
 
-#strong[Languages:] Spanish, English
+#strong[Idiomas:] Español, Inglés
 
-== Projects
+== Proyectos
 
 #regular-entry(
   [
-    #strong[Zenco.arg (In Prod)]
+    #strong[Zenco.arg (En Prod)]
 
     - React 18 · Node.js · AI WhatsApp Bot · Gemini AI
 
@@ -247,7 +266,7 @@ QA Automation Engineer specializing in end-to-end testing across Mobile (iOS\/An
 
 #regular-entry(
   [
-    #strong[El Industrial (In Prod)]
+    #strong[El Industrial (En Prod)]
 
     - Python · Vanilla JS · API REST · Telegram Bot · IA Reporting
 

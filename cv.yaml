@@ -1,6 +1,6 @@
 cv:
   name: Jorge Tricarico
-  headline: AI-Driven QA Engineer
+  headline: AI Engineer | QA Automation & Agentic Systems
   photo: public/perfil_rounded.png
   location: Buenos Aires, AR
   email: jorge.tricarico@gmail.com
@@ -13,16 +13,30 @@ cv:
   sections:
     Resumen:
       - >-
-        QA Automation Engineer especializado en testing integral de aplicaciones
-        móviles (iOS/Android), Web y APIs. Con una sólida base técnica y perfil
-        constructor, desarrollo frameworks a medida y agentes de IA que
-        automatizan el diagnóstico y la generación de pruebas, eliminando
-        fricciones operativas y acelerando la entrega continua con alta autonomía.
+        AI Engineer especializado en testing de software y desarrollo de
+        sistemas agénticos para aplicaciones Web, Mobile y APIs. Con perfil
+        constructor, diseño frameworks inteligentes y agentes de IA que
+        optimizan el ciclo de calidad, eliminando fricciones operativas y
+        acelerando la entrega continua con alta autonomía.
     Experiencia:
+      - company: Tata Consultancy Service - Banco Galicia
+        position: AI Engineer (Hub de IA - Calidad)
+        start_date: 2026-10
+        end_date: present
+        highlights:
+          - >-
+            Evolución y arquitectura de "CobroTron": agente de IA líder en adopción
+            y ejecuciones en el área de Calidad para automatización de pruebas web.
+          - >-
+            Integración ágil en Comercio Exterior: diseño e incorporación de la base
+            POM para el canal ComEx en < 1 semana, acelerando las suites del negocio.
+          - >-
+            Auditoría y gobernanza técnica de agentes de IA en Calidad, y consultoría
+            transversal a squads para adopción de testing asistido por IA.
       - company: Tata Consultancy Service - Banco Galicia
         position: SSR QA Automation Engineer (Área de Calidad)
         start_date: 2026-02
-        end_date: present
+        end_date: 2026-10
         highlights:
           - >-
             QA Automation transversal: diseño y ejecución de pruebas E2E
@@ -55,11 +69,7 @@ cv:
             desde cero.
           - >-
             Implementación de Agente QA autónomo en producción (Claude Code)
-            para pruebas E2E y soporte a la evolución continua del producto sin
-            dependencia operativa.
-          - >-
-            Pipelines con autodiagnóstico iterativo y métricas DORA, escalando
-            la cobertura técnica con equipo humano mínimo.
+            y pipelines con autodiagnóstico iterativo y métricas DORA.
       - company: Ada School - Colombia
         position: Profesor Python (BootCamp Data y FullStack)
         start_date: 2023-09

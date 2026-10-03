@@ -1,6 +1,6 @@
 cv:
   name: Jorge Tricarico
-  headline: AI-Driven QA Engineer
+  headline: AI Engineer | QA Automation & Agentic Systems
   photo: public/perfil_rounded.png
   location: Buenos Aires, AR
   email: jorge.tricarico@gmail.com
@@ -13,16 +13,29 @@ cv:
   sections:
     Summary:
       - >-
-        QA Automation Engineer specializing in end-to-end testing across Mobile
-        (iOS/Android), Web, and APIs. With a solid technical foundation and
-        builder mindset, I develop custom frameworks and AI agents to automate
-        test diagnosis and generation, eliminating operational friction and
-        accelerating continuous delivery with high autonomy.
+        AI Engineer specializing in software testing and agentic systems for
+        Web, Mobile, and APIs. With a strong builder mindset, I design intelligent
+        frameworks and AI agents that optimize the quality lifecycle, eliminating
+        operational friction and accelerating continuous delivery with high autonomy.
     Experience:
+      - company: Tata Consultancy Service - Banco Galicia
+        position: AI Engineer (AI Hub - Quality)
+        start_date: 2026-10
+        end_date: present
+        highlights:
+          - >-
+            Evolution and architecture of "CobroTron": #1 AI agent in adoption and
+            executions across the Quality organization for web test automation.
+          - >-
+            Agile Foreign Trade integration: designed and delivered the POM base
+            for the ComEx channel in < 1 week, unblocking automated testing.
+          - >-
+            Technical auditing and governance of Quality AI agents, and cross-squad
+            advisory to drive AI-augmented testing adoption.
       - company: Tata Consultancy Service - Banco Galicia
         position: SSR QA Automation Engineer (QA Core Team)
         start_date: 2026-02
-        end_date: present
+        end_date: 2026-10
         highlights:
           - >-
             Cross-functional QA Automation: end-to-end multi-platform testing
@@ -52,11 +65,8 @@ cv:
             Sole QA engineer in high-growth startup: designed and implemented the
             end-to-end testing and reliability strategy from scratch.
           - >-
-            Deployed autonomous QA Agent to production (Claude Code) for E2E
-            testing and continuous product evolution without operational overhead.
-          - >-
-            Implemented self-diagnostic pipelines and DORA metrics, scaling
-            technical coverage with minimal headcount.
+            Deployed autonomous QA Agent to production (Claude Code) and implemented
+            self-diagnostic pipelines with DORA metrics.
       - company: Ada School - Colombia
         position: Python Instructor (Data & FullStack BootCamp)
         start_date: 2023-09

@@ -1,12 +1,12 @@
 {
   "basics": {
     "name": "Jorge Tricarico",
-    "label": "AI-Driven QA Engineer",
+    "label": "AI Engineer | QA Automation & Agentic Systems",
     "image": "/perfil.jpg",
     "email": "jorge.tricarico@gmail.com",
     "phone": "+54 9 11 50479769",
     "url": "",
-    "summary": "QA Automation Engineer especializado en testing integral de aplicaciones móviles (iOS/Android), Web y APIs. Con una sólida base técnica y perfil constructor, desarrollo frameworks a medida y agentes de IA que automatizan el diagnóstico y la generación de pruebas, eliminando fricciones operativas y acelerando la entrega continua con alta autonomía.",
+    "summary": "AI Engineer especializado en testing de software y desarrollo de sistemas agénticos para aplicaciones Web, Mobile y APIs. Con perfil constructor, diseño frameworks inteligentes y agentes de IA que optimizan el ciclo de calidad, eliminando fricciones operativas y acelerando la entrega continua con alta autonomía.",
     "location": {
       "address": "",
       "postalCode": "1684",
@@ -30,10 +30,23 @@
   "work": [
     {
       "name": "Tata Consultancy Service - Banco Galicia",
+      "position": "AI Engineer (Hub de IA - Calidad)",
+      "url": "",
+      "startDate": "2026-10-01",
+      "endDate": null,
+      "summary": "",
+      "highlights": [
+        "Evolución y arquitectura de \"CobroTron\": agente de IA líder en adopción y ejecuciones en el área de Calidad para automatización de pruebas web.",
+        "Integración ágil en Comercio Exterior: diseño e incorporación de la base POM para el canal ComEx en < 1 semana, acelerando las suites del negocio.",
+        "Auditoría y gobernanza técnica de agentes de IA en Calidad, y consultoría transversal a squads para adopción de testing asistido por IA."
+      ]
+    },
+    {
+      "name": "Tata Consultancy Service - Banco Galicia",
       "position": "SSR QA Automation Engineer (Área de Calidad)",
       "url": "",
       "startDate": "2026-02-01",
-      "endDate": null,
+      "endDate": "2026-10-01",
       "summary": "",
       "highlights": [
         "QA Automation transversal: diseño y ejecución de pruebas E2E multi-plataforma (Web, APIs, Mobile y Desktop) con Tricentis TOSCA para toda el área de Calidad institucional.",
@@ -61,8 +74,7 @@
       "summary": "",
       "highlights": [
         "Único responsable de QA en startup de alto crecimiento: diseño e implementación de la estrategia integral de testing y confiabilidad desde cero.",
-        "Implementación de Agente QA autónomo en producción (Claude Code) para pruebas E2E y soporte a la evolución continua del producto sin dependencia operativa.",
-        "Pipelines con autodiagnóstico iterativo y métricas DORA, escalando la cobertura técnica con equipo humano mínimo."
+        "Implementación de Agente QA autónomo en producción (Claude Code) y pipelines con autodiagnóstico iterativo y métricas DORA."
       ]
     },
     {

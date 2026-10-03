@@ -7,102 +7,116 @@
 - GitHub: [JorgeTricarico](https://github.com/JorgeTricarico)
 
 
-# Summary
-QA Automation Engineer specializing in end-to-end testing across Mobile (iOS/Android), Web, and APIs. With a solid technical foundation and builder mindset, I develop custom frameworks and AI agents to automate test diagnosis and generation, eliminating operational friction and accelerating continuous delivery with high autonomy.
+# Resumen
+AI Engineer especializado en testing de software y desarrollo de sistemas agénticos para aplicaciones Web, Mobile y APIs. Con perfil constructor, diseño frameworks inteligentes y agentes de IA que optimizan el ciclo de calidad, eliminando fricciones operativas y acelerando la entrega continua con alta autonomía.
 
-# Experience
-## **Tata Consultancy Service - Banco Galicia**, SSR QA Automation Engineer (QA Core Team)
+# Experiencia
+## **Tata Consultancy Service - Banco Galicia**, AI Engineer (Hub de IA - Calidad)
 
-Feb 2026 – present
-
-
-
-9 months
-
-- Cross-functional QA Automation: end-to-end multi-platform testing (Web, APIs, Mobile, and Desktop) using Tricentis TOSCA across the entire QA organization.
-
-- "Kraken Mobile" Project: developed AI agent for mobile app testing (Android/iOS), overcoming TOSCA + BrowserStack friction and accelerating regression suites.
+Oct 2026 – presente
 
 
 
-## **Tata Consultancy Service - Banco Galicia**, QA Manual & Automation Analyst
+1 mes
 
-Apr 2023 – Feb 2026
+- Evolución y arquitectura de "CobroTron": agente de IA líder en adopción y ejecuciones en el área de Calidad para automatización de pruebas web.
 
+- Integración ágil en Comercio Exterior: diseño e incorporación de la base POM para el canal ComEx en < 1 semana, acelerando las suites del negocio.
 
-
-2 years 11 months
-
-- Technical QA and test execution across Onboarding and Retail Transfers on the mission-critical mobile banking application.
-
-- Co-creator of CobroTron & FullTron: pioneered filtered-DOM auto-debugging, POM suite generation, and unattended ALM sync.
+- Auditoría y gobernanza técnica de agentes de IA en Calidad, y consultoría transversal a squads para adopción de testing asistido por IA.
 
 
 
-## **OneVisa - Dubai (UAE) / Spain**, (Part-time) Senior Principal QA Engineer (AI & Reliability)
+## **Tata Consultancy Service - Banco Galicia**, SSR QA Automation Engineer (Área de Calidad)
 
-Feb 2026 – Aug 2026
-
-
-
-7 months
-
-- Sole QA engineer in high-growth startup: designed and implemented the end-to-end testing and reliability strategy from scratch.
-
-- Deployed autonomous QA Agent to production (Claude Code) for E2E testing and continuous product evolution without operational overhead.
-
-- Implemented self-diagnostic pipelines and DORA metrics, scaling technical coverage with minimal headcount.
+Feb 2026 – Oct 2026
 
 
 
-## **Ada School - Colombia**, Python Instructor (Data & FullStack BootCamp)
+9 meses
 
-Sept 2023 – Oct 2024
+- QA Automation transversal: diseño y ejecución de pruebas E2E multi-plataforma (Web, APIs, Mobile y Desktop) con Tricentis TOSCA para toda el área de Calidad institucional.
 
-
-
-1 year 2 months
-
-- Advanced technical mentorship in Python focused on code quality, software architecture, and development best practices for international profiles.
+- Proyecto "Kraken Mobile": desarrollo de agente de IA para pruebas en Apps móviles (Android/iOS), superando la fricción de TOSCA + BrowserStack y acelerando las suites de regresión.
 
 
 
-# Education
-## **National University of Hurlingham**
-Jan 2024 – present
+## **Tata Consultancy Service - Banco Galicia**, Analista QA Manual & Automation
 
-*University Technician* in Artificial Intelligence
+Abr 2023 – Feb 2026
 
 
 
-## **Teacher Training Institute N°109**
-Mar 2019 – Dec 2023
+2 años 11 meses
 
-*Secondary Education Professor* in Economics and Management
+- Testing técnico y aseguramiento de calidad sobre Onboarding y Transferencias Minoristas en la app móvil transaccional crítica.
 
-- Last year pending
-
+- Co-creador de CobroTron y FullTron: herramientas pioneras de auto-debug por DOM filtrado, generación de suites POM y sincronización desatendida con ALM.
 
 
-# Skills
-**AI & Agents:** Claude Code, Gemini, DeepSeek, Scikit-learn, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Pandas, NumPy
+
+## **OneVisa - Dubai (UAE) / España**, (Part-time) Senior Principal QA Engineer (AI & Reliability)
+
+Feb 2026 – Ago 2026
+
+
+
+7 meses
+
+- Único responsable de QA en startup de alto crecimiento: diseño e implementación de la estrategia integral de testing y confiabilidad desde cero.
+
+- Implementación de Agente QA autónomo en producción (Claude Code) y pipelines con autodiagnóstico iterativo y métricas DORA.
+
+
+
+## **Ada School - Colombia**, Profesor Python (BootCamp Data y FullStack)
+
+Sep 2023 – Oct 2024
+
+
+
+1 año 2 meses
+
+- Mentoría técnica avanzada en Python enfocada en la calidad del código, arquitectura de software y mejores prácticas de desarrollo para perfiles internacionales.
+
+
+
+# Educación
+## **Universidad Nacional de Hurlingham**
+Ene 2024 – presente
+
+*Tec. Universitaria* en Inteligencia Artificial
+
+
+
+## **Instituto Superior de Formación Docente N°109**
+Mar 2019 – Dic 2023
+
+*Prof. de Educación Secundaria* en Economía y Gestión
+
+- Adeudo último año
+
+
+
+# Habilidades
+**IA & Agentes:** Claude Code, Gemini, DeepSeek, Scikit-learn, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Pandas, NumPy
 
 **Testing & QA:** Tricentis Tosca, Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno
 
 **Dev & Ops:** Python, TypeScript, JavaScript, Java, Node.js, FastAPI, Flask, AWS, Docker, Jenkins, Linux, Bash, CI/CD
 
-**Observability & Data:** Grafana, Kibana, SQL, NoSQL, Matplotlib, Seaborn, Trace/Log Analysis, GitHub Actions
+**Observabilidad & Data:** Grafana, Kibana, SQL, NoSQL, Matplotlib, Seaborn, Análisis de Traces/Logs, GitHub Actions
 
-**Languages:** Spanish, English
+**Idiomas:** Español, Inglés
 
-# Projects
-## **Zenco.arg (In Prod)**
+# Proyectos
+## **Zenco.arg (En Prod)**
 
 - React 18 · Node.js · AI WhatsApp Bot · Gemini AI
 
 
 
-## **El Industrial (In Prod)**
+## **El Industrial (En Prod)**
 
 - Python · Vanilla JS · API REST · Telegram Bot · IA Reporting
 
