@@ -51,7 +51,8 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
       <footer class="no-print">
         <a
           href={cvFile}
-          title={t['hero.download']}
+          data-tooltip={t['hero.download']}
+          aria-label={t['hero.download']}
           download
           class="download-btn-premium"
           data-umami-event="download-cv"
@@ -66,8 +67,8 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
               href="#"
               data-copy={email}
               data-type="email"
-              title={`${t['hero.mail']} (${email})`}
-              aria-label={t['hero.mail']}
+              data-tooltip={`${t['hero.mail']}: ${email}`}
+              aria-label={`${t['hero.mail']}: ${email}`}
               class="copy-btn"
             >
               <Mail />
@@ -81,16 +82,16 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
                 href="#"
                 data-copy={phone}
                 data-type="phone"
-                title={`${t['hero.phone']} (${phone})`}
-                aria-label={t['hero.phone']}
+                data-tooltip={`${t['hero.phone']}: ${phone}`}
+                aria-label={`${t['hero.phone']}: ${phone}`}
                 class="copy-btn"
               >
                 <Phone />
               </a>
               <a
                 href={`https://wa.me/${phone.replace(/[^0-9]/g, "")}`}
-                title={`${t['hero.whatsapp']} ${name}`}
-                aria-label={t['hero.whatsapp']}
+                data-tooltip={`${t['hero.whatsapp']} ${name}`}
+                aria-label={`${t['hero.whatsapp']} ${name}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -106,7 +107,7 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
             return (
               <a
                 href={url}
-                title={`${t['hero.visit']} ${network}`}
+                data-tooltip={`${t['hero.visit']} ${network}`}
                 aria-label={`${t['hero.visit']} ${network}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -304,6 +305,11 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
     width: 32px;
     border-radius: 6px;
     transition: all 0.3s ease;
+    position: relative;
+  }
+
+  footer a svg {
+    pointer-events: none;
   }
 
   footer a.copy-btn {
@@ -313,6 +319,67 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
   footer a:hover {
     background: var(--bg-page-edge);
     border: 1px solid var(--bg-page-edge);
+  }
+
+  @media (hover: hover) {
+    footer.no-print a[data-tooltip]::before {
+      content: "";
+      position: absolute;
+      top: calc(100% + 3px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-2px);
+      border-width: 0 5px 5px 5px;
+      border-style: solid;
+      border-color: transparent transparent #18181b transparent;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      z-index: 1001;
+    }
+
+    :global(.dark) footer.no-print a[data-tooltip]::before {
+      border-color: transparent transparent #27272a transparent;
+    }
+
+    footer.no-print a[data-tooltip]::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-2px);
+      background: #18181b;
+      color: #f4f4f5;
+      font-size: 0.72rem;
+      font-weight: 500;
+      line-height: 1;
+      padding: 6px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    :global(.dark) footer.no-print a[data-tooltip]::after {
+      background: #27272a;
+      color: #fafafa;
+      border-color: rgba(255, 255, 255, 0.18);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+    }
+
+    footer.no-print a[data-tooltip]:hover::before,
+    footer.no-print a[data-tooltip]:hover::after,
+    footer.no-print a[data-tooltip]:focus-visible::before,
+    footer.no-print a[data-tooltip]:focus-visible::after {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
   }
 
   @media (width <= 700px) {
