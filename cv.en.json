@@ -43,15 +43,26 @@
     },
     {
       "name": "Tata Consultancy Service - Banco Galicia",
-      "position": "SSR QA Automation Engineer",
+      "position": "SSR QA Automation Engineer (QA Core Team)",
       "url": "",
-      "startDate": "2023-04-01",
-      "endDate": null,
+      "startDate": "2026-02-01",
+      "endDate": "2026-10-01",
       "summary": "",
       "highlights": [
-        "QA Automation (App, Web & API) in Tools & Data Tribe & AI Ambassador (AI Hub): Mobile App automation (Android/iOS) using AI agents via the new KrakenQA project in VS Code, and Web/API testing with Tricentis TOSCA.",
-        "Promoted to SSR following progression in Onboarding and technical testing in Retail Transfers on the critical mobile banking app.",
-        "Co-creator of CobroTron & FullTron: pioneered filtered-DOM auto-debugging pattern, POM suite generation, and unattended ALM sync."
+        "Cross-functional QA Automation: end-to-end multi-platform testing (Web, APIs, Mobile, and Desktop) using Tricentis TOSCA across the entire QA organization.",
+        "\"Kraken Mobile\" Project: developed AI agent for mobile app testing (Android/iOS), overcoming TOSCA + BrowserStack friction and accelerating regression suites."
+      ]
+    },
+    {
+      "name": "Tata Consultancy Service - Banco Galicia",
+      "position": "QA Manual & Automation Analyst",
+      "url": "",
+      "startDate": "2023-04-01",
+      "endDate": "2026-02-01",
+      "summary": "",
+      "highlights": [
+        "Technical QA and test execution across Onboarding and Retail Transfers on the mission-critical mobile banking application.",
+        "Co-creator of CobroTron & FullTron: pioneered filtered-DOM auto-debugging, POM suite generation, and unattended ALM sync."
       ]
     },
     {

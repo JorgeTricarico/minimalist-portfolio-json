@@ -6,7 +6,7 @@
   name: "Jorge Tricarico",
   title: "Jorge Tricarico - CV",
   footer: context { [#emph[Jorge Tricarico -- #str(here().page())\/#str(counter(page).final().first())]] },
-  top-note: [ #emph[Last updated in Sept 2026] ],
+  top-note: [ #emph[Last updated in Oct 2026] ],
   locale-catalog-language: "en",
   text-direction: ltr,
   page-size: "a4",
@@ -80,8 +80,8 @@
   entries-highlights-space-between-bullet-and-text: 0.5em,
   date: datetime(
     year: 2026,
-    month: 9,
-    day: 16,
+    month: 10,
+    day: 3,
   ),
 )
 
@@ -137,21 +137,38 @@ QA Automation Engineer specializing in end-to-end testing across Mobile (iOS\/An
 
 #regular-entry(
   [
-    #strong[Tata Consultancy Service - Banco Galicia], SSR QA Automation Engineer
+    #strong[Tata Consultancy Service - Banco Galicia], SSR QA Automation Engineer (QA Core Team)
 
-    - QA Automation (App, Web & API) in Tools & Data Tribe & AI Ambassador (AI Hub): Mobile App automation (Android\/iOS) using AI agents via the new KrakenQA project in VS Code, and Web\/API testing with Tricentis TOSCA.
+    - Cross-functional QA Automation: end-to-end multi-platform testing (Web, APIs, Mobile, and Desktop) using Tricentis TOSCA across the entire QA organization.
 
-    - Promoted to SSR following progression in Onboarding and technical testing in Retail Transfers on the critical mobile banking app.
-
-    - Co-creator of CobroTron & FullTron: pioneered filtered-DOM auto-debugging pattern, POM suite generation, and unattended ALM sync.
+    - \"Kraken Mobile\" Project: developed AI agent for mobile app testing (Android\/iOS), overcoming TOSCA + BrowserStack friction and accelerating regression suites.
 
   ],
   [
-    Apr 2023 – present
+    Feb 2026 – Oct 2026
 
     
 
-    3 years 6 months
+    9 months
+
+  ],
+)
+
+#regular-entry(
+  [
+    #strong[Tata Consultancy Service - Banco Galicia], QA Manual & Automation Analyst
+
+    - Technical QA and test execution across Onboarding and Retail Transfers on the mission-critical mobile banking application.
+
+    - Co-creator of CobroTron & FullTron: pioneered filtered-DOM auto-debugging, POM suite generation, and unattended ALM sync.
+
+  ],
+  [
+    Apr 2023 – Feb 2026
+
+    
+
+    2 years 11 months
 
   ],
 )

@@ -43,15 +43,26 @@
     },
     {
       "name": "Tata Consultancy Service - Banco Galicia",
-      "position": "SSR QA Automation Engineer",
+      "position": "SSR QA Automation Engineer (Área de Calidad)",
       "url": "",
-      "startDate": "2023-04-01",
-      "endDate": null,
+      "startDate": "2026-02-01",
+      "endDate": "2026-10-01",
       "summary": "",
       "highlights": [
-        "QA Automation (App, Web y API) en Tribu Herramientas y Datos y Embajador de IA (Hub AI): automatización de la App móvil (Android/iOS) con agentes de IA mediante el nuevo proyecto KrakenQA en VS Code, y pruebas Web/API con Tricentis TOSCA.",
-        "Promoción a SSR tras trayectoria en Onboarding y testing técnico en Transferencias Minoristas sobre la app móvil transaccional crítica.",
-        "Co-creador de CobroTron y FullTron: patrón pionero de auto-debug por DOM filtrado, generación de suites POM y sincronización desatendida con ALM."
+        "QA Automation transversal: diseño y ejecución de pruebas E2E multi-plataforma (Web, APIs, Mobile y Desktop) con Tricentis TOSCA para toda el área de Calidad institucional.",
+        "Proyecto \"Kraken Mobile\": desarrollo de agente de IA para pruebas en Apps móviles (Android/iOS), superando la fricción de TOSCA + BrowserStack y acelerando las suites de regresión."
+      ]
+    },
+    {
+      "name": "Tata Consultancy Service - Banco Galicia",
+      "position": "Analista QA Manual & Automation",
+      "url": "",
+      "startDate": "2023-04-01",
+      "endDate": "2026-02-01",
+      "summary": "",
+      "highlights": [
+        "Testing técnico y aseguramiento de calidad sobre Onboarding y Transferencias Minoristas en la app móvil transaccional crítica.",
+        "Co-creador de CobroTron y FullTron: herramientas pioneras de auto-debug por DOM filtrado, generación de suites POM y sincronización desatendida con ALM."
       ]
     },
     {

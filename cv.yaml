@@ -36,22 +36,30 @@ cv:
             Pipelines con autodiagnóstico iterativo y métricas DORA, escalando
             la cobertura técnica con equipo humano mínimo.
       - company: Tata Consultancy Service - Banco Galicia
-        position: SSR QA Automation Engineer
-        start_date: 2023-04
-        end_date: present
+        position: SSR QA Automation Engineer (Área de Calidad)
+        start_date: 2026-02
+        end_date: 2026-10
         highlights:
           - >-
-            QA Automation (App, Web y API) en Tribu Herramientas y Datos y
-            Embajador de IA (Hub AI): automatización de la App móvil (Android/iOS)
-            con agentes de IA mediante el nuevo proyecto KrakenQA en VS Code, y
-            pruebas Web/API con Tricentis TOSCA.
+            QA Automation transversal: diseño y ejecución de pruebas E2E
+            multi-plataforma (Web, APIs, Mobile y Desktop) con Tricentis TOSCA
+            para toda el área de Calidad institucional.
           - >-
-            Promoción a SSR tras trayectoria en Onboarding y testing técnico en
-            Transferencias Minoristas sobre la app móvil transaccional crítica.
+            Proyecto "Kraken Mobile": desarrollo de agente de IA para pruebas
+            en Apps móviles (Android/iOS), superando la fricción de TOSCA +
+            BrowserStack y acelerando las suites de regresión.
+      - company: Tata Consultancy Service - Banco Galicia
+        position: Analista QA Manual & Automation
+        start_date: 2023-04
+        end_date: 2026-02
+        highlights:
           - >-
-            Co-creador de CobroTron y FullTron: patrón pionero de auto-debug por
-            DOM filtrado, generación de suites POM y sincronización desatendida
-            con ALM.
+            Testing técnico y aseguramiento de calidad sobre Onboarding y
+            Transferencias Minoristas en la app móvil transaccional crítica.
+          - >-
+            Co-creador de CobroTron y FullTron: herramientas pioneras de
+            auto-debug por DOM filtrado, generación de suites POM y
+            sincronización desatendida con ALM.
       - company: Ada School - Colombia
         position: Profesor Python (BootCamp Data y FullStack)
         start_date: 2023-09

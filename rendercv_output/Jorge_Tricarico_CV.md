@@ -27,19 +27,31 @@ Feb 2026 – Aug 2026
 
 
 
-## **Tata Consultancy Service - Banco Galicia**, SSR QA Automation Engineer
+## **Tata Consultancy Service - Banco Galicia**, SSR QA Automation Engineer (QA Core Team)
 
-Apr 2023 – present
+Feb 2026 – Oct 2026
 
 
 
-3 years 6 months
+9 months
 
-- QA Automation (App, Web & API) in Tools & Data Tribe & AI Ambassador (AI Hub): Mobile App automation (Android/iOS) using AI agents via the new KrakenQA project in VS Code, and Web/API testing with Tricentis TOSCA.
+- Cross-functional QA Automation: end-to-end multi-platform testing (Web, APIs, Mobile, and Desktop) using Tricentis TOSCA across the entire QA organization.
 
-- Promoted to SSR following progression in Onboarding and technical testing in Retail Transfers on the critical mobile banking app.
+- "Kraken Mobile" Project: developed AI agent for mobile app testing (Android/iOS), overcoming TOSCA + BrowserStack friction and accelerating regression suites.
 
-- Co-creator of CobroTron & FullTron: pioneered filtered-DOM auto-debugging pattern, POM suite generation, and unattended ALM sync.
+
+
+## **Tata Consultancy Service - Banco Galicia**, QA Manual & Automation Analyst
+
+Apr 2023 – Feb 2026
+
+
+
+2 years 11 months
+
+- Technical QA and test execution across Onboarding and Retail Transfers on the mission-critical mobile banking application.
+
+- Co-creator of CobroTron & FullTron: pioneered filtered-DOM auto-debugging, POM suite generation, and unattended ALM sync.
 
 
 

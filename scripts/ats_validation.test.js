@@ -109,7 +109,7 @@ describe('Validación de Legibilidad ATS - CV en Español', () => {
       workExperiences.forEach((exp, index) => {
         const companyName = exp.name.split('-')[0].trim(); // Extraemos la parte principal del nombre de la empresa
         const normalizedCompany = normalizeText(companyName);
-        const currentIndex = normalizedPdf.indexOf(normalizedCompany);
+        const currentIndex = normalizedPdf.indexOf(normalizedCompany, previousIndex !== -1 ? previousIndex + 1 : 0);
 
         // Verificamos que la empresa actual aparezca en el documento
         expect(currentIndex).toBeGreaterThan(-1);
@@ -235,7 +235,7 @@ describe('ATS Legibility Validation - English CV', () => {
         // En inglés extraemos la primera parte del nombre de la compañía
         const companyName = exp.name.split('-')[0].trim();
         const normalizedCompany = normalizeText(companyName);
-        const currentIndex = normalizedPdf.indexOf(normalizedCompany);
+        const currentIndex = normalizedPdf.indexOf(normalizedCompany, previousIndex !== -1 ? previousIndex + 1 : 0);
 
         expect(currentIndex).toBeGreaterThan(-1);
 

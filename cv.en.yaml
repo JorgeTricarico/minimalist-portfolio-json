@@ -34,22 +34,29 @@ cv:
             Implemented self-diagnostic pipelines and DORA metrics, scaling
             technical coverage with minimal headcount.
       - company: Tata Consultancy Service - Banco Galicia
-        position: SSR QA Automation Engineer
-        start_date: 2023-04
-        end_date: present
+        position: SSR QA Automation Engineer (QA Core Team)
+        start_date: 2026-02
+        end_date: 2026-10
         highlights:
           - >-
-            QA Automation (App, Web & API) in Tools & Data Tribe & AI
-            Ambassador (AI Hub): Mobile App automation (Android/iOS) using AI
-            agents via the new KrakenQA project in VS Code, and Web/API testing
-            with Tricentis TOSCA.
+            Cross-functional QA Automation: end-to-end multi-platform testing
+            (Web, APIs, Mobile, and Desktop) using Tricentis TOSCA across the
+            entire QA organization.
           - >-
-            Promoted to SSR following progression in Onboarding and technical
-            testing in Retail Transfers on the critical mobile banking app.
+            "Kraken Mobile" Project: developed AI agent for mobile app testing
+            (Android/iOS), overcoming TOSCA + BrowserStack friction and
+            accelerating regression suites.
+      - company: Tata Consultancy Service - Banco Galicia
+        position: QA Manual & Automation Analyst
+        start_date: 2023-04
+        end_date: 2026-02
+        highlights:
+          - >-
+            Technical QA and test execution across Onboarding and Retail
+            Transfers on the mission-critical mobile banking application.
           - >-
             Co-creator of CobroTron & FullTron: pioneered filtered-DOM
-            auto-debugging pattern, POM suite generation, and unattended ALM
-            sync.
+            auto-debugging, POM suite generation, and unattended ALM sync.
       - company: Ada School - Colombia
         position: Python Instructor (Data & FullStack BootCamp)
         start_date: 2023-09
