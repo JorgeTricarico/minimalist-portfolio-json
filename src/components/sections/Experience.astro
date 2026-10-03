@@ -18,8 +18,8 @@ interface PositionItem {
   endDate: string | null
   summary?: string
   highlights?: string[]
-  startYear: number
-  endYear: number | string
+  formattedStart: string
+  formattedEnd: string
   duration: string
 }
 
@@ -28,16 +28,33 @@ interface CompanyExperience {
   url?: string
   startDate: string
   endDate: string | null
-  startYear: number
-  endYear: number | string
+  formattedStart: string
+  formattedEnd: string
   duration: string
   positions: PositionItem[]
+}
+
+const MONTH_NAMES: Record<string, string[]> = {
+  es: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+  en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+}
+
+function formatMonthYear(dateStr: string | null, currentLang: string, translations: Record<string, string>): string {
+  if (!dateStr || dateStr.toLowerCase() === 'present') {
+    return translations['experience.actual'] || (currentLang === 'es' ? 'Actual' : 'Present')
+  }
+  const date = new Date(dateStr)
+  if (isNaN(date.getTime())) return dateStr
+  const months = MONTH_NAMES[currentLang] || MONTH_NAMES.es
+  const month = months[date.getUTCMonth()]
+  const year = date.getUTCFullYear()
+  return `${month} ${year}`
 }
 
 function calculateDuration(startDateStr: string, endDateStr: string | null, translations: Record<string, string>): string {
   const start = new Date(startDateStr)
   const end = endDateStr != null && !isNaN(Date.parse(endDateStr)) ? new Date(endDateStr) : new Date()
-  const totalMonths = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth())
+  const totalMonths = Math.max(1, (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth()) + 1)
   const years = Math.floor(totalMonths / 12)
   const months = totalMonths % 12
 
@@ -47,16 +64,10 @@ function calculateDuration(startDateStr: string, endDateStr: string | null, tran
   ].filter(Boolean).join(' ').trim()
 }
 
-function getYearRange(startDateStr: string, endDateStr: string | null, translations: Record<string, string>) {
-  const startYear = new Date(startDateStr).getFullYear()
-  const endYear =
-    endDateStr != null ? (isNaN(Date.parse(endDateStr)) ? endDateStr : new Date(endDateStr).getFullYear()) : translations['experience.actual']
-  return { startYear, endYear }
-}
-
 const groupedExperiences = (work || []).reduce<CompanyExperience[]>((acc, item) => {
-  const itemYears = getYearRange(item.startDate, item.endDate, t)
   const itemDuration = calculateDuration(item.startDate, item.endDate, t)
+  const itemFormattedStart = formatMonthYear(item.startDate, lang, t)
+  const itemFormattedEnd = formatMonthYear(item.endDate, lang, t)
 
   const pos: PositionItem = {
     position: item.position,
@@ -64,8 +75,8 @@ const groupedExperiences = (work || []).reduce<CompanyExperience[]>((acc, item) 
     endDate: item.endDate,
     summary: item.summary,
     highlights: item.highlights,
-    startYear: itemYears.startYear,
-    endYear: itemYears.endYear,
+    formattedStart: itemFormattedStart,
+    formattedEnd: itemFormattedEnd,
     duration: itemDuration
   }
 
@@ -89,8 +100,8 @@ const groupedExperiences = (work || []).reduce<CompanyExperience[]>((acc, item) 
       url: item.url,
       startDate: item.startDate,
       endDate: item.endDate,
-      startYear: itemYears.startYear,
-      endYear: itemYears.endYear,
+      formattedStart: itemFormattedStart,
+      formattedEnd: itemFormattedEnd,
       duration: itemDuration,
       positions: [pos]
     })
@@ -100,9 +111,8 @@ const groupedExperiences = (work || []).reduce<CompanyExperience[]>((acc, item) 
 
 for (const company of groupedExperiences) {
   if (company.positions.length > 1) {
-    const years = getYearRange(company.startDate, company.endDate, t)
-    company.startYear = years.startYear
-    company.endYear = years.endYear
+    company.formattedStart = formatMonthYear(company.startDate, lang, t)
+    company.formattedEnd = formatMonthYear(company.endDate, lang, t)
     company.duration = calculateDuration(company.startDate, company.endDate, t)
   }
 }
@@ -149,13 +159,13 @@ for (const company of groupedExperiences) {
                       )}
                     </div>
 
-                    <div>
+                    <div class="date-container">
                       <time datetime={company.startDate} data-title={company.startDate}>
-                        {company.startYear}
+                        {company.formattedStart}
                       </time>
-                      {" - "}
-                      <time datetime={company.endDate ?? ''} data-title={company.endDate}>
-                        {company.endYear}
+                      {" – "}
+                      <time datetime={company.endDate ?? ''} data-title={company.endDate ?? t['experience.actual']}>
+                        {company.formattedEnd}
                       </time>
                     </div>
                   </header>
@@ -184,11 +194,11 @@ for (const company of groupedExperiences) {
                               <h5 class="role-title">{pos.position}</h5>
                               <div class="role-dates">
                                 <time datetime={pos.startDate} data-title={pos.startDate}>
-                                  {pos.startYear}
+                                  {pos.formattedStart}
                                 </time>
-                                {" - "}
-                                <time datetime={pos.endDate ?? ''} data-title={pos.endDate}>
-                                  {pos.endYear}
+                                {" – "}
+                                <time datetime={pos.endDate ?? ''} data-title={pos.endDate ?? t['experience.actual']}>
+                                  {pos.formattedEnd}
                                 </time>
                                 <span class="role-duration">({pos.duration})</span>
                               </div>
@@ -374,12 +384,19 @@ for (const company of groupedExperiences) {
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 4px;
+    gap: 16px;
+  }
+
+  .date-container {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    text-align: right;
   }
 
   time {
     color: var(--text-muted);
     font-size: 0.85rem;
-    min-width: 102px;
     cursor: default;
   }
 
@@ -511,8 +528,13 @@ for (const company of groupedExperiences) {
   }
 
   @media (width <= 700px) {
-    time {
-      text-align: right;
+    header {
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .date-container {
+      text-align: left;
     }
 
     .role-header {

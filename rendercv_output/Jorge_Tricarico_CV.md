@@ -11,25 +11,9 @@
 QA Automation Engineer specializing in end-to-end testing across Mobile (iOS/Android), Web, and APIs. With a solid technical foundation and builder mindset, I develop custom frameworks and AI agents to automate test diagnosis and generation, eliminating operational friction and accelerating continuous delivery with high autonomy.
 
 # Experience
-## **OneVisa - Dubai (UAE) / Spain**, (Part-time) Senior Principal QA Engineer (AI & Reliability)
-
-Feb 2026 – Aug 2026
-
-
-
-7 months
-
-- Sole QA engineer in high-growth startup: designed and implemented the end-to-end testing and reliability strategy from scratch.
-
-- Deployed autonomous QA Agent to production (Claude Code) for E2E testing and continuous product evolution without operational overhead.
-
-- Implemented self-diagnostic pipelines and DORA metrics, scaling technical coverage with minimal headcount.
-
-
-
 ## **Tata Consultancy Service - Banco Galicia**, SSR QA Automation Engineer (QA Core Team)
 
-Feb 2026 – Oct 2026
+Feb 2026 – present
 
 
 
@@ -52,6 +36,22 @@ Apr 2023 – Feb 2026
 - Technical QA and test execution across Onboarding and Retail Transfers on the mission-critical mobile banking application.
 
 - Co-creator of CobroTron & FullTron: pioneered filtered-DOM auto-debugging, POM suite generation, and unattended ALM sync.
+
+
+
+## **OneVisa - Dubai (UAE) / Spain**, (Part-time) Senior Principal QA Engineer (AI & Reliability)
+
+Feb 2026 – Aug 2026
+
+
+
+7 months
+
+- Sole QA engineer in high-growth startup: designed and implemented the end-to-end testing and reliability strategy from scratch.
+
+- Deployed autonomous QA Agent to production (Claude Code) for E2E testing and continuous product evolution without operational overhead.
+
+- Implemented self-diagnostic pipelines and DORA metrics, scaling technical coverage with minimal headcount.
 
 
 

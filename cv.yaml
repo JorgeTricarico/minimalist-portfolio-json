@@ -19,26 +19,10 @@ cv:
         automatizan el diagnóstico y la generación de pruebas, eliminando
         fricciones operativas y acelerando la entrega continua con alta autonomía.
     Experiencia:
-      - company: OneVisa - Dubai (UAE) / España
-        position: (Part-time) Senior Principal QA Engineer (AI & Reliability)
-        start_date: 2026-02
-        end_date: 2026-08
-        highlights:
-          - >-
-            Único responsable de QA en startup de alto crecimiento: diseño e
-            implementación de la estrategia integral de testing y confiabilidad
-            desde cero.
-          - >-
-            Implementación de Agente QA autónomo en producción (Claude Code)
-            para pruebas E2E y soporte a la evolución continua del producto sin
-            dependencia operativa.
-          - >-
-            Pipelines con autodiagnóstico iterativo y métricas DORA, escalando
-            la cobertura técnica con equipo humano mínimo.
       - company: Tata Consultancy Service - Banco Galicia
         position: SSR QA Automation Engineer (Área de Calidad)
         start_date: 2026-02
-        end_date: 2026-10
+        end_date: present
         highlights:
           - >-
             QA Automation transversal: diseño y ejecución de pruebas E2E
@@ -60,6 +44,22 @@ cv:
             Co-creador de CobroTron y FullTron: herramientas pioneras de
             auto-debug por DOM filtrado, generación de suites POM y
             sincronización desatendida con ALM.
+      - company: OneVisa - Dubai (UAE) / España
+        position: (Part-time) Senior Principal QA Engineer (AI & Reliability)
+        start_date: 2026-02
+        end_date: 2026-08
+        highlights:
+          - >-
+            Único responsable de QA en startup de alto crecimiento: diseño e
+            implementación de la estrategia integral de testing y confiabilidad
+            desde cero.
+          - >-
+            Implementación de Agente QA autónomo en producción (Claude Code)
+            para pruebas E2E y soporte a la evolución continua del producto sin
+            dependencia operativa.
+          - >-
+            Pipelines con autodiagnóstico iterativo y métricas DORA, escalando
+            la cobertura técnica con equipo humano mínimo.
       - company: Ada School - Colombia
         position: Profesor Python (BootCamp Data y FullStack)
         start_date: 2023-09

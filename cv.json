@@ -29,24 +29,11 @@
   },
   "work": [
     {
-      "name": "OneVisa - Dubai (UAE) / España",
-      "position": "(Part-time) Senior Principal QA Engineer (AI & Reliability)",
-      "url": "",
-      "startDate": "2026-02-01",
-      "endDate": "2026-08-01",
-      "summary": "",
-      "highlights": [
-        "Único responsable de QA en startup de alto crecimiento: diseño e implementación de la estrategia integral de testing y confiabilidad desde cero.",
-        "Implementación de Agente QA autónomo en producción (Claude Code) para pruebas E2E y soporte a la evolución continua del producto sin dependencia operativa.",
-        "Pipelines con autodiagnóstico iterativo y métricas DORA, escalando la cobertura técnica con equipo humano mínimo."
-      ]
-    },
-    {
       "name": "Tata Consultancy Service - Banco Galicia",
       "position": "SSR QA Automation Engineer (Área de Calidad)",
       "url": "",
       "startDate": "2026-02-01",
-      "endDate": "2026-10-01",
+      "endDate": null,
       "summary": "",
       "highlights": [
         "QA Automation transversal: diseño y ejecución de pruebas E2E multi-plataforma (Web, APIs, Mobile y Desktop) con Tricentis TOSCA para toda el área de Calidad institucional.",
@@ -63,6 +50,19 @@
       "highlights": [
         "Testing técnico y aseguramiento de calidad sobre Onboarding y Transferencias Minoristas en la app móvil transaccional crítica.",
         "Co-creador de CobroTron y FullTron: herramientas pioneras de auto-debug por DOM filtrado, generación de suites POM y sincronización desatendida con ALM."
+      ]
+    },
+    {
+      "name": "OneVisa - Dubai (UAE) / España",
+      "position": "(Part-time) Senior Principal QA Engineer (AI & Reliability)",
+      "url": "",
+      "startDate": "2026-02-01",
+      "endDate": "2026-08-01",
+      "summary": "",
+      "highlights": [
+        "Único responsable de QA en startup de alto crecimiento: diseño e implementación de la estrategia integral de testing y confiabilidad desde cero.",
+        "Implementación de Agente QA autónomo en producción (Claude Code) para pruebas E2E y soporte a la evolución continua del producto sin dependencia operativa.",
+        "Pipelines con autodiagnóstico iterativo y métricas DORA, escalando la cobertura técnica con equipo humano mínimo."
       ]
     },
     {

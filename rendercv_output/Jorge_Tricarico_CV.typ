@@ -116,27 +116,6 @@ QA Automation Engineer specializing in end-to-end testing across Mobile (iOS\/An
 
 #regular-entry(
   [
-    #strong[OneVisa - Dubai (UAE) \/ Spain], (Part-time) Senior Principal QA Engineer (AI & Reliability)
-
-    - Sole QA engineer in high-growth startup: designed and implemented the end-to-end testing and reliability strategy from scratch.
-
-    - Deployed autonomous QA Agent to production (Claude Code) for E2E testing and continuous product evolution without operational overhead.
-
-    - Implemented self-diagnostic pipelines and DORA metrics, scaling technical coverage with minimal headcount.
-
-  ],
-  [
-    Feb 2026 – Aug 2026
-
-    
-
-    7 months
-
-  ],
-)
-
-#regular-entry(
-  [
     #strong[Tata Consultancy Service - Banco Galicia], SSR QA Automation Engineer (QA Core Team)
 
     - Cross-functional QA Automation: end-to-end multi-platform testing (Web, APIs, Mobile, and Desktop) using Tricentis TOSCA across the entire QA organization.
@@ -145,7 +124,7 @@ QA Automation Engineer specializing in end-to-end testing across Mobile (iOS\/An
 
   ],
   [
-    Feb 2026 – Oct 2026
+    Feb 2026 – present
 
     
 
@@ -169,6 +148,27 @@ QA Automation Engineer specializing in end-to-end testing across Mobile (iOS\/An
     
 
     2 years 11 months
+
+  ],
+)
+
+#regular-entry(
+  [
+    #strong[OneVisa - Dubai (UAE) \/ Spain], (Part-time) Senior Principal QA Engineer (AI & Reliability)
+
+    - Sole QA engineer in high-growth startup: designed and implemented the end-to-end testing and reliability strategy from scratch.
+
+    - Deployed autonomous QA Agent to production (Claude Code) for E2E testing and continuous product evolution without operational overhead.
+
+    - Implemented self-diagnostic pipelines and DORA metrics, scaling technical coverage with minimal headcount.
+
+  ],
+  [
+    Feb 2026 – Aug 2026
+
+    
+
+    7 months
 
   ],
 )
