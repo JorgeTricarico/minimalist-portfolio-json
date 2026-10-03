@@ -66,7 +66,8 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
               href="#"
               data-copy={email}
               data-type="email"
-              title={t['hero.mail'] + ' ' + name}
+              title={`${t['hero.mail']} (${email})`}
+              aria-label={t['hero.mail']}
               class="copy-btn"
             >
               <Mail />
@@ -80,7 +81,8 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
                 href="#"
                 data-copy={phone}
                 data-type="phone"
-                title={t['hero.phone'] + ' ' + name}
+                title={`${t['hero.phone']} (${phone})`}
+                aria-label={t['hero.phone']}
                 class="copy-btn"
               >
                 <Phone />
@@ -88,6 +90,7 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
               <a
                 href={`https://wa.me/${phone.replace(/[^0-9]/g, "")}`}
                 title={`${t['hero.whatsapp']} ${name}`}
+                aria-label={t['hero.whatsapp']}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -103,7 +106,8 @@ const cvFile = lang === 'es' ? "/cv.pdf" : "/cv_en.pdf"
             return (
               <a
                 href={url}
-                title={`${t['hero.visit']} ${name} en ${network}`}
+                title={`${t['hero.visit']} ${network}`}
+                aria-label={`${t['hero.visit']} ${network}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-umami-event="visit-social"

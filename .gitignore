@@ -24,6 +24,7 @@ pnpm-debug.log*
 .history
 .venv/
 .gemini/
+.engram/
 *.txt
 *.cjs
 read_pdf.js
