@@ -12,7 +12,7 @@ os.makedirs(PUBLIC_DIR, exist_ok=True)
 os.makedirs(BRAIN_PARENT, exist_ok=True)
 
 # -------------------------------------------------------------
-# TEMPLATE 1: Variante en Español (Directa, sin humo, sin párrafos)
+# TEMPLATE 1: Variante en Español (AI Engineer Integral)
 # -------------------------------------------------------------
 html_variant_1 = """<!DOCTYPE html>
 <html lang="es">
@@ -154,29 +154,29 @@ html_variant_1 = """<!DOCTYPE html>
       <div class="role-title">
         <span>AI Engineer</span>
         <span class="role-separator">|</span>
-        <span class="role-sub">QA Automation &amp; Agentic Systems</span>
+        <span class="role-sub">Agentic Systems &amp; Software Intelligence</span>
       </div>
     </div>
 
     <div class="badges-row">
       <div class="badge-item">
         <span class="spark">✦</span>
-        <span>Agentes de IA para Calidad</span>
+        <span>Sistemas Agénticos &amp; Multi-Agente</span>
       </div>
       <div class="badge-item">
         <span class="spark">✦</span>
-        <span>Frameworks de Testing (Web • Mobile • API)</span>
+        <span>Automatización &amp; Plataformas de Software</span>
       </div>
       <div class="badge-item">
         <span class="spark">✦</span>
-        <span>Auditoría &amp; Evaluación de LLMs</span>
+        <span>Evaluación de Modelos &amp; Calidad (Evals)</span>
       </div>
     </div>
 
     <div class="footer-row">
       <span class="stack-label">Core Stack</span>
       <span>•</span>
-      <span class="stack-items">Python · LangGraph · Playwright · Docker · CI/CD</span>
+      <span class="stack-items">Python · LangGraph · LLMs · Playwright · Docker · CI/CD</span>
     </div>
   </div>
 </body>
@@ -184,7 +184,7 @@ html_variant_1 = """<!DOCTYPE html>
 """
 
 # -------------------------------------------------------------
-# TEMPLATE 2: Variante en Inglés (Global Tech Edition)
+# TEMPLATE 2: Variante en Inglés (AI Engineer & Agentic Systems)
 # -------------------------------------------------------------
 html_variant_2 = """<!DOCTYPE html>
 <html lang="en">
@@ -322,29 +322,29 @@ html_variant_2 = """<!DOCTYPE html>
       <div class="role-title">
         <span>AI Engineer</span>
         <span class="role-separator">|</span>
-        <span class="role-sub">QA Automation &amp; Agentic Systems</span>
+        <span class="role-sub">Agentic Systems &amp; Software Intelligence</span>
       </div>
     </div>
 
     <div class="badges-row">
       <div class="badge-item">
         <span class="spark">✦</span>
-        <span>AI Agents for Quality Engineering</span>
+        <span>Multi-Agent Architectures &amp; Workflows</span>
       </div>
       <div class="badge-item">
         <span class="spark">✦</span>
-        <span>Test Automation (Web • Mobile • API)</span>
+        <span>Software Automation &amp; Platforms</span>
       </div>
       <div class="badge-item">
         <span class="spark">✦</span>
-        <span>LLM Evals &amp; Governance</span>
+        <span>Model Evaluation, Observability &amp; Quality</span>
       </div>
     </div>
 
     <div class="footer-row">
       <span class="stack-label">Core Stack</span>
       <span>•</span>
-      <span class="stack-items">Python · LangGraph · Playwright · Docker · CI/CD</span>
+      <span class="stack-items">Python · LangGraph · LLMs · Playwright · Docker · CI/CD</span>
     </div>
   </div>
 </body>
@@ -361,7 +361,7 @@ html_variant_3 = """<!DOCTYPE html>
 <title>Banner Variant 3 (Minimal)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -448,20 +448,22 @@ html_variant_3 = """<!DOCTYPE html>
 <body>
   <div class="safe-zone"></div>
   <div class="content-zone">
-    <span class="top-label">AI Engineer &bull; QA Automation</span>
+    <span class="top-label">AI Engineer &bull; Agentic Systems</span>
     <h1 class="name">Jorge Tricarico</h1>
     <div class="subtitle">
-      <span>Agentes de Calidad</span>
+      <span>Sistemas Agénticos</span>
       <span class="dot">&bull;</span>
-      <span>Frameworks de Testing</span>
+      <span>Automatización de Software</span>
       <span class="dot">&bull;</span>
-      <span>Evaluación de LLMs</span>
+      <span>Evaluación de Modelos &amp; Calidad</span>
     </div>
     <div class="divider-line"></div>
     <div class="tags-row">
       <span class="active">Python</span>
       <span>/</span>
       <span class="active">LangGraph</span>
+      <span>/</span>
+      <span class="active">LLMs</span>
       <span>/</span>
       <span class="active">Playwright</span>
       <span>/</span>
@@ -472,10 +474,178 @@ html_variant_3 = """<!DOCTYPE html>
 </html>
 """
 
+# -------------------------------------------------------------
+# TEMPLATE 4: Variante AI Platform & Solutions Architecture
+# -------------------------------------------------------------
+html_variant_4 = """<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Banner Variant 4 (Platform & Solutions)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1584px;
+    height: 396px;
+    overflow: hidden;
+    background-color: #05070c;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #f8fafc;
+    position: relative;
+    display: flex;
+    background-image: 
+      radial-gradient(circle at 75% 30%, rgba(56, 189, 248, 0.08) 0%, transparent 55%),
+      linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 100% 100%, 32px 32px, 32px 32px;
+  }
+
+  .safe-zone {
+    width: 420px;
+    height: 100%;
+    position: relative;
+    border-right: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .content-zone {
+    flex: 1;
+    padding: 56px 64px 56px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+    position: relative;
+  }
+
+  .header-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  h1.name {
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    line-height: 1.1;
+  }
+
+  .role-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #38bdf8;
+    letter-spacing: 0.01em;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .role-separator {
+    color: #334155;
+    font-weight: 300;
+  }
+
+  .role-sub {
+    color: #94a3b8;
+    font-weight: 400;
+  }
+
+  .badges-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: nowrap;
+  }
+
+  .badge-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #e2e8f0;
+    letter-spacing: 0.01em;
+    backdrop-filter: blur(10px);
+  }
+
+  .badge-item .spark {
+    color: #38bdf8;
+    font-size: 13px;
+  }
+
+  .footer-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #64748b;
+  }
+
+  .stack-label {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    color: #475569;
+  }
+
+  .stack-items {
+    color: #94a3b8;
+    letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+  <div class="safe-zone"></div>
+  <div class="content-zone">
+    <div class="header-block">
+      <h1 class="name">Jorge Tricarico</h1>
+      <div class="role-title">
+        <span>AI Engineer</span>
+        <span class="role-separator">|</span>
+        <span class="role-sub">Agentes de IA &amp; Arquitectura de Software</span>
+      </div>
+    </div>
+
+    <div class="badges-row">
+      <div class="badge-item">
+        <span class="spark">✦</span>
+        <span>Agentes de IA &amp; Orquestación</span>
+      </div>
+      <div class="badge-item">
+        <span class="spark">✦</span>
+        <span>Plataformas de Automatización a Escala</span>
+      </div>
+      <div class="badge-item">
+        <span class="spark">✦</span>
+        <span>Benchmarks, Gobernanza &amp; Calidad de LLMs</span>
+      </div>
+    </div>
+
+    <div class="footer-row">
+      <span class="stack-label">Ecosistema</span>
+      <span>•</span>
+      <span class="stack-items">Python · LangGraph · LLMs · Playwright · CI/CD Pipelines · Docker</span>
+    </div>
+  </div>
+</body>
+</html>
+"""
+
 configs = [
-    ("linkedin-banner-clean-es.png", "temp_es.html", html_variant_1, "Variante 1: Español Directa"),
-    ("linkedin-banner-clean-en.png", "temp_en.html", html_variant_2, "Variante 2: English Global Tech"),
-    ("linkedin-banner-clean-minimal.png", "temp_min.html", html_variant_3, "Variante 3: Ultra Minimalista Vercel Style")
+    ("linkedin-banner-clean-es.png", "temp_es.html", html_variant_1, "Variante 1: AI Engineer Integral (ES)"),
+    ("linkedin-banner-clean-en.png", "temp_en.html", html_variant_2, "Variante 2: AI Engineer Global Tech (EN)"),
+    ("linkedin-banner-clean-minimal.png", "temp_min.html", html_variant_3, "Variante 3: Ultra Minimalista Vercel Style"),
+    ("linkedin-banner-clean-platform.png", "temp_plat.html", html_variant_4, "Variante 4: Plataformas & Agentes (ES)")
 ]
 
 for img_name, html_name, html_content, label in configs:
@@ -512,4 +682,4 @@ for img_name, html_name, html_content, label in configs:
     if os.path.exists(temp_img):
         os.remove(temp_img)
 
-print("Finished rendering all clean banners!")
+print("Finished rendering all broadened AI Engineer banners!")
