@@ -5,7 +5,7 @@
     "image": "/perfil.jpg",
     "email": "jorge.tricarico@gmail.com",
     "phone": "+54 9 11 50479769",
-    "url": "",
+    "url": "https://jorge-tricarico.onrender.com/?utm_source=cv&utm_medium=pdf&utm_campaign=resume_apply",
     "summary": "AI Engineer especializado en automatización de pruebas y desarrollo de sistemas agénticos para aplicaciones Web, Mobile y APIs. Diseño frameworks y agentes de IA enfocados en acelerar la creación y ejecución de pruebas, reducir tiempos de mantenimiento y escalar la cobertura en los equipos.",
     "location": {
       "address": "",
@@ -30,39 +30,15 @@
   "work": [
     {
       "name": "Tata Consultancy Service - Banco Galicia",
-      "position": "AI Engineer (Hub de IA - Calidad)",
+      "position": "",
       "url": "",
-      "startDate": "2026-10-01",
+      "startDate": "2023-04-01",
       "endDate": null,
       "summary": "",
       "highlights": [
-        "Evolución y arquitectura de \"CobroTron\": agente de IA líder en adopción y ejecuciones en el área de Calidad para automatización de pruebas web.",
-        "Integración ágil en Comercio Exterior: diseño e incorporación de la base POM para el canal ComEx en < 1 semana, acelerando las suites del negocio.",
-        "Auditoría y gobernanza técnica de agentes de IA en Calidad, y consultoría transversal a squads para adopción de testing asistido por IA."
-      ]
-    },
-    {
-      "name": "Tata Consultancy Service - Banco Galicia",
-      "position": "SSR QA Automation Engineer (Área de Calidad)",
-      "url": "",
-      "startDate": "2026-02-01",
-      "endDate": "2026-10-01",
-      "summary": "",
-      "highlights": [
-        "QA Automation transversal: diseño y ejecución de pruebas E2E multi-plataforma (Web, APIs, Mobile y Desktop) con Tricentis TOSCA para toda el área de Calidad institucional.",
-        "Proyecto \"Kraken Mobile\": desarrollo de agente de IA para pruebas en Apps móviles (Android/iOS), superando la fricción de TOSCA + BrowserStack y acelerando las suites de regresión."
-      ]
-    },
-    {
-      "name": "Tata Consultancy Service - Banco Galicia",
-      "position": "Analista QA Manual & Automation",
-      "url": "",
-      "startDate": "2023-04-01",
-      "endDate": "2026-02-01",
-      "summary": "",
-      "highlights": [
-        "Testing técnico y aseguramiento de calidad sobre Onboarding y Transferencias Minoristas en la app móvil transaccional crítica.",
-        "Co-creador de CobroTron y FullTron: herramientas pioneras de auto-debug por DOM filtrado, generación de suites POM y sincronización desatendida con ALM."
+        "**AI Engineer (Hub de IA & Calidad)** (*Oct 2026 – presente*) - Evolución y arquitectura de \"CobroTron\": agente de IA líder en adopción y ejecuciones en Calidad para testing web. - Integración ágil en Comercio Exterior: diseño e incorporación de base POM para ComEx en < 1 semana. - Auditoría y gobernanza técnica de agentes de IA en Calidad, y consultoría transversal a squads.",
+        "**SSR QA Automation Engineer (Área de Calidad)** (*Feb 2026 – Oct 2026*) - QA Automation transversal: diseño y ejecución de pruebas E2E multi-plataforma (Web, APIs, Mobile y Desktop) con Tricentis TOSCA institucional. - Proyecto \"Kraken Mobile\": desarrollo de agente de IA para pruebas en Apps móviles (Android/iOS) acelerando regresiones.",
+        "**Analista QA Manual & Automation** (*Abr 2023 – Feb 2026*) - Testing técnico y aseguramiento de calidad sobre Onboarding y Transferencias en la app móvil transaccional crítica. - Co-creador de CobroTron y FullTron: herramientas pioneras de auto-debug por DOM filtrado y sincronización con ALM."
       ]
     },
     {

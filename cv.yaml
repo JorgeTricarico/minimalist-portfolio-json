@@ -5,153 +5,117 @@ cv:
   location: Buenos Aires, AR
   email: jorge.tricarico@gmail.com
   phone: +54 9 11 50479769
+  website: https://jorge-tricarico.onrender.com/?utm_source=cv&utm_medium=pdf&utm_campaign=resume_apply
   social_networks:
-    - network: LinkedIn
-      username: jorge-tricarico
-    - network: GitHub
-      username: JorgeTricarico
+  - network: LinkedIn
+    username: jorge-tricarico
+  - network: GitHub
+    username: JorgeTricarico
   sections:
     Resumen:
-      - >-
-        AI Engineer especializado en automatización de pruebas y desarrollo de
-        sistemas agénticos para aplicaciones Web, Mobile y APIs. Diseño frameworks
-        y agentes de IA enfocados en acelerar la creación y ejecución de pruebas,
-        reducir tiempos de mantenimiento y escalar la cobertura en los equipos.
+    - AI Engineer especializado en automatización de pruebas y desarrollo de sistemas
+      agénticos para aplicaciones Web, Mobile y APIs. Diseño frameworks y agentes
+      de IA enfocados en acelerar la creación y ejecución de pruebas, reducir tiempos
+      de mantenimiento y escalar la cobertura en los equipos.
     Experiencia:
-      - company: Tata Consultancy Service - Banco Galicia
-        position: AI Engineer (Hub de IA - Calidad)
-        start_date: 2026-10
-        end_date: present
-        highlights:
-          - >-
-            Evolución y arquitectura de "CobroTron": agente de IA líder en adopción
-            y ejecuciones en el área de Calidad para automatización de pruebas web.
-          - >-
-            Integración ágil en Comercio Exterior: diseño e incorporación de la base
-            POM para el canal ComEx en < 1 semana, acelerando las suites del negocio.
-          - >-
-            Auditoría y gobernanza técnica de agentes de IA en Calidad, y consultoría
-            transversal a squads para adopción de testing asistido por IA.
-      - company: Tata Consultancy Service - Banco Galicia
-        position: SSR QA Automation Engineer (Área de Calidad)
-        start_date: 2026-02
-        end_date: 2026-10
-        highlights:
-          - >-
-            QA Automation transversal: diseño y ejecución de pruebas E2E
-            multi-plataforma (Web, APIs, Mobile y Desktop) con Tricentis TOSCA
-            para toda el área de Calidad institucional.
-          - >-
-            Proyecto "Kraken Mobile": desarrollo de agente de IA para pruebas
-            en Apps móviles (Android/iOS), superando la fricción de TOSCA +
-            BrowserStack y acelerando las suites de regresión.
-      - company: Tata Consultancy Service - Banco Galicia
-        position: Analista QA Manual & Automation
-        start_date: 2023-04
-        end_date: 2026-02
-        highlights:
-          - >-
-            Testing técnico y aseguramiento de calidad sobre Onboarding y
-            Transferencias Minoristas en la app móvil transaccional crítica.
-          - >-
-            Co-creador de CobroTron y FullTron: herramientas pioneras de
-            auto-debug por DOM filtrado, generación de suites POM y
-            sincronización desatendida con ALM.
-      - company: OneVisa - Dubai (UAE) / España
-        position: (Part-time) Senior Principal QA Engineer (AI & Reliability)
-        start_date: 2026-02
-        end_date: 2026-08
-        highlights:
-          - >-
-            Único responsable de QA en startup de alto crecimiento: diseño e
-            implementación de la estrategia integral de testing y confiabilidad
-            desde cero.
-          - >-
-            Implementación de Agente QA autónomo en producción (Claude Code)
-            y pipelines con autodiagnóstico iterativo y métricas DORA.
-      - company: Ada School - Colombia
-        position: Profesor Python (BootCamp Data y FullStack)
-        start_date: 2023-09
-        end_date: 2024-10
-        highlights:
-          - >-
-            Mentoría técnica avanzada en Python enfocada en la calidad del
-            código, arquitectura de software y mejores prácticas de desarrollo
-            para perfiles internacionales.
+    - company: Tata Consultancy Service - Banco Galicia
+      position: ''
+      start_date: 2023-04
+      end_date: present
+      highlights:
+      - '**AI Engineer (Hub de IA & Calidad)** (*Oct 2026 – presente*) - Evolución
+        y arquitectura de "CobroTron": agente de IA líder en adopción y ejecuciones
+        en Calidad para testing web. - Integración ágil en Comercio Exterior: diseño
+        e incorporación de base POM para ComEx en < 1 semana. - Auditoría y gobernanza
+        técnica de agentes de IA en Calidad, y consultoría transversal a squads.'
+      - '**SSR QA Automation Engineer (Área de Calidad)** (*Feb 2026 – Oct 2026*)
+        - QA Automation transversal: diseño y ejecución de pruebas E2E multi-plataforma
+        (Web, APIs, Mobile y Desktop) con Tricentis TOSCA institucional. - Proyecto
+        "Kraken Mobile": desarrollo de agente de IA para pruebas en Apps móviles (Android/iOS)
+        acelerando regresiones.'
+      - '**Analista QA Manual & Automation** (*Abr 2023 – Feb 2026*) - Testing técnico
+        y aseguramiento de calidad sobre Onboarding y Transferencias en la app móvil
+        transaccional crítica. - Co-creador de CobroTron y FullTron: herramientas
+        pioneras de auto-debug por DOM filtrado y sincronización con ALM.'
+    - company: OneVisa - Dubai (UAE) / España
+      position: (Part-time) Senior Principal QA Engineer (AI & Reliability)
+      start_date: 2026-02
+      end_date: 2026-08
+      highlights:
+      - 'Único responsable de QA en startup de alto crecimiento: diseño e implementación
+        de la estrategia integral de testing y confiabilidad desde cero.'
+      - Implementación de Agente QA autónomo en producción (Claude Code) y pipelines
+        con autodiagnóstico iterativo y métricas DORA.
+    - company: Ada School - Colombia
+      position: Profesor Python (BootCamp Data y FullStack)
+      start_date: 2023-09
+      end_date: 2024-10
+      highlights:
+      - Mentoría técnica avanzada en Python enfocada en la calidad del código, arquitectura
+        de software y mejores prácticas de desarrollo para perfiles internacionales.
     Educación:
-      - institution: Universidad Nacional de Hurlingham
-        area: Inteligencia Artificial
-        degree: Tec. Universitaria
-        start_date: 2024-01
-        end_date: present
-      - institution: Instituto Superior de Formación Docente N°109
-        area: Economía y Gestión
-        degree: Prof. de Educación Secundaria
-        start_date: 2019-03
-        end_date: 2023-12
-        highlights:
-          - Adeudo último año
+    - institution: Universidad Nacional de Hurlingham
+      area: Inteligencia Artificial
+      degree: Tec. Universitaria
+      start_date: 2024-01
+      end_date: present
+    - institution: Instituto Superior de Formación Docente N°109
+      area: Economía y Gestión
+      degree: Prof. de Educación Secundaria
+      start_date: 2019-03
+      end_date: 2023-12
+      highlights:
+      - Adeudo último año
     Habilidades:
-      - label: IA & Agentes
-        details: >-
-          Claude Code, Gemini, DeepSeek, Scikit-learn, GitHub Copilot, Cursor,
-          Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Pandas,
-          NumPy
-      - label: Testing & QA
-        details: >-
-          Tricentis Tosca, Playwright, Cypress, Selenium, Appium, Pytest, k6
-          (Performance), Postman, Bruno
-      - label: Dev & Ops
-        details: >-
-          Python, TypeScript, JavaScript, Java, Node.js, FastAPI, Flask, AWS,
-          Docker, Jenkins, Linux, Bash, CI/CD
-      - label: Observabilidad & Data
-        details: >-
-          Grafana, Kibana, SQL, NoSQL, Matplotlib, Seaborn, Análisis de
-          Traces/Logs, GitHub Actions
-      - label: Idiomas
-        details: Español, Inglés
+    - label: IA & Agentes
+      details: Claude Code, Gemini, DeepSeek, Scikit-learn, GitHub Copilot, Cursor,
+        Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Pandas, NumPy
+    - label: Testing & QA
+      details: Tricentis Tosca, Playwright, Cypress, Selenium, Appium, Pytest, k6
+        (Performance), Postman, Bruno
+    - label: Dev & Ops
+      details: Python, TypeScript, JavaScript, Java, Node.js, FastAPI, Flask, AWS,
+        Docker, Jenkins, Linux, Bash, CI/CD
+    - label: Observabilidad & Data
+      details: Grafana, Kibana, SQL, NoSQL, Matplotlib, Seaborn, Análisis de Traces/Logs,
+        GitHub Actions
+    - label: Idiomas
+      details: Español, Inglés
     Proyectos:
-      - name: Zenco.arg (En Prod)
-        isActive: 'true'
-        description: >-
-          Plataforma de modernización para emprendimientos de diseño y arreglos
-          de ropa. Incluye un Dashboard Web premium para gestión de órdenes y un
-          Bot de WhatsApp con IA (Gemini) que atiende clientes y consulta
-          estados de pedidos de forma autónoma.
-        highlights:
-          - React 18 · Node.js · AI WhatsApp Bot · Gemini AI
-        url: https://github.com/JorgeTricarico/platform
-        github: https://github.com/JorgeTricarico/platform
-        imageLight: /zenko_light.png
-        imageDark: /zenko_dark.png
-      - name: El Industrial (En Prod)
-        isActive: 'true'
-        description: >-
-          Sistema de automatización de precios para suministros industriales.
-          Gestiona telemetría de alta frecuencia desde la API de Bertual, aplica
-          protección de márgenes y genera reportes ejecutivos diarios con IA
-          enviados por Telegram.
-        highlights:
-          - Python · Vanilla JS · API REST · Telegram Bot · IA Reporting
-        url: https://github.com/JorgeTricarico/El-Industrial
-        github: https://github.com/JorgeTricarico/El-Industrial
-        imageLight: /industrial_light.png
-        imageDark: /industrial_dark.png
-      - name: Portfolio CV (Live)
-        isActive: 'true'
-        description: >-
-          Versión altamente personalizada y mejorada del fork original. Integra
-          la tecnología de RenderCV para la generación de PDFs optimizados para
-          sistemas ATS. Implementé un sistema multi-idioma (i18n), modo oscuro
-          avanzado con detección automática, paleta de comandos interactiva
-          (Ctrl+K) y una interfaz premium con efectos ambient-blur.
-        highlights:
-          - >-
-            JSON Resume · Astro · RenderCV (ATS Friendly) · i18n · Advanced Dark
-            Mode
-        url: https://github.com/JorgeTricarico/minimalist-portfolio-json
-        github: https://github.com/JorgeTricarico/minimalist-portfolio-json
+    - name: Zenco.arg (En Prod)
+      isActive: 'true'
+      description: Plataforma de modernización para emprendimientos de diseño y arreglos
+        de ropa. Incluye un Dashboard Web premium para gestión de órdenes y un Bot
+        de WhatsApp con IA (Gemini) que atiende clientes y consulta estados de pedidos
+        de forma autónoma.
+      highlights:
+      - React 18 · Node.js · AI WhatsApp Bot · Gemini AI
+      url: https://github.com/JorgeTricarico/platform
+      github: https://github.com/JorgeTricarico/platform
+      imageLight: /zenko_light.png
+      imageDark: /zenko_dark.png
+    - name: El Industrial (En Prod)
+      isActive: 'true'
+      description: Sistema de automatización de precios para suministros industriales.
+        Gestiona telemetría de alta frecuencia desde la API de Bertual, aplica protección
+        de márgenes y genera reportes ejecutivos diarios con IA enviados por Telegram.
+      highlights:
+      - Python · Vanilla JS · API REST · Telegram Bot · IA Reporting
+      url: https://github.com/JorgeTricarico/El-Industrial
+      github: https://github.com/JorgeTricarico/El-Industrial
+      imageLight: /industrial_light.png
+      imageDark: /industrial_dark.png
+    - name: Portfolio CV (Live)
+      isActive: 'true'
+      description: Versión altamente personalizada y mejorada del fork original. Integra
+        la tecnología de RenderCV para la generación de PDFs optimizados para sistemas
+        ATS. Implementé un sistema multi-idioma (i18n), modo oscuro avanzado con detección
+        automática, paleta de comandos interactiva (Ctrl+K) y una interfaz premium
+        con efectos ambient-blur.
+      highlights:
+      - JSON Resume · Astro · RenderCV (ATS Friendly) · i18n · Advanced Dark Mode
+      url: https://github.com/JorgeTricarico/minimalist-portfolio-json
+      github: https://github.com/JorgeTricarico/minimalist-portfolio-json
 design:
   theme: classic
   page:
@@ -184,16 +148,17 @@ design:
     space_between_regular_entries: 0.4em
     space_between_text_based_entries: 0.2em
     show_time_spans_in:
-      - Experiencia
+    - Experiencia
   entries:
     degree_width: 0cm
     date_and_location_width: 3.8cm
   templates:
     education_entry:
-      main_column: |-
-        **INSTITUTION**
+      main_column: '**INSTITUTION**
+
         *DEGREE* en AREA
-        HIGHLIGHTS
+
+        HIGHLIGHTS'
       degree_column: ''
 settings:
   bold_keywords: []

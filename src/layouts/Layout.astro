@@ -13,7 +13,7 @@ const {
   title, 
   description = "", 
   image = "/perfil.jpg", 
-  url = "https://jorgetricarico.com",
+  url = "https://jorge-tricarico.onrender.com",
   lang = "es"
 } = Astro.props
 
@@ -21,6 +21,11 @@ const themeLabels = {
   es: { dark: 'Oscuro', light: 'Claro' },
   en: { dark: 'Dark', light: 'Light' }
 }[lang as 'es' | 'en'] || { dark: 'Oscuro', light: 'Claro' };
+
+const posthogKey = import.meta.env.PUBLIC_POSTHOG_KEY || "";
+const telegramToken = import.meta.env.PUBLIC_TELEGRAM_BOT_TOKEN || "";
+const telegramChatId = import.meta.env.PUBLIC_TELEGRAM_CHAT_ID || "";
+const discordWebhook = import.meta.env.PUBLIC_DISCORD_WEBHOOK || "";
 ---
 
 <!doctype html>
@@ -53,12 +58,221 @@ const themeLabels = {
     <meta name="twitter:image:width" content="1200" />
     <meta name="twitter:image:height" content="630" />
     
-    <!-- Umami Analytics -->
-    <script is:inline defer src="https://cloud.umami.is/script.js" data-website-id="d59a6c31-518c-4004-b635-3d93994a2aa9"></script>
+    <!-- 1. Auto-Exclusión de Visitas Propias (?me=1 o ?admin=1 para silenciar, ?me=0 para reactivar) -->
     <script is:inline>
-      // Re-track pageview and preserve theme on Astro View Transitions
+      (function() {
+        try {
+          const params = new URLSearchParams(window.location.search);
+          const isMeParam = params.get('me');
+          const isAdminParam = params.get('admin');
+
+          if (isMeParam === '1' || isAdminParam === '1') {
+            localStorage.setItem('umami.disabled', '1');
+            localStorage.setItem('portfolio_excluded', '1');
+            document.cookie = "portfolio_excluded=1; max-age=31536000; path=/; SameSite=Lax";
+            params.delete('me');
+            params.delete('admin');
+            const cleanUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+            window.history.replaceState({}, '', cleanUrl);
+            sessionStorage.setItem('just_excluded', '1');
+            console.info("🛡️ [Analytics] Modo Administrador activado: Visitas propias excluidas del tracking.");
+          } else if (isMeParam === '0' || isAdminParam === '0') {
+            localStorage.removeItem('umami.disabled');
+            localStorage.removeItem('portfolio_excluded');
+            document.cookie = "portfolio_excluded=; max-age=0; path=/;";
+            params.delete('me');
+            params.delete('admin');
+            const cleanUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+            window.history.replaceState({}, '', cleanUrl);
+            sessionStorage.setItem('just_included', '1');
+            console.info("👁️ [Analytics] Tracking reactivado para este dispositivo.");
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      })();
+    </script>
+
+    <!-- 2. Umami Analytics -->
+    <script is:inline defer src="https://cloud.umami.is/script.js" data-website-id="d59a6c31-518c-4004-b635-3d93994a2aa9"></script>
+
+    <!-- 3. PostHog Analytics & Session Replay -->
+    <script is:inline define:vars={{ posthogKey }}>
+      !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+
+      (function() {
+        const key = posthogKey || (typeof window !== 'undefined' ? window.POSTHOG_API_KEY : '');
+        const isExcluded = localStorage.getItem('portfolio_excluded') === '1' || localStorage.getItem('umami.disabled') === '1';
+
+        if (key && key !== "YOUR_POSTHOG_API_KEY") {
+          window.posthog.init(key, {
+            api_host: 'https://us.i.posthog.com',
+            person_profiles: 'always',
+            autocapture: true,
+            opt_out_capturing_by_default: isExcluded,
+            session_recording: {
+              maskAllInputs: false
+            }
+          });
+          if (isExcluded && typeof window.posthog.opt_out_capturing === 'function') {
+            window.posthog.opt_out_capturing();
+          }
+        }
+      })();
+    </script>
+
+    <!-- 4. Inteligencia de Visitantes, Detección de Reclutadores y Alertas -->
+    <script is:inline define:vars={{ telegramToken, telegramChatId, discordWebhook }}>
+      (function() {
+        const isExcluded = localStorage.getItem('portfolio_excluded') === '1' || localStorage.getItem('umami.disabled') === '1';
+        if (isExcluded) return;
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const utmSource = urlParams.get('utm_source');
+        const utmMedium = urlParams.get('utm_medium');
+        const utmCampaign = urlParams.get('utm_campaign');
+        const referrer = document.referrer || '';
+
+        const isLinkedInReferrer = /linkedin\.com|lnkd\.in|com\.linkedin\.android/i.test(referrer);
+        const isRecruiterUTM = utmSource === 'linkedin' || utmSource === 'cv' || utmMedium === 'dm' || 
+                               (utmCampaign && /recruit|recruiter|inmail|apply|candidate/i.test(utmCampaign));
+        const isRecruiter = isRecruiterUTM || isLinkedInReferrer;
+
+        if (isRecruiter) {
+          sessionStorage.setItem('is_recruiter', 'true');
+          sessionStorage.setItem('recruiter_source', utmSource || (isLinkedInReferrer ? 'linkedin_referrer' : 'direct'));
+          if (utmMedium) sessionStorage.setItem('recruiter_medium', utmMedium);
+          if (utmCampaign) sessionStorage.setItem('recruiter_campaign', utmCampaign);
+        }
+
+        function sendAlert(title, details) {
+          if (telegramToken && telegramChatId) {
+            fetch('https://api.telegram.org/bot' + telegramToken + '/sendMessage', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                chat_id: telegramChatId,
+                text: '*' + title + '*\n' + details,
+                parse_mode: 'Markdown'
+              })
+            }).catch(function() {});
+          }
+          if (discordWebhook) {
+            fetch(discordWebhook, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                content: '**' + title + '**\n' + details.replace(/\*/g, '**')
+              })
+            }).catch(function() {});
+          }
+        }
+
+        function fetchVisitorIntel(callback) {
+          const cached = sessionStorage.getItem('visitor_intel');
+          if (cached) {
+            try { callback(JSON.parse(cached)); return; } catch(e){}
+          }
+          fetch('https://ipwho.is/')
+            .then(function(res) { return res.json(); })
+            .then(function(geo) {
+              if (!geo || !geo.success) return;
+              const info = {
+                ip: geo.ip,
+                city: geo.city,
+                region: geo.region,
+                country: geo.country,
+                org: (geo.connection && geo.connection.org) || (geo.connection && geo.connection.isp) || 'Desconocido',
+                isp: (geo.connection && geo.connection.isp) || '',
+                asn: geo.connection && geo.connection.asn ? 'AS' + geo.connection.asn : ''
+              };
+              sessionStorage.setItem('visitor_intel', JSON.stringify(info));
+              callback(info);
+            })
+            .catch(function() {});
+        }
+
+        fetchVisitorIntel(function(info) {
+          if (isRecruiter && !sessionStorage.getItem('recruiter_tracked')) {
+            sessionStorage.setItem('recruiter_tracked', '1');
+
+            if (typeof window.umami !== 'undefined' && typeof window.umami.track === 'function') {
+              window.umami.track('recruiter-visit', {
+                source: utmSource || (isLinkedInReferrer ? 'linkedin' : 'unknown'),
+                medium: utmMedium || 'inmail_or_profile',
+                campaign: utmCampaign || 'none',
+                city: info.city,
+                org: info.org
+              });
+            }
+
+            if (typeof window.posthog !== 'undefined' && typeof window.posthog.capture === 'function') {
+              window.posthog.capture('recruiter_visit', {
+                utm_source: utmSource,
+                utm_medium: utmMedium,
+                utm_campaign: utmCampaign,
+                referrer: referrer,
+                ip: info.ip,
+                city: info.city,
+                country: info.country,
+                organization: info.org,
+                isp: info.isp
+              });
+              if (typeof window.posthog.identify === 'function') {
+                window.posthog.identify(undefined, {
+                  is_recruiter: true,
+                  last_organization: info.org,
+                  last_city: info.city,
+                  last_source: utmSource || (isLinkedInReferrer ? 'linkedin' : 'unknown')
+                });
+              }
+            }
+
+            sendAlert('🎯 ¡Reclutador / Visita Detectada!', [
+              '🏢 *Organización/ISP:* ' + info.org + (info.asn ? ' (' + info.asn + ')' : ''),
+              '📍 *Ubicación:* ' + info.city + ', ' + info.country,
+              '🔗 *Fuente:* ' + (utmSource || (isLinkedInReferrer ? 'LinkedIn' : 'Directo')) + (utmCampaign ? ' (' + utmCampaign + ')' : ''),
+              '📄 *Ruta:* ' + window.location.pathname
+            ].join('\n'));
+          }
+        });
+
+        document.addEventListener('click', function(e) {
+          const btn = e.target.closest && e.target.closest('[data-umami-event="download-cv"]');
+          if (!btn) return;
+
+          const cached = sessionStorage.getItem('visitor_intel');
+          const info = cached ? JSON.parse(cached) : {};
+          const isRec = sessionStorage.getItem('is_recruiter') === 'true';
+          const cvLang = btn.dataset.umamiEventLang || 'es';
+
+          if (typeof window.posthog !== 'undefined' && typeof window.posthog.capture === 'function') {
+            window.posthog.capture('download_cv', {
+              is_recruiter: isRec,
+              lang: cvLang,
+              city: info.city,
+              country: info.country,
+              organization: info.org
+            });
+          }
+
+          sendAlert('📥 ¡Descarga de CV!', [
+            '👤 *Tipo:* ' + (isRec ? 'Reclutador' : 'Visitante'),
+            '📄 *Idioma:* ' + cvLang.toUpperCase(),
+            '🏢 *Organización/ISP:* ' + (info.org || 'Desconocido'),
+            '📍 *Ubicación:* ' + (info.city || 'Desconocida') + (info.country ? ', ' + info.country : '')
+          ].join('\n'));
+        });
+      })();
+    </script>
+
+    <!-- 5. ViewTransitions Re-tracking -->
+    <script is:inline>
       document.addEventListener('astro:after-swap', function() {
         if (typeof window.umami !== 'undefined') window.umami.track();
+        if (typeof window.posthog !== 'undefined' && typeof window.posthog.capture === 'function') {
+          window.posthog.capture('$pageview');
+        }
         if (localStorage.getItem('theme') === 'dark') {
           document.documentElement.classList.add('dark');
           document.getElementById('theme-color-meta')?.setAttribute('content', '#0a0a0a');
@@ -67,9 +281,9 @@ const themeLabels = {
     </script>
 
     <!-- hreflang for bilingual SEO -->
-    <link rel="alternate" hreflang="es"        href="https://jorgetricarico.com/" />
-    <link rel="alternate" hreflang="en"        href="https://jorgetricarico.com/en/" />
-    <link rel="alternate" hreflang="x-default" href="https://jorgetricarico.com/" />
+    <link rel="alternate" hreflang="es"        href="https://jorge-tricarico.onrender.com/" />
+    <link rel="alternate" hreflang="en"        href="https://jorge-tricarico.onrender.com/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://jorge-tricarico.onrender.com/" />
 
     <!-- Dynamic browser chrome color -->
     <meta id="theme-color-meta" name="theme-color" content="#ffffff" />
@@ -765,6 +979,15 @@ const themeLabels = {
         setTimeout(() => toast.classList.remove('show'), 2000);
       }
     };
+
+    // Admin mode feedback toast
+    if (sessionStorage.getItem('just_excluded')) {
+      sessionStorage.removeItem('just_excluded');
+      showToast(lang === 'es' ? '🛡️ Modo personal: Visitas propias excluidas' : '🛡️ Personal mode: Own visits excluded');
+    } else if (sessionStorage.getItem('just_included')) {
+      sessionStorage.removeItem('just_included');
+      showToast(lang === 'es' ? '👁️ Tracking reactivado' : '👁️ Tracking re-enabled');
+    }
 
     document.querySelectorAll('[data-copy]').forEach((btn) => {
       (btn as HTMLElement).onclick = async (e) => {

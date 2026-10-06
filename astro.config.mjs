@@ -6,7 +6,7 @@ import path from 'path';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://jorgetricarico.com',
+  site: 'https://jorge-tricarico.onrender.com',
   // integrations: [sitemap({ i18n: { defaultLocale: 'es', locales: { es: 'es-AR', en: 'en-US' } } })],
   vite: {
     resolve: {

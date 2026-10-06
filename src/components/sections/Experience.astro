@@ -64,7 +64,84 @@ function calculateDuration(startDateStr: string, endDateStr: string | null, tran
   ].filter(Boolean).join(' ').trim()
 }
 
+const MONTH_MAP: Record<string, number> = {
+  ene: 0, feb: 1, mar: 2, abr: 3, may: 4, jun: 5, jul: 6, ago: 7, sep: 8, oct: 9, nov: 10, dic: 11,
+  jan: 0, apr: 3, aug: 7, dec: 11
+}
+
+function parseMonthYearDate(str: string): Date | null {
+  if (!str) return null
+  const cleaned = str.trim().toLowerCase()
+  if (cleaned === 'present' || cleaned === 'presente' || cleaned === 'actual') return new Date()
+  const match = cleaned.match(/([a-z]{3})\s+(\d{4})/)
+  if (match) {
+    const m = MONTH_MAP[match[1]] ?? 0
+    const y = parseInt(match[2], 10)
+    return new Date(Date.UTC(y, m, 1))
+  }
+  return null
+}
+
+function calculateDurationBetween(start: Date | null, end: Date | null, translations: Record<string, string>): string {
+  if (!start) return ''
+  const endDate = end || new Date()
+  const totalMonths = Math.max(1, (endDate.getUTCFullYear() - start.getUTCFullYear()) * 12 + (endDate.getUTCMonth() - start.getUTCMonth()) + 1)
+  const years = Math.floor(totalMonths / 12)
+  const months = totalMonths % 12
+  return [
+    years > 0 ? `${years} ${years > 1 ? translations['experience.years'] : translations['experience.year']}` : '',
+    months > 0 ? `${months} ${months > 1 ? translations['experience.months'] : translations['experience.month']}` : ''
+  ].filter(Boolean).join(' ').trim()
+}
+
 const groupedExperiences = (work || []).reduce<CompanyExperience[]>((acc, item) => {
+  // Check if position is empty and highlights contain nested sub-roles: **Role** (*Dates*) - Bullet 1 - Bullet 2
+  const subRoles: PositionItem[] = []
+  if (!item.position && item.highlights && item.highlights.length > 0) {
+    for (const h of item.highlights) {
+      const parts = h.split(' - ')
+      const headerMatch = parts[0]?.match(/\*\*(.*?)\*\*(?:\s*\(\*?(.*?)\*?\))?/)
+      if (headerMatch) {
+        const roleTitle = headerMatch[1].trim()
+        const dateRangeStr = headerMatch[2]?.trim() || ''
+        const bullets = parts.slice(1).map(b => b.trim()).filter(Boolean)
+        const dateParts = dateRangeStr.split('–').map(s => s.trim())
+        const formattedStart = dateParts[0] || ''
+        const formattedEnd = dateParts[1] || ''
+        const startDateObj = parseMonthYearDate(formattedStart)
+        const endDateObj = parseMonthYearDate(formattedEnd)
+        const subDuration = calculateDurationBetween(startDateObj, endDateObj, t)
+
+        subRoles.push({
+          position: roleTitle,
+          startDate: startDateObj ? startDateObj.toISOString() : '',
+          endDate: endDateObj ? endDateObj.toISOString() : null,
+          formattedStart,
+          formattedEnd,
+          duration: subDuration,
+          highlights: bullets
+        })
+      }
+    }
+  }
+
+  if (subRoles.length > 0) {
+    const itemDuration = calculateDuration(item.startDate, item.endDate, t)
+    const itemFormattedStart = formatMonthYear(item.startDate, lang, t)
+    const itemFormattedEnd = formatMonthYear(item.endDate, lang, t)
+    acc.push({
+      name: item.name,
+      url: item.url,
+      startDate: item.startDate,
+      endDate: item.endDate,
+      formattedStart: itemFormattedStart,
+      formattedEnd: itemFormattedEnd,
+      duration: itemDuration,
+      positions: subRoles
+    })
+    return acc
+  }
+
   const itemDuration = calculateDuration(item.startDate, item.endDate, t)
   const itemFormattedStart = formatMonthYear(item.startDate, lang, t)
   const itemFormattedEnd = formatMonthYear(item.endDate, lang, t)
@@ -200,7 +277,7 @@ for (const company of groupedExperiences) {
                                 <time datetime={pos.endDate ?? ''} data-title={pos.endDate ?? t['experience.actual']}>
                                   {pos.formattedEnd}
                                 </time>
-                                <span class="role-duration">({pos.duration})</span>
+                                {pos.duration && <span class="role-duration">({pos.duration})</span>}
                               </div>
                             </div>
 
