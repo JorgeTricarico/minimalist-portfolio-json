@@ -142,7 +142,7 @@ html_variant_1 = """<!DOCTYPE html>
 
   .stack-items {
     color: #94a3b8;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
   }
 </style>
 </head>
@@ -154,7 +154,7 @@ html_variant_1 = """<!DOCTYPE html>
       <div class="role-title">
         <span>AI Engineer</span>
         <span class="role-separator">|</span>
-        <span class="role-sub">Agentic Systems &amp; Software Intelligence</span>
+        <span class="role-sub">Sistemas Agénticos &amp; Arquitectura de Software</span>
       </div>
     </div>
 
@@ -169,14 +169,14 @@ html_variant_1 = """<!DOCTYPE html>
       </div>
       <div class="badge-item">
         <span class="spark">✦</span>
-        <span>Evaluación de Modelos &amp; Calidad (Evals)</span>
+        <span>Evaluación &amp; Auditoría de Agentes</span>
       </div>
     </div>
 
     <div class="footer-row">
       <span class="stack-label">Core Stack</span>
       <span>•</span>
-      <span class="stack-items">Python · LangGraph · LLMs · Playwright · Docker · CI/CD</span>
+      <span class="stack-items">Python · LangGraph · AI Agents · Playwright · Docker · CI/CD</span>
     </div>
   </div>
 </body>
@@ -310,7 +310,7 @@ html_variant_2 = """<!DOCTYPE html>
 
   .stack-items {
     color: #94a3b8;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
   }
 </style>
 </head>
@@ -322,7 +322,7 @@ html_variant_2 = """<!DOCTYPE html>
       <div class="role-title">
         <span>AI Engineer</span>
         <span class="role-separator">|</span>
-        <span class="role-sub">Agentic Systems &amp; Software Intelligence</span>
+        <span class="role-sub">Agentic Systems &amp; Software Architecture</span>
       </div>
     </div>
 
@@ -333,18 +333,18 @@ html_variant_2 = """<!DOCTYPE html>
       </div>
       <div class="badge-item">
         <span class="spark">✦</span>
-        <span>Software Automation &amp; Platforms</span>
+        <span>Software Automation &amp; Scale</span>
       </div>
       <div class="badge-item">
         <span class="spark">✦</span>
-        <span>Model Evaluation, Observability &amp; Quality</span>
+        <span>Agent Evaluations &amp; Technical Audits</span>
       </div>
     </div>
 
     <div class="footer-row">
       <span class="stack-label">Core Stack</span>
       <span>•</span>
-      <span class="stack-items">Python · LangGraph · LLMs · Playwright · Docker · CI/CD</span>
+      <span class="stack-items">Python · LangGraph · AI Agents · Playwright · Docker · CI/CD</span>
     </div>
   </div>
 </body>
@@ -361,80 +361,75 @@ html_variant_3 = """<!DOCTYPE html>
 <title>Banner Variant 3 (Minimal)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     width: 1584px;
     height: 396px;
     overflow: hidden;
-    background-color: #040508;
+    background-color: #030407;
     font-family: 'Inter', -apple-system, sans-serif;
-    color: #f8fafc;
-    position: relative;
+    color: #ffffff;
     display: flex;
+    position: relative;
     background-image: 
-      radial-gradient(circle at 90% 40%, rgba(255, 255, 255, 0.04) 0%, transparent 60%);
+      radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
   }
 
   .safe-zone {
-    width: 440px;
+    width: 420px;
     height: 100%;
-    position: relative;
   }
 
   .content-zone {
     flex: 1;
-    padding: 64px 72px;
+    padding: 60px 80px 60px 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 22px;
-    position: relative;
+    gap: 20px;
   }
 
-  .top-label {
+  .tagline-pre {
     font-family: 'JetBrains Mono', monospace;
     font-size: 13px;
-    color: #38bdf8;
-    letter-spacing: 0.18em;
+    color: #64748b;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    font-weight: 500;
   }
 
   h1.name {
-    font-size: 44px;
+    font-size: 46px;
     font-weight: 800;
     letter-spacing: -0.03em;
+    line-height: 1.05;
     color: #ffffff;
-    line-height: 1;
   }
 
-  .subtitle {
-    font-size: 19px;
-    color: #94a3b8;
+  .headline {
+    font-size: 20px;
     font-weight: 400;
-    letter-spacing: 0.01em;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    color: #94a3b8;
+    letter-spacing: -0.01em;
   }
 
-  .dot {
-    color: #334155;
+  .headline strong {
+    color: #f1f5f9;
+    font-weight: 600;
   }
 
   .divider-line {
     width: 100%;
     height: 1px;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
-    margin-top: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 6px 0;
   }
 
   .tags-row {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 13px;
     color: #64748b;
@@ -448,14 +443,10 @@ html_variant_3 = """<!DOCTYPE html>
 <body>
   <div class="safe-zone"></div>
   <div class="content-zone">
-    <span class="top-label">AI Engineer &bull; Agentic Systems</span>
+    <div class="tagline-pre">Agentic Systems &amp; Software Architecture</div>
     <h1 class="name">Jorge Tricarico</h1>
-    <div class="subtitle">
-      <span>Sistemas Agénticos</span>
-      <span class="dot">&bull;</span>
-      <span>Automatización de Software</span>
-      <span class="dot">&bull;</span>
-      <span>Evaluación de Modelos &amp; Calidad</span>
+    <div class="headline">
+      <strong>AI Engineer</strong> · Sistemas Agénticos &amp; Arquitecturas de Software
     </div>
     <div class="divider-line"></div>
     <div class="tags-row">
@@ -463,11 +454,13 @@ html_variant_3 = """<!DOCTYPE html>
       <span>/</span>
       <span class="active">LangGraph</span>
       <span>/</span>
-      <span class="active">LLMs</span>
+      <span class="active">AI Agents</span>
+      <span>/</span>
+      <span class="active">Agent Audits</span>
       <span>/</span>
       <span class="active">Playwright</span>
       <span>/</span>
-      <span class="active">CI/CD Pipelines</span>
+      <span class="active">CI/CD</span>
     </div>
   </div>
 </body>
@@ -498,16 +491,372 @@ html_variant_4 = """<!DOCTYPE html>
     display: flex;
     background-image: 
       radial-gradient(circle at 75% 30%, rgba(56, 189, 248, 0.08) 0%, transparent 55%),
+      radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
       linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-    background-size: 100% 100%, 32px 32px, 32px 32px;
+    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
   }
 
   .safe-zone {
     width: 420px;
     height: 100%;
     position: relative;
-    border-right: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .content-zone {
+    flex: 1;
+    padding: 56px 64px 56px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+    position: relative;
+  }
+
+  .header-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  h1.name {
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    line-height: 1.1;
+  }
+
+  .role-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #0284c7;
+    letter-spacing: 0.01em;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .role-title .main-tag {
+    color: #38bdf8;
+  }
+
+  .role-separator {
+    color: #334155;
+    font-weight: 300;
+  }
+
+  .role-sub {
+    color: #94a3b8;
+    font-weight: 400;
+  }
+
+  .badges-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: nowrap;
+  }
+
+  .badge-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #e2e8f0;
+    letter-spacing: 0.01em;
+    backdrop-filter: blur(12px);
+  }
+
+  .badge-item .spark {
+    color: #38bdf8;
+    font-size: 13px;
+  }
+
+  .footer-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #64748b;
+  }
+
+  .stack-label {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    color: #475569;
+  }
+
+  .stack-items {
+    color: #94a3b8;
+    letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+  <div class="safe-zone"></div>
+  <div class="content-zone">
+    <div class="header-block">
+      <h1 class="name">Jorge Tricarico</h1>
+      <div class="role-title">
+        <span class="main-tag">AI Engineer</span>
+        <span class="role-separator">|</span>
+        <span class="role-sub">Agentes de IA &amp; Arquitectura de Software</span>
+      </div>
+    </div>
+
+    <div class="badges-row">
+      <div class="badge-item">
+        <span class="spark">✦</span>
+        <span>Agentes de IA &amp; Orquestación</span>
+      </div>
+      <div class="badge-item">
+        <span class="spark">✦</span>
+        <span>Plataformas de Automatización a Escala</span>
+      </div>
+      <div class="badge-item">
+        <span class="spark">✦</span>
+        <span>Auditoría de Agentes &amp; Gobernanza de IA</span>
+      </div>
+    </div>
+
+    <div class="footer-row">
+      <span class="stack-label">Ecosistema</span>
+      <span>•</span>
+      <span class="stack-items">Python · LangGraph · AI Agents · Playwright · CI/CD Pipelines · Docker</span>
+    </div>
+  </div>
+</body>
+</html>
+"""
+
+# -------------------------------------------------------------
+# TEMPLATE 5: Variante Obsidian Luxe / Cyber Terminal (Dark Tech)
+# -------------------------------------------------------------
+html_variant_5 = """<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Banner Variant 5 (Obsidian Cyber)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1584px;
+    height: 396px;
+    overflow: hidden;
+    background-color: #07090e;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #f1f5f9;
+    position: relative;
+    display: flex;
+    background-image: 
+      radial-gradient(circle at 82% 20%, rgba(16, 185, 129, 0.07) 0%, transparent 50%),
+      radial-gradient(circle at 92% 80%, rgba(14, 165, 233, 0.06) 0%, transparent 50%),
+      linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+  }
+
+  .safe-zone {
+    width: 420px;
+    height: 100%;
+    position: relative;
+  }
+
+  .content-zone {
+    flex: 1;
+    padding: 56px 64px 56px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .terminal-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #10b981;
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .terminal-dot {
+    width: 7px;
+    height: 7px;
+    background-color: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #10b981;
+  }
+
+  .header-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  h1.name {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    line-height: 1.1;
+  }
+
+  .role-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #38bdf8;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .role-separator {
+    color: #334155;
+    font-weight: 300;
+  }
+
+  .role-sub {
+    color: #94a3b8;
+    font-weight: 400;
+  }
+
+  .badges-row {
+    display: flex;
+    gap: 12px;
+  }
+
+  .badge-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #e2e8f0;
+  }
+
+  .badge-item .spark {
+    color: #10b981;
+    font-size: 12px;
+  }
+
+  .footer-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #64748b;
+  }
+
+  .stack-label {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    color: #475569;
+  }
+
+  .stack-items {
+    color: #94a3b8;
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+  <div class="safe-zone"></div>
+  <div class="content-zone">
+    <div class="terminal-tag">
+      <span class="terminal-dot"></span>
+      <span>sys.status = "production" // agent_evals = "active"</span>
+    </div>
+
+    <div class="header-block">
+      <h1 class="name">Jorge Tricarico</h1>
+      <div class="role-title">
+        <span>AI Engineer</span>
+        <span class="role-separator">|</span>
+        <span class="role-sub">Arquitectura de Agentes &amp; Automatización</span>
+      </div>
+    </div>
+
+    <div class="badges-row">
+      <div class="badge-item">
+        <span class="spark">⚡</span>
+        <span>Arquitectura de Sistemas Agénticos</span>
+      </div>
+      <div class="badge-item">
+        <span class="spark">⚡</span>
+        <span>Evaluación &amp; Auditoría de Agentes</span>
+      </div>
+      <div class="badge-item">
+        <span class="spark">⚡</span>
+        <span>Infraestructura &amp; CI/CD Pipelines</span>
+      </div>
+    </div>
+
+    <div class="footer-row">
+      <span class="stack-label">Stack</span>
+      <span>•</span>
+      <span class="stack-items">Python · LangGraph · AI Agents · Playwright · Docker · CI/CD</span>
+    </div>
+  </div>
+</body>
+</html>
+"""
+
+# -------------------------------------------------------------
+# TEMPLATE 6: Variante Deep Midnight Executive (EN)
+# -------------------------------------------------------------
+html_variant_6 = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Banner Variant 6 (Executive EN)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1584px;
+    height: 396px;
+    overflow: hidden;
+    background-color: #020617;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #f8fafc;
+    position: relative;
+    display: flex;
+    background-image: 
+      radial-gradient(circle at 85% 25%, rgba(56, 189, 248, 0.09) 0%, transparent 55%),
+      radial-gradient(circle at 95% 85%, rgba(129, 140, 248, 0.08) 0%, transparent 50%),
+      linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+  }
+
+  .safe-zone {
+    width: 420px;
+    height: 100%;
+    position: relative;
   }
 
   .content-zone {
@@ -564,7 +913,7 @@ html_variant_4 = """<!DOCTYPE html>
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(15, 23, 42, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 10px 18px;
     border-radius: 8px;
@@ -600,7 +949,7 @@ html_variant_4 = """<!DOCTYPE html>
 
   .stack-items {
     color: #94a3b8;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
   }
 </style>
 </head>
@@ -612,29 +961,29 @@ html_variant_4 = """<!DOCTYPE html>
       <div class="role-title">
         <span>AI Engineer</span>
         <span class="role-separator">|</span>
-        <span class="role-sub">Agentes de IA &amp; Arquitectura de Software</span>
+        <span class="role-sub">Agentic Systems &amp; Software Architecture</span>
       </div>
     </div>
 
     <div class="badges-row">
       <div class="badge-item">
         <span class="spark">✦</span>
-        <span>Agentes de IA &amp; Orquestación</span>
+        <span>Enterprise Agent Workflows</span>
       </div>
       <div class="badge-item">
         <span class="spark">✦</span>
-        <span>Plataformas de Automatización a Escala</span>
+        <span>Resilient Automation &amp; Scale</span>
       </div>
       <div class="badge-item">
         <span class="spark">✦</span>
-        <span>Benchmarks, Gobernanza &amp; Calidad de LLMs</span>
+        <span>Agent Auditing &amp; Evaluation Frameworks</span>
       </div>
     </div>
 
     <div class="footer-row">
-      <span class="stack-label">Ecosistema</span>
+      <span class="stack-label">Core Stack</span>
       <span>•</span>
-      <span class="stack-items">Python · LangGraph · LLMs · Playwright · CI/CD Pipelines · Docker</span>
+      <span class="stack-items">Python · LangGraph · AI Agents · Playwright · Docker · CI/CD</span>
     </div>
   </div>
 </body>
@@ -645,7 +994,9 @@ configs = [
     ("linkedin-banner-clean-es.png", "temp_es.html", html_variant_1, "Variante 1: AI Engineer Integral (ES)"),
     ("linkedin-banner-clean-en.png", "temp_en.html", html_variant_2, "Variante 2: AI Engineer Global Tech (EN)"),
     ("linkedin-banner-clean-minimal.png", "temp_min.html", html_variant_3, "Variante 3: Ultra Minimalista Vercel Style"),
-    ("linkedin-banner-clean-platform.png", "temp_plat.html", html_variant_4, "Variante 4: Plataformas & Agentes (ES)")
+    ("linkedin-banner-clean-platform.png", "temp_plat.html", html_variant_4, "Variante 4: Plataformas & Agentes (ES)"),
+    ("linkedin-banner-obsidian-cyber.png", "temp_cyber.html", html_variant_5, "Variante 5: Obsidian Cyber Terminal (ES)"),
+    ("linkedin-banner-midnight-exec.png", "temp_exec.html", html_variant_6, "Variante 6: Midnight Executive (EN)")
 ]
 
 for img_name, html_name, html_content, label in configs:
@@ -682,4 +1033,4 @@ for img_name, html_name, html_content, label in configs:
     if os.path.exists(temp_img):
         os.remove(temp_img)
 
-print("Finished rendering all broadened AI Engineer banners!")
+print("Finished rendering all 6 broadened AI Engineer banners!")

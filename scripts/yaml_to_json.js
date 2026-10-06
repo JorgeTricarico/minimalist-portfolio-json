@@ -117,6 +117,9 @@ export const mapYamlToJson = (data) => {
 
   const formattedSummary = resumeText ? applySmartBolding(resumeText[0], boldKeywords) : "";
 
+  const webConnection = cv.custom_connections?.find(c => c.url && (c.placeholder?.includes('onrender.com') || c.fontawesome_icon === 'link'));
+  const websiteUrl = cv.website || webConnection?.url || "";
+
   const jsonResume = {
     basics: {
       name: cv.name || "",
@@ -124,7 +127,7 @@ export const mapYamlToJson = (data) => {
       image: "/perfil.jpg",
       email: cv.email || "",
       phone: cv.phone || "",
-      url: cv.website || "",
+      url: websiteUrl,
       summary: formattedSummary,
       location: {
         address: "",

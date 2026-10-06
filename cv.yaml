@@ -1,11 +1,14 @@
 cv:
   name: Jorge Tricarico
-  headline: AI Engineer | QA Automation & Agentic Systems
+  headline: AI Engineer | Agentic Systems & Software Architecture
   photo: public/perfil_rounded.png
   location: Buenos Aires, AR
   email: jorge.tricarico@gmail.com
   phone: +54 9 11 50479769
-  website: https://jorge-tricarico.onrender.com/?utm_source=cv&utm_medium=pdf&utm_campaign=resume_apply
+  custom_connections:
+  - fontawesome_icon: link
+    placeholder: jorge-tricarico.onrender.com
+    url: https://jorge-tricarico.onrender.com/?utm_source=cv&utm_medium=pdf&utm_campaign=resume_apply
   social_networks:
   - network: LinkedIn
     username: jorge-tricarico
@@ -13,22 +16,22 @@ cv:
     username: JorgeTricarico
   sections:
     Resumen:
-    - AI Engineer especializado en automatización de pruebas y desarrollo de sistemas
-      agénticos para aplicaciones Web, Mobile y APIs. Diseño frameworks y agentes
-      de IA enfocados en acelerar la creación y ejecución de pruebas, reducir tiempos
-      de mantenimiento y escalar la cobertura en los equipos.
+    - AI Engineer especializado en el diseño e implementación de sistemas agénticos,
+      automatización de procesos y arquitecturas basadas en LLMs. Combino una sólida
+      base técnica en desarrollo y calidad de software para construir agentes de IA
+      modulares, confiables y orientados a resolver flujos de negocio complejos en producción.
     Experiencia:
     - company: Tata Consultancy Service - Banco Galicia
       position: ''
       start_date: 2023-04
       end_date: present
       highlights:
-      - '**AI Engineer (Hub de IA & Calidad)** (*Oct 2026 – presente*) - Evolución
-        y arquitectura de agente de IA para testing web: líder institucional en adopción
-        y ejecuciones en el área de Calidad. - Integración ágil en Comercio Exterior:
-        diseño e implementación de arquitectura POM para ComEx en menos de una semana,
-        acelerando las suites de prueba. - Auditoría y gobernanza técnica de agentes
-        de IA en Calidad, y consultoría transversal a squads.'
+      - '**AI Engineer (Hub de IA)** (*Oct 2026 – presente*) - Arquitectura y evolución
+        de agentes de IA: líder institucional en adopción y ejecuciones para orquestación
+        y automatización de flujos de negocio. - Integración ágil en Comercio Exterior:
+        diseño e implementación de arquitectura modular para ComEx en menos de una semana.
+        - Auditoría y gobernanza técnica de agentes de IA, evaluación de agentes y consultoría
+        transversal a squads.'
       - '**SSR QA Automation Engineer (Área de Calidad)** (*Feb 2026 – Oct 2026*)
         - QA Automation transversal: diseño y ejecución de pruebas E2E multi-plataforma
         (Web, APIs, Mobile y Desktop) con Tricentis TOSCA institucional. - Proyecto

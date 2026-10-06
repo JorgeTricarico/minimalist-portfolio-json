@@ -1,12 +1,12 @@
 {
   "basics": {
     "name": "Jorge Tricarico",
-    "label": "AI Engineer | QA Automation & Agentic Systems",
+    "label": "AI Engineer | Agentic Systems & Software Architecture",
     "image": "/perfil.jpg",
     "email": "jorge.tricarico@gmail.com",
     "phone": "+54 9 11 50479769",
     "url": "https://jorge-tricarico.onrender.com/en/?utm_source=cv&utm_medium=pdf&utm_campaign=resume_apply",
-    "summary": "AI Engineer specializing in test automation and agentic systems for Web, Mobile, and APIs. I design frameworks and AI agents focused on accelerating test creation and execution, cutting maintenance time, and scaling coverage across teams.",
+    "summary": "AI Engineer specializing in agentic systems, workflow automation, and LLM-driven architectures. Combining a solid software engineering and quality assurance foundation to build modular, resilient AI agents that solve complex business operations in production.",
     "location": {
       "address": "",
       "postalCode": "1684",
@@ -36,7 +36,7 @@
       "endDate": null,
       "summary": "",
       "highlights": [
-        "**AI Engineer (AI Hub & Quality)** (*Oct 2026 – present*) - Evolution and architecture of core AI agent: leader in adoption and executions in Quality for automated web testing. - Agile Foreign Trade integration: designed and deployed POM architecture for ComEx in under a week, accelerating test suites. - Technical governance of AI agents and cross-squad advisory.",
+        "**AI Engineer (AI Hub)** (*Oct 2026 – present*) - Architecture and evolution of core AI agents: institutional leader in adoption and executions for business workflow orchestration. - Agile Foreign Trade integration: designed and deployed modular architecture for ComEx in under a week. - Technical governance of AI agents, agent evaluations, and cross-squad advisory.",
         "**SSR QA Automation Engineer (QA Core Team)** (*Feb 2026 – Oct 2026*) - Cross-functional E2E QA Automation (Web, APIs, Mobile, Desktop) with institutional Tricentis TOSCA. - \"Kraken Mobile\" Project: mobile AI agent testing (Android/iOS) overcoming BrowserStack friction.",
         "**QA Manual & Automation Analyst** (*Apr 2023 – Feb 2026*) - Technical QA and test execution across Onboarding and Retail Transfers on mission-critical mobile banking app. - Co-creator of CobroTron & FullTron: filtered-DOM auto-debugging and unattended ALM sync."
       ]

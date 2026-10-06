@@ -6,8 +6,8 @@
   name: "Jorge Tricarico",
   title: "Jorge Tricarico - CV",
   footer: context { [#emph[Jorge Tricarico -- #str(here().page())\/#str(counter(page).final().first())]] },
-  top-note: [ #emph[Last updated in Oct 2026] ],
-  locale-catalog-language: "en",
+  top-note: [ #emph[Última actualización Oct 2026] ],
+  locale-catalog-language: "es",
   text-direction: ltr,
   page-size: "a4",
   page-top-margin: 1.0cm,
@@ -95,13 +95,13 @@
   [
 = Jorge Tricarico
 
-  #headline([AI Engineer | QA Automation & Agentic Systems])
+  #headline([AI Engineer | Agentic Systems & Software Architecture])
 
 #connections(
   [#connection-with-icon("location-dot")[Buenos Aires, AR]],
   [#link("mailto:jorge.tricarico@gmail.com", icon: false, if-underline: false, if-color: false)[#connection-with-icon("envelope")[jorge.tricarico\@gmail.com]]],
   [#link("tel:+54-9-11-5047-9769", icon: false, if-underline: false, if-color: false)[#connection-with-icon("phone")[011 15-5047-9769]]],
-  [#link("https://jorge-tricarico.onrender.com/en/?utm_source=cv&utm_medium=pdf&utm_campaign=resume_apply", icon: false, if-underline: false, if-color: false)[#connection-with-icon("link")[jorge-tricarico.onrender.com\/en\/?utm\_source=cv&utm\_medium=pdf&utm\_campaign=resume\_apply]]],
+  [#link("https://jorge-tricarico.onrender.com/?utm_source=cv&utm_medium=pdf&utm_campaign=resume_apply", icon: false, if-underline: false, if-color: false)[#connection-with-icon("link")[jorge-tricarico.onrender.com]]],
   [#link("https://linkedin.com/in/jorge-tricarico", icon: false, if-underline: false, if-color: false)[#connection-with-icon("linkedin")[jorge-tricarico]]],
   [#link("https://github.com/JorgeTricarico", icon: false, if-underline: false, if-color: false)[#connection-with-icon("github")[JorgeTricarico]]],
 )
@@ -109,130 +109,130 @@
 )
 
 
-== Summary
+== Resumen
 
-AI Engineer specializing in test automation and agentic systems for Web, Mobile, and APIs. I design frameworks and AI agents focused on accelerating test creation and execution, cutting maintenance time, and scaling coverage across teams.
+AI Engineer especializado en el diseño e implementación de sistemas agénticos, automatización de procesos y arquitecturas basadas en LLMs. Combino una sólida base técnica en desarrollo y calidad de software para construir agentes de IA modulares, confiables y orientados a resolver flujos de negocio complejos en producción.
 
-== Experience
+== Experiencia
 
 #regular-entry(
   [
     #strong[Tata Consultancy Service - Banco Galicia]
 
-    - #strong[AI Engineer (AI Hub & Quality)] (#emph[Oct 2026 – present])
+    - #strong[AI Engineer (Hub de IA)] (#emph[Oct 2026 – presente])
 
-    - Evolution and architecture of core AI agent: leader in adoption and executions in Quality for automated web testing.
+    - Arquitectura y evolución de agentes de IA: líder institucional en adopción y ejecuciones para orquestación y automatización de flujos de negocio.
 
-    - Agile Foreign Trade integration: designed and deployed POM architecture for ComEx in under a week, accelerating test suites.
+    - Integración ágil en Comercio Exterior: diseño e implementación de arquitectura modular para ComEx en menos de una semana.
 
-    - Technical governance of AI agents and cross-squad advisory.
+    - Auditoría y gobernanza técnica de agentes de IA, evaluación de agentes y consultoría transversal a squads.
 
-    - #strong[SSR QA Automation Engineer (QA Core Team)] (#emph[Feb 2026 – Oct 2026])
+    - #strong[SSR QA Automation Engineer (Área de Calidad)] (#emph[Feb 2026 – Oct 2026])
 
-    - Cross-functional E2E QA Automation (Web, APIs, Mobile, Desktop) with institutional Tricentis TOSCA.
+    - QA Automation transversal: diseño y ejecución de pruebas E2E multi-plataforma (Web, APIs, Mobile y Desktop) con Tricentis TOSCA institucional.
 
-    - \"Kraken Mobile\" Project: mobile AI agent testing (Android\/iOS) overcoming BrowserStack friction.
+    - Proyecto \"Kraken Mobile\": desarrollo de agente de IA para pruebas en Apps móviles (Android\/iOS) acelerando regresiones.
 
-    - #strong[QA Manual & Automation Analyst] (#emph[Apr 2023 – Feb 2026])
+    - #strong[Analista QA Manual & Automation] (#emph[Abr 2023 – Feb 2026])
 
-    - Technical QA and test execution across Onboarding and Retail Transfers on mission-critical mobile banking app.
+    - Testing técnico y aseguramiento de calidad sobre Onboarding y Transferencias en la app móvil transaccional crítica.
 
-    - Co-creator of CobroTron & FullTron: filtered-DOM auto-debugging and unattended ALM sync.
+    - Co-creador de CobroTron y FullTron: herramientas pioneras de auto-debug por DOM filtrado y sincronización con ALM.
 
   ],
   [
-    Apr 2023 – present
+    Abr 2023 – presente
 
     
 
-    3 years 7 months
+    3 años 7 meses
 
   ],
 )
 
 #regular-entry(
   [
-    #strong[OneVisa - Dubai (UAE) \/ Spain], (Part-time) Senior Principal QA Engineer (AI & Reliability)
+    #strong[OneVisa - Dubai (UAE) \/ España], (Part-time) Senior Principal QA Engineer (AI & Reliability)
 
-    - Sole QA engineer in high-growth startup: designed and implemented the end-to-end testing and reliability strategy from scratch.
+    - Único responsable de QA en startup de alto crecimiento: diseño e implementación de la estrategia integral de testing y confiabilidad desde cero.
 
-    - Deployed autonomous QA Agent to production (Claude Code) and implemented self-diagnostic pipelines with DORA metrics.
+    - Implementación de Agente QA autónomo en producción (Claude Code) y pipelines con autodiagnóstico iterativo y métricas DORA.
 
   ],
   [
-    Feb 2026 – Aug 2026
+    Feb 2026 – Ago 2026
 
     
 
-    7 months
+    7 meses
 
   ],
 )
 
 #regular-entry(
   [
-    #strong[Ada School - Colombia], Python Instructor (Data & FullStack BootCamp)
+    #strong[Ada School - Colombia], Profesor Python (BootCamp Data y FullStack)
 
-    - Advanced technical mentorship in Python focused on code quality, software architecture, and development best practices for international profiles.
+    - Mentoría técnica avanzada en Python enfocada en la calidad del código, arquitectura de software y mejores prácticas de desarrollo para perfiles internacionales.
 
   ],
   [
-    Sept 2023 – Oct 2024
+    Sep 2023 – Oct 2024
 
     
 
-    1 year 2 months
+    1 año 2 meses
 
   ],
 )
 
-== Education
+== Educación
 
 #education-entry(
   [
-    #strong[National University of Hurlingham]
+    #strong[Universidad Nacional de Hurlingham]
 
-    #emph[University Technician] in Artificial Intelligence
+    #emph[Tec. Universitaria] en Inteligencia Artificial
 
   ],
   [
-    Jan 2024 – present
+    Ene 2024 – presente
 
   ],
 )
 
 #education-entry(
   [
-    #strong[Teacher Training Institute N°109]
+    #strong[Instituto Superior de Formación Docente N°109]
 
-    #emph[Secondary Education Professor] in Economics and Management
+    #emph[Prof. de Educación Secundaria] en Economía y Gestión
 
-    - Last year pending
+    - Adeudo último año
 
   ],
   [
-    Mar 2019 – Dec 2023
+    Mar 2019 – Dic 2023
 
   ],
 )
 
-== Skills
+== Habilidades
 
-#strong[AI & Agents:] Claude Code, Gemini, DeepSeek, Scikit-learn, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Pandas, NumPy
+#strong[IA & Agentes:] Claude Code, Gemini, DeepSeek, Scikit-learn, GitHub Copilot, Cursor, Antigravity, Engram, Prompt Engineering, OpenAI, Anthropic, Pandas, NumPy
 
 #strong[Testing & QA:] Tricentis Tosca, Playwright, Cypress, Selenium, Appium, Pytest, k6 (Performance), Postman, Bruno
 
 #strong[Dev & Ops:] Python, TypeScript, JavaScript, Java, Node.js, FastAPI, Flask, AWS, Docker, Jenkins, Linux, Bash, CI\/CD
 
-#strong[Observability & Data:] Grafana, Kibana, SQL, NoSQL, Matplotlib, Seaborn, Trace\/Log Analysis, GitHub Actions
+#strong[Observabilidad & Data:] Grafana, Kibana, SQL, NoSQL, Matplotlib, Seaborn, Análisis de Traces\/Logs, GitHub Actions
 
-#strong[Languages:] Spanish, English
+#strong[Idiomas:] Español, Inglés
 
-== Projects
+== Proyectos
 
 #regular-entry(
   [
-    #strong[Zenco.arg (In Prod)]
+    #strong[Zenco.arg (En Prod)]
 
     - React 18 · Node.js · AI WhatsApp Bot · Gemini AI
 
@@ -243,7 +243,7 @@ AI Engineer specializing in test automation and agentic systems for Web, Mobile,
 
 #regular-entry(
   [
-    #strong[El Industrial (In Prod)]
+    #strong[El Industrial (En Prod)]
 
     - Python · Vanilla JS · API REST · Telegram Bot · IA Reporting
 
