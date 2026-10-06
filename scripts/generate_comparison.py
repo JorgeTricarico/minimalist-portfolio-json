@@ -41,8 +41,8 @@ shot_crop = im_shot.crop((0, 0, 1111, 240))
 comp.paste(shot_crop, (45, 80))
 
 # 2. Header Después
-draw.text((45, 360), "✅ AHORA (Versión Agrandada — Tipografía a gran escala 60px / 26px / 17px)", fill="#4ade80", font=font_title)
-draw.text((45, 390), "Letra +50% más grande, badges legibles, centrado óptimo y sin la palabra 'producción':", fill="#94a3b8", font=font_sub)
+draw.text((45, 360), "✅ AHORA (Proporciones Reales LinkedIn — Tipografía 76px / 32px / 22px)", fill="#4ade80", font=font_title)
+draw.text((45, 390), "Diseñado para la escala 0.5x de LinkedIn: ocupa el alto y ancho real, badges legibles y sin 'producción':", fill="#94a3b8", font=font_sub)
 
 # Paste new banner resized
 comp.paste(im_new_resized, (45, 420))

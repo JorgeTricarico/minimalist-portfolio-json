@@ -12,16 +12,16 @@ os.makedirs(PUBLIC_DIR, exist_ok=True)
 os.makedirs(BRAIN_PARENT, exist_ok=True)
 
 # -------------------------------------------------------------
-# TEMPLATE 1: Variante en Español (AI Engineer Integral - Grande & Legible)
+# TEMPLATE 1: Name + Role Power Header (ES - Proporciones Reales LinkedIn)
 # -------------------------------------------------------------
 html_variant_1 = """<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<title>Banner Variante 1 (ES - Large)</title>
+<title>Banner Variante 1 (ES - True LinkedIn Proportions)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -34,16 +34,16 @@ html_variant_1 = """<!DOCTYPE html>
     position: relative;
     display: flex;
     background-image: 
-      radial-gradient(circle at 80% 25%, rgba(14, 165, 233, 0.10) 0%, transparent 60%),
-      radial-gradient(circle at 95% 85%, rgba(99, 102, 241, 0.08) 0%, transparent 55%),
+      radial-gradient(circle at 80% 25%, rgba(14, 165, 233, 0.12) 0%, transparent 60%),
+      radial-gradient(circle at 95% 85%, rgba(99, 102, 241, 0.09) 0%, transparent 55%),
       linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
   }
 
-  /* Safe zone for LinkedIn circular profile picture (left 330px) */
+  /* Safe zone for LinkedIn circular profile photo (left 340px) */
   .safe-zone {
-    width: 330px;
+    width: 340px;
     height: 100%;
     position: relative;
   }
@@ -51,7 +51,7 @@ html_variant_1 = """<!DOCTYPE html>
   /* Main content right */
   .content-zone {
     flex: 1;
-    padding: 44px 56px 44px 20px;
+    padding: 40px 60px 40px 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -66,21 +66,21 @@ html_variant_1 = """<!DOCTYPE html>
   }
 
   h1.name {
-    font-size: 60px;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    font-size: 80px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
     color: #ffffff;
-    line-height: 1.05;
+    line-height: 1.0;
   }
 
   .role-title {
-    font-size: 26px;
+    font-size: 34px;
     font-weight: 600;
     color: #38bdf8;
     letter-spacing: -0.01em;
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
   }
 
   .role-separator {
@@ -93,56 +93,31 @@ html_variant_1 = """<!DOCTYPE html>
     font-weight: 400;
   }
 
-  /* Focus Badges */
+  /* 3 Prominent Focus Badges */
   .badges-row {
     display: flex;
-    gap: 14px;
+    gap: 16px;
     flex-wrap: nowrap;
   }
 
   .badge-item {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    padding: 12px 22px;
-    border-radius: 10px;
-    font-size: 17px;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 14px 26px;
+    border-radius: 12px;
+    font-size: 23px;
     font-weight: 600;
-    color: #f1f5f9;
+    color: #f8fafc;
     letter-spacing: 0.01em;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(14px);
   }
 
   .badge-item .spark {
     color: #38bdf8;
-    font-size: 15px;
-  }
-
-  /* Bottom Stack bar */
-  .footer-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 15px;
-    color: #64748b;
-  }
-
-  .stack-label {
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-weight: 700;
-    color: #475569;
-  }
-
-  .stack-items {
-    color: #cbd5e1;
-    letter-spacing: 0.03em;
-    font-weight: 500;
+    font-size: 20px;
   }
 </style>
 </head>
@@ -161,22 +136,16 @@ html_variant_1 = """<!DOCTYPE html>
     <div class="badges-row">
       <div class="badge-item">
         <span class="spark">✦</span>
-        <span>Sistemas Agénticos &amp; Multi-Agente</span>
+        <span>Sistemas Agénticos</span>
       </div>
       <div class="badge-item">
         <span class="spark">✦</span>
-        <span>Automatización &amp; Plataformas</span>
+        <span>Automatización a Escala</span>
       </div>
       <div class="badge-item">
         <span class="spark">✦</span>
-        <span>Auditoría &amp; Evaluación de Agentes</span>
+        <span>Auditoría &amp; Evaluación</span>
       </div>
-    </div>
-
-    <div class="footer-row">
-      <span class="stack-label">Core Stack</span>
-      <span>•</span>
-      <span class="stack-items">Python · LangGraph · AI Agents · Playwright · Docker · CI/CD</span>
     </div>
   </div>
 </body>
@@ -184,167 +153,110 @@ html_variant_1 = """<!DOCTYPE html>
 """
 
 # -------------------------------------------------------------
-# TEMPLATE 2: Variante en Inglés (AI Engineer Global Tech - Large)
+# TEMPLATE 2: AI Engineer Role-Driven Hero (Grandes Proporciones ES)
 # -------------------------------------------------------------
 html_variant_2 = """<!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="utf-8">
-<title>Banner Variant 2 (EN - Large)</title>
+<title>Banner Variante 2 (Role Hero ES)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     width: 1584px;
     height: 396px;
     overflow: hidden;
-    background-color: #06080d;
+    background-color: #05070c;
     font-family: 'Inter', -apple-system, sans-serif;
     color: #f8fafc;
     position: relative;
     display: flex;
     background-image: 
-      radial-gradient(circle at 80% 25%, rgba(14, 165, 233, 0.10) 0%, transparent 60%),
-      radial-gradient(circle at 95% 85%, rgba(99, 102, 241, 0.08) 0%, transparent 55%),
-      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+      radial-gradient(circle at 75% 30%, rgba(56, 189, 248, 0.12) 0%, transparent 60%),
+      radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 55%),
+      linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
   }
 
   .safe-zone {
-    width: 330px;
+    width: 340px;
     height: 100%;
     position: relative;
   }
 
   .content-zone {
     flex: 1;
-    padding: 44px 56px 44px 20px;
+    padding: 38px 60px 38px 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    gap: 22px;
     position: relative;
   }
 
-  .header-block {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  .top-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    color: #38bdf8;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
   }
 
   h1.name {
-    font-size: 60px;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    font-size: 78px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
     color: #ffffff;
-    line-height: 1.05;
-  }
-
-  .role-title {
-    font-size: 26px;
-    font-weight: 600;
-    color: #38bdf8;
-    letter-spacing: -0.01em;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .role-separator {
-    color: #334155;
-    font-weight: 300;
-  }
-
-  .role-sub {
-    color: #94a3b8;
-    font-weight: 400;
+    line-height: 1.0;
   }
 
   .badges-row {
     display: flex;
-    gap: 14px;
+    gap: 16px;
     flex-wrap: nowrap;
   }
 
   .badge-item {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    padding: 12px 22px;
-    border-radius: 10px;
-    font-size: 17px;
+    gap: 12px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-size: 24px;
     font-weight: 600;
     color: #f1f5f9;
     letter-spacing: 0.01em;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(14px);
   }
 
   .badge-item .spark {
     color: #38bdf8;
-    font-size: 15px;
-  }
-
-  .footer-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 15px;
-    color: #64748b;
-  }
-
-  .stack-label {
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-weight: 700;
-    color: #475569;
-  }
-
-  .stack-items {
-    color: #cbd5e1;
-    letter-spacing: 0.03em;
-    font-weight: 500;
+    font-size: 20px;
   }
 </style>
 </head>
 <body>
   <div class="safe-zone"></div>
   <div class="content-zone">
-    <div class="header-block">
-      <h1 class="name">Jorge Tricarico</h1>
-      <div class="role-title">
-        <span>AI Engineer</span>
-        <span class="role-separator">|</span>
-        <span class="role-sub">Agentic Systems &amp; Software Architecture</span>
-      </div>
-    </div>
+    <div class="top-label">AI Engineer · Sistemas Agénticos &amp; Arquitectura</div>
+    <h1 class="name">Jorge Tricarico</h1>
 
     <div class="badges-row">
       <div class="badge-item">
         <span class="spark">✦</span>
-        <span>Multi-Agent Architectures</span>
+        <span>Sistemas Agénticos &amp; Orquestación</span>
       </div>
       <div class="badge-item">
         <span class="spark">✦</span>
-        <span>Software Automation &amp; Scale</span>
+        <span>Auditoría Técnica &amp; Evaluación</span>
       </div>
-      <div class="badge-item">
-        <span class="spark">✦</span>
-        <span>Agent Audits &amp; Evaluations</span>
-      </div>
-    </div>
-
-    <div class="footer-row">
-      <span class="stack-label">Core Stack</span>
-      <span>•</span>
-      <span class="stack-items">Python · LangGraph · AI Agents · Playwright · Docker · CI/CD</span>
     </div>
   </div>
 </body>
@@ -352,16 +264,16 @@ html_variant_2 = """<!DOCTYPE html>
 """
 
 # -------------------------------------------------------------
-# TEMPLATE 3: Variante Obsidian Cyber Terminal (ES - Scaled UP)
+# TEMPLATE 3: Obsidian Cyber Terminal (ES - Escala Real Proporcional)
 # -------------------------------------------------------------
 html_variant_3 = """<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<title>Banner Variant 3 (Obsidian Cyber Scaled)</title>
+<title>Banner Variant 3 (Obsidian Cyber Proportional)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -374,44 +286,45 @@ html_variant_3 = """<!DOCTYPE html>
     position: relative;
     display: flex;
     background-image: 
-      radial-gradient(circle at 82% 20%, rgba(16, 185, 129, 0.09) 0%, transparent 55%),
-      radial-gradient(circle at 92% 80%, rgba(14, 165, 233, 0.08) 0%, transparent 55%),
+      radial-gradient(circle at 82% 20%, rgba(16, 185, 129, 0.10) 0%, transparent 55%),
+      radial-gradient(circle at 92% 80%, rgba(14, 165, 233, 0.09) 0%, transparent 55%),
       linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
-    background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+    background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
   }
 
   .safe-zone {
-    width: 330px;
+    width: 340px;
     height: 100%;
     position: relative;
   }
 
   .content-zone {
     flex: 1;
-    padding: 40px 56px 40px 20px;
+    padding: 36px 60px 36px 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 18px;
+    gap: 16px;
   }
 
   .terminal-tag {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 14px;
+    font-size: 18px;
     color: #10b981;
     letter-spacing: 0.08em;
     display: flex;
     align-items: center;
-    gap: 9px;
+    gap: 10px;
+    font-weight: 600;
   }
 
   .terminal-dot {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     background-color: #10b981;
     border-radius: 50%;
-    box-shadow: 0 0 10px #10b981;
+    box-shadow: 0 0 12px #10b981;
   }
 
   .header-block {
@@ -421,20 +334,20 @@ html_variant_3 = """<!DOCTYPE html>
   }
 
   h1.name {
-    font-size: 60px;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    font-size: 76px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
     color: #ffffff;
-    line-height: 1.05;
+    line-height: 1.0;
   }
 
   .role-title {
-    font-size: 26px;
+    font-size: 32px;
     font-weight: 600;
     color: #38bdf8;
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
   }
 
   .role-separator {
@@ -449,49 +362,27 @@ html_variant_3 = """<!DOCTYPE html>
 
   .badges-row {
     display: flex;
-    gap: 14px;
+    gap: 16px;
+    flex-wrap: nowrap;
   }
 
   .badge-item {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    background: rgba(15, 23, 42, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    padding: 12px 22px;
-    border-radius: 10px;
-    font-size: 17px;
+    gap: 12px;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 14px 26px;
+    border-radius: 12px;
+    font-size: 22px;
     font-weight: 600;
     color: #f1f5f9;
+    white-space: nowrap;
   }
 
   .badge-item .spark {
     color: #10b981;
-    font-size: 15px;
-  }
-
-  .footer-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 15px;
-    color: #64748b;
-  }
-
-  .stack-label {
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-weight: 700;
-    color: #475569;
-  }
-
-  .stack-items {
-    color: #cbd5e1;
-    letter-spacing: 0.03em;
-    font-weight: 500;
+    font-size: 19px;
   }
 </style>
 </head>
@@ -515,203 +406,33 @@ html_variant_3 = """<!DOCTYPE html>
     <div class="badges-row">
       <div class="badge-item">
         <span class="spark">⚡</span>
-        <span>Sistemas Agénticos &amp; Orquestación</span>
+        <span>Sistemas Agénticos</span>
       </div>
       <div class="badge-item">
         <span class="spark">⚡</span>
-        <span>Auditoría &amp; Evaluación de Agentes</span>
+        <span>Auditoría &amp; Evaluación</span>
       </div>
       <div class="badge-item">
         <span class="spark">⚡</span>
         <span>Automatización &amp; CI/CD</span>
       </div>
     </div>
-
-    <div class="footer-row">
-      <span class="stack-label">Stack</span>
-      <span>•</span>
-      <span class="stack-items">Python · LangGraph · AI Agents · Playwright · Docker · CI/CD</span>
-    </div>
   </div>
 </body>
 </html>
 """
 
 # -------------------------------------------------------------
-# TEMPLATE 4: Variante Simplificada (2 Badges Grandes de Alto Impacto)
+# TEMPLATE 4: Ultra-Minimal Linear/Vercel (Grandes Proporciones)
 # -------------------------------------------------------------
 html_variant_4 = """<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<title>Banner Variant 4 (High Impact 2 Badges)</title>
+<title>Banner Variant 4 (Minimal Bold Proportional)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    width: 1584px;
-    height: 396px;
-    overflow: hidden;
-    background-color: #05070c;
-    font-family: 'Inter', -apple-system, sans-serif;
-    color: #f8fafc;
-    position: relative;
-    display: flex;
-    background-image: 
-      radial-gradient(circle at 75% 30%, rgba(56, 189, 248, 0.10) 0%, transparent 60%),
-      radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.06) 0%, transparent 55%),
-      linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
-    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
-  }
-
-  .safe-zone {
-    width: 330px;
-    height: 100%;
-    position: relative;
-  }
-
-  .content-zone {
-    flex: 1;
-    padding: 44px 56px 44px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 22px;
-    position: relative;
-  }
-
-  .header-block {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  h1.name {
-    font-size: 64px;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    color: #ffffff;
-    line-height: 1.05;
-  }
-
-  .role-title {
-    font-size: 28px;
-    font-weight: 600;
-    color: #38bdf8;
-    letter-spacing: -0.01em;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .role-separator {
-    color: #334155;
-    font-weight: 300;
-  }
-
-  .role-sub {
-    color: #94a3b8;
-    font-weight: 400;
-  }
-
-  .badges-row {
-    display: flex;
-    gap: 16px;
-    flex-wrap: nowrap;
-  }
-
-  .badge-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: rgba(15, 23, 42, 0.75);
-    border: 1px solid rgba(56, 189, 248, 0.20);
-    padding: 14px 26px;
-    border-radius: 10px;
-    font-size: 19px;
-    font-weight: 600;
-    color: #f1f5f9;
-    letter-spacing: 0.01em;
-    backdrop-filter: blur(14px);
-  }
-
-  .badge-item .spark {
-    color: #38bdf8;
-    font-size: 17px;
-  }
-
-  .footer-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 16px;
-    color: #64748b;
-  }
-
-  .stack-label {
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-weight: 700;
-    color: #475569;
-  }
-
-  .stack-items {
-    color: #cbd5e1;
-    letter-spacing: 0.04em;
-    font-weight: 500;
-  }
-</style>
-</head>
-<body>
-  <div class="safe-zone"></div>
-  <div class="content-zone">
-    <div class="header-block">
-      <h1 class="name">Jorge Tricarico</h1>
-      <div class="role-title">
-        <span>AI Engineer</span>
-        <span class="role-separator">|</span>
-        <span class="role-sub">Agentes de IA &amp; Arquitectura de Software</span>
-      </div>
-    </div>
-
-    <div class="badges-row">
-      <div class="badge-item">
-        <span class="spark">✦</span>
-        <span>Sistemas Agénticos &amp; Orquestación</span>
-      </div>
-      <div class="badge-item">
-        <span class="spark">✦</span>
-        <span>Auditoría Técnica &amp; Evaluación de Agentes</span>
-      </div>
-    </div>
-
-    <div class="footer-row">
-      <span class="stack-label">Ecosistema</span>
-      <span>•</span>
-      <span class="stack-items">Python · LangGraph · AI Agents · Playwright · Docker · CI/CD</span>
-    </div>
-  </div>
-</body>
-</html>
-"""
-
-# -------------------------------------------------------------
-# TEMPLATE 5: Variante Ultra-Minimal Linear / Vercel (Bold Large)
-# -------------------------------------------------------------
-html_variant_5 = """<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<title>Banner Variant 5 (Minimal Bold)</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -724,42 +445,42 @@ html_variant_5 = """<!DOCTYPE html>
     display: flex;
     position: relative;
     background-image: 
-      radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.06) 0%, transparent 60%);
+      radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
   }
 
   .safe-zone {
-    width: 330px;
+    width: 340px;
     height: 100%;
   }
 
   .content-zone {
     flex: 1;
-    padding: 50px 60px 50px 20px;
+    padding: 44px 60px 44px 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    gap: 22px;
   }
 
   .tagline-pre {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 15px;
+    font-size: 20px;
     color: #64748b;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
   }
 
   h1.name {
-    font-size: 64px;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.05;
+    font-size: 84px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1.0;
     color: #ffffff;
   }
 
   .headline {
-    font-size: 26px;
+    font-size: 34px;
     font-weight: 400;
     color: #94a3b8;
     letter-spacing: -0.01em;
@@ -773,16 +494,15 @@ html_variant_5 = """<!DOCTYPE html>
   .divider-line {
     width: 100%;
     height: 1px;
-    background: rgba(255, 255, 255, 0.10);
-    margin: 4px 0;
+    background: rgba(255, 255, 255, 0.12);
   }
 
   .tags-row {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 22px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 17px;
+    font-size: 22px;
     color: #64748b;
     font-weight: 600;
   }
@@ -808,7 +528,7 @@ html_variant_5 = """<!DOCTYPE html>
       <span>/</span>
       <span class="active">AI Agents</span>
       <span>/</span>
-      <span class="active">Agent Audits</span>
+      <span class="active">Auditoría Técnica</span>
       <span>/</span>
       <span class="active">Playwright</span>
       <span>/</span>
@@ -820,44 +540,44 @@ html_variant_5 = """<!DOCTYPE html>
 """
 
 # -------------------------------------------------------------
-# TEMPLATE 6: Variante Midnight Executive (EN - Large & Punchy)
+# TEMPLATE 5: AI Engineer Global Tech (EN - True LinkedIn Proportions)
 # -------------------------------------------------------------
-html_variant_6 = """<!DOCTYPE html>
+html_variant_5 = """<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Banner Variant 6 (Executive EN - Large)</title>
+<title>Banner Variant 5 (Global Tech EN)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     width: 1584px;
     height: 396px;
     overflow: hidden;
-    background-color: #020617;
+    background-color: #06080d;
     font-family: 'Inter', -apple-system, sans-serif;
     color: #f8fafc;
     position: relative;
     display: flex;
     background-image: 
-      radial-gradient(circle at 85% 25%, rgba(56, 189, 248, 0.11) 0%, transparent 60%),
-      radial-gradient(circle at 95% 85%, rgba(129, 140, 248, 0.09) 0%, transparent 55%),
-      linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
-    background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+      radial-gradient(circle at 80% 25%, rgba(14, 165, 233, 0.12) 0%, transparent 60%),
+      radial-gradient(circle at 95% 85%, rgba(99, 102, 241, 0.09) 0%, transparent 55%),
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
   }
 
   .safe-zone {
-    width: 330px;
+    width: 340px;
     height: 100%;
     position: relative;
   }
 
   .content-zone {
     flex: 1;
-    padding: 44px 56px 44px 20px;
+    padding: 40px 60px 40px 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -872,21 +592,21 @@ html_variant_6 = """<!DOCTYPE html>
   }
 
   h1.name {
-    font-size: 60px;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    font-size: 80px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
     color: #ffffff;
-    line-height: 1.05;
+    line-height: 1.0;
   }
 
   .role-title {
-    font-size: 26px;
+    font-size: 34px;
     font-weight: 600;
     color: #38bdf8;
     letter-spacing: -0.01em;
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
   }
 
   .role-separator {
@@ -901,52 +621,28 @@ html_variant_6 = """<!DOCTYPE html>
 
   .badges-row {
     display: flex;
-    gap: 14px;
+    gap: 16px;
     flex-wrap: nowrap;
   }
 
   .badge-item {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    background: rgba(15, 23, 42, 0.65);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    padding: 12px 22px;
-    border-radius: 10px;
-    font-size: 17px;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 14px 26px;
+    border-radius: 12px;
+    font-size: 23px;
     font-weight: 600;
-    color: #f1f5f9;
+    color: #f8fafc;
     letter-spacing: 0.01em;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(14px);
   }
 
   .badge-item .spark {
     color: #38bdf8;
-    font-size: 15px;
-  }
-
-  .footer-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 15px;
-    color: #64748b;
-  }
-
-  .stack-label {
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-weight: 700;
-    color: #475569;
-  }
-
-  .stack-items {
-    color: #cbd5e1;
-    letter-spacing: 0.03em;
-    font-weight: 500;
+    font-size: 20px;
   }
 </style>
 </head>
@@ -965,22 +661,127 @@ html_variant_6 = """<!DOCTYPE html>
     <div class="badges-row">
       <div class="badge-item">
         <span class="spark">✦</span>
-        <span>Enterprise Agent Workflows</span>
+        <span>Multi-Agent Architectures</span>
       </div>
       <div class="badge-item">
         <span class="spark">✦</span>
-        <span>Software Automation &amp; Scale</span>
+        <span>Software Automation</span>
       </div>
       <div class="badge-item">
         <span class="spark">✦</span>
         <span>Agent Auditing &amp; Evals</span>
       </div>
     </div>
+  </div>
+</body>
+</html>
+"""
 
-    <div class="footer-row">
-      <span class="stack-label">Core Stack</span>
-      <span>•</span>
-      <span class="stack-items">Python · LangGraph · AI Agents · Playwright · Docker · CI/CD</span>
+# -------------------------------------------------------------
+# TEMPLATE 6: Midnight Executive (EN - True LinkedIn Proportions)
+# -------------------------------------------------------------
+html_variant_6 = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Banner Variant 6 (Executive EN)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1584px;
+    height: 396px;
+    overflow: hidden;
+    background-color: #020617;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #f8fafc;
+    position: relative;
+    display: flex;
+    background-image: 
+      radial-gradient(circle at 85% 25%, rgba(56, 189, 248, 0.14) 0%, transparent 60%),
+      radial-gradient(circle at 95% 85%, rgba(129, 140, 248, 0.10) 0%, transparent 55%),
+      linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+  }
+
+  .safe-zone {
+    width: 340px;
+    height: 100%;
+    position: relative;
+  }
+
+  .content-zone {
+    flex: 1;
+    padding: 38px 60px 38px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 22px;
+    position: relative;
+  }
+
+  .top-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    color: #38bdf8;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  h1.name {
+    font-size: 80px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: #ffffff;
+    line-height: 1.0;
+  }
+
+  .badges-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: nowrap;
+  }
+
+  .badge-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #f1f5f9;
+    letter-spacing: 0.01em;
+    backdrop-filter: blur(14px);
+  }
+
+  .badge-item .spark {
+    color: #38bdf8;
+    font-size: 20px;
+  }
+</style>
+</head>
+<body>
+  <div class="safe-zone"></div>
+  <div class="content-zone">
+    <div class="top-label">AI Engineer · Agentic Systems &amp; Software Architecture</div>
+    <h1 class="name">Jorge Tricarico</h1>
+
+    <div class="badges-row">
+      <div class="badge-item">
+        <span class="spark">✦</span>
+        <span>Enterprise Agent Workflows</span>
+      </div>
+      <div class="badge-item">
+        <span class="spark">✦</span>
+        <span>Agent Auditing &amp; Evaluation Frameworks</span>
+      </div>
     </div>
   </div>
 </body>
@@ -988,12 +789,12 @@ html_variant_6 = """<!DOCTYPE html>
 """
 
 configs = [
-    ("linkedin-banner-clean-es.png", "temp_es.html", html_variant_1, "Variante 1: AI Engineer Integral (ES - Large)"),
-    ("linkedin-banner-clean-en.png", "temp_en.html", html_variant_2, "Variante 2: AI Engineer Global Tech (EN - Large)"),
-    ("linkedin-banner-obsidian-cyber.png", "temp_cyber.html", html_variant_3, "Variante 3: Obsidian Cyber Terminal (ES - Scaled)"),
-    ("linkedin-banner-clean-platform.png", "temp_plat.html", html_variant_4, "Variante 4: Alto Impacto 2 Badges (ES)"),
-    ("linkedin-banner-clean-minimal.png", "temp_min.html", html_variant_5, "Variante 5: Minimal Bold Linear Style (ES)"),
-    ("linkedin-banner-midnight-exec.png", "temp_exec.html", html_variant_6, "Variante 6: Midnight Executive (EN - Large)")
+    ("linkedin-banner-clean-es.png", "temp_es.html", html_variant_1, "Variante 1: AI Engineer Integral (ES - Proporcional)"),
+    ("linkedin-banner-clean-platform.png", "temp_plat.html", html_variant_2, "Variante 2: Hero Role Driven (ES - Proporcional)"),
+    ("linkedin-banner-obsidian-cyber.png", "temp_cyber.html", html_variant_3, "Variante 3: Obsidian Cyber Terminal (ES - Proporcional)"),
+    ("linkedin-banner-clean-minimal.png", "temp_min.html", html_variant_4, "Variante 4: Minimal Bold Linear (ES - Proporcional)"),
+    ("linkedin-banner-clean-en.png", "temp_en.html", html_variant_5, "Variante 5: Global Tech (EN - Proporcional)"),
+    ("linkedin-banner-midnight-exec.png", "temp_exec.html", html_variant_6, "Variante 6: Midnight Executive (EN - Proporcional)")
 ]
 
 for img_name, html_name, html_content, label in configs:
@@ -1030,4 +831,4 @@ for img_name, html_name, html_content, label in configs:
     if os.path.exists(temp_img):
         os.remove(temp_img)
 
-print("Finished rendering all 6 larger, highly-visible AI Engineer banners!")
+print("Finished rendering all true LinkedIn proportion banners!")
