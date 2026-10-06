@@ -156,7 +156,7 @@ AI Engineer especializado en el diseño e implementación de sistemas agénticos
 
     - Único responsable de QA en startup de alto crecimiento: diseño e implementación de la estrategia integral de testing y confiabilidad desde cero.
 
-    - Implementación de Agente QA autónomo en producción (Claude Code) y pipelines con autodiagnóstico iterativo y métricas DORA.
+    - Implementación de Agente de IA para QA (Claude Code) y pipelines con autodiagnóstico iterativo y métricas DORA.
 
   ],
   [

@@ -500,7 +500,7 @@ html_variant_3 = """<!DOCTYPE html>
   <div class="content-zone">
     <div class="terminal-tag">
       <span class="terminal-dot"></span>
-      <span>sys.status = "production" // agent_evals = "active"</span>
+      <span>agentic_systems // evaluation &amp; technical_audits</span>
     </div>
 
     <div class="header-block">
@@ -683,7 +683,7 @@ html_variant_4 = """<!DOCTYPE html>
     <div class="badges-row">
       <div class="badge-item">
         <span class="spark">✦</span>
-        <span>Orquestación de Agentes de IA en Producción</span>
+        <span>Sistemas Agénticos &amp; Orquestación</span>
       </div>
       <div class="badge-item">
         <span class="spark">✦</span>
