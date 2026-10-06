@@ -22,9 +22,9 @@ Apr 2023 – present
 
 - **AI Engineer (AI Hub & Quality)** (*Oct 2026 – present*)
 
-  - Evolution and architecture of "CobroTron": #1 AI agent in adoption and executions in Quality for web testing.
+  - Evolution and architecture of core AI agent: leader in adoption and executions in Quality for automated web testing.
 
-  - Agile Foreign Trade integration: POM framework delivered in < 1 week.
+  - Agile Foreign Trade integration: designed and deployed POM architecture for ComEx in under a week, accelerating test suites.
 
   - Technical governance of AI agents and cross-squad advisory.
 

@@ -49,7 +49,7 @@
   links-show-external-link-icon: false,
   header-alignment: center,
   header-photo-width: 3.5cm,
-  header-space-below-name: 0.2cm,
+  header-space-below-name: 0.35cm,
   header-space-below-headline: 0.2cm,
   header-space-below-connections: 0.25cm,
   header-connections-hyperlink: true,
@@ -81,7 +81,7 @@
   date: datetime(
     year: 2026,
     month: 10,
-    day: 5,
+    day: 6,
   ),
 )
 
@@ -121,9 +121,9 @@ AI Engineer specializing in test automation and agentic systems for Web, Mobile,
 
     - #strong[AI Engineer (AI Hub & Quality)] (#emph[Oct 2026 – present])
 
-    - Evolution and architecture of \"CobroTron\": \#1 AI agent in adoption and executions in Quality for web testing.
+    - Evolution and architecture of core AI agent: leader in adoption and executions in Quality for automated web testing.
 
-    - Agile Foreign Trade integration: POM framework delivered in \< 1 week.
+    - Agile Foreign Trade integration: designed and deployed POM architecture for ComEx in under a week, accelerating test suites.
 
     - Technical governance of AI agents and cross-squad advisory.
 

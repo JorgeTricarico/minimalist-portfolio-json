@@ -24,10 +24,11 @@ cv:
       end_date: present
       highlights:
       - '**AI Engineer (Hub de IA & Calidad)** (*Oct 2026 – presente*) - Evolución
-        y arquitectura de "CobroTron": agente de IA líder en adopción y ejecuciones
-        en Calidad para testing web. - Integración ágil en Comercio Exterior: diseño
-        e incorporación de base POM para ComEx en < 1 semana. - Auditoría y gobernanza
-        técnica de agentes de IA en Calidad, y consultoría transversal a squads.'
+        y arquitectura de agente de IA para testing web: líder institucional en adopción
+        y ejecuciones en el área de Calidad. - Integración ágil en Comercio Exterior:
+        diseño e implementación de arquitectura POM para ComEx en menos de una semana,
+        acelerando las suites de prueba. - Auditoría y gobernanza técnica de agentes
+        de IA en Calidad, y consultoría transversal a squads.'
       - '**SSR QA Automation Engineer (Área de Calidad)** (*Feb 2026 – Oct 2026*)
         - QA Automation transversal: diseño y ejecución de pruebas E2E multi-plataforma
         (Web, APIs, Mobile y Desktop) con Tricentis TOSCA institucional. - Proyecto
@@ -138,7 +139,7 @@ design:
     small_caps:
       section_titles: true
   header:
-    space_below_name: 0.2cm
+    space_below_name: 0.35cm
     space_below_headline: 0.2cm
     space_below_connections: 0.25cm
   section_titles:
