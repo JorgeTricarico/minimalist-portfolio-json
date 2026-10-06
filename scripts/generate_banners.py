@@ -43,7 +43,7 @@ html_variant_1 = """<!DOCTYPE html>
 
   /* Safe zone for LinkedIn circular profile photo (left 340px) */
   .safe-zone {
-    width: 340px;
+    width: 410px;
     height: 100%;
     position: relative;
   }
@@ -183,7 +183,7 @@ html_variant_2 = """<!DOCTYPE html>
   }
 
   .safe-zone {
-    width: 340px;
+    width: 410px;
     height: 100%;
     position: relative;
   }
@@ -294,7 +294,7 @@ html_variant_3 = """<!DOCTYPE html>
   }
 
   .safe-zone {
-    width: 340px;
+    width: 410px;
     height: 100%;
     position: relative;
   }
@@ -449,7 +449,7 @@ html_variant_4 = """<!DOCTYPE html>
   }
 
   .safe-zone {
-    width: 340px;
+    width: 410px;
     height: 100%;
   }
 
@@ -570,7 +570,7 @@ html_variant_5 = """<!DOCTYPE html>
   }
 
   .safe-zone {
-    width: 340px;
+    width: 410px;
     height: 100%;
     position: relative;
   }
@@ -708,7 +708,7 @@ html_variant_6 = """<!DOCTYPE html>
   }
 
   .safe-zone {
-    width: 340px;
+    width: 410px;
     height: 100%;
     position: relative;
   }
